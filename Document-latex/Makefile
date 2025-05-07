@@ -4,13 +4,16 @@ MAIN = main
 # Estensione PDF
 PDF = $(MAIN).pdf
 
+# File inclusi da monitorare (anche nelle sottocartelle)
+INCLUDES = $(wildcard capitoli/**/*.tex) $(wildcard capitoli/*.tex)
+
 # Estensioni dei file temporanei da rimuovere
 CLEAN_EXT = aux log out toc lof lot fls fdb_latexmk synctex.gz bbl blg
 
 # Regola predefinita: compila il file con pdflatex
 all: $(PDF)
 
-$(PDF): $(MAIN).tex
+$(PDF): $(MAIN).tex $(INCLUDES)
 	pdflatex $(MAIN).tex
 	pdflatex $(MAIN).tex  # Esegui due volte per aggiornare la bibliografia e le referenze
 
