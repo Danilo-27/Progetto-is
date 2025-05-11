@@ -7,5 +7,3 @@
    - Spunta **Install missing packages on-the-fly**
    - Attiva l’opzione **Install command-line utilities**
 
-   ```bash
-   pdflatex --version
