@@ -13,7 +13,6 @@
 
 2. Durante l’installazione:
    - ✔️ Spunta **Install missing packages on-the-fly**
-   - ✔️ Attiva **Install command-line utilities**
   
 ##  Installazione su Mac
 1. Scarica MacTeX da:  
