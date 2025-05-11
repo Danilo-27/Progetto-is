@@ -1,0 +1,28 @@
+\begin{table}[!hbp]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & Visualizza Informazioni Evento \\
+		Attore primario & Amministratore \\
+		Attore secondario & -- \\
+		Descrizione & L’amministratore consulta le informazioni di un evento specifico \\
+		Pre-condizioni & L’amministratore deve essersi autenticato \\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}[label=\arabic*.]
+				\item Il caso d’uso inizia quando l’amministratore seleziona l’evento di cui intende visualizzare le informazioni
+				\item Include (Consulta Catalogo Eventi)
+				\item L’amministratore visualizza le informazioni dell’evento
+				\item Se l’evento è tenuto in data odierna:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra il numero degli utenti registrati all’evento
+				    \item Il sistema mostra il numero effettivo di partecipanti all’atto della visualizzazione
+				\end{enumerate}
+				\item Altrimenti:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra solamente il numero di utenti registrati a quell’evento
+				\end{enumerate}
+			\end{enumerate} \\
+		Post-condizioni & -- \\
+		Casi d'uso correlati & -- \\
+		{Sequenza di eventi \\ alternativa} & 4.1, 4.2, 5.1 \\
+	\end{scenery}
+\end{table}

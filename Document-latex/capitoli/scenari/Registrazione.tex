@@ -1,0 +1,25 @@
+\begin{table}[!hbp]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & Registrazione \\
+		Attore primario & Utente \\
+		Attore secondario & -- \\
+		Descrizione & Un cliente si registra inserendo le proprie credenziali \\
+		Pre-condizioni & L’utente registrato ha effettuato l’autenticazione \\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}
+				\item Il caso d’uso inizia quando l’utente richiede al sistema di registrarsi
+				\item Il sistema richiede le informazioni necessarie per la registrazione: nome, cognome, e-mail, password
+				\item L’utente inserisce i dati
+				\item Il sistema esegue un controllo di validità dei dati inseriti
+				\item Se il controllo ha successo:
+				\begin{enumerate}[label=5.\arabic*]
+					\item Il sistema crea un nuovo utente
+				\end{enumerate}
+				\item Altrimenti il sistema genera un messaggio di errore
+			\end{enumerate} \\
+		Post-condizioni & -- \\
+		Casi d'uso correlati & -- \\
+		{Sequenza di eventi \\ alternativa} &--
+	\end{scenery}
+\end{table}
