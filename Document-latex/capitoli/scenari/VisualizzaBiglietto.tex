@@ -2,17 +2,14 @@
 	\centering
 	\begin{scenery}{colspec=lX}
 		Caso d'uso: & Visualizza Biglietto \\
-		Attore primario & Utente autenticato \\
+		Attore primario & Utente \\
 		Attore secondario & - \\
-		Descrizione & Un UA visualizza uno fra i biglietti che ha acquistato e che non ha ancora consumato \\
-		Pre-condizioni & L’UA ha effettuato l’accesso. \newline
-        L’UA ha dei biglietti acquistati e non ancora consumati. \\
+		Descrizione & Un utente visualizza un biglietto dal suo storico dei biglietti \\
+		Pre-condizioni & L’utente ha effettuato l’accesso. \newline
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Il caso d’uso inizia quando l’UA richiede di visualizzare un biglietto acquistato
-				\item Include (Visualizza Dati Personali)
-				\item L’utente seleziona il biglietto da visualizzare
-				\item Il caso d’uso termina con la visualizzazione del biglietto
+				\item Il caso d’uso inizia quando l’utente richiede di visualizzare un biglietto dal suo storico
+				\item Il caso d’uso termina con la visualizzazione di tutte le infomazioni del biglietto(nomeEvento,Data,Ora,Descrizione,nomePartecipante)
 			\end{enumerate} \\
 		Post-condizioni & - \\
 		Casi d'uso correlati & UC2 \\
