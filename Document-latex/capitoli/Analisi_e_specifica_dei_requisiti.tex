@@ -31,17 +31,17 @@ Nel giorno dell’evento, l’utente pu\`{o} accedere a una apposita interfaccia
 \section{Revisione dei Requisiti}
 
 \begin{enumerate}[]
-    \item Il sistema deve consentire all’utente di registrarsi
+    \item Il sistema deve consentire ad un utente non registrato di registrarsi
     \item La registrazione consiste nell’inserire nome, cognome, indirizzo e-mail e password
     \item Il sistema deve offrire una funzionalità di autenticazione
     \item Il sistema deve gestire un profilo personale per ogni utente registrato
     \item Il profilo personale contiene lo storico dei biglietti acquistati, numero totali di eventi a cui l’utente ha partecipato e lo storico dei biglietti acquistati
-    \item Il sistema offre una funzionalità di visualizzazione del profilo personale agli utenti autenticati
+    \item Il sistema consente di visualizzare lo storico dei biglietti agli utenti autenticati
     \item Il sistema offre una funzionalità di modifica dei dati personali agli utenti autenticati
     \item Il sistema deve consentire agli amministratori la creazione di eventi
     \item Degli eventi si vuole memorizzare titolo, data, orario, luogo e numero massimo di partecipanti
     \item Il sistema deve offrire un catalogo eventi consultabile dall'utente autenticato
-    \item Il sistema deve fornire una funzionalità di filtraggio del catalogo eventi per data o località
+    \item Il sistema deve fornire una funzionalità di ricerca di un evento per nome, data o località.
     \item Il sistema deve consentire la selezione di un evento del catalogo eventi per procedere all’acquisto del biglietto elettronico
     \item Ogni biglietto elettronico deve avere un codice identificativo univoco e contenere: nome dell’evento, data, orario, nome del partecipante e codice identificativo
     \item Il cliente deve ricevere il biglietto nel proprio profilo personale
@@ -73,11 +73,12 @@ Nel giorno dell’evento, l’utente pu\`{o} accedere a una apposita interfaccia
 \hline
 	Termine & Descrizione & Sinonimi \\
 \hline    
-    UtenteNonautenticato & Una generica persona che intende registrarsi per fruire dei servizi del sistema & \\
 Amministratore & Amministratore della piattaforma che si occupa della gestione degli eventi & \\
 Biglietto elettronico & Biglietto acquistabile e utilizzare per partecipare ad uno specifico evento & \\
 Dati personali & Informazioni fornite all’atto della registrazione dell’utente & \\
 Catalogo eventi & Catalogo che contiene tutti gli eventi pubblicati dagli amministratori & \\
+UtenteNonRegistrato & Una persona che intende registrarsi presso il sistema & \\
+UtenteRegistrato & Un Utente che si è registrata presso il sistema & \\
 Utente autenticato& un utente regustrato che si è autenticato nel sistema & UA \\
 \end{tblr}
 
@@ -100,21 +101,20 @@ ID & Requisito & Origine \\
 \Req{rf}{01} & Il sistema offre la possibilità all’utente di registrarsi & 1 \\
 \Req{rf}{02} & Il sistema deve offrire una funzionalità di autenticazione & 3 \\
 \Req{rf}{03} & Il sistema deve gestire un profilo personale per ogni utente registrato & 4 \\
-\Req{rf}{04} & Il sistema deve offrire agli utenti autenticati l’accesso a un profilo personale & 6 \\
-\Req{rf}{05} & Il sistema deve offrire la possibilità agli utenti autenticati di modificare i propri dati personali & 7 \\
+\Req{rf}{04} & Il sistema consente di visualizzare lo storico dei biglietti agli utenti autenticati & 6 \\
+\Req{rf}{05} & Il sistema offre una funzionalità di modifica dei dati personali agli utenti autenticati & 7 \\
 \Req{rf}{06} & Il sistema deve consentire agli amministratori la creazione di eventi & 8 \\
 \Req{rf}{07} & Il sistema deve offrire un catalogo eventi consultabile dall'utente autenticato & 10 \\
-\Req{rf}{08} & Il sistema deve fornire la possibilità di filtrare il catalogo eventi per data o località & 11 \\
+\Req{rf}{08} & Il sistema deve fornire una funzionalità di ricerca di un evento per nome, data o località. & 11 \\
 \Req{rf}{09} & Il sistema deve consentire la selezione di un evento del catalogo eventi per procedere all’acquisto del biglietto elettronico & 12 \\
 \Req{rf}{10} & Il cliente deve ricevere il biglietto acquistato nel proprio profilo personale & 14 \\
 \Req{rf}{11} & Il sistema offre la possibilità di visualizzare il biglietto acquistato dal profilo utente & 15 \\
 \Req{rf}{12} & Il sistema offre la possibilità di scaricare il biglietto acquistato dal profilo utente & 16 \\
 \Req{rf}{13} & Il sistema fornisce all’utente l’elenco degli eventi in programma nella data odierna & 17 \\
 \Req{rf}{14} & Il sistema deve consentire all’utente di confermare la partecipazione ad un evento tramite l’inserimento del biglietto & 18 \\
-\Req{rf}{15} & Il sistema deve tener traccia dinamicamente del numero di partecipazioni per ogni evento & 20 \\
-\Req{rf}{16} & Il sistema deve permettere l’accesso ad un pannello per la gestione degli eventi agli amministratori & 21 \\
-\Req{rf}{17} & Il sistema deve permettere agli amministratori di visualizzare il numero di partecipanti presenti per ogni evento in corso & 22 \\
-\Req{rf}{18} & Il sistema deve fornire, per gli eventi passati, il numero totale di partecipanti che hanno avuto accesso & 23 \\
+\Req{rf}{15} & Il sistema deve tener traccia dinamicamente del numero di partecipazioni per ogni evento & 21 \\
+\Req{rf}{16} & Il sistema deve permettere agli amministratori di visualizzare il numero di partecipanti presenti per ogni evento in corso & 22 \\
+\Req{rf}{17} & Il sistema deve fornire, per gli eventi passati, il numero totale di partecipanti che hanno avuto accesso & 23 \\
 \end{tblr}
 
 \subsection{Requisiti sui Dati}
@@ -148,9 +148,10 @@ ID & Requisito & Origine \\
 \hline
 \Req{V}{01} & Per l’acquisto del biglietto, deve essere disponibile un sistema di gestione degli acquisti esterno al sistema & 12 \\
 \Req{V}{02} & Un biglietto marcato come consumato non può essere più riutilizzato & 19 \\
-\Req{V}{03} & Il sistema deve offrire un’interfaccia grafica chiara e intuitiva & 25 \\
+\Req{V}{03} & Un utente registrato durante la fase di acquisto può comprare un solo biglietto & 20 \\
+\Req{V}{04} & Il sistema deve offrire un’interfaccia grafica chiara e intuitiva & 25 \\
 \Req{RNF}{01} & Il sistema deve implementare meccanismi di sicurezza per la protezione dei dati personali & 24 \\
-\Req{RNF}{04} & Il sistema deve garantire l’integrità dei biglietti elettronici & 26 \\
-\Req{RNF}{05} & Il sistema deve essere accessibile da dispositivi mobili e desktop & 27 \\
+\Req{RNF}{02} & Il sistema deve garantire l’integrità dei biglietti elettronici & 26 \\
+\Req{RNF}{03} & Il sistema deve essere accessibile da dispositivi mobili e desktop & 27 \\
     
 \end{tblr}
