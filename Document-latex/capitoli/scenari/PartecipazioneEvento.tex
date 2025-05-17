@@ -2,21 +2,20 @@
 	\centering
 	\begin{scenery}{colspec=lX}
 		Caso d'uso: & Partecipazione Evento \\
-		Attore primario & Utente autenticato \\
+		Attore primario & Utente \\
 		Attore secondario & -- \\
-		Descrizione & L’UA partecipa ad un evento specifico \\
-		Pre-condizioni & L’UA deve essersi autenticato \\
+		Descrizione & L’utente partecipa ad un evento specifico \\
+		Pre-condizioni & L’utente deve essersi autenticato \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Il caso d’uso inizia quando l’UA desidera partecipare ad un evento
-				\item Include (Consulta Elenco Eventi Odierni)
-				\item L’UA seleziona l’evento a cui intende partecipare
+				\item Il caso d’uso inizia quando l’utente desidera partecipare ad un evento
+				\item L’utente seleziona l’evento a cui intende partecipare
 				\item Il sistema richiede il codice del biglietto
-				\item L'UA inserisce il codice del biglietto
-				\item Il Sistema esegue verifiche sul biglietto inserito
+				\item L'utente inserisce il codice del biglietto
+				\item Il Sistema esegue delle verifiche sul biglietto inserito
 				\item Se le verifiche sono soddisfatte:
 				\begin{enumerate}[label*=\arabic*.]
-				    \item Il sistema segna il biglietto come consumato
+				    \item Il sistema marca il biglietto come consumato
 				    \item Il sistema aggiorna il numero di partecipanti all’evento
 				\end{enumerate}
 				\item Altrimenti:
