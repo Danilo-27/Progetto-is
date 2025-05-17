@@ -2,23 +2,23 @@
 	\centering
 	\begin{scenery}{colspec=lX}
 		Caso d'uso: & Modifica Dati Personali \\
-		Attore primario & Utente autenticato \\
+		Attore primario & Utente \\
 		Attore secondario & - \\
-		Descrizione & Un UA modifica i dati personali del proprio profilo \\
+		Descrizione & Un utente modifica i dati personali del proprio profilo \\
 		Pre-condizioni & L’Utente ha effettuato l’accesso \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Il caso d’uso inizia quando l’UA richiede di modificare i propri dati personali
-				\item L’UA modifica uno o più dati
-				\item L’UA conferma la modifica
+				\item Il caso d’uso inizia quando l’utente richiede di modificare i propri dati personali
+				\item L’utente modifica uno o più dati
+				\item L’utente conferma la modifica
 				\item Per ogni dato modificato:
 				\begin{enumerate}[label*=\arabic*.]
 				    \item Il sistema aggiorna i dati del profilo personale
 				\end{enumerate}
 				\item Il caso d’uso termina con la conferma delle modifiche
 			\end{enumerate} \\
-		Post-condizioni & I dati personali dell’utente autenticato sono stati modificati \\
+		Post-condizioni & I dati personali dell’utente sono stati modificati \\
 		Casi d'uso correlati & UC2 \\
-		{Sequenza di eventi \\ alternativa} & 5.1 \\
+		{Sequenza di eventi \\ alternativa} & 4.1 \\
 	\end{scenery}
 \end{table}
