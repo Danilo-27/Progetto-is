@@ -28,13 +28,16 @@
 			\begin{enumerate}
 				\item Registrazione 
 				\item Autenticazione
+				\item RicercaEvento
+				\item PubblicaEvento
+				\item ConsultaInfromazioniEvento
+				\item ConsultaCatalogoEventi
+				\item PartecipazioneEvento
+				\item AcquistoBiglietto
 				\item ModificaDatiPersonali
+				\item ConsultaStoricoBiglietti
 				\item VisualizzaBiglietto
 				\item ScaricaBiglietto
-				\item RichiediCatalogoEventi
-				\item FiltraCatalogo
-				\item AcquistoBiglietto
-				\item PartecipazioneEvento
 			\end{enumerate}
 		\end{minipage} &
 		\begin{minipage}[t]{\linewidth}
@@ -42,10 +45,7 @@
 			\begin{enumerate}
                 \item ConsultaCatalogoEventi
 			\end{enumerate}
-			\paragraph{Casi d'uso di estensione}
-			\begin{enumerate}
-				\item FiltraCatalogo
-			\end{enumerate}
+
 		\end{minipage}
 	\end{tblr}
 \end{table}
@@ -58,17 +58,18 @@
   row{1} = {font=\bfseries}
 }
 Caso d'uso & Attori Primari & Attori Secondari & Incl. / Ext. & Requisiti corrispondenti \\
-Registrazione & Utente & -- & -- & \Req{rf}{01} \\
-Aunteticazione & UtenteRegistrato
-ConsultaCatalogoEventi & Utente Autenticato & -- & -- &\Req{rf}{07} \\
-Aggiugni Evento & Amministratore & -- & -- & \Req{rf}{06} \\
-Visualizza Informazioni Evento & Amministratore & -- & -- & \Req{rf}{17}, \Req{rf}{18} \\
-Filtra Catalogo & -- & -- & Include: Consulta Catalogo Eventi & \Req{rf}{08} \\
-Modifica Dati Personali & Utente Autenticato & -- & Include: Accesso Profilo Personale & \Req{rf}{05} \\
-Visualizza Biglietto & Utente Autenticato & -- & Include: Accesso Profilo Personale & \Req{rf}{11} \\
-Scarica Biglietto & Utente Autenticato & -- & Include: Accesso Profilo Personale & \Req{rf}{12} \\
-Acquisto Biglietto & Utente Autenticato & Sistema Gestione Acquisti & Include: Consulta Catalogo Eventi & \Req{rf}{09}, \Req{rf}{10} \\
-Partecipazione Evento & Utente Autenticato & -- & Include: Consulta Elenco Eventi Odierni & \Req{rf}{14} \\
+Registrazione & UtenteNonRegistrato & -- & -- & \Req{rf}{01} \\
+Aunteticazione & UtenteRegistrato & -- & -- & \Req{rf}{02} \\
+RicercaEvento & UtenteRegistrato & -- & -- &\Req{rf}{08} \\
+PubblicaEvento & Amministratore & -- & -- & \Req{rf}{06} \\
+ConsultaInformazioniEvento & Amministratore & -- & Include: Consulta Catalogo Eventi & \Req{rf}{16}, \Req{rf}{17} \\
+ConsultaCatalogoEventi & UtenteRegistrato & --  & \Req{rf}{07} \\
+PartecipazioneEvento& Utente & -- & -- & \Req{rf}{14} \\
+AcquistaBiglietto & Utente & SistemaGestioneAcquisti & Include: ConsultaCatalogoEventi & \Req{rf}{09} \\
+ModificaDatiPersonali & Utente & -- & -- & \Req{rf}{5} \\
+ConsultaStoricoBiglietti & Utente & -- & --  & \Req{rf}{04} \\
+VisualizzaBiglietto & Utente & -- & -- & \Req{rf}{11} \\
+ScaricaBiglietto & Utente & -- & -- & \Req{rf}{12} \\
 \end{tblr}
 \end{table}
 
@@ -80,18 +81,17 @@ Partecipazione Evento & Utente Autenticato & -- & Include: Consulta Elenco Event
 \pagebreak
 \section{Scenari}
 \IncludeTable{capitoli/scenari/Registrazione}
-%\IncludeTable{capitoli/scenari/VisualizzaProfiloPersonale}
+\IncludeTable{capitoli/scenari/Autenticazione}
 \IncludeTable{capitoli/scenari/ModificaDatiPersonali}
-\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
-\IncludeTable{capitoli/scenari/FiltraCatalogo}
+\IncludeTable{capitoli/scenari/ConsultaCatalogoEventi}
+\IncludeTable{capitoli/scenari/RicercaEvento}
 \IncludeTable{capitoli/scenari/VisualizzaBiglietto}
-\IncludeTable{capitoli/scenari/VisualizzaElencoEventiOdierni}
+\IncludeTable{capitoli/scenari/ConsultaStoricoBiglietti}
 \IncludeTable{capitoli/scenari/ScaricaBiglietto}
 \IncludeTable{capitoli/scenari/AcquistaBiglietto}
-\IncludeTable{capitoli/scenari/CreazioneEvento}
+\IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/PartecipazioneEvento}
-\IncludeTable{capitoli/scenari/VisualizzaInformazioniEvento}
-
+\IncludeTable{capitoli/scenari/ConsultaInformazioniEvento}
 \newpage
 \section{Diagramma delle Classi}
 Di seguito riportiamo il diagramma delle classi di analisi.
