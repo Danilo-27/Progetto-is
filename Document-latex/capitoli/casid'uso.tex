@@ -114,20 +114,35 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	Registrazione & SistemaGestioneEventi \\
 	Autenticazone & SistemagestioneEventi \\
 	ModificaDati & Cliente \\
-	VisualizzaStorico & Cliente \\
+	VisualizzaStoricoBiglietti & Cliente \\
 	CreazioneEvento & Amministratore \\
 	ScaricaBiglietto & Biglietto \\
 	VisualizzaBiglietto & Biglietto \\
-	ValidaBiglietto & Evento \\
 	AcquistoBiglietto & Evento \\
 	PartecipazioneEvento & Evento \\
 	ConsultaInformazioni & Evento \\
 	AggiungiEvento & Catalogo \\
-	filtra & catalogo \\
-
+	RicecaEvento & catalogo \\
 
 	\end{tblr}
 \end{table}
+
+\begin{description}
+	\item Registrazione e autenticazione sono responsabilità di \textbf{SistemaGestioneEventi} in quanto \textless\textless information expert \textgreater\textgreater{} di \textit{UtenteRegistrato}.
+	
+	\item ModificaDati e VisualizzaStoricoBiglietti sono responsabilità di \textbf{Cliente} in quanto agiscono su suoi attributi e classi ad esso associate.
+	
+	\item AcquistoBiglietto è una responsabilità di \textbf{Evento} in quanto \textless\textless creator \textgreater\textgreater{} di biglietti.
+	
+	\item PartecipazioneEvento è una responsabilità di \textbf{Evento} seguendo il pattern \textless\textless LOW COUPLING \textgreater\textgreater.
+	
+	\item AggiungiEvento è una responsabilità di \textbf{Catalogo} poiché, dopo la creazione, l’evento verrà aggiunto al catalogo.
+	
+	\item RicercaEvento è una responsabilità di \textbf{Catalogo} essendo il contenitore degli eventi.
+	
+	\item CreazioneEvento è una responsabilità di \textbf{Amministratore} essendo il \textless\textless creator \textgreater\textgreater{} di Eventi.
+  \end{description}
+
 
 \newpage
 
