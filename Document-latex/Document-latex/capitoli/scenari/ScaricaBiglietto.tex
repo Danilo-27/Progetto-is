@@ -1,0 +1,24 @@
+\begin{table}[!hbp]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & Scarica Biglietto \\
+		Attore primario & Utente \\
+		Attore secondario & - \\
+		Descrizione & L’utente scarica un biglietto acquistato \\
+		Pre-condizioni & L’utente ha effettuato l’accesso.\\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}[label=\arabic*.]
+				\item Il caso d’uso inizia quando l'utente chiede di scaricare un biglietto
+				\item include(ConsultaStoricoBiglietti)
+				\item Il sistema genera il file del biglietto
+				\item Se il sistema non riesce a generare il file
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra un messaggio di errore
+				\end{enumerate}
+				\item Il caso d’uso termina con 
+			\end{enumerate} \\
+		Post-condizioni & Il biglietto è stato scaricato dall’utente \\
+		Casi d'uso correlati & UC2 \\
+		{Sequenza di eventi \\ alternativa} & 4.1 \\
+	\end{scenery}
+\end{table}
