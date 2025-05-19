@@ -53,7 +53,7 @@
 \centering
 \small
 \begin{tblr}{
-  colspec = {X[2,l] X[1.2,l] X[1,l] X[1.6,l] X[1.5,l]},
+  colspec = {X[2,l] X[1.2,l] X[1.7,l] X[1.6,l] X[1.5,l]},
   hlines,
   row{1} = {font=\bfseries}
 }
@@ -63,7 +63,7 @@ Aunteticazione & UtenteRegistrato & -- & -- & \Req{rf}{02} \\
 RicercaEvento & UtenteRegistrato & -- & -- &\Req{rf}{08} \\
 PubblicaEvento & Amministratore & -- & -- & \Req{rf}{06} \\
 ConsultaInformazioniEvento & Amministratore & -- & Include: Consulta Catalogo Eventi & \Req{rf}{16}, \Req{rf}{17} \\
-ConsultaCatalogoEventi & UtenteRegistrato & --  & \Req{rf}{07} \\
+ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 PartecipazioneEvento& Utente & -- & -- & \Req{rf}{14} \\
 AcquistaBiglietto & Utente & SistemaGestioneAcquisti & Include: ConsultaCatalogoEventi & \Req{rf}{09} \\
 ModificaDatiPersonali & Utente & -- & -- & \Req{rf}{5} \\
@@ -76,14 +76,14 @@ ScaricaBiglietto & Utente & -- & -- & \Req{rf}{12} \\
 \section{Diagramma dei Casi d'Uso}
 \begin{table}[!ht]
 \centering
-	\includegraphics[width=\linewidth]{assets/casid'uso/Usd.png}
+	\includegraphics[width=\linewidth]{assets/casid'uso/usd.png}
 \end{table}	
 \pagebreak
 \section{Scenari}
 \IncludeTable{capitoli/scenari/Registrazione}
 \IncludeTable{capitoli/scenari/Autenticazione}
 \IncludeTable{capitoli/scenari/ModificaDatiPersonali}
-\IncludeTable{capitoli/scenari/ConsultaCatalogoEventi}
+\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
 \IncludeTable{capitoli/scenari/RicercaEvento}
 \IncludeTable{capitoli/scenari/VisualizzaBiglietto}
 \IncludeTable{capitoli/scenari/ConsultaStoricoBiglietti}
@@ -97,6 +97,56 @@ ScaricaBiglietto & Utente & -- & -- & \Req{rf}{12} \\
 Di seguito riportiamo il diagramma delle classi di analisi.
 \begin{figure}[!ht]
 	\centering
-	%\includegraphics[width=0.8\linewidth]{assets/ClassDiagramAnalisi.png}
+	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagramaDelleClassi.png}
 	\caption{Diagramma delle classi di analisi}
 \end{figure}
+
+
+\begin{table}[h]
+	\centering
+	\begin{tblr}{
+	  colspec = {X[0.6,c] X[0.6,c]},
+	  width = 1\linewidth, 
+	  hlines, vlines,
+	  row{1} = {bg=gray!30, font=\bfseries}
+	}
+	RESPONSABILITÀ & CLASSE \\
+	Registrazione & SistemaGestioneEventi \\
+	Autenticazone & SistemagestioneEventi \\
+	ModificaDati & Cliente \\
+	VisualizzaStorico & Cliente \\
+	CreazioneEvento & Amministratore \\
+	ScaricaBiglietto & Biglietto \\
+	VisualizzaBiglietto & Biglietto \\
+	ValidaBiglietto & Evento \\
+	AcquistoBiglietto & Evento \\
+	PartecipazioneEvento & Evento \\
+	ConsultaInformazioni & Evento \\
+	AggiungiEvento & Catalogo \\
+	filtra & catalogo \\
+
+
+	\end{tblr}
+\end{table}
+
+\newpage
+
+\section{Diagrammi di sequenza}
+
+\subsection{Registrazione}
+
+\begin{figure}[!ht]
+	\centering
+	La creazione del suddetto sequence diagram, sviluppato a partire dalla descrizione dello scenario del caso d’uso Accesso, ha fatto sorgere la necessità di definire un metodo, specifico per la classe SistemaGestioneEventi, verificaCredenziali(nomeUtente, password), privato, per consentire all’autonoleggio di verificare che le credenziali inserite dall’utente siano valide.
+	\includegraphics[width=0.8\linewidth]{assets/casid'uso/Registrazione.png}
+\end{figure}
+
+
+%autenticazione
+%registrazione
+%ConsultaCatalogoEventi
+%AcquistoBiglietto
+%PartecipazioneEvento
+%RicercaEvento
+%ConsultaInformazioniEvento
+%pubblicaevento
