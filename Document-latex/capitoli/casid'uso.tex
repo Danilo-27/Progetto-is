@@ -97,7 +97,7 @@ ScaricaBiglietto & Utente & -- & -- & \Req{rf}{12} \\
 Di seguito riportiamo il diagramma delle classi di analisi.
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagrammaDelleClassi.png}
+	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagramaDelleClassi.png}
 	\caption{Diagramma delle classi di analisi}
 \end{figure}
 
@@ -149,19 +149,36 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 \section{Diagrammi di sequenza}
 
 \subsection{Registrazione}
-
 \begin{figure}[!ht]
+\noindent La creazione del suddetto sequence diagram, sviluppato a partire dalla descrizione dello scenario del caso d’uso Registrazione, ha fatto sorgere la necessità di definire un metodo, specifico per la classe SistemaGestioneEventi, \textbf{verificaCredenziali(Email,Password)}, \noindent privato, per consentire a SistemaGestioneEventi di verificare che Email e Password non siano già utilizzate da un altro Utente.
+\vspace{20mm}
 	\centering
-	La creazione del suddetto sequence diagram, sviluppato a partire dalla descrizione dello scenario del caso d’uso Accesso, ha fatto sorgere la necessità di definire un metodo, specifico per la classe SistemaGestioneEventi, verificaCredenziali(nomeUtente, password), privato, per consentire all’autonoleggio di verificare che le credenziali inserite dall’utente siano valide.
 	\includegraphics[width=0.8\linewidth]{assets/casid'uso/Registrazione.png}
 \end{figure}
 
+\subsection{Autenticazione}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\linewidth]{assets/casid'uso/Autenticazione.png}
+\end{figure}
+\newpage
+\subsection{PubblicaEvento}
+\begin{figure}[!ht]
+\noindent La creazione del suddetto sequence diagram, sviluppato a partire dalla descrizione dello scenario del caso d’uso PubblicaEvento, ha fatto sorgere la necessità di definire un metodo, specifico per la classe Amministratore,\noindent\textbf{verificaValidità(Titolo,Descrizione,Data,Orario,Luogo,NumMassimoPartecipanti)}, privato, per consentire all’Amministratore di verificare che i dati inseriti inserite dall’utente amministratore siano valide.
+\vspace{20mm}
+	\centering
+	\includegraphics[width=0.8\linewidth]{assets/casid'uso/PubblicaEvento.png}
+\newline
+\end{figure}
 
-%autenticazione
-%registrazione
+\subsection{ConsultaInformazioniEvento}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaInformazioniEvento.png}
+\newline
+\end{figure}
+
 %ConsultaCatalogoEventi
 %AcquistoBiglietto
 %PartecipazioneEvento
 %RicercaEvento
-%ConsultaInformazioniEvento
-%pubblicaevento
