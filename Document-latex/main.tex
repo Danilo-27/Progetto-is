@@ -1,5 +1,4 @@
 \documentclass[openany]{book}
-
 \usepackage[italian]{babel}
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
@@ -73,14 +72,11 @@
 % This command includes an exported pdf table in the document, if it exists. Otherwise it includes table.tex.
 % Variante senza float per evitare problemi di spazio bianco
 % Improved version that handles spacing better
-\newcommand{\IncludeTable}[2][!h]{
-	\IfFileExists{#2.pdf}{%
-		\begin{figure}[#1]%
-			\centering%
-			\includegraphics[width=\linewidth]{#2.pdf}%
-		\end{figure}%
-	}{
-		\input{#2}%
+\newcommand{\IncludeTable}[1]{
+	\IfFileExists{#1.pdf}{%
+		\noindent\includegraphics[width=\linewidth]{#1.pdf}%
+	}{%
+		\input{#1}%
 	}
 }
 

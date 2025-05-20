@@ -5,7 +5,7 @@
 	\begin{tblr}{colspec=XX}
 		\begin{minipage}[t]{\linewidth}
 			\paragraph{Attori primari}
-			\begin{itemize}
+			\begin{itemize}[leftmargin=*]
 				\item UtenteNonRegistrato
 				\item UtenteRegistrato
 				\item Utente
@@ -14,7 +14,7 @@
 		\end{minipage} &
 		\begin{minipage}[t]{\linewidth}
 			\paragraph{Attori secondari}
-			\begin{itemize}
+			\begin{itemize}[leftmargin=*]
 				\item SistemaGestioneAcquisti	
 			\end{itemize}
 		\end{minipage} \\
@@ -25,12 +25,12 @@
 	\begin{tblr}{colspec=XX}
 		\begin{minipage}[t]{\linewidth}
 			\paragraph{Casi d'uso}
-			\begin{enumerate}
+			\begin{enumerate}[leftmargin=*]
 				\item Registrazione 
 				\item Autenticazione
 				\item RicercaEvento
 				\item PubblicaEvento
-				\item ConsultaInfromazioniEvento
+				\item ConsultaInformazioniEvento
 				\item ConsultaCatalogoEventi
 				\item PartecipazioneEvento
 				\item AcquistoBiglietto
@@ -42,7 +42,7 @@
 		\end{minipage} &
 		\begin{minipage}[t]{\linewidth}
 			\paragraph{Casi d'uso di inclusione}
-			\begin{enumerate}
+			\begin{enumerate}[leftmargin=*]
                 \item ConsultaCatalogoEventi
 			\end{enumerate}
 
@@ -59,7 +59,7 @@
 }
 Caso d'uso & Attori Primari & Attori Secondari & Incl. / Ext. & Requisiti corrispondenti \\
 Registrazione & UtenteNonRegistrato & -- & -- & \Req{rf}{01} \\
-Aunteticazione & UtenteRegistrato & -- & -- & \Req{rf}{02} \\
+Autenticazione & UtenteRegistrato & -- & -- & \Req{rf}{02} \\
 RicercaEvento & UtenteRegistrato & -- & -- &\Req{rf}{08} \\
 PubblicaEvento & Amministratore & -- & -- & \Req{rf}{06} \\
 ConsultaInformazioniEvento & Amministratore & -- & Include: Consulta Catalogo Eventi & \Req{rf}{16}, \Req{rf}{17} \\
@@ -74,11 +74,12 @@ ScaricaBiglietto & Utente & -- & -- & \Req{rf}{12} \\
 \end{table}
 
 \section{Diagramma dei Casi d'Uso}
-\begin{table}[!ht]
+\begin{center}[!ht]
 \centering
 	\includegraphics[width=\linewidth]{assets/casid'uso/usd.png}
-\end{table}	
-\pagebreak
+\end{center}	
+
+\clearpage
 \section{Scenari}
 \IncludeTable{capitoli/scenari/Registrazione}
 \IncludeTable{capitoli/scenari/Autenticazione}
@@ -92,12 +93,12 @@ ScaricaBiglietto & Utente & -- & -- & \Req{rf}{12} \\
 \IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/PartecipazioneEvento}
 \IncludeTable{capitoli/scenari/ConsultaInformazioniEvento}
-\newpage
+\clearpage
 \section{Diagramma delle Classi}
 Di seguito riportiamo il diagramma delle classi di analisi.
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagramaDelleClassi.png}
+	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagrammaDelleClassi.png}
 	\caption{Diagramma delle classi di analisi}
 \end{figure}
 
@@ -112,7 +113,7 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	}
 	RESPONSABILITÀ & CLASSE \\
 	Registrazione & SistemaGestioneEventi \\
-	Autenticazone & SistemagestioneEventi \\
+	Autenticazione & SistemaGestioneEventi \\
 	ModificaDati & Cliente \\
 	VisualizzaStoricoBiglietti & Cliente \\
 	CreazioneEvento & Amministratore \\
@@ -122,7 +123,7 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	PartecipazioneEvento & Evento \\
 	ConsultaInformazioni & Evento \\
 	AggiungiEvento & Catalogo \\
-	RicecaEvento & catalogo \\
+	RicercaEvento & catalogo \\
 
 	\end{tblr}
 \end{table}
@@ -144,41 +145,95 @@ Di seguito riportiamo il diagramma delle classi di analisi.
   \end{description}
 
 
-\newpage
+\clearpage
+
 
 \section{Diagrammi di sequenza}
 
+
 \subsection{Registrazione}
-\begin{figure}[!ht]
-\noindent La creazione del suddetto sequence diagram, sviluppato a partire dalla descrizione dello scenario del caso d’uso Registrazione, ha fatto sorgere la necessità di definire un metodo, specifico per la classe SistemaGestioneEventi, \textbf{verificaCredenziali(Email,Password)}, \noindent privato, per consentire a SistemaGestioneEventi di verificare che Email e Password non siano già utilizzate da un altro Utente.
-\vspace{20mm}
-	\centering
-	\includegraphics[width=0.8\linewidth]{assets/casid'uso/Registrazione.png}
-\end{figure}
+
+\begin{center}
+    La creazione del seguente diagramma di sequenza, sviluppato a partire dalla descrizione dello scenario del caso d’uso \textit{Registrazione}, ha fatto emergere la necessità di definire un metodo privato specifico della classe \textbf{SistemaGestioneEventi}:
+
+    \vspace{1ex}
+    \textbf{verificaCredenziali(Email, Password)}
+
+    \vspace{2ex}
+    Tale metodo consente a \textbf{SistemaGestioneEventi} di verificare che l’indirizzo email e la password non siano già utilizzati da un altro utente.
+
+    \vspace{3ex}
+    \includegraphics[width=0.8\linewidth]{assets/casid'uso/Registrazione.png}
+    
+    \vspace{1ex}
+    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{Registrazione}
+\end{center}
 
 \subsection{Autenticazione}
 \begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.8\linewidth]{assets/casid'uso/Autenticazione.png}
+    \hspace*{4cm} % Sposta la figura a destra (aggiusta il valore)
+    \includegraphics[width=0.8\linewidth]{assets/casid'uso/Autenticazione.png}
+	\vspace{1ex}
+    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{Autenticazione}
 \end{figure}
-\newpage
+
 \subsection{PubblicaEvento}
-\begin{figure}[!ht]
-\noindent La creazione del suddetto sequence diagram, sviluppato a partire dalla descrizione dello scenario del caso d’uso PubblicaEvento, ha fatto sorgere la necessità di definire un metodo, specifico per la classe Amministratore,\noindent\textbf{verificaValidità(Titolo,Descrizione,Data,Orario,Luogo,NumMassimoPartecipanti)}, privato, per consentire all’Amministratore di verificare che i dati inseriti inserite dall’utente amministratore siano valide.
-\vspace{20mm}
-	\centering
-	\includegraphics[width=0.8\linewidth]{assets/casid'uso/PubblicaEvento.png}
-\newline
-\end{figure}
+
+\begin{center}
+    La creazione del seguente diagramma di sequenza, sviluppato a partire dalla descrizione dello scenario del caso \noindent d’uso \textit{PubblicaEvento}, ha fatto emergere la necessità di definire un metodo privato, specifico della classe \textbf{Amministratore}:
+
+    \vspace{1ex}
+    \textbf{verificaValidità(Titolo, Descrizione, Data, Orario, Luogo, NumMassimoPartecipanti)}
+    
+    \vspace{2ex}
+    Tale metodo consente all’amministratore di verificare che i dati inseriti siano validi prima della pubblicazione di un evento.
+
+    \vspace{3ex}
+    \includegraphics[width=\linewidth]{assets/casid'uso/PubblicaEvento.png}
+    
+    \vspace{1ex}
+    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{PubblicaEvento}
+\end{center}
+
 
 \subsection{ConsultaInformazioniEvento}
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaInformazioniEvento.png}
-\newline
-\end{figure}
 
-%ConsultaCatalogoEventi
-%AcquistoBiglietto
+\begin{center}
+
+    \vspace{2ex}
+    \includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaInformazioniEvento.png}
+
+    \vspace{1ex}
+    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaInformazioniEvento}
+\end{center}
+
+
+\newpage
+{
+\subsection{AcquistoBiglietti}
+
+\begin{center}
+Il diagramma di sequenza del caso d’uso \textit{AcquistoBiglietto} mostra il processo di acquisto da parte dell’utente. Durante questo flusso emergono tre nuove responsablità per la classe Evento: \textbf{verificaDisponibilità()}, \textbf{creazioneIdUnivoco()} e \textbf{InviaDatiPagamento(Nome, Cognome, Email, informazioniCarta)}. 
+\vspace*{2mm}
+\raisebox{2mm}{\includegraphics[width=0.8\linewidth]{assets/casid'uso/AcquistoBiglietto.png}}
+
+\vspace{1ex}
+\textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{AcquistoBiglietto}
+\end{center}
+}
+
+\vspace{2ex}
+
+{\small
+\subsection{ConsultaCatalogoEventi}
+
+\begin{center}
+
+\includegraphics[height=0.38\textheight]{assets/casid'uso/ConsultaCatalogoEventi.png}
+
+\vspace{1ex}
+\end{center}
+}
+
 %PartecipazioneEvento
 %RicercaEvento

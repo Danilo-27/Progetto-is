@@ -34,22 +34,19 @@ Nel giorno dell’evento, l’utente pu\`{o} accedere a una apposita interfaccia
     \item Il sistema deve consentire ad un utente non registrato di registrarsi
     \item La registrazione consiste nell’inserire nome, cognome, indirizzo e-mail e password
     \item Il sistema deve offrire una funzionalità di autenticazione
-    \item Il sistema deve gestire un profilo personale per ogni utente registrato
-    \item Il profilo personale contiene lo storico dei biglietti acquistati, numero totali di eventi a cui l’utente ha partecipato e lo storico dei biglietti acquistati
-    \item Il sistema consente di visualizzare lo storico dei biglietti agli utenti autenticati
-    \item Il sistema offre una funzionalità di modifica dei dati personali agli utenti autenticati
+    \item il sistema deve gestire per ogni utente lo storico dei biglietti acquistati, numero totali di eventi a cui l’utente ha partecipato e un ImmaginepProfilo
+    \item Il sistema consente di visualizzare lo storico dei biglietti acquisati dall'utente
+    \item Il sistema offre una funzionalità di modifica dei dati personali (nome,cognome,indirizzo e-mail,password,ImmagineProfilo)
     \item Il sistema deve consentire agli amministratori la creazione di eventi
     \item Degli eventi si vuole memorizzare titolo, data, orario, luogo e numero massimo di partecipanti
-    \item Il sistema deve offrire un catalogo eventi consultabile dall'utente autenticato
+    \item Il sistema deve offrire un catalogo eventi consultabile da un UtenteRegistrato
     \item Il sistema deve fornire una funzionalità di ricerca di un evento per nome, data o località.
     \item Il sistema deve consentire la selezione di un evento del catalogo eventi per procedere all’acquisto del biglietto elettronico
-    \item Ogni biglietto elettronico deve avere un codice identificativo univoco e contenere: nome dell’evento, data, orario, nome del partecipante e codice identificativo
-    \item Il cliente deve ricevere il biglietto nel proprio profilo personale
-    \item Il sistema offre la possibilità di visualizzare il biglietto acquistato dal profilo utente
-    \item Il sistema offre la possibilità di scaricare il biglietto acquistato dal profilo utente
-    \item Il sistema fornisce all’utente l’elenco degli eventi in programma nella data odierna
-    \item Il sistema deve consentire all’utente di confermare la partecipazione ad un evento tramite l’inserimento del biglietto
-    \item Un biglietto marcato come consumato non può essere più riutilizzato
+    \item Ogni biglietto elettronico deve avere un codice identificativo univoco e contenere: nome dell’evento, nome del partecipante
+    \item il sistema deve offrirre la possibilità all'utente di visualizzare un biglietto acquistato
+    \item Il sistema deve offrire la possibilit all'utente di scaricare un biglietto acquistato
+    \item Il sistema deve consentire all’utente di confermare la partecipazione ad un evento tramite l’inserimento del codice di un biglietto acquistato
+    \item Un biglietto marcato come consumato non può essere più essere riutilizzato
     \item Un utente registrato durante la fase di acquisto può comprare un solo biglietto
     \item Il sistema deve tener traccia dinamicamente del numero di partecipazioni per ogni evento
     \item Il sistema deve permettere agli amministratori di visualizzare il numero di partecipanti presenti per ogni evento in corso
@@ -60,7 +57,6 @@ Nel giorno dell’evento, l’utente pu\`{o} accedere a una apposita interfaccia
     \item Il sistema deve essere accessibile da dispositivi mobili e desktop
 \end{enumerate}
 
-\newpage
 \section{Glossario dei termini}
 
 
@@ -74,16 +70,14 @@ Nel giorno dell’evento, l’utente pu\`{o} accedere a una apposita interfaccia
 	Termine & Descrizione & Sinonimi \\
 \hline    
 Amministratore & Amministratore della piattaforma che si occupa della gestione degli eventi & \\
-Biglietto elettronico & Biglietto acquistabile e utilizzare per partecipare ad uno specifico evento & \\
-Dati personali & Informazioni fornite all’atto della registrazione dell’utente & \\
+Biglietto elettronico & Biglietto acquistabile e utilizzare per partecipare all'evento a cui è associato & \\
 Catalogo eventi & Catalogo che contiene tutti gli eventi pubblicati dagli amministratori & \\
 UtenteNonRegistrato & Una persona che intende registrarsi presso il sistema & \\
 UtenteRegistrato & Un Utente che si è registrata presso il sistema & \\
-Utente autenticato& un utente regustrato che si è autenticato nel sistema & UA \\
+Cliente & Utente registrato che acquista o partecipa a eventi. Nei diagrammi dei casi d’uso è rappresentato dall’attore "Utente"\\
 \end{tblr}
 
 
-\raggedbottom
 
 \section{Classificazione dei Requisiti}
 
