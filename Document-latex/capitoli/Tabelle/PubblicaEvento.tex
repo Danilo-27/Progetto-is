@@ -1,4 +1,4 @@
-\section{Registrazione}
+\section{PubblicaEvento}
 \subsubsection*{Category Partition Testing}
 \begin{table}[H]
 	\centering
@@ -6,34 +6,42 @@
 	\renewcommand{\arraystretch}{1.3}
 	\begin{tabular}{|p{3cm}|p{3cm}|p{4cm}|p{5cm}|}
 		\hline
-		\textbf{Nome} & \textbf{Cognome} & \textbf{Email} & \textbf{Password} \\
+		\textbf{Titolo} & \textbf{Descrizione} & \textbf{Data} & \textbf{Orario} & \textbf{Luogo} & \textbf{NumMassimoPartecipanti} & \textbf{Catalogo} \\
 		\hline
-		Stringa di lunghezza $\leq$ 20 \newline
-		Stringa di lunghezza $>$ 20 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} &
-
-		Stringa di lunghezza $\leq$ 30 \newline
-		Stringa di lunghezza $>$ 30 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} &
-
 		Stringa di lunghezza $\leq$ 50 \newline
 		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
 		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
 		Stringa già memorizzata \texttt{[ERROR]} &
 
-		Stringa di lunghezza $\leq$ 40 \newline
-		Stringa contenente $\geq$ 1 caratteri speciali \newline
-		Stringa di lunghezza $>$ 40 \texttt{[ERROR]} \newline
+		Stringa di lunghezza $\leq$ 150 \newline %E' il caso di inserire come tipo un clob? già qua?
+		Stringa di lunghezza $>$ 150 \texttt{[ERROR]} \newline
 		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-		Stringa senza caratteri speciali \texttt{[ERROR]} \\
+
+		Data con formato valido (gg-mm-aaaa) \newline
+		Data con formato non valido \texttt{[ERROR]} \newline
+
+
+		Orario con formato valido (oo-mm) \newline
+		Orario con formato non valido \texttt{[ERROR]} \newline
+
+		Stringa non contenente caratteri speciali \newline
+		Stringa non contenente numeri \newline
+		Stringa contenente caratteri speciali \texttt{[ERROR]} \newline
+		Stringa contenente numeri \texttt{[ERROR]} \newline
+
+		Intero di valore massimo 100 \newline
+		Intero di valore $\gt$ 100 \texttt{[ERROR]} \newline
+
+		Valido riferimento ad oggetto Catalogo \newline %non sono sicuro di questo
+		Riferimento non valido ad oggetto Catalogo \texttt{[ERRORE]} \newline
+
 		\hline
 	\end{tabular}
-	\caption{Category Partition Testing - Registrazione}
+	\caption{Category Partition Testing - PubblicaEvento}
 \end{table}
-
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $3 \cdot 3 \cdot 4 \cdot 5 = 180$.
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 11 (2 per Nome, 2 per Cognome, 3 per Email, 3 per Password).
-\noindent Il numero di test risultante è 13: $(1 \cdot 1 \cdot 1 \cdot 2) + 11 = 13$.
+\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 5 = 20$.
+\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 11 (3 per Email, 3 per Password).
+\noindent Il numero di test risultante è 13: $(1 \cdot 1 \cdot 1 \cdot 2) + 6 = 8$.
 
 
 \subsubsection*{Test Suite}
