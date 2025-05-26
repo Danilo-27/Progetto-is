@@ -1,43 +1,72 @@
+
 \section{Autenticazione}
 \subsubsection*{Category Partition Testing}
 \begin{table}[H]
-	\centering
-	\footnotesize
-	\renewcommand{\arraystretch}{1.3}
-	\begin{tabular}{|p{3cm}|p{3cm}|p{4cm}|p{5cm}|}
-		\hline
-		\textbf{Email} & \textbf{Password} \\
-		\hline
-		Stringa di lunghezza $\leq$ 50 \newline
-		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-		Stringa già memorizzata \texttt{[ERROR]} &
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|p{6cm}|p{6cm}|}
+       \hline
+       \textbf{Email} & \textbf{Password} \\
+       \hline
+       Stringa di lunghezza $\leq$ 50 \newline
+       Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
+       Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
+       Stringa non memorizzata \texttt{[ERROR]} &
 
-		Stringa di lunghezza $\leq$ 40 \newline
-		Stringa contenente $\geq$ 1 caratteri speciali \newline
-		Stringa di lunghezza $>$ 40 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-		Stringa senza caratteri speciali \texttt{[ERROR]} \\
-		\hline
-	\end{tabular}
-	\caption{Category Partition Testing - Autenticazione}
+       Stringa di lunghezza $\leq$ 40 \newline
+       Stringa di lunghezza $>$ 40 \texttt{[ERROR]} \newline
+       Stringa di lunghezza $=$ 0 \texttt{[ERROR]} \newline
+       Stringa senza caratteri speciali \texttt{[ERROR]} \\
+       \hline
+    \end{tabular}
+    \caption{Category Partition Testing - Autenticazione}
 \end{table}
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 5 = 20$.
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 11 (3 per Email, 3 per Password).
-\noindent Il numero di test risultante è 13: $(1 \cdot 1 \cdot 1 \cdot 2) + 6 = 8$.
+
+\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 4 = 16$.
+
+\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 6 (3 per Email, 3 per Password).
+
+\noindent Il numero di test risultante è 7: $(1 \cdot 1 \cdot 1 \cdot 1) + 6 = 7$.
 
 \subsubsection*{Test Suite}
 
 \begin{table}[H]
-	\centering
-	\footnotesize
-	\begin{testsuite}{colspec = lXXXlXX}
-	{Test \\ Case \\ ID} & Descrizione & Classi di Equivalenza Coperte & Pre-condizioni & Input & {Output \\ Attesi} & {Post-condizioni \\ Attese} \\
-	1 & Tutti gli input validi &
-	2 & Nome $>$ 45 caratteri & Nome $>$ 45 caratteri \texttt{[ERROR]}, Prezzo, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & -- & {Nome: \dots \\ Prezzo: 16.10 \euro \\ Scorte: 23 \\ Prescrizione: \texttt{boolean}} &Nome troppo lungo & -- \\
-	3 & Nome non specificato & Nome non specificato \texttt{[ERROR]}, Prezzo, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & -- & {Nome: \\ Prezzo: 9.99 \euro \\ Scorte: 10 \\ Prescrizione: \texttt{boolean}} & Inserire un nome & -- \\
-	4 & Prezzo $\leq 0$ (\euro) & Prezzo $\leq 0$ (\euro) \texttt{[ERROR]}, Nome, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & -- & {Nome: Brufen \\ Prezzo: -8.00 \euro \\ Scorte: 200 \\ Prescrizione: \texttt{boolean}} & Inserire un prezzo $> 0$ \euro & -- \\
-	5 & Scorte $ < 0$ & Scorte $<0$, Nome, Prezzo e Prescrizione (sia \texttt{True} che \texttt{False}) validi & - & {Nome: Macladin \\ Prezzo: 11.50 \euro \\ Scorte: -36 \\ Prescrizione: \texttt{boolean}} & Inserire scorte $ \geq 0 $ & -- \\
-	6 & Nome già memorizzato & Nome già memorizzato \texttt{[ERROR]}, Prezzo, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & Esiste già un farmaco con il nome inserito & {Nome: Cistalgan \\ Prezzo: 19.90 \euro \\ Scorte: 50 \\ Prescrizione : \texttt{boolean}} & Farmaco già esistente & -- \\
-	\end{testsuite}
+    \centering
+    \tiny
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{1.5cm}|p{2.8cm}|p{2cm}|p{1.8cm}|}
+        \hline
+        \textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+        \hline
+        1 & Tutti gli input validi & Email, Password validi & -- &
+        Email: marco bianchi@ gmail.com, Password: miapwd£ &
+        Autenticazione effettuata & -- \\
+        \hline
+        2 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]}, Password & -- &
+        Email: email molto lunga..., Password: miapwd£ &
+        Email troppo lunga & -- \\
+        \hline
+        3 & Email senza caratteri & Email con 0 caratteri \texttt{[ERROR]}, Password & -- &
+        Email: , Password: miapwd£ &
+        Inserire un indirizzo Email & -- \\
+        \hline
+        4 & Email non memorizzata & Email non presente nel DB \texttt{[ERROR]}, Password & -- &
+        Email: mario rosssi@ gmail.com, Password: miaPWD£ &
+        Account non registrato & -- \\
+        \hline
+        5 & Password $>$ 40 caratteri & Email, Password $>$ 40 caratteri \texttt{[ERROR]} & -- &
+        Email: marco bianchi@ gmail.com, Password: password molto lunga... &
+        Password troppo lunga & -- \\
+        \hline
+        6 & Password senza caratteri & Email, Password senza caratteri \texttt{[ERROR]} & -- &
+        Email: marco bianchi@ gmail.com, Password: &
+        Inserire una password & -- \\
+        \hline
+        7 & Password senza caratteri speciali & Email, Password senza caratteri speciali \texttt{[ERROR]} & -- &
+        Email: marco bianchi@ gmail.com, Password: miapwd &
+        Inserire una password valida & -- \\
+        \hline
+    \end{tabular}
+    \caption{Test Suite - Autenticazione}
 \end{table}
