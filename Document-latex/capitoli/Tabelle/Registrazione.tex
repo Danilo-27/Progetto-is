@@ -22,7 +22,6 @@
 		Stringa già memorizzata \texttt{[ERROR]} &
 
 		Stringa di lunghezza $\leq$ 40 \newline
-		Stringa contenente $\geq$ 1 caratteri speciali \newline
 		Stringa di lunghezza $>$ 40 \texttt{[ERROR]} \newline
 		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
 		Stringa senza caratteri speciali \texttt{[ERROR]} \\
@@ -31,23 +30,66 @@
 	\caption{Category Partition Testing - Registrazione}
 \end{table}
 
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $3 \cdot 3 \cdot 4 \cdot 5 = 180$.
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 11 (2 per Nome, 2 per Cognome, 3 per Email, 3 per Password).
-\noindent Il numero di test risultante è 13: $(1 \cdot 1 \cdot 1 \cdot 2) + 11 = 13$.
+\noindent Il numero di test da effettuarsi senza particolari vincoli è: $3 \cdot 3 \cdot 4 \cdot 4 = 144$.
 
+\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 10 (2 per Nome, 2 per Cognome, 3 per Email, 3 per Password).
+
+\noindent Il numero di test risultante è 11: $(1 \cdot 1 \cdot 1 \cdot 1) + 10 = 11$.
 
 \subsubsection*{Test Suite}
 
 \begin{table}[H]
 	\centering
-	\footnotesize
-	\begin{testsuite}{colspec = lXXXlXX}
-	{Test \\ Case \\ ID} & Descrizione & Classi di Equivalenza Coperte & Pre-condizioni & Input & {Output \\ Attesi} & {Post-condizioni \\ Attese} \\
-	1 & Tutti gli input validi &
-	2 & Nome $>$ 45 caratteri & Nome $>$ 45 caratteri \texttt{[ERROR]}, Prezzo, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & -- & {Nome: \dots \\ Prezzo: 16.10 \euro \\ Scorte: 23 \\ Prescrizione: \texttt{boolean}} &Nome troppo lungo & -- \\
-	3 & Nome non specificato & Nome non specificato \texttt{[ERROR]}, Prezzo, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & -- & {Nome: \\ Prezzo: 9.99 \euro \\ Scorte: 10 \\ Prescrizione: \texttt{boolean}} & Inserire un nome & -- \\
-	4 & Prezzo $\leq 0$ (\euro) & Prezzo $\leq 0$ (\euro) \texttt{[ERROR]}, Nome, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & -- & {Nome: Brufen \\ Prezzo: -8.00 \euro \\ Scorte: 200 \\ Prescrizione: \texttt{boolean}} & Inserire un prezzo $> 0$ \euro & -- \\
-	5 & Scorte $ < 0$ & Scorte $<0$, Nome, Prezzo e Prescrizione (sia \texttt{True} che \texttt{False}) validi & - & {Nome: Macladin \\ Prezzo: 11.50 \euro \\ Scorte: -36 \\ Prescrizione: \texttt{boolean}} & Inserire scorte $ \geq 0 $ & -- \\
-	6 & Nome già memorizzato & Nome già memorizzato \texttt{[ERROR]}, Prezzo, Scorte e Prescrizione (sia \texttt{True} che \texttt{False}) validi & Esiste già un farmaco con il nome inserito & {Nome: Cistalgan \\ Prezzo: 19.90 \euro \\ Scorte: 50 \\ Prescrizione : \texttt{boolean}} & Farmaco già esistente & -- \\
-	\end{testsuite}
+	\tiny
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{1.5cm}|p{2.8cm}|p{2cm}|p{1.8cm}|}
+		\hline
+		\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+		\hline
+		1 & Tutti gli input validi & Nome, Cognome, Email, Password validi & -- &
+		Nome: Mario, Cognome: Rossi, Email: mario.rossi@email.com, Password: miaPwd£123 &
+		Registrazione completata & Utente salvato nel DB \\
+		\hline
+		2 & Nome $>$ 20 caratteri & Nome $>$ 20 caratteri \texttt{[ERROR]} & -- &
+		Nome molto lungo (>20 char), altri parametri validi &
+		Nome troppo lungo & -- \\
+		\hline
+		3 & Nome vuoto & Nome con 0 caratteri \texttt{[ERROR]} & -- &
+		Nome: "", altri parametri validi &
+		Inserire un nome & -- \\
+		\hline
+		4 & Cognome $>$ 30 caratteri & Cognome $>$ 30 caratteri \texttt{[ERROR]} & -- &
+		Cognome molto lungo (>30 char), altri parametri validi &
+		Cognome troppo lungo & -- \\
+		\hline
+		5 & Cognome vuoto & Cognome con 0 caratteri \texttt{[ERROR]} & -- &
+		Cognome: "", altri parametri validi &
+		Inserire un cognome & -- \\
+		\hline
+		6 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]} & -- &
+		Email molto lunga (>50 char), altri parametri validi &
+		Email troppo lunga & -- \\
+		\hline
+		7 & Email vuota & Email con 0 caratteri \texttt{[ERROR]} & -- &
+		Email: "", altri parametri validi &
+		Inserire un indirizzo email & -- \\
+		\hline
+		8 & Email già registrata & Email già memorizzata \texttt{[ERROR]} & Email esistente nel DB &
+		Email: utente.esistente@email.com, altri parametri validi &
+		Email già registrata & -- \\
+		\hline
+		9 & Password $>$ 40 caratteri & Password $>$ 40 caratteri \texttt{[ERROR]} & -- &
+		Password molto lunga (>40 char), altri parametri validi &
+		Password troppo lunga & -- \\
+		\hline
+		10 & Password vuota & Password con 0 caratteri \texttt{[ERROR]} & -- &
+		Password: "", altri parametri validi &
+		Inserire una password & -- \\
+		\hline
+		11 & Password senza caratteri speciali & Password senza caratteri speciali \texttt{[ERROR]} & -- &
+		Password: miapassword123, altri parametri validi &
+		Password deve contenere caratteri speciali & -- \\
+		\hline
+	\end{tabular}
+	\caption{Test Suite - Registrazione}
 \end{table}
