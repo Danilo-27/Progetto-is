@@ -22,7 +22,7 @@ public class CatalogoEventi {
 
         for(int i = 0; i < lista_db_eventi.size(); ++i) {
             EntityEvento evento_temp = new EntityEvento();
-
+            evento_temp.setId(lista_db_eventi.get(i).getId());
             evento_temp.setTitolo(((DBEvento)lista_db_eventi.get(i)).getTitolo());
             evento_temp.setDescrizione(((DBEvento)lista_db_eventi.get(i)).getDescrizione());
             evento_temp.setData(((DBEvento)lista_db_eventi.get(i)).getData());

@@ -2,19 +2,24 @@ package entity;
 
 import database.DBEvento;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class EntityEvento {
 
+    private int id;
     private String titolo;
     private String descrizione;
-    private Date data;
-    private String ora;
+    private LocalDate data;
+    private LocalTime ora;
     private String luogo;
     private int numeroMassimoPartecipanti;
     private int numeroPartecipanti;
+    private int id_amministratore;
 
     public EntityEvento(DBEvento evento) {
+        this.id = evento.getId();
         this.titolo = evento.getTitolo();
         this.descrizione = evento.getDescrizione();
         this.data = evento.getData();
@@ -22,9 +27,34 @@ public class EntityEvento {
         this.luogo = evento.getLuogo();
     }
 
-    public EntityEvento() {
-
+    public EntityEvento(int numeroPartecipanti, int numeroMassimoPartecipanti, String luogo, LocalTime ora, LocalDate data, String descrizione, String titolo) {
+        this.numeroPartecipanti = numeroPartecipanti;
+        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.luogo = luogo;
+        this.ora = ora;
+        this.data = data;
+        this.descrizione = descrizione;
+        this.titolo = titolo;
     }
+
+    public EntityEvento() {}
+
+
+    public int scriviSuDB() {
+        DBEvento s = new DBEvento();
+        s.setTitolo(this.titolo);
+        s.setData(this.data);
+        s.setOra(this.ora);
+        s.setDescrizione(this.descrizione);
+        s.setLuogo(this.luogo);
+        s.setNumeroMassimoPartecipanti(this.numeroMassimoPartecipanti);
+        s.setId_amministratore(this.id_amministratore);
+
+
+        return s.SalvaInDB();
+    }
+
+
 
 
     //getter e setter
@@ -45,21 +75,22 @@ public class EntityEvento {
         this.descrizione = descrizione;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setOra(LocalTime ora) {
+        this.ora = ora;
+    }
+
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
-    public String getOra() {
+    public LocalTime getOra() {
         return ora;
     }
 
-    public void setOra(String ora) {
-        this.ora = ora;
-    }
 
     public String getLuogo() {
         return luogo;
@@ -84,12 +115,30 @@ public class EntityEvento {
     public void setNumeroPartecipanti(int numeroPartecipanti) {
         this.numeroPartecipanti = numeroPartecipanti;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId_amministratore() {
+        return id_amministratore;
+    }
+
+    public void setId_amministratore(int id_amministratore) {
+        this.id_amministratore = id_amministratore;
+    }
+
     //toString
 
     @Override
     public String toString() {
         return "EntityEvento{" +
-                "titolo='" + titolo + '\'' +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
                 ", descrizione='" + descrizione + '\'' +
                 ", data=" + data +
                 ", ora='" + ora + '\'' +

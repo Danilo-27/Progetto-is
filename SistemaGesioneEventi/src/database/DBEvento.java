@@ -2,60 +2,28 @@ package database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
-
 
 
 public class DBEvento {
 
-
+    private int id;
     private String titolo;
     private String descrizione;
-    private Date data;
-    private String ora;
+    private LocalDate data;
+    private LocalTime ora;
     private String luogo;
     private int numeroMassimoPartecipanti;
     private int numeroPartecipanti;
-
-/*    public static void main(String[] args) {
-        ArrayList<DBEvento> lista = DBEvento.getListaEventi();
-         for(int i = 0; i < lista.size(); i++){
-             System.out.println(lista.get(i).getTitolo());
-             System.out.println(lista.get(i).getDescrizione());
-             System.out.println(lista.get(i).getData());
-             System.out.println(lista.get(i).getOra());
-             System.out.println(lista.get(i).getLuogo());
-             System.out.println(lista.get(i).getNumeroMassimoPartecipanti());
-             System.out.println(lista.get(i).getNumeroPartecipanti());
-         }
-
-    }
- */
-    public DBEvento() {
-        this.caricaDaDB();
-    }
+    private int id_amministratore;
 
 
-    public void caricaDaDB() {
-        String query = "SELECT * FROM eventi";
 
-        try {
-            ResultSet rs = DBConnectionManager.selectQuery(query);
-            while (rs.next()) {
-                this.titolo=rs.getString("Titolo");
-                this.descrizione=rs.getString("Descrizione");
-                this.data=rs.getDate("Data");
-                this.ora=rs.getString("Ora");
-                this.luogo= rs.getString("Luogo");
-                this.numeroPartecipanti=rs.getInt("Numpartecipanti");
-                this.numeroMassimoPartecipanti=rs.getInt("Nummaxpartecipanti");
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-                ((Exception)e).printStackTrace();
-        }
+    public DBEvento(){}
 
-    }
+
 
 //metodo per prelevare tutti gli eventi dal database
 
@@ -68,13 +36,14 @@ public class DBEvento {
 
                 while (rs.next()) {
                     DBEvento evento_temp = new DBEvento();
+                    evento_temp.setId(rs.getInt("id"));
                     evento_temp.setTitolo(rs.getString("Titolo"));
                     evento_temp.setDescrizione(rs.getString("Descrizione"));
-                    evento_temp.setData(rs.getDate("Data"));
-                    evento_temp.setOra(rs.getString("Ora"));
-                    evento_temp.setOra(rs.getString("Luogo"));
-                    evento_temp.setOra(rs.getString("Numpartecipanti"));
-                    evento_temp.setOra(rs.getString("Nummaxpartecipanti"));
+                    evento_temp.setData(rs.getDate("Data").toLocalDate());
+                    evento_temp.setOra(LocalTime.parse(rs.getString("Ora")));
+                    evento_temp.setLuogo(rs.getString("Luogo"));
+                    evento_temp.setNumeroPartecipanti(rs.getInt("Numpartecipanti"));
+                    evento_temp.setNumeroMassimoPartecipanti(rs.getInt("Nummaxpartecipanti"));
 
                     lista_temp.add(evento_temp);
                 }
@@ -86,6 +55,20 @@ public class DBEvento {
         return lista_temp;
     }
 
+    public int SalvaInDB() {
+        int ret = 0;
+        String query = "INSERT INTO eventi(titolo,descrizione,data,ora,luogo,Nummaxpartecipanti,amministratore_id) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.numeroMassimoPartecipanti + "','"+ this.id_amministratore+"')";
+        try {
+            ret = DBConnectionManager.updateQuery(query);
+        } catch (SQLException | ClassNotFoundException e) {
+            ((Exception)e).printStackTrace();
+            ret = -1;
+        }
+
+        return ret;
+    }
+
+
 //getter e setter
 
     public String getTitolo() {
@@ -96,7 +79,7 @@ public class DBEvento {
         return descrizione;
     }
 
-    public String getOra() {
+    public LocalTime getOra() {
         return ora;
     }
 
@@ -112,7 +95,7 @@ public class DBEvento {
         return numeroPartecipanti;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
@@ -128,12 +111,12 @@ public class DBEvento {
         this.descrizione = descrizione;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setOra(LocalTime ora) {
+        this.ora = ora;
     }
 
-    public void setOra(String ora) {
-        this.ora = ora;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public void setLuogo(String luogo) {
@@ -142,6 +125,22 @@ public class DBEvento {
 
     public void setNumeroPartecipanti(int numeroPartecipanti) {
         this.numeroPartecipanti = numeroPartecipanti;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId_amministratore() {
+        return id_amministratore;
+    }
+
+    public void setId_amministratore(int id_amministratore) {
+        this.id_amministratore = id_amministratore;
     }
 }
 
