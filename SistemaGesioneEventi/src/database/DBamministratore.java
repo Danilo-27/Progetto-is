@@ -1,5 +1,6 @@
 package database;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBamministratore {
@@ -9,8 +10,11 @@ public class DBamministratore {
     private String cognome;
 
 
-    public DBamministratore() {}
-
+    public DBamministratore(String email) {
+        this.email = email;
+        this.caricaDaDB();
+    }
+    public DBamministratore(){}
 
     public int SalvaInDB() {
         int ret = 0;
@@ -25,7 +29,23 @@ public class DBamministratore {
         return ret;
     }
 
+    public void caricaDaDB() {
+        String query = "SELECT * FROM amministratori WHERE email='" + this.email + "';";
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            if (rs.next()) {
+                this.password = rs.getString("password");
+                this.nome = rs.getString("nome");
+                this.cognome = rs.getString("cognome");
+                this.email = rs.getString("email");
+            } else {
+                System.out.println("Amministratore non trovato nel DB");
+            }
 
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public void setCognome(String cognome) {

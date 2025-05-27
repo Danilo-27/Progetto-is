@@ -1,29 +1,17 @@
 package entity;
 
 import database.DBCliente;
-import database.DBamministratore;
 
-public class EntityCliente extends EntityUtenteRegistrato{
+public class EntityCliente extends UtenteRegistrato {
 
     private int numPartecipazione;
     private byte[] immagineProfilo;
-    private String email;
-    private String password;
-    private String nome;
-    private String cognome;
 
-    public int scriviSuDB() {
-        DBCliente c = new DBCliente();
-
-        c.setImmagineProfilo(this.immagineProfilo);
-        c.setNumPartecipazione(this.numPartecipazione);
-        c.setNome(this.nome);
-        c.setEmail(this.email);
-        c.setCognome(this.cognome);
-        c.setPassword(this.password);
-
-        return c.SalvaInDB();
+    public EntityCliente(String email, String password, String nome, String cognome) {
+        super(email, password, nome, cognome);
     }
+
+    public EntityCliente(){}
 
     public int getNumPartecipazione() {
         return numPartecipazione;
@@ -41,43 +29,27 @@ public class EntityCliente extends EntityUtenteRegistrato{
         this.immagineProfilo = immagineProfilo;
     }
 
-    @Override
-    public String getEmail() {
-        return email;
+    public int scriviSuDB() {
+        DBCliente c = new DBCliente();
+
+        c.setNome(getNome());
+        c.setEmail(getEmail());
+        c.setCognome(getCognome());
+        c.setPassword(getPassword());
+        c.setNumPartecipazione(0);
+
+        return c.SalvaInDB();
     }
 
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
+    public void cercaSuDB(String email){
+        DBCliente dbCliente = new DBCliente(email);
+
+        setNome(dbCliente.getNome());
+        setCognome(dbCliente.getCognome());
+        setPassword(dbCliente.getPassword());
+        setEmail(dbCliente.getEmail());
     }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
 
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String getCognome() {
-        return cognome;
-    }
-
-    @Override
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
 }

@@ -12,8 +12,11 @@ public class BoundaryUtenteRegistrato {
         */
 
 
-        Controller.inserisciEvento("mammt","otherrrrr","2025-03-20" , "21:00", "Teatro alla Scala Milano", 800,2);
+        /*Controller.inserisciEvento("mammt","otherrrrr","2025-03-20" , "21:00", "Teatro alla Scala Milano", 800,2);
+*/
+       /* Controller.registraCliente("mammeta","pappone","ciao","sddd");*/
 
+        Controller.loginUtente("mario.rossi@eventmanager.com", "passwordf123");
 
 
     }
