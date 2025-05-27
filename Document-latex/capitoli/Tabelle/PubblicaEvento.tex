@@ -4,9 +4,9 @@
 	\centering
 	\footnotesize
 	\renewcommand{\arraystretch}{1.3}
-	\begin{tabular}{|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|}
+	\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
 		\hline
-		\textbf{Titolo} & \textbf{Descrizione} & \textbf{Data} & \textbf{Orario} & \textbf{Luogo} & \textbf{NumMassimo Partecipanti} & \textbf{Catalogo} \\
+		\textbf{Titolo} & \textbf{Descrizione} & \textbf{Data} & \textbf{Orario} & \textbf{Luogo} & \textbf{NumMassimo Partecipanti} \\
 		\hline
 		Stringa di lunghezza $\leq$ 50 \newline
 		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
@@ -28,20 +28,17 @@
 		Stringa contenente numeri \texttt{[ERROR]} &
 
 		Intero di valore massimo 100 \newline
-		Intero di valore $>$ 100 \texttt{[ERROR]} &
-
-		Valido riferimento ad oggetto Catalogo \newline
-		Riferimento non valido ad oggetto Catalogo \texttt{[ERROR]} \\
+		Intero di valore $>$ 100 \texttt{[ERROR]} \\
 		\hline
 	\end{tabular}
 	\caption{Category Partition Testing - PubblicaEvento}
 \end{table}
 
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 3 \cdot 2 \cdot 2 \cdot 3 \cdot 2 \cdot 2 = 576$.
+\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 3 \cdot 2 \cdot 2 \cdot 3 \cdot 2 = 288$.
 
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 12 (3 per Titolo, 2 per Descrizione, 1 per Data, 1 per Orario, 2 per Luogo, 1 per NumMassimoPartecipanti, 1 per Catalogo).
+\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 11 (3 per Titolo, 2 per Descrizione, 1 per Data, 1 per Orario, 2 per Luogo, 1 per NumMassimoPartecipanti).
 
-\noindent Il numero di test risultante è 13: $(1 \cdot 1 \cdot 1 \cdot 1 \cdot 1 \cdot 1 \cdot 1) + 12 = 13$.
+\noindent Il numero di test risultante è 12: $(1 \cdot 1 \cdot 1 \cdot 1 \cdot 1 \cdot 1) + 11 = 12$.
 
 \subsubsection*{Test Suite}
 
@@ -49,12 +46,12 @@
 	\centering
 	\tiny
 	\renewcommand{\arraystretch}{1.4}
-	\begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{1.5cm}|p{2.8cm}|p{2cm}|p{1.8cm}|}
+	\begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{1.5cm}|p{3.2cm}|p{2cm}|p{1.8cm}|}
 		\hline
 		\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
 		\hline
 		1 & Tutti gli input validi & Tutti i parametri validi & Utente autenticato &
-		Titolo: Concerto Rock, Descrizione: Evento musicale serale, Data: 15-06-2025, Orario: 20-30, Luogo: Teatro Comunale, NumMax: 50, Catalogo: Cat1 &
+		Titolo: Concerto Rock, Descrizione: Evento musicale serale, Data: 15-06-2025, Orario: 20-30, Luogo: Teatro Comunale, NumMax: 50 &
 		Evento pubblicato con successo & Evento salvato nel DB \\
 		\hline
 		2 & Titolo $>$ 50 caratteri & Titolo $>$ 50 caratteri \texttt{[ERROR]} & Utente autenticato &
@@ -97,11 +94,7 @@
 		NumMax: 150, altri parametri validi &
 		Numero massimo troppo alto & -- \\
 		\hline
-		12 & Riferimento Catalogo non valido & Riferimento non valido \texttt{[ERROR]} & Utente autenticato &
-		Catalogo: CatInesistente, altri parametri validi &
-		Catalogo non trovato & -- \\
-		\hline
-		13 & Utente non autenticato & Utente non autenticato & Utente non loggato &
+		12 & Utente non autenticato & Utente non autenticato & Utente non loggato &
 		Tutti i parametri validi &
 		Accesso negato & -- \\
 		\hline
