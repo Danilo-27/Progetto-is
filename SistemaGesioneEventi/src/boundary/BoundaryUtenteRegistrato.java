@@ -2,7 +2,7 @@ package boundary;
 import  control.Controller;
 public class BoundaryUtenteRegistrato {
 
-
+//prova
 
     public static void main(String[] args) {
         /*
@@ -17,6 +17,8 @@ public class BoundaryUtenteRegistrato {
        /* Controller.registraCliente("mammeta","pappone","ciao","sddd");*/
 
         Controller.loginUtente("mario.rossi@eventmanager.com", "passwordf123");
+
+
 
 
     }
