@@ -1,6 +1,6 @@
 package DTO;
 
-public class DTO {
+public class DTOEvento {
     private String titolo;
     private String descrizione;
     private String data;
@@ -9,10 +9,10 @@ public class DTO {
     private String NumPartecipanti;
     private String NumMaxPartecipanti;
 
-    public DTO() {
+    public DTOEvento() {
     }
 
-    public DTO(String titolo, String descrizione, String data, String ora, String luogo, String numPartecipanti, String numMaxPartecipanti) {
+    public DTOEvento(String titolo, String descrizione, String data, String ora, String luogo, String numPartecipanti, String numMaxPartecipanti) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.data = data;
@@ -81,7 +81,7 @@ public class DTO {
 
     @Override
     public String toString() {
-        return "DTO{" +
+        return "DTOEvento{" +
                 "titolo='" + titolo + '\'' +
                 ", descrizione='" + descrizione + '\'' +
                 ", data='" + data + '\'' +
