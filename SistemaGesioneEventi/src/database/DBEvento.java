@@ -15,9 +15,10 @@ public class DBEvento {
     private LocalDate data;
     private LocalTime ora;
     private String luogo;
-    private int numeroMassimoPartecipanti;
-    private int numeroPartecipanti;
-    private int id_amministratore;
+    private int costo;
+    private int capienza;
+    private int partecipanti;
+    private int Idamministratore;
 
 
 
@@ -42,8 +43,8 @@ public class DBEvento {
                     evento_temp.setData(rs.getDate("Data").toLocalDate());
                     evento_temp.setOra(LocalTime.parse(rs.getString("Ora")));
                     evento_temp.setLuogo(rs.getString("Luogo"));
-                    evento_temp.setNumeroPartecipanti(rs.getInt("Numpartecipanti"));
-                    evento_temp.setNumeroMassimoPartecipanti(rs.getInt("Nummaxpartecipanti"));
+                    evento_temp.setPartecipanti(rs.getInt("Numpartecipanti"));
+                    evento_temp.setCapienza(rs.getInt("Nummaxpartecipanti"));
 
                     lista_temp.add(evento_temp);
                 }
@@ -57,7 +58,7 @@ public class DBEvento {
 
     public int SalvaInDB() {
         int ret = 0;
-        String query = "INSERT INTO eventi(titolo,descrizione,data,ora,luogo,Nummaxpartecipanti,amministratore_id) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.numeroMassimoPartecipanti + "','"+ this.id_amministratore+"')";
+        String query = "INSERT INTO eventi(titolo,descrizione,data,ora,luogo,Nummaxpartecipanti,amministratore_id) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.capienza + "','"+ this.Idamministratore +"')";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
@@ -87,20 +88,20 @@ public class DBEvento {
         return luogo;
     }
 
-    public int getNumeroMassimoPartecipanti() {
-        return numeroMassimoPartecipanti;
+    public int getCapienza() {
+        return capienza;
     }
 
-    public int getNumeroPartecipanti() {
-        return numeroPartecipanti;
+    public int getPartecipanti() {
+        return partecipanti;
     }
 
     public LocalDate getData() {
         return data;
     }
 
-    public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
-        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    public void setCapienza(int capienza) {
+        this.capienza = capienza;
     }
 
     public void setTitolo(String titolo) {
@@ -123,8 +124,8 @@ public class DBEvento {
         this.luogo = luogo;
     }
 
-    public void setNumeroPartecipanti(int numeroPartecipanti) {
-        this.numeroPartecipanti = numeroPartecipanti;
+    public void setPartecipanti(int partecipanti) {
+        this.partecipanti = partecipanti;
     }
 
     public int getId() {
@@ -135,12 +136,20 @@ public class DBEvento {
         this.id = id;
     }
 
-    public int getId_amministratore() {
-        return id_amministratore;
+    public int getIdamministratore() {
+        return Idamministratore;
     }
 
-    public void setId_amministratore(int id_amministratore) {
-        this.id_amministratore = id_amministratore;
+    public void setIdamministratore(int idamministratore) {
+        this.Idamministratore = idamministratore;
+    }
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
     }
 }
 

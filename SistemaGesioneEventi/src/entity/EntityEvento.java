@@ -4,7 +4,6 @@ import database.DBEvento;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 public class EntityEvento {
 
@@ -47,8 +46,8 @@ public class EntityEvento {
         s.setOra(this.ora);
         s.setDescrizione(this.descrizione);
         s.setLuogo(this.luogo);
-        s.setNumeroMassimoPartecipanti(this.numeroMassimoPartecipanti);
-        s.setId_amministratore(this.id_amministratore);
+        s.setCapienza(this.numeroMassimoPartecipanti);
+        s.setIdamministratore(this.id_amministratore);
 
 
         return s.SalvaInDB();

@@ -4,7 +4,6 @@ import DTO.DTOEvento;
 import database.DBEvento;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class CatalogoEventi {
 
@@ -29,8 +28,8 @@ public class CatalogoEventi {
             evento_temp.setData(((DBEvento)lista_db_eventi.get(i)).getData());
             evento_temp.setOra(((DBEvento)lista_db_eventi.get(i)).getOra());
             evento_temp.setLuogo(((DBEvento)lista_db_eventi.get(i)).getLuogo());
-            evento_temp.setNumeroPartecipanti(((DBEvento)lista_db_eventi.get(i)).getNumeroPartecipanti());
-            evento_temp.setNumeroMassimoPartecipanti(((DBEvento)lista_db_eventi.get(i)).getNumeroMassimoPartecipanti());
+            evento_temp.setNumeroPartecipanti(((DBEvento)lista_db_eventi.get(i)).getPartecipanti());
+            evento_temp.setNumeroMassimoPartecipanti(((DBEvento)lista_db_eventi.get(i)).getCapienza());
 
             elencoEventi.add(evento_temp);
         }
