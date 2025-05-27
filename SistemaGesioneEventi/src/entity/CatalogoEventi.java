@@ -1,5 +1,6 @@
 package entity;
 
+import DTO.DTOEvento;
 import database.DBEvento;
 
 import java.util.ArrayList;
@@ -36,13 +37,22 @@ public class CatalogoEventi {
 
     }
 
-    public static ArrayList<EntityEvento> getListaEventi() {
-        ArrayList<EntityEvento> lista_eventi = new ArrayList();
+    public static ArrayList<DTOEvento> getListaEventi() {
+        ArrayList<DTOEvento> lista_eventi = new ArrayList();
+
         DBEvento e = new DBEvento();
         ArrayList<DBEvento> lista_db_eventi = e.getListaEventi();
 
-        for (DBEvento dbEvento : lista_db_eventi) {
-            EntityEvento temp = new EntityEvento(dbEvento);
+        for(int i = 0; i < lista_db_eventi.size(); ++i) {
+            String titolo = (String)((lista_db_eventi.get(i)).getTitolo());
+            String descrizione = (String)((lista_db_eventi.get(i)).getTitolo());
+            String data = (String)((lista_db_eventi.get(i)).getTitolo());
+            String ora = (String)((lista_db_eventi.get(i)).getTitolo());
+            String luogo = (String)((lista_db_eventi.get(i)).getTitolo());
+            String numpartecipanti = (String)((lista_db_eventi.get(i)).getTitolo());
+            String capienza = (String)((lista_db_eventi.get(i)).getTitolo());
+
+            DTOEvento temp = new DTOEvento(titolo,descrizione,data,ora,luogo,numpartecipanti,capienza);
             lista_eventi.add(temp);
         }
 
