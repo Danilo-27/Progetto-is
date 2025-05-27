@@ -1,3 +1,5 @@
+//test commento
+
 package control;
 
 import database.DBCliente;
@@ -51,7 +53,9 @@ public class Controller {
 
                 EntityCliente c =new EntityCliente();
                 EntityAmministratore a = new EntityAmministratore();
+
                 c.cercaSuDB(email);
+                a.cercaSuDB(email);
 
                 if (c.getNome() != null) {
                     if (c.verificaPassword(password)) {
