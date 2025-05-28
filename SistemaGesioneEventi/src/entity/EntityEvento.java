@@ -26,7 +26,8 @@ public class EntityEvento {
         this.luogo = evento.getLuogo();
     }
 
-    public EntityEvento(int numeroPartecipanti, int numeroMassimoPartecipanti, String luogo, LocalTime ora, LocalDate data, String descrizione, String titolo) {
+    public EntityEvento(int id,int numeroPartecipanti, int numeroMassimoPartecipanti, String luogo, LocalTime ora, LocalDate data, String descrizione, String titolo) {
+        this.id = id;
         this.numeroPartecipanti = numeroPartecipanti;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
         this.luogo = luogo;

@@ -37,6 +37,11 @@ public class Controller {
             return "L'evento è stato inserito";
     }
 
+    public static String ricercaCliente(String email) {
+        EntityCliente c = EntityUtenteRegistrato.ricercaCliente(email);
+
+        return "Lo studente con email: " + email + " è " + c.getNome()+ " BIGLIETTI: " + c.getStoricobiglietti().size() ;
+    }
 
     public static ArrayList<DTOEvento> getListaEventi_con_filtro(String titolo, String data, String luogo) {
         LocalDate date = null;

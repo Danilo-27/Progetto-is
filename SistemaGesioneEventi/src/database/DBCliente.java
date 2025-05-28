@@ -2,21 +2,87 @@ package database;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DBCliente {
 
+    private int id;
+    private String immagineProfilo;
     private int numPartecipazione;
-    private byte[] immagineProfilo;
-    private String email;
-    private String password;
     private String nome;
     private String cognome;
+    private String email;
+    private String password;
 
-    public DBCliente() {}
+    private ArrayList<DBBiglietto> storicobiglietti;
+
+    public DBCliente() {this.storicobiglietti = new ArrayList<>();}
 
     public DBCliente(String email){
         this.email = email;
+        this.storicobiglietti = new ArrayList<>();
         this.caricaDaDB();
+    }
+
+
+    public int SalvaInDB() {
+        int ret = 0;
+        String query = "INSERT INTO clienti(immagineProfilo,numPartecipazione,email,password,nome,cognome) VALUES ( '"+this.immagineProfilo +"','"+ this.numPartecipazione + "','" + this.email  + "','"+ this.password+ "','" + this.nome + "','" + this.cognome +"')";
+        try {
+            ret = DBConnectionManager.updateQuery(query);
+        } catch (SQLException | ClassNotFoundException e) {
+            ((Exception)e).printStackTrace();
+            ret = -1;
+        }
+        return ret;
+    }
+
+
+    public void caricaDaDB() {
+        String query = "SELECT * FROM clienti WHERE email='" + this.email + "';";
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            if (rs.next()) {
+                this.password = rs.getString("password");
+                this.nome = rs.getString("nome");
+                this.cognome = rs.getString("cognome");
+                this.email = rs.getString("email");
+                this.immagineProfilo = rs.getString("immagineProfilo");
+                this.numPartecipazione = rs.getInt("numPartecipazione");
+
+            } else {
+                System.out.println("Utente non trovato nel DB");
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void caricaBigliettiClientiDaDB() {
+
+        String query = new String("select * from biglietti where IDCliente IN (select id from clienti where id = '" + this.id + "')");
+
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            while(rs.next()) {
+                DBBiglietto biglietto = new DBBiglietto();
+                biglietto.setId(rs.getInt("id"));
+                biglietto.setNome_titolare(rs.getString("nome_titolare"));
+                biglietto.setCodice_univoco(rs.getString("codice_univoco"));
+                biglietto.setStato(rs.getString("stato"));
+                biglietto.setIDcliente(rs.getInt("IDcliente"));
+                biglietto.setIDEvento(rs.getInt("IDEvento"));
+
+                this.storicobiglietti.add(biglietto);
+            }
+            rs.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            ((Exception)e).printStackTrace();
+        }
+
     }
 
     //getter and setter
@@ -25,12 +91,6 @@ public class DBCliente {
     }
     public void setNumPartecipazione(int numPartecipazione) {
         this.numPartecipazione = numPartecipazione;
-    }
-    public byte[] getImmagineProfilo() {
-        return immagineProfilo;
-    }
-    public void setImmagineProfilo(byte[] immagineProofilo) {
-        this.immagineProfilo = immagineProofilo;
     }
     public String getEmail() {
         return email;
@@ -57,38 +117,15 @@ public class DBCliente {
         this.cognome = cognome;
     }
 
-    public int SalvaInDB() {
-        int ret = 0;
-        String query = "INSERT INTO clienti(immagineProfilo,numPartecipazione,email,password,nome,cognome) VALUES ( '"+this.immagineProfilo +"','"+ this.numPartecipazione + "','" + this.email  + "','"+ this.password+ "','" + this.nome + "','" + this.cognome +"')";
-        try {
-            ret = DBConnectionManager.updateQuery(query);
-        } catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
-            ret = -1;
-        }
-        return ret;
+    public String getImmagineProfilo() {
+        return immagineProfilo;
     }
 
-
-    public void caricaDaDB() {
-        String query = "SELECT * FROM clienti WHERE email='" + this.email + "';";
-        try {
-            ResultSet rs = DBConnectionManager.selectQuery(query);
-            if (rs.next()) {
-                this.password = rs.getString("password");
-                this.nome = rs.getString("nome");
-                this.cognome = rs.getString("cognome");
-                this.email = rs.getString("email");
-            } else {
-                System.out.println("Utente non trovato nel DB");
-            }
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
+    public void setImmagineProfilo(String immagineProfilo) {
+        this.immagineProfilo = immagineProfilo;
     }
 
-
-
-
+    public ArrayList<DBBiglietto> getStoricobiglietti() {
+        return storicobiglietti;
+    }
 }
