@@ -3,6 +3,9 @@ package entity;
 import DTO.DTOEvento;
 import database.DBEvento;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class CatalogoEventi {
@@ -12,6 +15,8 @@ public class CatalogoEventi {
     public CatalogoEventi() {
         elencoEventi = new ArrayList();
     }
+
+
 
     public static void caricaListaDaDB() {
         elencoEventi = new ArrayList();
@@ -56,6 +61,59 @@ public class CatalogoEventi {
         }
 
         return lista_eventi;
+    }
+
+    public static ArrayList<DTOEvento> getListaEventi_con_filtro(String titolo,LocalDate data, String luogo) {
+
+        caricaListaDaDB();
+
+        ArrayList<DTOEvento> lista_dto = new ArrayList();
+
+        for (EntityEvento evento : elencoEventi) {
+            boolean match = true;
+
+            String titoloDTO = evento.getTitolo();
+            LocalDate dataTemp = evento.getData();
+            String luogoDTO = evento.getLuogo();
+
+            if (titolo != null) {
+                if (!evento.getTitolo().equalsIgnoreCase(titolo)) {
+                    match = false;
+                } else {
+                    titoloDTO = titolo;
+                }
+            }
+
+            if (data != null) {
+                if (!evento.getData().equals(data)) {
+                    match = false;
+                } else {
+                    dataTemp = data;
+                }
+            }
+
+            if (luogo != null) {
+                if (!evento.getLuogo().equalsIgnoreCase(luogo)) {
+                    match = false;
+                } else {
+                    luogoDTO = luogo;
+                }
+            }
+
+            if (match) {
+                String descrizioneDTO = evento.getDescrizione();
+                String oraDTO = String.valueOf(evento.getOra());
+                String dataDTO = String.valueOf(dataTemp);
+                String numeroPartecipantiDTO = String.valueOf(evento.getNumeroPartecipanti());
+                String numeroMaxPartecipantiDTO = String.valueOf(evento.getNumeroMassimoPartecipanti());
+
+                DTOEvento dto = new DTOEvento(titoloDTO,descrizioneDTO,dataDTO,oraDTO,luogoDTO,numeroPartecipantiDTO,numeroMaxPartecipantiDTO);
+
+                lista_dto.add(dto);
+            }
+        }
+
+        return lista_dto;
     }
 
 }
