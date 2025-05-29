@@ -57,8 +57,6 @@ public class DBCliente {
         }
     }
 
-
-
     public void caricaBigliettiClientiDaDB() {
 
         String query = new String("select * from biglietti where IDCliente IN (select id from clienti where email = '" + this.email + "')");
@@ -73,7 +71,6 @@ public class DBCliente {
                 biglietto.setStato(rs.getString("stato"));
                 biglietto.setIDcliente(rs.getInt("IDcliente"));
                 biglietto.setIDEvento(rs.getInt("IDEvento"));
-
                 this.storicobiglietti.add(biglietto);
             }
             rs.close();

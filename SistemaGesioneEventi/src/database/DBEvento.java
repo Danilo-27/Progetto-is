@@ -26,14 +26,13 @@ public class DBEvento {
 
     //costruttore vuoto
     public DBEvento(){this.biglietti=new ArrayList<>();}
+
     //costruttore con titolo
     public DBEvento(String titolo){
         this.titolo=titolo;
         this.biglietti=new ArrayList<>();
         this.caricaDaDB();
     }
-
-
 
 //metodo per prelevare tutti gli eventi dal database
 

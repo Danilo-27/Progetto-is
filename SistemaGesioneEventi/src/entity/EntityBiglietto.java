@@ -110,5 +110,11 @@ public class EntityBiglietto {
         this.IDEvento = IDEvento;
     }
 
+    public EntityEvento getEvento() {
+        return evento;
+    }
 
+    public void setEvento(EntityEvento evento) {
+        this.evento = evento;
+    }
 }

@@ -43,7 +43,7 @@ public class EntityCliente extends UtenteRegistrato {
 
     public void caricaBiglietti(DBCliente cliente) {
         for(int i = 0; i < cliente.getStoricobiglietti().size(); ++i) {
-            EntityBiglietto biglietto= new EntityBiglietto(cliente.getStoricobiglietti().get(i));
+            EntityBiglietto biglietto= new EntityBiglietto((DBBiglietto) cliente.getStoricobiglietti().get(i));
             this.storicobiglietti.add(biglietto);
         }
 

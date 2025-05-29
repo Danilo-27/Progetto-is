@@ -1,7 +1,9 @@
 package database;
-//test
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class DBBiglietto {
 
@@ -39,7 +41,7 @@ public class DBBiglietto {
     }
 
     public void caricaEventoBigliettoDaDB() {
-        String query = "SELECT * FROM eventi WHERE = ID'" + this.IDEvento + "';";
+        String query = "SELECT * FROM eventi WHERE ID='" + this.IDEvento + "';";
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             if (rs.next()) {
@@ -74,9 +76,6 @@ public class DBBiglietto {
         return ret;
     }
 
-    public void caricaEventoBigliettoDaDB(){
-        String query = "select * from eventi where ID = '" + this.IDEvento + "');";
-    }
 //
 
     public String getNome_titolare() {
@@ -126,4 +125,5 @@ public class DBBiglietto {
     public void setIDEvento(int IDEvento) {
         this.IDEvento = IDEvento;
     }
+
 }
