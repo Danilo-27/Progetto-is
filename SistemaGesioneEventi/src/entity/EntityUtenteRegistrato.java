@@ -20,6 +20,11 @@ public class EntityUtenteRegistrato {
         return a.SalvaInDB();
     }
 
+    public static EntityCliente ricercaCliente(String email) {
+        EntityCliente cliente = new EntityCliente(email);
+        return cliente;
+    }
+
     public String getEmail() {
         return email;
     }

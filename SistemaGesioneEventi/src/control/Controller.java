@@ -2,6 +2,7 @@
 
 package control;
 
+import DTO.DTOEvento;
 import database.DBCliente;
 import database.DBamministratore;
 import entity.*;
@@ -14,11 +15,11 @@ public class Controller {
 
     private static String UtenteAutenticato;
 
-    public static ArrayList<EntityEvento> ConsultaCatalogoEventi() {
+    public static ArrayList<DTOEvento> ConsultaCatalogoEventi() {
 
         new ArrayList();
 
-        ArrayList<EntityEvento> lista_eventi = CatalogoEventi.getListaEventi();
+        ArrayList<DTOEvento> lista_eventi = CatalogoEventi.getListaEventi();
         return lista_eventi;
     }
 
@@ -37,6 +38,24 @@ public class Controller {
         else
             return "L'evento è stato inserito";
     }
+
+    public static String ricercaCliente(String email) {
+        EntityCliente c = EntityUtenteRegistrato.ricercaCliente(email);
+
+        return "Il cliente con email: " + email + " è " + c.getNome()+ " BIGLIETTI: " + c.getStoricobiglietti().size() ;
+    }
+
+    public static ArrayList<DTOEvento> getListaEventi_con_filtro(String titolo, String data, String luogo) {
+        LocalDate date = null;
+
+        if (data != null && !data.isEmpty()) {
+            date = LocalDate.parse(data);
+        }
+
+        ArrayList<DTOEvento> my_dto_list = CatalogoEventi.getListaEventi_con_filtro(titolo, date, luogo);
+        return my_dto_list;
+    }
+
 
     public static void registraCliente(String password, String nome, String cognome, String email) {
         EntityCliente nuovoCliente = new EntityCliente(email, password, nome, cognome);
@@ -87,6 +106,8 @@ public class Controller {
                 System.out.println(e.getMessage());
             }
         }
+
+
     }
 
 
