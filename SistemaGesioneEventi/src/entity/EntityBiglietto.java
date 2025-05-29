@@ -46,7 +46,9 @@ public class EntityBiglietto {
     }
 
     public void caricaEvento(DBBiglietto biglietto) {
-        EntityEvento evento=new EntityEvento();
+        //devo prendere l'evento dal biglietto che ho creato mediante il metodo
+        //caricaEventoBigliettoDaDB, chiamato nel costruttore ""public EntityBiglietto(DBBiglietto biglietto)""
+        EntityEvento evento = new EntityEvento(biglietto.getEvento());
         this.evento=evento;
     }
 

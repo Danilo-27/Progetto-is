@@ -41,7 +41,7 @@ public class DBBiglietto {
     }
 
     public void caricaEventoBigliettoDaDB() {
-        String query = "SELECT * FROM eventi WHERE ID='" + this.IDEvento + "';";
+        String query = "SELECT * FROM eventi WHERE ID = " + this.IDEvento + ";";
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             if (rs.next()) {
@@ -54,6 +54,9 @@ public class DBBiglietto {
                 evento.setOra(LocalTime.parse(rs.getString("ora")));
                 evento.setDescrizione(rs.getString("descrizione"));
                 evento.setLuogo(rs.getString("luogo"));
+
+                this.evento = evento;
+
             } else {
                 System.out.println("Utente non trovato nel DB");
             }
@@ -126,4 +129,7 @@ public class DBBiglietto {
         this.IDEvento = IDEvento;
     }
 
+    public DBEvento getEvento() {
+        return evento;
+    }
 }

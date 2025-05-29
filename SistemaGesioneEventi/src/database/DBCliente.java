@@ -59,7 +59,7 @@ public class DBCliente {
 
     public void caricaBigliettiClientiDaDB() {
 
-        String query = new String("select * from biglietti where IDCliente IN (select id from clienti where email = '" + this.email + "')");
+        String query = new String("select * from biglietti where IDcliente IN (select id from clienti where email = '" + this.email + "')");
 
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
