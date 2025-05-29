@@ -1,9 +1,5 @@
 package boundary;
-import DTO.DTOEvento;
 import  control.Controller;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class BoundaryUtenteRegistrato {
 
