@@ -1,9 +1,12 @@
 package entity;
 
+import database.DBBiglietto;
+import database.DBCliente;
 import database.DBEvento;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class EntityEvento {
 
@@ -13,9 +16,10 @@ public class EntityEvento {
     private LocalDate data;
     private LocalTime ora;
     private String luogo;
-    private int numeroMassimoPartecipanti;
-    private int numeroPartecipanti;
+    private int capienza;
+    private int partecipanti;
     private int id_amministratore;
+    private ArrayList<EntityBiglietto> biglietti;
 
     public EntityEvento(DBEvento evento) {
         this.id = evento.getId();
@@ -26,10 +30,10 @@ public class EntityEvento {
         this.luogo = evento.getLuogo();
     }
 
-    public EntityEvento(int id,int numeroPartecipanti, int numeroMassimoPartecipanti, String luogo, LocalTime ora, LocalDate data, String descrizione, String titolo) {
+    public EntityEvento(int id, int partecipanti, int capienza, String luogo, LocalTime ora, LocalDate data, String descrizione, String titolo) {
         this.id = id;
-        this.numeroPartecipanti = numeroPartecipanti;
-        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.partecipanti = partecipanti;
+        this.capienza = capienza;
         this.luogo = luogo;
         this.ora = ora;
         this.data = data;
@@ -37,8 +41,29 @@ public class EntityEvento {
         this.titolo = titolo;
     }
 
+    public EntityEvento(String titolo) {
+        DBEvento evento= new DBEvento(titolo);
+        this.titolo = evento.getTitolo();
+        this.data=evento.getData();
+        this.ora=evento.getOra();
+        this.descrizione=evento.getDescrizione();
+        this.luogo=evento.getLuogo();
+        this.capienza=evento.getCapienza();
+        this.id_amministratore=evento.getIdamministratore();
+        this.biglietti=new ArrayList<>();
+        evento.caricaBigliettiEventiDaDB();
+
+    }
+
     public EntityEvento() {}
 
+    public void caricaBiglietti(DBEvento evento) {
+        for(int i = 0; i < evento.getBiglietti().size(); ++i) {
+            EntityBiglietto biglietto = new EntityBiglietto((DBBiglietto)evento.getBiglietti().get(i));
+            this.biglietti.add(biglietto);
+        }
+
+    }
 
     public int scriviSuDB() {
         DBEvento s = new DBEvento();
@@ -47,7 +72,7 @@ public class EntityEvento {
         s.setOra(this.ora);
         s.setDescrizione(this.descrizione);
         s.setLuogo(this.luogo);
-        s.setCapienza(this.numeroMassimoPartecipanti);
+        s.setCapienza(this.capienza);
         s.setIdamministratore(this.id_amministratore);
 
 
@@ -100,20 +125,20 @@ public class EntityEvento {
         this.luogo = luogo;
     }
 
-    public int getNumeroMassimoPartecipanti() {
-        return numeroMassimoPartecipanti;
+    public int getCapienza() {
+        return capienza;
     }
 
-    public void setNumeroMassimoPartecipanti(int numeroMassimoPartecipanti) {
-        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+    public void setCapienza(int capienza) {
+        this.capienza = capienza;
     }
 
-    public int getNumeroPartecipanti() {
-        return numeroPartecipanti;
+    public int getPartecipanti() {
+        return partecipanti;
     }
 
-    public void setNumeroPartecipanti(int numeroPartecipanti) {
-        this.numeroPartecipanti = numeroPartecipanti;
+    public void setPartecipanti(int partecipanti) {
+        this.partecipanti = partecipanti;
     }
 
     public int getId() {
@@ -132,7 +157,16 @@ public class EntityEvento {
         this.id_amministratore = id_amministratore;
     }
 
-    //toString
+    public ArrayList<EntityBiglietto> getBiglietti() {
+        return biglietti;
+    }
+
+    public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
+        this.biglietti = biglietti;
+    }
+
+
+//toString
 
     @Override
     public String toString() {
@@ -143,8 +177,9 @@ public class EntityEvento {
                 ", data=" + data +
                 ", ora='" + ora + '\'' +
                 ", luogo='" + luogo + '\'' +
-                ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
-                ", numeroPartecipanti=" + numeroPartecipanti +
+                ", capienza=" + capienza +
+                ", partecipanti=" + partecipanti +
                 '}';
     }
+
 }

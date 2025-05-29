@@ -1,5 +1,7 @@
 package database;
 
+import entity.EntityBiglietto;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -19,10 +21,17 @@ public class DBEvento {
     private int capienza;
     private int partecipanti;
     private int Idamministratore;
+    private ArrayList<DBBiglietto> biglietti;
 
 
-
-    public DBEvento(){}
+    //costruttore vuoto
+    public DBEvento(){this.biglietti=new ArrayList<>();}
+    //costruttore con titolo
+    public DBEvento(String titolo){
+        this.titolo=titolo;
+        this.biglietti=new ArrayList<>();
+        this.caricaDaDB();
+    }
 
 
 
@@ -152,6 +161,60 @@ public class DBEvento {
         this.costo = costo;
     }
 
+    public ArrayList<DBBiglietto> getBiglietti() {
+        return biglietti;
+    }
+
+    public void setBiglietti(ArrayList<DBBiglietto> biglietti) {
+        this.biglietti = biglietti;
+    }
+
+
+    public void caricaDaDB() {
+        String query = "SELECT * FROM eventi WHERE titolo='" + this.titolo + "';";
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            if (rs.next()) {
+                this.id=(rs.getInt("id"));
+                this.titolo=(rs.getString("Titolo"));
+                this.descrizione=(rs.getString("Descrizione"));
+                this.data=(rs.getDate("Data").toLocalDate());
+                this.ora=(LocalTime.parse(rs.getString("Ora")));
+                this.luogo=(rs.getString("Luogo"));
+                this.partecipanti=(rs.getInt("Partecipanti"));
+                this.capienza=(rs.getInt("Capienza"));
+
+            } else {
+                System.out.println("Evento non trovato nel DB");
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void caricaBigliettiEventiDaDB() {
+
+        String query = new String("select * from biglietti where IDEvento IN (select id from eventi where titolo = '" + this.titolo + "')");
+
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            while(rs.next()) {
+                DBBiglietto biglietto = new DBBiglietto();
+                biglietto.setNome_titolare(rs.getString("nome_titolare"));
+                biglietto.setCodice_univoco(rs.getString("codice_univoco"));
+                biglietto.setStato(rs.getString("stato"));
+                biglietto.setIDcliente(rs.getInt("IDcliente"));
+                biglietto.setIDEvento(rs.getInt("IDEvento"));
+
+                this.biglietti.add(biglietto);
+            }
+            rs.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            ((Exception)e).printStackTrace();
+        }
+
+    }
 
 //    //METODO PER FARE IL FILTRAGGIO DEGLI EVENTI PER DATA LUOGO O TITOLO DAL DATABASE
 //    public void caricaDaDB(String titolo,String luogo,LocalDate data) {

@@ -13,7 +13,6 @@ public class DBCliente {
     private String cognome;
     private String email;
     private String password;
-
     private ArrayList<DBBiglietto> storicobiglietti;
 
     public DBCliente() {this.storicobiglietti = new ArrayList<>();}
@@ -46,7 +45,6 @@ public class DBCliente {
                 this.password = rs.getString("password");
                 this.nome = rs.getString("nome");
                 this.cognome = rs.getString("cognome");
-                this.email = rs.getString("email");
                 this.immagineProfilo = rs.getString("immagineProfilo");
                 this.numPartecipazione = rs.getInt("numPartecipazione");
 
@@ -82,6 +80,7 @@ public class DBCliente {
         } catch (SQLException | ClassNotFoundException e) {
             ((Exception)e).printStackTrace();
         }
+
 
     }
 

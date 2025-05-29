@@ -1,7 +1,5 @@
 package entity;
 
-import database.DBamministratore;
-
 public class UtenteRegistrato {
     private String email;
     private String password;
@@ -49,7 +47,7 @@ public class UtenteRegistrato {
         this.cognome = cognome;
     }
 
-    public boolean verificaPassword(String password){
+    public boolean verificaCredenziali(String password){
         return password.equals(getPassword());
     }
 

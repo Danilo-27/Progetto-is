@@ -3,8 +3,6 @@
 package control;
 
 import DTO.DTOEvento;
-import database.DBCliente;
-import database.DBamministratore;
 import entity.*;
 
 import java.time.LocalDate;
@@ -30,7 +28,7 @@ public class Controller {
         evento.setData(LocalDate.parse(data));
         evento.setOra(LocalTime.parse(ora));
         evento.setLuogo(luogo);
-        evento.setNumeroMassimoPartecipanti(numeroMassimoPartecipanti);
+        evento.setCapienza(numeroMassimoPartecipanti);
         evento.setId_amministratore(id_amministratore);
 
         if (evento.scriviSuDB() == -1)
@@ -67,7 +65,7 @@ public class Controller {
     }
 
 
-    public static void loginUtente(String email, String password) {
+    public static void autenticazioneUtente(String email, String password) {
             try {
 
                 EntityCliente c =new EntityCliente();
@@ -77,7 +75,7 @@ public class Controller {
                 a.cercaSuDB(email);
 
                 if (c.getNome() != null) {
-                    if (c.verificaPassword(password)) {
+                    if (c.verificaCredenziali(password)) {
                         UtenteAutenticato="Cliente";
                         System.out.println("Login come Cliente");
                     }else{
@@ -90,7 +88,7 @@ public class Controller {
                 a.cercaSuDB(email);
 
                 if (a.getNome() != null) {
-                    if (a.verificaPassword(password)) {
+                    if (a.verificaCredenziali(password)) {
                         UtenteAutenticato="amministratore";
                         System.out.println("Login come Amministratore");
                     }else{

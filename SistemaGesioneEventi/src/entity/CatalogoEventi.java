@@ -3,9 +3,7 @@ package entity;
 import DTO.DTOEvento;
 import database.DBEvento;
 
-import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class CatalogoEventi {
@@ -33,8 +31,8 @@ public class CatalogoEventi {
             evento_temp.setData(((DBEvento)lista_db_eventi.get(i)).getData());
             evento_temp.setOra(((DBEvento)lista_db_eventi.get(i)).getOra());
             evento_temp.setLuogo(((DBEvento)lista_db_eventi.get(i)).getLuogo());
-            evento_temp.setNumeroPartecipanti(((DBEvento)lista_db_eventi.get(i)).getPartecipanti());
-            evento_temp.setNumeroMassimoPartecipanti(((DBEvento)lista_db_eventi.get(i)).getCapienza());
+            evento_temp.setPartecipanti(((DBEvento)lista_db_eventi.get(i)).getPartecipanti());
+            evento_temp.setCapienza(((DBEvento)lista_db_eventi.get(i)).getCapienza());
 
             elencoEventi.add(evento_temp);
         }
@@ -63,7 +61,8 @@ public class CatalogoEventi {
         return lista_eventi;
     }
 
-    public static ArrayList<DTOEvento> getListaEventi_con_filtro(String titolo,LocalDate data, String luogo) {
+
+    public static ArrayList<DTOEvento> getListaEventi_con_filtro(String titolo, LocalDate data, String luogo) {
 
         caricaListaDaDB();
 
@@ -104,8 +103,8 @@ public class CatalogoEventi {
                 String descrizioneDTO = evento.getDescrizione();
                 String oraDTO = String.valueOf(evento.getOra());
                 String dataDTO = String.valueOf(dataTemp);
-                String numeroPartecipantiDTO = String.valueOf(evento.getNumeroPartecipanti());
-                String numeroMaxPartecipantiDTO = String.valueOf(evento.getNumeroMassimoPartecipanti());
+                String numeroPartecipantiDTO = String.valueOf(evento.getPartecipanti());
+                String numeroMaxPartecipantiDTO = String.valueOf(evento.getCapienza());
 
                 DTOEvento dto = new DTOEvento(titoloDTO,descrizioneDTO,dataDTO,oraDTO,luogoDTO,numeroPartecipantiDTO,numeroMaxPartecipantiDTO);
 

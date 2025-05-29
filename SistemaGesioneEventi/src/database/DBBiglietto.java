@@ -11,8 +11,14 @@ public class DBBiglietto {
     private String stato;
     private int IDcliente;
     private int IDEvento;
+    private DBEvento evento;
 
     public DBBiglietto() {}
+
+    public DBBiglietto(String codice_univoco){
+        this.codice_univoco = codice_univoco;
+        this.caricaDaDB();
+    }
 
     public void caricaDaDB() {
         String query = "SELECT * FROM biglietti WHERE = codice_univoco'" + this.codice_univoco + "';";
@@ -44,6 +50,10 @@ public class DBBiglietto {
             ret = -1;
         }
         return ret;
+    }
+
+    public void caricaEventoBigliettoDaDB(){
+        String query = "select * from eventi where ID = '" + this.IDEvento + "');";
     }
 //
 

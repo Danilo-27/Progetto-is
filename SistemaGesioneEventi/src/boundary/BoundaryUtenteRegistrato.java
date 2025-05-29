@@ -19,7 +19,7 @@ public class BoundaryUtenteRegistrato {
 
        /* Controller.registraCliente("mammeta","pappone","ciao","sddd");*/
 
-        //Controller.loginUtente("mario.rossi@eventmanager.com", "passwordf123");
+        //Controller.autenticazioneUtente("mario.rossi@eventmanager.com", "passwordf123");
 
 //        String dataOggi = LocalDate.now().toString();
 //        System.out.println(dataOggi);
