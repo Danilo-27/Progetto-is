@@ -29,7 +29,7 @@ public class BoundaryUtenteRegistrato {
 //            System.out.println(events.get(i).toString());
 //        }
 
-        System.out.println(Controller.ricercaCliente("luca.verdi@example.com"));
+        //System.out.println(Controller.ricercaCliente("luca.verdi@example.com"));
 
 
     }
