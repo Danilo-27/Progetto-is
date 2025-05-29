@@ -10,6 +10,7 @@ public class EntityBiglietto {
     private String stato;
     private int IDcliente;
     private int IDEvento;
+    private EntityEvento evento;
 
     public EntityBiglietto(DBBiglietto biglietto) {
         this.id = biglietto.getId();
@@ -18,6 +19,8 @@ public class EntityBiglietto {
         this.stato=biglietto.getStato();
         this.IDcliente=biglietto.getIDcliente();
         this.IDEvento=biglietto.getIDEvento();
+        biglietto.caricaEventoBigliettoDaDB();
+        this.caricaEvento(biglietto);
     }
 
     public EntityBiglietto(int id,String nome_titolare, String codice_univoco, String stato,int IDcliente,int IDEvento) {
@@ -40,6 +43,11 @@ public class EntityBiglietto {
         s.setCodice_univoco(this.codice_univoco);
 
         return s.SalvaInDB();
+    }
+
+    public void caricaEvento(DBBiglietto biglietto) {
+        EntityEvento evento=new EntityEvento();
+        this.evento=evento;
     }
 
     @Override

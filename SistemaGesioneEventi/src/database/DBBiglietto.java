@@ -21,7 +21,7 @@ public class DBBiglietto {
     }
 
     public void caricaDaDB() {
-        String query = "SELECT * FROM biglietti WHERE = codice_univoco'" + this.codice_univoco + "';";
+        String query = "SELECT * FROM biglietti WHERE = codice_univco'" + this.codice_univoco + "';";
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             if (rs.next()) {
@@ -29,7 +29,29 @@ public class DBBiglietto {
                 this.stato = rs.getString("stato");
                 this.IDcliente = rs.getInt("IDcliente");
                 this.IDEvento = rs.getInt("IDEvento");
+            } else {
+                System.out.println("Utente non trovato nel DB");
+            }
 
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void caricaEventoBigliettoDaDB() {
+        String query = "SELECT * FROM eventi WHERE = ID'" + this.IDEvento + "';";
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            if (rs.next()) {
+                DBEvento evento= new DBEvento();
+                evento.setTitolo(rs.getString("Titolo"));
+                evento.setIdamministratore(rs.getInt("IDamministratore"));
+                evento.setCapienza(rs.getInt("capienza"));
+                evento.setPartecipanti(rs.getInt("partecipanti"));
+                evento.setData(LocalDate.parse(rs.getString("data")));
+                evento.setOra(LocalTime.parse(rs.getString("ora")));
+                evento.setDescrizione(rs.getString("descrizione"));
+                evento.setLuogo(rs.getString("luogo"));
             } else {
                 System.out.println("Utente non trovato nel DB");
             }
