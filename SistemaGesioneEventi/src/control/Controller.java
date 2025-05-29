@@ -41,6 +41,7 @@ public class Controller {
         EntityCliente c = EntityUtenteRegistrato.ricercaCliente(email);
 
         for(int i =0;i<c.getStoricobiglietti().size();i++){
+            System.out.println(c.getStoricobiglietti().get(i));
             System.out.println(c.getStoricobiglietti().get(i).getEvento().toString());
         }
 
