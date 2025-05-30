@@ -1,71 +1,34 @@
-\section{Autenticazione}
-\subsubsection*{Category Partition Testing}
-\begin{table}[H]
-    \centering
-    \footnotesize
-    \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{|p{6cm}|p{6cm}|}
-       \hline
-       \textbf{Email} & \textbf{Password} \\
-       \hline
-       Stringa di lunghezza $\leq$ 50 \newline
-       Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
-       Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-       Stringa non memorizzata \texttt{[ERROR]} &
-
-       Stringa di lunghezza $\leq$ 40 \newline
-       Stringa di lunghezza $>$ 40 \texttt{[ERROR]} \newline
-       Stringa di lunghezza $=$ 0 \texttt{[ERROR]} \newline
-       Stringa senza caratteri speciali \texttt{[ERROR]} \\
-       \hline
-    \end{tabular}
-    \caption{Category Partition Testing - Autenticazione}
-\end{table}
-
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 4 = 16$.
-
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 6 (3 per Email, 3 per Password).
-
-\noindent Il numero di test risultante è 7: $(1 \cdot 1 \cdot 1 \cdot 1) + 6 = 7$.
-
-\subsubsection*{Test Suite}
-
-\begin{table}[H]
-    \centering
-    \tiny
-    \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{1.5cm}|p{2.8cm}|p{2cm}|p{1.8cm}|}
-        \hline
-        \textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
-        \hline
-        1 & Tutti gli input validi & Email, Password validi & -- &
-        Email: marco bianchi@ gmail.com, Password: miapwd£ &
-        Autenticazione effettuata & -- \\
-        \hline
-        2 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]}, Password & -- &
-        Email: email molto lunga..., Password: miapwd£ &
-        Email troppo lunga & -- \\
-        \hline
-        3 & Email senza caratteri & Email con 0 caratteri \texttt{[ERROR]}, Password & -- &
-        Email: , Password: miapwd£ &
-        Inserire un indirizzo Email & -- \\
-        \hline
-        4 & Email non memorizzata & Email non presente nel DB \texttt{[ERROR]}, Password & -- &
-        Email: mario rosssi@ gmail.com, Password: miaPWD£ &
-        Account non registrato & -- \\
-        \hline
-        5 & Password $>$ 40 caratteri & Email, Password $>$ 40 caratteri \texttt{[ERROR]} & -- &
-        Email: marco bianchi@ gmail.com, Password: password molto lunga... &
-        Password troppo lunga & -- \\
-        \hline
-        6 & Password senza caratteri & Email, Password senza caratteri \texttt{[ERROR]} & -- &
-        Email: marco bianchi@ gmail.com, Password: &
-        Inserire una password & -- \\
-        \hline
-        7 & Password senza caratteri speciali & Email, Password senza caratteri speciali \texttt{[ERROR]} & -- &
-        Email: marco bianchi@ gmail.com, Password: miapwd &
-        Inserire una password valida & -- \\
-        \hline
-    \end{tabular}
-    \caption{Test Suite - Autenticazione}
-\end{table}
+\begin{longtblr}[
+    caption = {Test Suite - Autenticazione},
+    label = {tab:test_suite_autenticazione},
+	entry = {Casi di test Autenticazione},
+  ]{
+    width = \linewidth,
+    colspec = {|p{0.7cm}|p{2.3cm}|p{2.6cm}|p{1.8cm}|p{3cm}|p{2cm}|p{1.6cm}|},
+    hlines,
+    vlines,
+    rowhead = 1,
+  }
+  \textbf{ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+  1 & Tutti gli input validi & Email, Password validi & -- &
+  Email: marco bianchi@ gmail.com, Password: miapwd£ &
+  Autenticazione effettuata & L'utente è entrato correttamente nel sistema\\
+  2 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]}, Password & -- &
+  Email molto lunga (>50 char), Password: miapwd£ &
+  Email troppo lunga & -- \\
+  3 & Email senza caratteri & Email con 0 caratteri \texttt{[ERROR]}, Password & -- &
+  Email: "", Password: miapwd£ &
+  Inserire un indirizzo Email & -- \\
+  4 & Email non memorizzata & Email non presente nel DB \texttt{[ERROR]}, Password & -- &
+  Email: mario rosssi@ gmail.com, Password: miaPWD£ &
+  Account non registrato & -- \\
+  5 & Password $>$ 40 caratteri & Email, Password $>$ 40 caratteri \texttt{[ERROR]} & -- &
+  Email: marco bianchi@ gmail.com, Password molto lunga (>40 char) &
+  Password troppo lunga & -- \\
+  6 & Password senza caratteri & Email, Password senza caratteri \texttt{[ERROR]} & -- &
+  Email: marco bianchi@ gmail.com, Password: "" &
+  Inserire una password & -- \\
+  7 & Password senza caratteri speciali & Email, Password senza caratteri speciali \texttt{[ERROR]} & -- &
+  Email: marco bianchi@ gmail.com, Password: miapwd &
+  Inserire una password valida & -- \\
+  \end{longtblr}

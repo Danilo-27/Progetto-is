@@ -1,103 +1,49 @@
-\section{PubblicaEvento}
-\subsubsection*{Category Partition Testing}
-\begin{table}[H]
-	\centering
-	\footnotesize
-	\renewcommand{\arraystretch}{1.3}
-	\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
-		\hline
-		\textbf{Titolo} & \textbf{Descrizione} & \textbf{Data} & \textbf{Orario} & \textbf{Luogo} & \textbf{NumMassimo Partecipanti} \\
-		\hline
-		Stringa di lunghezza $\leq$ 50 \newline
-		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-		Stringa già memorizzata \texttt{[ERROR]} &
-
-		Stringa di lunghezza $\leq$ 150 \newline
-		Stringa di lunghezza $>$ 150 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} &
-
-		Data con formato valido (gg-mm-aaaa) \newline
-		Data con formato non valido \texttt{[ERROR]} &
-
-		Orario con formato valido (oo-mm) \newline
-		Orario con formato non valido \texttt{[ERROR]} &
-
-		Stringa non contenente caratteri speciali \newline
-		Stringa contenente caratteri speciali \texttt{[ERROR]} \newline
-		Stringa contenente numeri \texttt{[ERROR]} &
-
-		Intero di valore massimo 100 \newline
-		Intero di valore $>$ 100 \texttt{[ERROR]} \\
-		\hline
-	\end{tabular}
-	\caption{Category Partition Testing - PubblicaEvento}
-\end{table}
-
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 3 \cdot 2 \cdot 2 \cdot 3 \cdot 2 = 288$.
-
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 11 (3 per Titolo, 2 per Descrizione, 1 per Data, 1 per Orario, 2 per Luogo, 1 per NumMassimoPartecipanti).
-
-\noindent Il numero di test risultante è 12: $(1 \cdot 1 \cdot 1 \cdot 1 \cdot 1 \cdot 1) + 11 = 12$.
-
-\subsubsection*{Test Suite}
-
-\begin{table}[H]
-	\centering
-	\tiny
-	\renewcommand{\arraystretch}{1.4}
-	\begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{1.5cm}|p{3.2cm}|p{2cm}|p{1.8cm}|}
-		\hline
-		\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
-		\hline
-		1 & Tutti gli input validi & Tutti i parametri validi & Utente autenticato &
-		Titolo: Concerto Rock, Descrizione: Evento musicale serale, Data: 15-06-2025, Orario: 20-30, Luogo: Teatro Comunale, NumMax: 50 &
-		Evento pubblicato con successo & Evento salvato nel DB \\
-		\hline
-		2 & Titolo $>$ 50 caratteri & Titolo $>$ 50 caratteri \texttt{[ERROR]} & Utente autenticato &
-		Titolo molto lungo (>50 char), altri parametri validi &
-		Titolo troppo lungo & -- \\
-		\hline
-		3 & Titolo vuoto & Titolo con 0 caratteri \texttt{[ERROR]} & Utente autenticato &
-		Titolo: "", altri parametri validi &
-		Inserire un titolo & -- \\
-		\hline
-		4 & Titolo già esistente & Titolo già memorizzato \texttt{[ERROR]} & Utente autenticato &
-		Titolo: Concerto Rock (esistente), altri parametri validi &
-		Titolo già utilizzato & -- \\
-		\hline
-		5 & Descrizione $>$ 150 caratteri & Descrizione $>$ 150 caratteri \texttt{[ERROR]} & Utente autenticato &
-		Descrizione molto lunga (>150 char), altri parametri validi &
-		Descrizione troppo lunga & -- \\
-		\hline
-		6 & Descrizione vuota & Descrizione con 0 caratteri \texttt{[ERROR]} & Utente autenticato &
-		Descrizione: "", altri parametri validi &
-		Inserire una descrizione & -- \\
-		\hline
-		7 & Data formato non valido & Data con formato non valido \texttt{[ERROR]} & Utente autenticato &
-		Data: 2025/06/15, altri parametri validi &
-		Formato data non valido & -- \\
-		\hline
-		8 & Orario formato non valido & Orario con formato non valido \texttt{[ERROR]} & Utente autenticato &
-		Orario: 20:30, altri parametri validi &
-		Formato orario non valido & -- \\
-		\hline
-		9 & Luogo con caratteri speciali & Luogo con caratteri speciali \texttt{[ERROR]} & Utente autenticato &
-		Luogo: Teatro\#Comunale, altri parametri validi &
-		Caratteri non consentiti nel luogo & -- \\
-		\hline
-		10 & Luogo con numeri & Luogo con numeri \texttt{[ERROR]} & Utente autenticato &
-		Luogo: Teatro123, altri parametri validi &
-		Numeri non consentiti nel luogo & -- \\
-		\hline
-		11 & NumMassimo $>$ 100 & NumMassimo $>$ 100 \texttt{[ERROR]} & Utente autenticato &
-		NumMax: 150, altri parametri validi &
-		Numero massimo troppo alto & -- \\
-		\hline
-		12 & Utente non autenticato & Utente non autenticato & Utente non loggato &
-		Tutti i parametri validi &
-		Accesso negato & -- \\
-		\hline
-	\end{tabular}
-	\caption{Test Suite - PubblicaEvento}
-\end{table}
+\begin{longtblr}[
+	caption = {Test Suite - PubblicaEvento},
+	label = {tab:test_suite_pubblica_evento},
+	entry = {Casi di test PubblicaEvento},
+  ]{
+	width = \linewidth,
+	colspec = {|p{0.7cm}|p{2.3cm}|p{2.6cm}|p{1.8cm}|p{3cm}|p{2cm}|p{1.6cm}|},
+	hlines,
+	vlines,
+	rowhead = 1,
+  }
+  \textbf{ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+  1 & Tutti gli input validi & Tutti i parametri validi & Utente autenticato &
+  Titolo: Concerto Rock, Descrizione: Evento musicale serale, Data: 15-06-2025, Orario: 20-30, Luogo: Teatro Comunale, NumMax: 50 &
+  Evento pubblicato con successo & L'evento viene correttamente aggiunto al catalogo \\
+  2 & Titolo $>$ 50 caratteri & Titolo $>$ 50 caratteri \texttt{[ERROR]} & Utente autenticato &
+  Titolo molto lungo (>50 char), altri parametri validi &
+  Titolo troppo lungo & -- \\
+  3 & Titolo vuoto & Titolo con 0 caratteri \texttt{[ERROR]} & Utente autenticato &
+  Titolo: "", altri parametri validi &
+  Inserire un titolo & -- \\
+  4 & Titolo già esistente & Titolo già memorizzato \texttt{[ERROR]} & Utente autenticato &
+  Titolo: Concerto Rock (esistente), altri parametri validi &
+  Titolo già utilizzato & -- \\
+  5 & Descrizione $>$ 150 caratteri & Descrizione $>$ 150 caratteri \texttt{[ERROR]} & Utente autenticato &
+  Descrizione molto lunga (>150 char), altri parametri validi &
+  Descrizione troppo lunga & -- \\
+  6 & Descrizione vuota & Descrizione con 0 caratteri \texttt{[ERROR]} & Utente autenticato &
+  Descrizione: "", altri parametri validi &
+  Inserire una descrizione & -- \\
+  7 & Data formato non valido & Data con formato non valido \texttt{[ERROR]} & Utente autenticato &
+  Data: 2025/06/15, altri parametri validi &
+  Formato data non valido & -- \\
+  8 & Orario formato non valido & Orario con formato non valido \texttt{[ERROR]} & Utente autenticato &
+  Orario: 20:30, altri parametri validi &
+  Formato orario non valido & -- \\
+  9 & Luogo con caratteri speciali & Luogo con caratteri speciali \texttt{[ERROR]} & Utente autenticato &
+  Luogo: Teatro\#Comunale, altri parametri validi &
+  Caratteri non consentiti nel luogo & -- \\
+  10 & Luogo con numeri & Luogo con numeri \texttt{[ERROR]} & Utente autenticato &
+  Luogo: Teatro123, altri parametri validi &
+  Numeri non consentiti nel luogo & -- \\
+  11 & NumMassimo $>$ 100 & NumMassimo $>$ 100 \texttt{[ERROR]} & Utente autenticato &
+  NumMax: 150, altri parametri validi &
+  Numero massimo troppo alto & -- \\
+  12 & Utente non autenticato & Utente non autenticato & Utente non loggato &
+  Tutti i parametri validi &
+  Accesso negato & -- \\
+  \end{longtblr}

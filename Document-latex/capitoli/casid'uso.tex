@@ -53,7 +53,7 @@
 \centering
 \small
 \begin{tblr}{
-  colspec = {X[2,l] X[1.2,l] X[1.7,l] X[1.6,l] X[1.5,l]},
+  colspec = {X[2,l] X[1.2,l] X[1.8,l] X[1.9,l] X[1.5,l]},
   hlines,
   row{1} = {font=\bfseries}
 }
@@ -62,19 +62,19 @@ Registrazione & UtenteNonRegistrato & -- & -- & \Req{rf}{01} \\
 Autenticazione & UtenteRegistrato & -- & -- & \Req{rf}{02} \\
 RicercaEvento & UtenteRegistrato & -- & -- &\Req{rf}{08} \\
 PubblicaEvento & Amministratore & -- & -- & \Req{rf}{06} \\
-ConsultaInformazioniEvento & Amministratore & -- & Include: Consulta Catalogo Eventi & \Req{rf}{16}, \Req{rf}{17} \\
+EventiPubblicati & Amministratore & -- & -- & \Req{rf}{16}, \Req{rf}{17} \\
 ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 PartecipazioneEvento& Utente & -- & -- & \Req{rf}{14} \\
-AcquistaBiglietto & Utente & SistemaGestioneAcquisti & Include: ConsultaCatalogoEventi & \Req{rf}{09} \\
+AcquistaBiglietto & Utente & Sistema Gestione Acquisti & Include: Consulta Catalogo Eventi & \Req{rf}{09} \\
 ModificaDatiPersonali & Utente & -- & -- & \Req{rf}{5} \\
 ConsultaStoricoBiglietti & Utente & -- & --  & \Req{rf}{04} \\
-VisualizzaBiglietto & Utente & -- & -- & \Req{rf}{11} \\
-ScaricaBiglietto & Utente & -- & -- & \Req{rf}{12} \\
+VisualizzaBiglietto & Utente & -- & Include:Consulta Storico Biglietti & \Req{rf}{11} \\
+ScaricaBiglietto & Utente & -- & Include:Consulta Storico Biglietti  & \Req{rf}{12} \\
 \end{tblr}
 \end{table}
 
 \section{Diagramma dei Casi d'Uso}
-\begin{center}[!ht]
+\begin{center}
 \centering
 	\includegraphics[width=\linewidth]{assets/casid'uso/usd.png}
 \end{center}	
@@ -117,11 +117,12 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	ModificaDati & Cliente \\
 	VisualizzaStoricoBiglietti & Cliente \\
 	CreazioneEvento & Amministratore \\
+	EventiPubblicati & Amministratore \\
 	ScaricaBiglietto & Biglietto \\
 	VisualizzaBiglietto & Biglietto \\
 	AcquistoBiglietto & Evento \\
 	PartecipazioneEvento & Evento \\
-	ConsultaInformazioni & Evento \\
+	ConsultaCatalogoEventi & Catalogo \\
 	AggiungiEvento & Catalogo \\
 	RicercaEvento & catalogo \\
 
@@ -142,6 +143,8 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	\item RicercaEvento è una responsabilità di \textbf{Catalogo} essendo il contenitore degli eventi.
 	
 	\item CreazioneEvento è una responsabilità di \textbf{Amministratore} essendo il \textless\textless creator \textgreater\textgreater{} di Eventi.
+	
+	\item EventiPubblicati è una responsabilità di \textbf{Amministratore} essendo \textless\textless information expert \textgreater\textgreater{} di \textit{Eventi} da lui pubblicati.
   \end{description}
 
 
@@ -157,10 +160,10 @@ Di seguito riportiamo il diagramma delle classi di analisi.
     La creazione del seguente diagramma di sequenza, sviluppato a partire dalla descrizione dello scenario del caso d’uso \textit{Registrazione}, ha fatto emergere la necessità di definire un metodo privato specifico della classe \textbf{SistemaGestioneEventi}:
 
     \vspace{1ex}
-    \textbf{verificaCredenziali(Email, Password)}
+    \textbf{verificaEmail(Email)}
 
     \vspace{2ex}
-    Tale metodo consente a \textbf{SistemaGestioneEventi} di verificare che l’indirizzo email e la password non siano già utilizzati da un altro utente.
+    Tale metodo consente a \textbf{SistemaGestioneEventi} di verificare che l’indirizzo email  non sia già utilizzati da un altro utente.
 
     \vspace{3ex}
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/Registrazione.png}
@@ -168,43 +171,32 @@ Di seguito riportiamo il diagramma delle classi di analisi.
     \vspace{1ex}
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{Registrazione}
 \end{center}
-
 \subsection{Autenticazione}
 \begin{figure}[!ht]
-    \hspace*{4cm} % Sposta la figura a destra (aggiusta il valore)
+    \hspace*{4cm} 
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/Autenticazione.png}
 	\vspace{1ex}
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{Autenticazione}
 \end{figure}
-
 \subsection{PubblicaEvento}
 
 \begin{center}
-    La creazione del seguente diagramma di sequenza, sviluppato a partire dalla descrizione dello scenario del caso \noindent d’uso \textit{PubblicaEvento}, ha fatto emergere la necessità di definire un metodo privato, specifico della classe \textbf{Amministratore}:
-
-    \vspace{1ex}
-    \textbf{verificaValidità(Titolo, Descrizione, Data, Orario, Luogo, NumMassimoPartecipanti)}
-    
-    \vspace{2ex}
-    Tale metodo consente all’amministratore di verificare che i dati inseriti siano validi prima della pubblicazione di un evento.
-
     \vspace{3ex}
     \includegraphics[width=\linewidth]{assets/casid'uso/PubblicaEvento.png}
     
     \vspace{1ex}
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{PubblicaEvento}
 \end{center}
-
-
-\subsection{ConsultaInformazioniEvento}
+\subsection{EventiPubblicati}
 
 \begin{center}
+	Il diagramma di sequenza del caso d’uso \textit{EventiPubblicati} mostra la necessita di una responsabilta da parte dell'evento di \textbf{getListaPartecipanti()}
 
     \vspace{2ex}
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaInformazioniEvento.png}
 
     \vspace{1ex}
-    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaInformazioniEvento}
+    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{EventiPubblicati}
 \end{center}
 
 
@@ -232,6 +224,7 @@ Il diagramma di sequenza del caso d’uso \textit{AcquistoBiglietto} mostra il p
 \includegraphics[height=0.38\textheight]{assets/casid'uso/ConsultaCatalogoEventi.png}
 
 \vspace{1ex}
+\textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaCatalogoEventi}
 \end{center}
 }
 \newpage
@@ -244,14 +237,18 @@ Il diagramma di sequenza del caso d’uso \textit{PartecipazioneEvento} evidenzi
 \includegraphics[height=0.38\textheight]{assets/casid'uso/PartecipazioneEvento.png}
 \vspace{1ex}
 \end{center}
-\subsection{ModificaDatiPersonali}
+\subsection{RicercaEvento}
 \begin{center}
-Come visibile dal sequence diagram del caso d'uso 
-\textit{ModificaDatiPersonali} è stato necessario fornire alla classe \textbf{Cliente} un metodo privato, di istanza \textbf{VerificaDato(Dato,Valore)}
-
-\includegraphics[height=0.38\textheight]{assets/casid'uso/ModificaDatiPersonali.png}
+\includegraphics[height=0.38\textheight]{assets/casid'uso/RicercaEvento.png}
 \vspace{1ex}
 \end{center}
 
-%PartecipazioneEvento
-%RicercaEvento
+\section{Diagramma delle classi raffinato}
+\begin{center}	
+	\vspace{1ex}
+	\includegraphics[height=0.38\linewidth]{assets/casid'uso/DiagrammaDelleClassiRaffinato.png}
+	\vspace{1ex}
+\end{center}
+
+
+

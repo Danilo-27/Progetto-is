@@ -1,0 +1,24 @@
+\begin{longtblr}[
+	caption = {Test Suite - PartecipaEvento},
+	label = {tab:test_suite_partecipa_evento},
+	entry = {Casi di test PartecipaEvento},
+]{
+	width = \linewidth,
+	colspec = {|p{0.7cm}|p{2.3cm}|p{2.6cm}|p{1.8cm}|p{3cm}|p{2cm}|p{1.6cm}|},
+	hlines,
+	vlines,
+	rowhead = 1,
+}
+
+	\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+	
+	1 & Partecipazione valida & Codice corretto e biglietto non consumato & Utente autenticato, biglietto esistente &
+	Codice: xxxx-123-ABC, Stato: Non consumato &
+	Partecipazione registrata con successo & Biglietto marcato come consumato \\
+	2 & Codice biglietto non valido & Codice biglietto $\neq$ xxxx-123-ABC \texttt{[ERROR]} & Utente autenticato &
+	Codice: yyyy-456-DEF, Stato: Non consumato &
+	Codice biglietto non valido & -- \\
+	3 & Biglietto già consumato & Stato biglietto = Consumato \texttt{[ERROR]} & Utente autenticato, biglietto esistente &
+	Codice: xxxx-123-ABC, Stato: Consumato &
+	Biglietto già utilizzato & -- \\
+\end{longtblr}
