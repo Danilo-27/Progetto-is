@@ -8,8 +8,8 @@ public class EntityBiglietto {
     private  String nome_titolare;
     private String codice_univoco;
     private String stato;
-    private int IDcliente;
-    private int IDEvento;
+    private int IDcliente; // togliere
+    private int IDEvento; // togliere
     private EntityEvento evento;
 
     public EntityBiglietto(DBBiglietto biglietto) {
@@ -17,8 +17,8 @@ public class EntityBiglietto {
         this.nome_titolare=biglietto.getNome_titolare();
         this.codice_univoco=biglietto.getCodice_univoco();
         this.stato=biglietto.getStato();
-        this.IDcliente=biglietto.getIDcliente();
-        this.IDEvento=biglietto.getIDEvento();
+        this.IDcliente=biglietto.getIDcliente(); //togliere
+        this.IDEvento=biglietto.getIDEvento(); //togliere
         biglietto.caricaEventoBigliettoDaDB();
         this.caricaEvento(biglietto);
     }

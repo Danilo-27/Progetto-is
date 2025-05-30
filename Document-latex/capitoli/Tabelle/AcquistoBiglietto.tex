@@ -10,7 +10,7 @@
 	rowhead = 1,
 }
 \textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
-1 & Posti disponibili, dati pagamento validi & Posti disponibili $>$ 0, dati pagamento validi & Utente autenticato & Evento con posti disponibili, dati pagamento corretti & Biglietto creato e associato al cliente & Biglietto salvato nel DB associato all’utente \\
+1 & Posti disponibili, dati pagamento validi & Posti disponibili $>$ 0, dati pagamento validi & Utente autenticato & Evento con posti disponibili, dati pagamento corretti & Biglietto creato & Il biglietto è associato al cliente  \\
 2 & Posti esauriti & Posti esauriti = 0 & Utente autenticato, evento esistente & Evento senza posti disponibili, dati pagamento validi & Messaggio di posti esauriti, acquisto annullato & Nessun biglietto creato \\
 3 & Dati pagamento incompleti & Posti disponibili $>$ 0, dati pagamento incompleti \texttt{[ERROR]} & Utente autenticato, evento esistente & Evento con posti disponibili, dati pagamento incompleti & Errore di pagamento: dati incompleti & Nessun biglietto creato \\
 4 & Dati pagamento errati (es. carta scaduta) & Posti disponibili $>$ 0, dati pagamento errati \texttt{[ERROR]} & Utente autenticato, evento esistente & Evento con posti disponibili, dati pagamento errati & Errore di pagamento: dati errati & Nessun biglietto creato \\
