@@ -17,7 +17,7 @@ public class Controller {
 
         new ArrayList();
 
-        ArrayList<DTOEvento> lista_eventi = CatalogoEventi.getListaEventi();
+        ArrayList<DTOEvento> lista_eventi = EntityCatalogo.consultaCatalogo();
         return lista_eventi;
     }
 
@@ -56,7 +56,7 @@ public class Controller {
             date = LocalDate.parse(data);
         }
 
-        ArrayList<DTOEvento> my_dto_list = CatalogoEventi.getListaEventi_con_filtro(titolo, date, luogo);
+        ArrayList<DTOEvento> my_dto_list = EntityCatalogo.ricercaEvento(titolo, date, luogo);
         return my_dto_list;
     }
 

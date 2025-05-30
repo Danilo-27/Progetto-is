@@ -25,6 +25,11 @@ public class EntityUtenteRegistrato {
         return cliente;
     }
 
+    private boolean verificaCredenziali(){
+        //IMPLEMENTARE
+        return false;
+    }
+
     public String getEmail() {
         return email;
     }

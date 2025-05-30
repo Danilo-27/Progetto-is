@@ -57,6 +57,14 @@ public class EntityEvento {
 
     public EntityEvento() {}
 
+    private int creazioneIDUnivoco(){
+        //implementazione
+    }
+    private boolean verificaCodice(){
+        //implementazione
+    }
+
+
     public void caricaBiglietti(DBEvento evento) {
         for(int i = 0; i < evento.getBiglietti().size(); ++i) {
             EntityBiglietto biglietto = new EntityBiglietto((DBBiglietto)evento.getBiglietti().get(i));
@@ -64,6 +72,7 @@ public class EntityEvento {
         }
 
     }
+
 
     public int scriviSuDB() {
         DBEvento s = new DBEvento();
@@ -157,6 +166,7 @@ public class EntityEvento {
         this.id_amministratore = id_amministratore;
     }
 
+    // questo dovrebbe essere il metodo private ... getListaPartecipanti()
     public ArrayList<EntityBiglietto> getBiglietti() {
         return biglietti;
     }

@@ -19,7 +19,7 @@ public class BoundaryUtenteRegistrato {
 
 //        String dataOggi = LocalDate.now().toString();
 //        System.out.println(dataOggi);
-//        ArrayList<DTOEvento> events = Controller.getListaEventi_con_filtro("banana",dataOggi,"Teatro alla Scala Milano");
+//        ArrayList<DTOEvento> events = Controller.ricercaEvento("banana",dataOggi,"Teatro alla Scala Milano");
 //
 //        for(int i = 0; i < events.size(); i++){
 //            System.out.println(events.get(i).toString());

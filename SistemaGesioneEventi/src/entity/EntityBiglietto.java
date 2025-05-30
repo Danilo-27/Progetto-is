@@ -7,7 +7,7 @@ public class EntityBiglietto {
     private int id;
     private  String nome_titolare;
     private String codice_univoco;
-    private String stato;
+    private int stato;
     private int IDcliente; // togliere
     private int IDEvento; // togliere
     private EntityEvento evento;
@@ -23,7 +23,7 @@ public class EntityBiglietto {
         this.caricaEvento(biglietto);
     }
 
-    public EntityBiglietto(int id,String nome_titolare, String codice_univoco, String stato,int IDcliente,int IDEvento) {
+    public EntityBiglietto(int id,String nome_titolare, String codice_univoco, int stato,int IDcliente,int IDEvento) {
         this.id=id;
         this.nome_titolare = nome_titolare;
         this.codice_univoco = codice_univoco;
@@ -64,6 +64,19 @@ public class EntityBiglietto {
                 '}';
     }
 
+    //DA IMPLEMENTARE
+    public boolean verificaBiglietto(){
+        //codice
+        return false;
+    }
+    public boolean validaBiglietto(){
+        if(this.getStato()==1){
+            return false;
+        }else{
+            this.setStato(1);
+        }
+        return true;
+    }
     public int getId() {
         return id;
     }
@@ -88,11 +101,11 @@ public class EntityBiglietto {
         this.codice_univoco = codice_univoco;
     }
 
-    public String getStato() {
+    public int getStato() {
         return stato;
     }
 
-    public void setStato(String stato) {
+    public void setStato(int stato) {
         this.stato = stato;
     }
 

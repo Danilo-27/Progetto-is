@@ -69,8 +69,12 @@ public class EntityCliente extends UtenteRegistrato {
 
     }
 
-
     public EntityCliente(){this.storicobiglietti = new ArrayList<>();}
+
+    //IMPLEMENTARE
+    private boolean verificaDato(){
+        return false;
+    }
 
     public int getNumPartecipazione() {
         return numPartecipazione;

@@ -10,7 +10,7 @@ public class DBBiglietto {
     private int id;
     private  String nome_titolare;
     private String codice_univoco;
-    private String stato;
+    private int stato;
     private int IDcliente;
     private int IDEvento;
     private DBEvento evento;
@@ -28,7 +28,7 @@ public class DBBiglietto {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             if (rs.next()) {
                 this.nome_titolare = rs.getString("nome_titolare");
-                this.stato = rs.getString("stato");
+                this.stato = rs.getInt("stato");
                 this.IDcliente = rs.getInt("IDcliente");
                 this.IDEvento = rs.getInt("IDEvento");
             } else {
@@ -97,11 +97,11 @@ public class DBBiglietto {
         this.codice_univoco = codice_univoco;
     }
 
-    public String getStato() {
+    public int getStato() {
         return stato;
     }
 
-    public void setStato(String stato) {
+    public void setStato(int stato) {
         this.stato = stato;
     }
 

@@ -2,7 +2,16 @@ package entity;
 
 public class EntityPiattaforma {
 
-    public EntityPiattaforma() {}
+    private static EntityPiattaforma uniqueInstance;
+
+    private EntityPiattaforma() {}
+
+    public static EntityPiattaforma getInstance() {
+        if(uniqueInstance == null) {
+            uniqueInstance = new EntityPiattaforma();
+        }
+        return uniqueInstance;
+    }
 
     public static String registrazione(String password, String nome, String cognome, String email) {
 
@@ -16,4 +25,13 @@ public class EntityPiattaforma {
             return nuovoCliente.getNome()+" registrato correttamente";
         }
     }
+    public static String registrazione(String password, String email) {
+        //implementare
+        return null; //ELIMINARE
+    }
+    private void verificaEmail(String email){
+        //implementazione
+    }
+
+
 }
