@@ -13,9 +13,9 @@ public class BoundaryUtenteRegistrato {
 
         //Controller.inserisciEvento("banana","otherrrrr","2025-05-28" , "21:00", "Teatro alla Scala Milano", 800,1);
 
-       /* Controller.registraCliente("mammeta","pappone","ciao","sddd");*/
+        System.out.println(Controller.registrazione("mammeta","pappone","ciao","sddd"));
 
-        //Controller.autenticazioneUtente("mario.rossi@eventmanager.com", "passwordf123");
+        //Controller.autenticazione("mario.rossi@eventmanager.com", "passwordf123");
 
 //        String dataOggi = LocalDate.now().toString();
 //        System.out.println(dataOggi);
@@ -25,7 +25,7 @@ public class BoundaryUtenteRegistrato {
 //            System.out.println(events.get(i).toString());
 //        }
 
-        System.out.println(Controller.ricercaCliente("luca.verdi@example.com"));
+        //System.out.println(Controller.ricercaCliente("luca.verdi@example.com"));
 
     }
 

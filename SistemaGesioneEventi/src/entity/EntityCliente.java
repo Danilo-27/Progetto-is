@@ -51,7 +51,6 @@ public class EntityCliente extends UtenteRegistrato {
 
     public int scriviSuDB() {
         DBCliente c = new DBCliente();
-
         c.setNome(getNome());
         c.setEmail(getEmail());
         c.setCognome(getCognome());

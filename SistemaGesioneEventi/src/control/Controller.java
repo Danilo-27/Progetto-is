@@ -61,17 +61,15 @@ public class Controller {
     }
 
 
-    public static void registraCliente(String password, String nome, String cognome, String email) {
-        EntityCliente nuovoCliente = new EntityCliente(email, password, nome, cognome);
-        try {
-            nuovoCliente.scriviSuDB();
-        } catch (Exception e) {
-            throw new RuntimeException("otheja");
-        }
+    public static String registrazione(String password, String nome, String cognome, String email) {
+
+        //
+        return password;
+        //
     }
 
 
-    public static void autenticazioneUtente(String email, String password) {
+    public static void autenticazione(String email, String password) {
             try {
 
                 EntityCliente c =new EntityCliente();

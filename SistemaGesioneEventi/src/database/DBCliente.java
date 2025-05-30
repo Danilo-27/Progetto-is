@@ -25,14 +25,18 @@ public class DBCliente {
 
 
     public int SalvaInDB() {
+
         int ret = 0;
+
         String query = "INSERT INTO clienti(immagineProfilo,numPartecipazione,email,password,nome,cognome) VALUES ( '"+this.immagineProfilo +"','"+ this.numPartecipazione + "','" + this.email  + "','"+ this.password+ "','" + this.nome + "','" + this.cognome +"')";
+
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
             ((Exception)e).printStackTrace();
             ret = -1;
         }
+
         return ret;
     }
 
