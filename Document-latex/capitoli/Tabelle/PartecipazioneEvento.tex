@@ -11,12 +11,15 @@
 }
 
 	\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+	
 	1 & Partecipazione valida & Codice corretto e biglietto non consumato & Utente autenticato, biglietto esistente &
 	Codice: xxxx-123-ABC, Stato: Non consumato &
 	Partecipazione registrata con successo & Biglietto marcato come consumato \\
+	
 	2 & Codice biglietto non valido & Codice biglietto $\neq$ xxxx-123-ABC \texttt{[ERROR]} & Utente autenticato &
 	Codice: yyyy-456-DEF, Stato: Non consumato &
 	Codice biglietto non valido & -- \\
+	
 	3 & Biglietto già consumato & Stato biglietto = Consumato \texttt{[ERROR]} & Utente autenticato, biglietto esistente &
 	Codice: xxxx-123-ABC, Stato: Consumato &
 	Biglietto già utilizzato & -- \\
