@@ -1,0 +1,18 @@
+\begin{longtblr}[
+	caption = {Casi di test Acquista Biglietto},
+	label = {tab:acquista_biglietto_test},
+	entry = {Casi di test Acquista Biglietto},
+]{
+	width = \linewidth,
+	colspec = {|p{1cm}|X[1]|X[1]|X[1]|X[1.8]|X[1]|X[1]|},
+	hlines,
+	vlines,
+	rowhead = 1,
+}
+\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+1 & Posti disponibili, dati pagamento validi & Posti disponibili $>$ 0, dati pagamento validi & Utente autenticato & Evento con posti disponibili, dati pagamento corretti & Biglietto creato e associato al cliente & Biglietto salvato nel DB associato all’utente \\
+2 & Posti esauriti & Posti esauriti = 0 & Utente autenticato, evento esistente & Evento senza posti disponibili, dati pagamento validi & Messaggio di posti esauriti, acquisto annullato & Nessun biglietto creato \\
+3 & Dati pagamento incompleti & Posti disponibili $>$ 0, dati pagamento incompleti \texttt{[ERROR]} & Utente autenticato, evento esistente & Evento con posti disponibili, dati pagamento incompleti & Errore di pagamento: dati incompleti & Nessun biglietto creato \\
+4 & Dati pagamento errati (es. carta scaduta) & Posti disponibili $>$ 0, dati pagamento errati \texttt{[ERROR]} & Utente autenticato, evento esistente & Evento con posti disponibili, dati pagamento errati & Errore di pagamento: dati errati & Nessun biglietto creato \\
+5 & Errore sistema gestione acquisti & Posti disponibili $>$ 0, errore conferma pagamento \texttt{[ERROR]} & Utente autenticato, evento esistente & Evento con posti disponibili, pagamento inviato & Errore di sistema: pagamento non confermato & Nessun biglietto creato \\
+\end{longtblr}

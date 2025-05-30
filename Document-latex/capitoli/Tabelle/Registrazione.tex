@@ -1,95 +1,24 @@
-\section{Registrazione}
-\subsubsection*{Category Partition Testing}
-\begin{table}[H]
-	\centering
-	\footnotesize
-	\renewcommand{\arraystretch}{1.3}
-	\begin{tabular}{|p{3cm}|p{3cm}|p{4cm}|p{5cm}|}
-		\hline
-		\textbf{Nome} & \textbf{Cognome} & \textbf{Email} & \textbf{Password} \\
-		\hline
-		Stringa di lunghezza $\leq$ 20 \newline
-		Stringa di lunghezza $>$ 20 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} &
-
-		Stringa di lunghezza $\leq$ 30 \newline
-		Stringa di lunghezza $>$ 30 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} &
-
-		Stringa di lunghezza $\leq$ 50 \newline
-		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-		Stringa già memorizzata \texttt{[ERROR]} &
-
-		Stringa di lunghezza $\leq$ 40 \newline
-		Stringa di lunghezza $>$ 40 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-		Stringa senza caratteri speciali \texttt{[ERROR]} \\
-		\hline
-	\end{tabular}
-	\caption{Category Partition Testing - Registrazione}
-\end{table}
-
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $3 \cdot 3 \cdot 4 \cdot 4 = 144$.
-
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 10 (2 per Nome, 2 per Cognome, 3 per Email, 3 per Password).
-
-\noindent Il numero di test risultante è 11: $(1 \cdot 1 \cdot 1 \cdot 1) + 10 = 11$.
-
-\subsubsection*{Test Suite}
-
-\begin{table}[H]
-	\centering
-	\tiny
-	\renewcommand{\arraystretch}{1.4}
-	\begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{1.5cm}|p{2.8cm}|p{2cm}|p{1.8cm}|}
-		\hline
-		\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
-		\hline
-		1 & Tutti gli input validi & Nome, Cognome, Email, Password validi & -- &
-		Nome: Mario, Cognome: Rossi, Email: mario.rossi@email.com, Password: miaPwd£123 &
-		Registrazione completata & Utente salvato nel DB \\
-		\hline
-		2 & Nome $>$ 20 caratteri & Nome $>$ 20 caratteri \texttt{[ERROR]} & -- &
-		Nome molto lungo (>20 char), altri parametri validi &
-		Nome troppo lungo & -- \\
-		\hline
-		3 & Nome vuoto & Nome con 0 caratteri \texttt{[ERROR]} & -- &
-		Nome: "", altri parametri validi &
-		Inserire un nome & -- \\
-		\hline
-		4 & Cognome $>$ 30 caratteri & Cognome $>$ 30 caratteri \texttt{[ERROR]} & -- &
-		Cognome molto lungo (>30 char), altri parametri validi &
-		Cognome troppo lungo & -- \\
-		\hline
-		5 & Cognome vuoto & Cognome con 0 caratteri \texttt{[ERROR]} & -- &
-		Cognome: "", altri parametri validi &
-		Inserire un cognome & -- \\
-		\hline
-		6 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]} & -- &
-		Email molto lunga (>50 char), altri parametri validi &
-		Email troppo lunga & -- \\
-		\hline
-		7 & Email vuota & Email con 0 caratteri \texttt{[ERROR]} & -- &
-		Email: "", altri parametri validi &
-		Inserire un indirizzo email & -- \\
-		\hline
-		8 & Email già registrata & Email già memorizzata \texttt{[ERROR]} & Email esistente nel DB &
-		Email: utente.esistente@email.com, altri parametri validi &
-		Email già registrata & -- \\
-		\hline
-		9 & Password $>$ 40 caratteri & Password $>$ 40 caratteri \texttt{[ERROR]} & -- &
-		Password molto lunga (>40 char), altri parametri validi &
-		Password troppo lunga & -- \\
-		\hline
-		10 & Password vuota & Password con 0 caratteri \texttt{[ERROR]} & -- &
-		Password: "", altri parametri validi &
-		Inserire una password & -- \\
-		\hline
-		11 & Password senza caratteri speciali & Password senza caratteri speciali \texttt{[ERROR]} & -- &
-		Password: miapassword123, altri parametri validi &
-		Password deve contenere caratteri speciali & -- \\
-		\hline
-	\end{tabular}
-	\caption{Test Suite - Registrazione}
-\end{table}
+ì\begin{longtblr}[
+	caption = {Casi di test registrazione},
+	label = {tab:registrazione_test},
+	entry = {Casi di test registrazione},
+  ]{
+	width = \linewidth,
+	colspec = {|p{1cm}|X[1]|X[1]|X[1]|X[1.8]|X[1]|X[1]|},
+	hlines,
+	vlines,
+	rowhead = 1,
+  }
+  \textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+  1 & Tutti gli input validi & Nome, Cognome, Email, Password validi & -- & Nome: Mario, Cognome: Rossi, Email: mario.rossi@email.com, Password: miaPwd£123 & Registrazione completata & Utente correttamente registrato nel sistema \\
+  2 & Nome $>$ 20 caratteri & Nome $>$ 20 caratteri [ERROR], altri validi & -- & Nome: ..., Cognome: Rossi, Email: mario.rossi@email.com, Password: miaPwd£123 & Nome troppo lungo & -- \\
+  3 & Nome vuoto & Nome vuoto [ERROR], altri validi & -- & Nome: (vuoto), Cognome: Rossi, Email: mario.rossi@email.com, Password: miaPwd£123 & Inserire un nome & -- \\
+  4 & Cognome $>$ 30 caratteri & Cognome $>$ 30 caratteri [ERROR], altri validi & -- & Nome: Mario, Cognome: ..., Email: mario.rossi@email.com, Password: miaPwd£123 & Cognome troppo lungo & -- \\
+  5 & Cognome vuoto & Cognome vuoto [ERROR], altri validi & -- & Nome: Mario, Cognome: (vuoto), Email: mario.rossi@email.com, Password: miaPwd£123 & Inserire un cognome & -- \\
+  6 & Email $>$ 50 caratteri & Email $>$ 50 caratteri [ERROR], altri validi & -- & Nome: Mario, Cognome: Rossi, Email: ..., Password: miaPwd£123 & Email troppo lunga & -- \\
+  7 & Email vuota & Email vuota [ERROR], altri validi & -- & Nome: Mario, Cognome: Rossi, Email: (vuoto), Password: miaPwd£123 & Inserire un indirizzo email & -- \\
+  8 & Email già registrata & Email già memorizzata [ERROR], altri validi & Email esistente nel DB & Nome: Mario, Cognome: Rossi, Email: utente.esistente@email.com, Password: miaPwd£123 & Email già registrata & -- \\
+  9 & Password $>$ 40 caratteri & Password $>$ 40 caratteri [ERROR], altri validi & -- & Nome: Mario, Cognome: Rossi, Email: mario.rossi@email.com, Password: ... & Password troppo lunga & -- \\
+  10 & Password vuota & Password vuota [ERROR], altri validi & -- & Nome: Mario, Cognome: Rossi, Email: mario.rossi@email.com, Password: (vuoto) & Inserire una password & -- \\
+  11 & Password senza caratteri speciali & Password senza caratteri speciali [ERROR], altri validi & -- & Nome: Mario, Cognome: Rossi, Email: mario.rossi@email.com, Password: miapassword123 & Password deve contenere caratteri speciali & -- \\
+  \end{longtblr}

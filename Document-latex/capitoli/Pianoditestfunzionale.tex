@@ -1,5 +1,172 @@
 \chapter{Piano di test funzionale}
 Si intende progettare i casi di test funzionale con la tecnica del Category Partition Testing. 
-\input{capitoli/Tabelle/Registrazione}
-\input{capitoli/Tabelle/Autenticazione}
-\input{capitoli/Tabelle/PubblicaEvento}
+
+\section{Registrazione}
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\textbf{Nome} & \textbf{Cognome} & \textbf{Email} & \textbf{Password} \\
+\hline
+\begin{itemize}[leftmargin=*]
+\item Stringa di lunghezza $\leq$ 20
+\item Stringa di lunghezza $>$ 20 \texttt{[ERROR]}
+\item Stringa vuota \texttt{[ERROR]}
+\end{itemize} &
+\begin{itemize}[leftmargin=*]
+\item Stringa di lunghezza $\leq$ 30
+\item Stringa di lunghezza $>$ 30 \texttt{[ERROR]}
+\item Stringa vuota \texttt{[ERROR]}
+\end{itemize} &
+\begin{itemize}[leftmargin=*]
+\item Stringa di lunghezza $\leq$ 50
+\item Stringa di lunghezza $>$ 50 \texttt{[ERROR]}
+\item Stringa vuota \texttt{[ERROR]}
+\item Stringa già memorizzata \texttt{[ERROR]}
+\end{itemize} &
+\begin{itemize}[leftmargin=*]
+\item Stringa di lunghezza $\leq$ 40
+\item Stringa di lunghezza $>$ 40 \texttt{[ERROR]}
+\item Stringa vuota \texttt{[ERROR]}
+\item Stringa senza caratteri speciali \texttt{[ERROR]}
+\end{itemize} \\
+\hline
+\end{tabularx}
+\end{table}
+
+Il numero di test da effettuarsi senza particolari vincoli è: $3 \cdot 3 \cdot 4 \cdot 4 = 144$.
+
+Introduciamo i vincoli \texttt{[ERROR]}. Il numero di test da eseguire per testare singolarmente i vincoli è 10 (2 per Nome, 2 per Cognome, 3 per Email, 3 per Password).
+
+Il numero di test risultante è 11: $(1 \cdot 1 \cdot 1 \cdot 1) + 10 = 11$.
+
+\IncludeTable{capitoli/Tabelle/Registrazione}
+\section{Autenticazione}
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|p{6cm}|p{6cm}|}
+       \hline
+       \textbf{Email} & \textbf{Password} \\
+       \hline
+       Stringa di lunghezza $\leq$ 50 \newline
+       Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
+       Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
+       Stringa non memorizzata \texttt{[ERROR]} &
+
+       Stringa di lunghezza $\leq$ 40 \newline
+       Stringa di lunghezza $>$ 40 \texttt{[ERROR]} \newline
+       Stringa di lunghezza $=$ 0 \texttt{[ERROR]} \newline
+       Stringa senza caratteri speciali \texttt{[ERROR]} \\
+       \hline
+    \end{tabular}
+    \caption{Category Partition Testing - Autenticazione}
+\end{table}
+
+\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 4 = 16$.
+
+\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 6 (3 per Email, 3 per Password).
+
+\noindent Il numero di test risultante è 7: $(1 \cdot 1 \cdot 1 \cdot 1) + 6 = 7$.
+
+\IncludeTable{capitoli/Tabelle/Autenticazione}
+\section{PubblicaEvento}
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+		\hline
+		\textbf{Titolo} & \textbf{Descrizione} & \textbf{Data} & \textbf{Orario} & \textbf{Luogo} & \textbf{Capienza} \\
+		\hline
+		Stringa di lunghezza $\leq$ 50 \newline
+		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
+		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
+		Stringa già memorizzata \texttt{[ERROR]} &
+
+		Stringa di lunghezza $\leq$ 150 \newline
+		Stringa di lunghezza $>$ 150 \texttt{[ERROR]} \newline
+		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} &
+
+		Data con formato valido (gg-mm-aaaa) \newline
+		Data con formato non valido \texttt{[ERROR]} &
+
+		Orario con formato valido (oo-mm) \newline
+		Orario con formato non valido \texttt{[ERROR]} &
+
+		Stringa non contenente caratteri speciali \newline
+		Stringa contenente caratteri speciali \texttt{[ERROR]} \newline
+		Stringa contenente numeri \texttt{[ERROR]} &
+
+		Intero di valore massimo 100 \newline
+		Intero di valore $>$ 100 \texttt{[ERROR]} \\
+		\hline
+	\end{tabular}
+	\caption{Category Partition Testing - PubblicaEvento}
+\end{table}
+
+\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 3 \cdot 2 \cdot 2 \cdot 3 \cdot 2 = 288$.
+
+\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 11 (3 per Titolo, 2 per Descrizione, 1 per Data, 1 per Orario, 2 per Luogo, 1 per NumMassimoPartecipanti).
+
+\noindent Il numero di test risultante è 12: $(1 \cdot 1 \cdot 1 \cdot 1 \cdot 1 \cdot 1) + 11 = 12$.
+
+\IncludeTable{capitoli/Tabelle/PubblicaEvento}
+\section{RicercaEvento}
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+		\hline
+		\textbf{Titolo} & \textbf{Data} & \textbf{Luogo} \\
+		\hline
+		Stringa di lunghezza $\leq$ 50 \newline
+		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
+		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
+		Stringa già memorizzata \texttt{[ERROR]} &
+		
+		Data con formato valido (gg-mm-aaaa) \newline
+		Data con formato non valido \texttt{[ERROR]} &
+		
+		Stringa non contenente caratteri speciali \newline
+		Stringa contenente caratteri speciali \texttt{[ERROR]} \newline
+		Stringa contenente numeri \texttt{[ERROR]} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\noindent Il numero di test da effettuarsi senza particolari vincoli è:
+$4 \cdot 2 \cdot 3 = 24$.
+
+\noindent Con i vincoli \texttt{[ERROR]}, invece, il numero di test da eseguire per testare singolarmente i vincoli è 6 (3 per Titolo, 1 per Data, 2 per Luogo).
+
+\noindent Il numero di test risultante è 7: $(1 \cdot 1 \cdot 1) + 6 = 7$.
+
+\IncludeTable{capitoli/Tabelle/RicercaEvento}
+\section{Acquista Biglietto}
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{|p{4cm}|p{4cm}|}
+		\hline
+		\textbf{Posti Disponibili} & \textbf{Dati Pagamento} \\
+		\hline
+		Posti Disponibili \newline
+		Posti Esauriti \texttt{[ERROR]} &
+		
+		Dati completi e validi \newline
+		Dati errati (es. carta scaduta) \texttt{[ERROR]} \newline
+		Errore conferma dal sistema gestione acquisti \texttt{[ERROR]} \\
+		\hline
+	\end{tabular}
+\end{table}
+\noindent Il numero di test da effettuarsi senza particolari vincoli è:
+$2 \cdot 3 \cdot 2 = 12$.
+
+\noindent Con i vincoli \texttt{[ERROR]}, invece, il numero di test da eseguire per testare singolarmente i vincoli è 4 (1 per Posti disponibili, 2 per Dati pagamento, 1 per Sistema gestione acquisti).
+
+\noindent Il numero di test risultante è 5: $(1 \cdot 1 \cdot 1) + 4 = 5$.
+\IncludeTable{capitoli/Tabelle/AcquistoBiglietto}
