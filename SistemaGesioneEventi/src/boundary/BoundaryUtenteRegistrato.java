@@ -13,7 +13,7 @@ public class BoundaryUtenteRegistrato {
 
         //Controller.inserisciEvento("banana","otherrrrr","2025-05-28" , "21:00", "Teatro alla Scala Milano", 800,1);
 
-        System.out.println(Controller.registrazione("mammeta","pappone","ciao","sddd"));
+        System.out.println(Controller.registrazione("mamma","pappa","ciao","sddd"));
 
         //Controller.autenticazione("mario.rossi@eventmanager.com", "passwordf123");
 

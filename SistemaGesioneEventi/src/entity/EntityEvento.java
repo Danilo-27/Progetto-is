@@ -59,9 +59,11 @@ public class EntityEvento {
 
     private int creazioneIDUnivoco(){
         //implementazione
+        return -1;
     }
     private boolean verificaCodice(){
         //implementazione
+        return false;
     }
 
 

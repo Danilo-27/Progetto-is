@@ -8,7 +8,7 @@ import java.time.LocalTime;
 public class DBBiglietto {
 
     private int id;
-    private  String nome_titolare;
+    private String nome_titolare;
     private String codice_univoco;
     private int stato;
     private int IDcliente;
