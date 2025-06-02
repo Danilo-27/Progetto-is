@@ -11,6 +11,7 @@ public class UtenteDAO {
     private String nome;
     private String cognome;
     private String immagineProfilo;
+    private int tipoUtente;
 
     //Costruttori
 

@@ -3,6 +3,8 @@ package boundary;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import control.*;
+import exceptions.RegistrationFailedException;
 
 public class BoundaryRegistrazione extends JFrame {
 
@@ -69,6 +71,7 @@ public class BoundaryRegistrazione extends JFrame {
         loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         loginButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         loginButton.addActionListener(e -> {
+
             String email = emailField.getText();
             String password = new String(passwordField.getPassword());
 
@@ -84,6 +87,8 @@ public class BoundaryRegistrazione extends JFrame {
                 JOptionPane.showMessageDialog(this, passwordValidation, "Errore Password", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+
+
 
         });
 
