@@ -1,8 +1,5 @@
 package boundary;
 
-import control.Controller;
-import exceptions.RegistrationFailedException;
-
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -11,6 +8,8 @@ public class BoundaryAutenticazione extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
+    private JPasswordField passwordField;
+    private JTextField emailField;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -24,130 +23,81 @@ public class BoundaryAutenticazione extends JFrame {
     }
 
     public BoundaryAutenticazione() {
-        setTitle("Registrazione Utente");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quando clicca sulla X termina l'applicazione
-        setBounds(100, 100, 600, 500);
+        setTitle("Accesso Utente");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(500, 400);
         setLocationRelativeTo(null);
 
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(20, 30, 20, 30));
-        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+        contentPane.setBorder(new EmptyBorder(20, 40, 20, 40));
         contentPane.setBackground(new Color(245, 245, 245));
+        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
         setContentPane(contentPane);
 
-        JLabel titleLabel = new JLabel("Crea un Account");
-        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        JLabel titleLabel = new JLabel("Login");
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 26));
         titleLabel.setForeground(new Color(44, 62, 80));
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         contentPane.add(titleLabel);
+        contentPane.add(Box.createRigidArea(new Dimension(0, 30)));
 
-        contentPane.add(Box.createRigidArea(new Dimension(0, 20)));
+        emailField = createTextField("Email");
+        passwordField = createPasswordField("Password");
 
-        JTextField nomeField = createTextField("Nome");
-        JTextField cognomeField = createTextField("Cognome");
-        JTextField emailField = createTextField("Email");
-        JPasswordField passwordField = createPasswordField("Password");
-
-        contentPane.add(nomeField);
-        contentPane.add(Box.createRigidArea(new Dimension(0, 10)));
-        contentPane.add(cognomeField);
-        contentPane.add(Box.createRigidArea(new Dimension(0, 10)));
         contentPane.add(emailField);
-        contentPane.add(Box.createRigidArea(new Dimension(0, 10)));
+        contentPane.add(Box.createRigidArea(new Dimension(0, 15)));
         contentPane.add(passwordField);
-        contentPane.add(Box.createRigidArea(new Dimension(0, 25)));
-
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
-        buttonPanel.setOpaque(false);
+        contentPane.add(Box.createRigidArea(new Dimension(0, 30)));
 
         JButton homeButton = new JButton("Home");
-        homeButton.setBackground(new Color(189, 195, 199));
+        homeButton.setBackground(new Color(200, 200, 200));
         homeButton.setForeground(Color.BLACK);
         homeButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        homeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         homeButton.setFocusPainted(false);
-        homeButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        homeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        homeButton.setBorder(BorderFactory.createEmptyBorder(8, 20, 8, 20));
         homeButton.addActionListener(e -> {
             new HomePage().setVisible(true);
             dispose();
         });
 
-        JButton registerButton = new JButton("Registrati");
-        registerButton.setBackground(new Color(52, 152, 219));
-        registerButton.setForeground(Color.WHITE);
-        registerButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        registerButton.setFocusPainted(false);
-        registerButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        registerButton.setBorder(BorderFactory.createEmptyBorder(10, 25, 10, 25));
+        JButton loginButton = new JButton("Accedi");
+        loginButton.setBackground(new Color(52, 152, 219));
+        loginButton.setForeground(Color.WHITE);
+        loginButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        loginButton.setFocusPainted(false);
+        loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        loginButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        loginButton.addActionListener(e -> {
 
-        registerButton.addActionListener(e -> {
-            String nome = nomeField.getText().trim();
-            String cognome = cognomeField.getText().trim();
-            String email = emailField.getText().trim();
-            String password = new String(passwordField.getPassword()).trim();
+            String email = emailField.getText();
+            String password = new String(passwordField.getPassword());
 
-            if (nome.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Nome non può essere vuoto.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (nome.length() > 20) {
-                JOptionPane.showMessageDialog(contentPane, "Nome non valido. Deve essere lungo ≤ 20 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (cognome.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Cognome non può essere vuoto.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (cognome.length() > 30) {
-                JOptionPane.showMessageDialog(contentPane, "Cognome non valido. Deve essere lungo ≤ 30 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (email.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Email non può essere vuota.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (email.length() > 50) {
-                JOptionPane.showMessageDialog(contentPane, "Email non valida. Deve essere lunga ≤ 50 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            // Controllo formato email
-            String emailRegex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
-            if (!email.matches(emailRegex)) {
-                JOptionPane.showMessageDialog(contentPane, "Formato email non valido. Deve essere del tipo esempio@dominio.estensione", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (password.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Password non può essere vuota.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (password.length() > 40) {
-                JOptionPane.showMessageDialog(contentPane, "Password non valida. Deve essere lunga ≤ 40 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (!password.matches(".*[!@#$%^&*()\\-_=+{};:,<.>§°?].*")) {
-                JOptionPane.showMessageDialog(contentPane, "La password deve contenere almeno un carattere speciale.", "Errore", JOptionPane.ERROR_MESSAGE);
+            String emailValidation = validateEmail(email);
+            String passwordValidation = validatePassword(password);
+
+            if (!emailValidation.equals("OK")) {
+                JOptionPane.showMessageDialog(this, emailValidation, "Errore Email", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            try {
-                Controller.registrazione(password, nome, cognome, email);
-                JOptionPane.showMessageDialog(contentPane,
-                        "Registrazione completata:\nNome: " + nome +
-                                "\nCognome: " + cognome +
-                                "\nEmail: " + email);
-            } catch (RegistrationFailedException Rfe) {
-                JOptionPane.showMessageDialog(contentPane, "Email già registrata", "Errore", JOptionPane.ERROR_MESSAGE);
-
-
+            if (!passwordValidation.equals("OK")) {
+                JOptionPane.showMessageDialog(this, passwordValidation, "Errore Password", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
 
 
         });
 
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
+        buttonPanel.setOpaque(false);
+        buttonPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
         buttonPanel.add(homeButton);
-        buttonPanel.add(registerButton);
+        buttonPanel.add(loginButton);
+
         contentPane.add(buttonPanel);
+        contentPane.add(Box.createRigidArea(new Dimension(0, 20)));
     }
 
     private JTextField createTextField(String placeholder) {
@@ -165,4 +115,46 @@ public class BoundaryAutenticazione extends JFrame {
         field.setBorder(BorderFactory.createTitledBorder(placeholder));
         return field;
     }
+
+    private String validateEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return "Errore: Email non memorizzata o vuota.";
+        }
+        if (email.length() > 50) {
+            return "Errore: Lunghezza email maggiore di 50 caratteri.";
+        }
+        String emailRegex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
+        if (!email.matches(emailRegex)) {
+            return "Errore: Formato email non valido. Deve essere del tipo esempio@dominio.estensione.";
+        }
+        return "OK";
+    }
+
+    private String validatePassword(String password) {
+        if (password == null || password.length() == 0) {
+            return "Errore: Password vuota.";
+        }
+        if (password.length() > 40) {
+            return "Errore: Lunghezza password maggiore di 40 caratteri.";
+        }
+        if (!containsSpecialCharacter(password)) {
+            return "Errore: Password deve contenere almeno un carattere speciale.";
+        }
+        return "OK";
+    }
+
+    private boolean containsSpecialCharacter(String s) {
+        for (char c : s.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+//    // 🔐 Simulazione autenticazione (da sostituire con Controller BCED reale)
+//    private boolean verificaCredenziali(String email, String password) {
+//        return email.equals("f@g.com") && password.equals("@123");
+//    }
+
 }

@@ -46,7 +46,7 @@ public class HomePage extends JFrame {
         JButton loginButton = new JButton("Login");
         styleButton(loginButton);
         loginButton.addActionListener(e -> {
-            BoundaryRegistrazione interfacciaLogin = new BoundaryRegistrazione();
+            BoundaryAutenticazione interfacciaLogin = new BoundaryAutenticazione();
             interfacciaLogin.setVisible(true);
             dispose();
         });
@@ -54,7 +54,7 @@ public class HomePage extends JFrame {
         JButton signinButton = new JButton("Sign in");
         styleButton(signinButton);
         signinButton.addActionListener(e -> {
-            BoundaryAutenticazione signininterface = new BoundaryAutenticazione();
+            BoundaryRegistrazione signininterface = new BoundaryRegistrazione();
             signininterface.setVisible(true);
             dispose();
         });
