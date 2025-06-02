@@ -63,7 +63,7 @@ public class UtenteDAO {
 
     public int SalvaInDB() {
         int ret = 0;
-        String query = "INSERT INTO utenti(email,password,nome,cognome,immagine) VALUES ( '" + this.email  + "','"+ this.password+ "','" + this.nome + "','" + this.cognome +")";
+        String query = "INSERT INTO utenti(email,password,nome,cognome) VALUES ( '" + this.email  + "','"+ this.password+ "','" + this.nome + "','" + this.cognome +"')";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {

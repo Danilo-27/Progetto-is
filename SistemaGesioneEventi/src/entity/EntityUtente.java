@@ -15,13 +15,11 @@ public class EntityUtente {
 
     public EntityUtente(){}
 
-    public EntityUtente(int id, String nome, String cognome, String email, String password, String immagine) {
-        this.id = id;
+    public EntityUtente(String nome, String cognome, String email, String password) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.password = password;
-        this.immagine = immagine;
     }
 
     public EntityUtente(String email) {
@@ -43,11 +41,10 @@ public class EntityUtente {
         u.setEmail(this.email);
         u.setCognome(this.cognome);
         u.setPassword(this.password);
-
         return u.SalvaInDB();
     }
 
-    public void cercaSuDB(String email){
+    public void cercaSuDB(String email) throws DBException {
         try{
             UtenteDAO dbCliente = new UtenteDAO(email);
             this.setNome(dbCliente.getNome());
@@ -55,7 +52,7 @@ public class EntityUtente {
             this.setPassword(dbCliente.getPassword());
             this.setEmail(dbCliente.getEmail());
         }catch(DBException e) {
-            System.out.println(e.getMessage());
+            throw e;
         }
     }
 
