@@ -129,12 +129,16 @@ public class BoundaryRegistrazione extends JFrame {
                 return;
             }
 
+            //SE I CONTROLLI VANNO A BUON FINE SI REGISTRA
+
             try {
                 Controller.registrazione(password, nome, cognome, email);
                 JOptionPane.showMessageDialog(contentPane,
                         "Registrazione completata:\nNome: " + nome +
                                 "\nCognome: " + cognome +
                                 "\nEmail: " + email);
+                new HomePage().setVisible(true);
+                dispose();
             } catch (RegistrationFailedException Rfe) {
                 JOptionPane.showMessageDialog(contentPane, "Email già registrata", "Errore", JOptionPane.ERROR_MESSAGE);
 
