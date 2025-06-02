@@ -1,0 +1,116 @@
+package entity;
+
+import database.UtenteDAO;
+import database.UtenteDAO;
+import exceptions.DBException;
+
+
+public class EntityUtente {
+    private int id;
+    private String nome;
+    private String cognome;
+    private String email;
+    private String password;
+    private String immagine;
+
+    public EntityUtente(){}
+
+    public EntityUtente(int id, String nome, String cognome, String email, String password, String immagine) {
+        this.id = id;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.password = password;
+        this.immagine = immagine;
+    }
+
+    public EntityUtente(String email) {
+        this.email = email;
+        try {
+            UtenteDAO dao = new UtenteDAO(email);
+            this.nome = dao.getNome();
+            this.password = dao.getPassword();
+            this.cognome = dao.getCognome();
+            this.immagine = dao.getImmagine();
+        }catch(DBException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public int scriviSuDB() {
+        UtenteDAO u = new UtenteDAO();
+        u.setNome(this.nome);
+        u.setEmail(this.email);
+        u.setCognome(this.cognome);
+        u.setPassword(this.password);
+
+        return u.SalvaInDB();
+    }
+
+    public void cercaSuDB(String email){
+        try{
+            UtenteDAO dbCliente = new UtenteDAO(email);
+            this.setNome(dbCliente.getNome());
+            this.setCognome(dbCliente.getCognome());
+            this.setPassword(dbCliente.getPassword());
+            this.setEmail(dbCliente.getEmail());
+        }catch(DBException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private boolean verificaCredenziali(String Password){
+        return this.password.equals(Password);
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getImmagine() {
+        return
+                immagine;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
+    }
+}
