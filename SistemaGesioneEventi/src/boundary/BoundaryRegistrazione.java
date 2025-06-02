@@ -139,6 +139,7 @@ public class BoundaryRegistrazione extends JFrame {
                                 "\nEmail: " + email);
                 new HomePage().setVisible(true);
                 dispose();
+
             } catch (RegistrationFailedException Rfe) {
                 JOptionPane.showMessageDialog(contentPane, "Email già registrata", "Errore", JOptionPane.ERROR_MESSAGE);
 

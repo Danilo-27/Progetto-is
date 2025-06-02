@@ -1,10 +1,11 @@
 package boundary;
 
-import entity.EntityUtente;
 
 public class Sessione {
     private static Sessione instance;
-    private EntityUtente utenteAutenticato;
+
+    private String email;
+    private int Tipo;  // ad esempio "ADMIN" o "CLIENTE"
 
     private Sessione() {}
 
@@ -15,19 +16,22 @@ public class Sessione {
         return instance;
     }
 
-    public void setUtenteAutenticato(EntityUtente utente) {
-        this.utenteAutenticato = utente;
+    public void setUtenteAutenticato(String email, int Tipo) {
+        this.email = email;
+        this.Tipo = Tipo;
     }
 
-    public EntityUtente getUtenteAutenticato() {
-        return this.utenteAutenticato;
+
+    public int getTipo() {
+        return Tipo;
     }
 
-    public int getUtenteId() {
-        return this.utenteAutenticato.getId();
+    public boolean isAdmin() {
+        return this.Tipo==1;
     }
 
-    public void clearSession() {
-        this.utenteAutenticato = null;
+    public boolean isCliente() {
+        return this.Tipo==0;
     }
+
 }

@@ -12,6 +12,7 @@ public class EntityUtente {
     private String email;
     private String password;
     private String immagine;
+    private int TipoUtente;
 
     public EntityUtente(){}
 
@@ -30,6 +31,7 @@ public class EntityUtente {
             this.password = dao.getPassword();
             this.cognome = dao.getCognome();
             this.immagine = dao.getImmagine();
+            this.TipoUtente = dao.getTipoUtente();
         }catch(DBException e){
             System.out.println(e.getMessage());
         }
@@ -56,7 +58,7 @@ public class EntityUtente {
         }
     }
 
-    private boolean verificaCredenziali(String Password){
+    public boolean verificaCredenziali(String Password){
         return this.password.equals(Password);
     }
 
@@ -109,5 +111,9 @@ public class EntityUtente {
 
     public void setImmagine(String immagine) {
         this.immagine = immagine;
+    }
+
+    public int getTipoUtente() {
+        return TipoUtente;
     }
 }

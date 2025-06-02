@@ -40,6 +40,7 @@ public class UtenteDAO {
                 this.cognome = rs.getString("cognome");
                 this.email = rs.getString("email");
                 this.immagineProfilo = rs.getString("ImmagineProfilo");
+                this.tipoUtente = rs.getInt("Tipo");
             } else {
                 throw new DBException(String.format("Utente '%s' non esistente", id));
             }
@@ -116,5 +117,10 @@ public class UtenteDAO {
     public void setImmagine(String immagine) {
         this.immagineProfilo = immagine;
     }
+
+    public int getTipoUtente() {
+        return tipoUtente;
+    }
+
 }
 
