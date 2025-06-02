@@ -56,6 +56,7 @@ public class UtenteDAO {
                 return -1;
             return rs.getInt("id");
         } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.getStackTrace());
             throw new DBException(String.format("Errore nella ricerca dell'utente '%s'.%n%s", this.email, e.getMessage()));
         }
     }
