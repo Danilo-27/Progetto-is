@@ -38,7 +38,7 @@ public class UtenteDAO {
                 this.nome = rs.getString("nome");
                 this.cognome = rs.getString("cognome");
                 this.email = rs.getString("email");
-                this.immagineProfilo = rs.getString("immagine");
+                this.immagineProfilo = rs.getString("ImmagineProfilo");
             } else {
                 throw new DBException(String.format("Utente '%s' non esistente", id));
             }
@@ -50,6 +50,7 @@ public class UtenteDAO {
 
     public int cercaInDB() throws DBException {
         String query = String.format("SELECT * FROM utenti WHERE email = '%s';", this.email);
+        System.out.println(query);
         try (ResultSet rs = DBConnectionManager.selectQuery(query)){
             if (!rs.next())
                 return -1;

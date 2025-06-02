@@ -1,4 +1,4 @@
-package farmacia.exceptions;
+package exceptions;
 
 public class DBException extends Exception {
 
