@@ -1,5 +1,10 @@
 package boundary;
 
+import control.Controller;
+import entity.EntityPiattaforma;
+import exceptions.RegistrationFailedException;
+import exceptions.LoginFailedException;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -81,10 +86,26 @@ public class BoundaryAutenticazione extends JFrame {
                 return;
             }
 
-            if (!passwordValidation.equals("OK")) {
-                JOptionPane.showMessageDialog(this, passwordValidation, "Errore Password", JOptionPane.ERROR_MESSAGE);
-                return;
+
+            try {
+                int Tipo = Controller.Autenticazione(email, password);
+                System.out.println(Tipo);
+
+                JOptionPane.showMessageDialog(contentPane,
+                        "Login riuscito:\nEmail: " + email +
+                                "\nTipo utente: " + (Tipo == 0 ? "Cliente" : "Admin"));
+                new HomePage().setVisible(true);
+                dispose();
+
+                Sessione section=Sessione.getInstance();
+                section.setUtenteAutenticato(email,Tipo);
+            } catch (LoginFailedException Lfe) {
+                JOptionPane.showMessageDialog(contentPane, "Login fallito: credenziali errate", "Errore", JOptionPane.ERROR_MESSAGE);
             }
+
+
+
+
 
 
 

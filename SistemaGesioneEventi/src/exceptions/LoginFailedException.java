@@ -1,4 +1,4 @@
-package farmacia.exceptions;
+package exceptions;
 
 public class LoginFailedException extends Exception {
 	public LoginFailedException(String message) {

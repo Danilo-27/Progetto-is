@@ -4,6 +4,7 @@ package control;
 
 import entity.*;
 import exceptions.RegistrationFailedException;
+import exceptions.LoginFailedException;
 
 
 
@@ -16,6 +17,12 @@ public class Controller {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         piattaforma.registrazione(password, nome, cognome, email);
     }
+
+    public static int Autenticazione(String email, String password) throws LoginFailedException {
+        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
+        return piattaforma.Autenticazione(email, password);
+    }
+
 
 
 

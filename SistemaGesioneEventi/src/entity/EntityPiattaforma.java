@@ -3,6 +3,7 @@ package entity;
 import database.UtenteDAO;
 import exceptions.RegistrationFailedException;
 import exceptions.DBException;
+import exceptions.LoginFailedException;
 
 public class EntityPiattaforma {
     private static EntityPiattaforma uniqueInstance;
@@ -40,6 +41,22 @@ public class EntityPiattaforma {
             return 0;
         }
     }
+
+
+    public int Autenticazione(String email, String password) throws LoginFailedException {
+        EntityUtente u = new EntityUtente(email);
+        if (u.verificaCredenziali(password)) {
+            if (u.getTipoUtente() == 0) {
+                return 0;
+            } else {
+                return 1;
+            }
+        } else {
+            throw new LoginFailedException("Login fallito, password errata");
+        }
+    }
+
+
 
 
 
