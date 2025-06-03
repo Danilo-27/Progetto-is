@@ -7,7 +7,8 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
 
     private static final long serialVersionUID = 1L;
 
-    public HomeAmministratore() {
+
+    public HomeAmministratore(String nome, String cognome, String email) {
         super(); // inizializza finestra e pannello
 
         contentPanel.removeAll(); // rimuove i componenti ereditati
@@ -18,6 +19,14 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
         titleLabel.setForeground(new Color(44, 62, 80));
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         contentPanel.add(titleLabel);
+        contentPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+
+        // Informazioni
+        contentPanel.add(createStyledLabel("Nome: " + nome));
+        contentPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+        contentPanel.add(createStyledLabel("Cognome: " + cognome));
+        contentPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+        contentPanel.add(createStyledLabel("Email: " + email));
         contentPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         // Pulsanti funzionalità
@@ -38,13 +47,15 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
         });
 
         catalogoEventiButton.addActionListener(e -> {
-            // TODO: collegamento controller catalogo eventi
+            CatalogoEventi catalogo = new CatalogoEventi(this);
+            catalogo.setVisible(true);
+            this.setVisible(false);
         });
 
         creaEventoButton.addActionListener(e -> {
-            //FormEvento form = new FormEvento(this);
-            //form.setVisible(true);
-            //this.setVisible(false);
+            FormEvento form = new FormEvento(this);
+            form.setVisible(true);
+            this.setVisible(false);
         });
 
         JPanel buttonsPanel = new JPanel();
@@ -108,4 +119,3 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
     }
 
 }
-

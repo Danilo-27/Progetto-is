@@ -2,6 +2,7 @@ package entity;
 
 
 import database.EventoDAO;
+import exceptions.UniqueCodeException;
 
 import java.util.UUID;
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ public class EntityEvento {
     private int costo;
     private int capienza;
     private int partecipanti;
-    //private ArrayList<EntityBiglietto> biglietti;
+    private ArrayList<EntityBiglietto> biglietti;
 
     public EntityEvento(EventoDAO evento) {
         this.titolo = evento.getTitolo();
@@ -37,7 +38,7 @@ public class EntityEvento {
         this.descrizione=evento.getDescrizione();
         this.luogo=evento.getLuogo();
         this.capienza=evento.getCapienza();
-        //this.biglietti=new ArrayList<>();
+        this.biglietti=new ArrayList<>();
         evento.caricaBigliettiEventiDaDB();
     }
 
@@ -63,19 +64,19 @@ public class EntityEvento {
         return prefisso + "-" + uuidParte;
     }
 
-   // private boolean verificaCodice(String codice) {
-   //     for (EntityBiglietto b : this.biglietti) {
-   //         if (b.getCodiceUnivoco().equals(codice)) {
-   //             return true;
-   //         }
-   //     }
-   //     return false;
-   // }
-    public EntityBiglietto creazioneBiglietto(int IDutente){
+   public EntityBiglietto verificaCodice(String codice) {
+        for (EntityBiglietto b : this.biglietti) {
+            if (b.getCodice_univoco().equals(codice)) {
+                return b;
+            }
+        }
+        return null;
+    }
+    public EntityBiglietto creazioneBiglietto(int IDutente) {
         //creazione ID univoco
-        String codiceUnivoco= creazioneIDUnivoco();
+        String codiceUnivoco = creazioneIDUnivoco();
         //creazione di entity biglietto con param ingresso ID univoco
-        EntityBiglietto biglietto=new EntityBiglietto(codiceUnivoco);
+        EntityBiglietto biglietto = new EntityBiglietto(codiceUnivoco);
         //return entityBiglietto
         return biglietto;
     }
@@ -110,9 +111,9 @@ public class EntityEvento {
         return partecipanti;
     }
 
-   // public ArrayList<EntityBiglietto> getBiglietti() {
-    //    return biglietti;
-    //}
+   public ArrayList<EntityBiglietto> getBiglietti() {
+        return biglietti;
+   }
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;

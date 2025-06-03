@@ -98,7 +98,7 @@ public class BoundaryAutenticazione extends JFrame {
                     new HomeCliente(utente.getNome(),utente.getCognome(),email, utente.getImmagine()).setVisible(true);
                     dispose();
                 }else{
-                    new HomeAmministratore();
+                    new HomeAmministratore(utente.getNome(),utente.getCognome(),email).setVisible(true);
                     dispose();
                 }
 

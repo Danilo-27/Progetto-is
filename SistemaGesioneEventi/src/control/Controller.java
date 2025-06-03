@@ -5,11 +5,9 @@ package control;
 import DTO.DTOEvento;
 import DTO.DTOUtente;
 import entity.*;
-import exceptions.EventoNotFoundException;
 import exceptions.RegistrationFailedException;
 import exceptions.LoginFailedException;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +57,8 @@ public class Controller {
         return eventiDTO;
     }
 
-
+   // EntityUtente u = new EntityUtente();
+    // u.idUtente(email);
 
 
 

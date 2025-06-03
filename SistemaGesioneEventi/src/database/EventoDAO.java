@@ -40,7 +40,7 @@ public class EventoDAO {
 
     public static ArrayList<EventoDAO> getEventi() throws DBException {
         ArrayList<EventoDAO> lista_temp = new ArrayList<>();
-        String query = "SELECT * FROM eventi;";
+        String query = "SELECT * FROM eventi WHERE Data >= CURRENT_DATE;";;
 
         try {
             try (ResultSet rs = DBConnectionManager.selectQuery(query)) {

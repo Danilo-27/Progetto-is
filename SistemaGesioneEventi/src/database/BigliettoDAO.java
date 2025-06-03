@@ -1,6 +1,7 @@
 package database;
 
 import entity.EntityEvento;
+import exceptions.DBException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -99,6 +100,17 @@ public class BigliettoDAO{
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
+            ((Exception)e).printStackTrace();
+            ret = -1;
+        }
+        return ret;
+    }
+    public int aggiornaInDB() {
+        int ret = 0;
+        String query="UPDATE biglietti SET stato='" + this.stato + "' " + this.codice_univoco + "';";
+        try{
+            ret=DBConnectionManager.updateQuery(query);
+        }catch (SQLException | ClassNotFoundException e) {
             ((Exception)e).printStackTrace();
             ret = -1;
         }
