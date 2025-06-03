@@ -1,5 +1,6 @@
 package entity;
 
+import DTO.DTOUtente;
 import database.UtenteDAO;
 import exceptions.RegistrationFailedException;
 import exceptions.DBException;
@@ -43,21 +44,21 @@ public class EntityPiattaforma {
     }
 
 
-    public int Autenticazione(String email, String password) throws LoginFailedException {
+    public DTOUtente Autenticazione(String email, String password) throws LoginFailedException {
         try {
             EntityUtente u = new EntityUtente(email);
+
             if (u.verificaCredenziali(password)) {
-                if (u.getTipoUtente() == 0) {
-                    return 0;
-                } else {
-                    return 1;
-                }
+
+                return new DTOUtente(u.getNome(),u.getCognome(),email, u.getImmagine(), u.getTipoUtente());
+
             } else {
                 throw new LoginFailedException("Login fallito, password errata");
             }
         } catch (DBException e) {
             throw new LoginFailedException("Login fallito, email non registrata");
         }
+
     }
 
 

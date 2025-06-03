@@ -1,6 +1,8 @@
 package boundary;
 
 
+import DTO.DTOUtente;
+
 public class Sessione {
     private static Sessione instance;
 
@@ -34,4 +36,7 @@ public class Sessione {
         return this.Tipo==0;
     }
 
+    public String getEmail() {
+        return email;
+    }
 }

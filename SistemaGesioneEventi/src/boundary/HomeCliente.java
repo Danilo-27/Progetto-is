@@ -8,7 +8,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
 
     private static final long serialVersionUID = 1L;
 
-    public HomeCliente(String nome, String cognome, String email, int partecipazioni, ImageIcon immagineProfilo) {
+    public HomeCliente(String nome, String cognome, String email, String immagineProfilo) {
         super(); // inizializza finestra e pannello
 
         contentPanel.removeAll(); //puliamo i componenti già presenti da HomeUtenteRegistrato
@@ -34,8 +34,9 @@ public class HomeCliente extends HomeUtenteRegistrato {
         profilePic.setVerticalAlignment(SwingConstants.CENTER);
 
         if (immagineProfilo != null) {
-            Image img = immagineProfilo.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-            profilePic.setIcon(new ImageIcon(img));
+            //Image img = immagineProfilo.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            //profilePic.setIcon(new ImageIcon(img));
+            System.out.println(immagineProfilo);
         } else {
             profilePic.setText("Nessuna immagine");
             profilePic.setFont(new Font("Segoe UI", Font.ITALIC, 14));
@@ -55,7 +56,6 @@ public class HomeCliente extends HomeUtenteRegistrato {
         contentPanel.add(Box.createRigidArea(new Dimension(0, 5)));
         contentPanel.add(createStyledLabel("Email: " + email));
         contentPanel.add(Box.createRigidArea(new Dimension(0, 5)));
-        contentPanel.add(createStyledLabel("Partecipazioni: " + partecipazioni));
         contentPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         // Pulsanti affiancati
@@ -134,14 +134,5 @@ public class HomeCliente extends HomeUtenteRegistrato {
         return label;
     }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                HomeCliente frame = new HomeCliente("Mario", "Rossi", "mario.rossi@email.com", 5, null);
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
+
 }
