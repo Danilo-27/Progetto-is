@@ -23,12 +23,13 @@ public class EntityBiglietto {
 
 
     //NON SERVE
-    public int scriviSuDB() {
+    public int aggiornaSuDB() {
         BigliettoDAO s = new BigliettoDAO();
         s.setStato(this.stato);
         s.setCodice_univoco(this.codiceUnivoco);
-        return s.SalvaInDB();
+        return s.aggiornaInDB();
     }
+
 
     public void caricaEvento(BigliettoDAO biglietto) {
         //devo prendere l'evento dal biglietto che ho creato mediante il metodo

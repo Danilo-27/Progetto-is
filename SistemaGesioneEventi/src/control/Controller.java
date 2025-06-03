@@ -5,8 +5,10 @@ package control;
 import DTO.DTOEvento;
 import DTO.DTOUtente;
 import entity.*;
+import exceptions.DBException;
 import exceptions.RegistrationFailedException;
 import exceptions.LoginFailedException;
+import exceptions.UniqueCodeException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,19 @@ public class Controller {
             eventiDTO.add(dto);
         }
         return eventiDTO;
+    }
+
+    public static void PartecipaEvento(String codiceUnivoco,EntityEvento evento) throws UniqueCodeException,DBException {
+        EntityBiglietto biglietto=evento.verificaCodice(codiceUnivoco);
+        if(biglietto!=null) {
+            evento.setPartecipanti(evento.getPartecipanti()+1);//scrittura sul DB
+            biglietto.setStato(1);
+            if(biglietto.aggiornaSuDB()==-1){
+                throw new DBException("Errore nel DB");
+            }
+        }else{
+            throw new UniqueCodeException("Biglietto non trovato");
+        }
     }
 
 
