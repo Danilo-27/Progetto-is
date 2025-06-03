@@ -70,6 +70,16 @@ public class EntityUtente {
         }
     }
 
+    public int idUtente(String email) throws DBException {
+        try{
+            UtenteDAO dbCliente = new UtenteDAO();
+            dbCliente.setEmail(email);
+            return dbCliente.cercaInDB();
+        }catch(DBException e) {
+            throw e;
+        }
+    }
+
     public boolean verificaCredenziali(String Password){
         return this.password.equals(Password);
     }

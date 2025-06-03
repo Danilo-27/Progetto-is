@@ -29,6 +29,8 @@ public class Controller {
         return piattaforma.Autenticazione(email, password);
     }
 
+
+
     public static List<DTOEvento> ConsultaCatalogo() {
         List<DTOEvento> eventiDTO = new ArrayList<>();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
@@ -37,6 +39,9 @@ public class Controller {
             DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza());
             eventiDTO.add(dto);
         }
+
+
+
         return eventiDTO;
     }
 
@@ -53,6 +58,9 @@ public class Controller {
         }
     }
 
+
+   // EntityUtente u = new EntityUtente();
+    // u.idUtente(email);
 
 
 
