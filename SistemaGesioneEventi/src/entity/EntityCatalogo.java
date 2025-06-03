@@ -23,5 +23,24 @@ public class EntityCatalogo {
         }
     }
 
+    public static EntityCatalogo getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new EntityCatalogo();
+        }
+        return uniqueInstance;
+    }
+
+    public void aggiungiFarmaco(EntityEvento EventoCreato) {
+            EventoCreato.scriviSuDB();
+            eventi.add(EventoCreato);
+    }
+
+    public List<EntityEvento> ConsultaCtalogo() {
+        return eventi;
+    }
+
+
+
+
 
 }

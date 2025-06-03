@@ -14,6 +14,7 @@ public class EntityEvento {
     private LocalDate data;
     private LocalTime ora;
     private String luogo;
+    private int costo;
     private int capienza;
     private int partecipanti;
     private ArrayList<EntityBiglietto> biglietti;
@@ -37,6 +38,20 @@ public class EntityEvento {
         this.biglietti=new ArrayList<>();
         evento.caricaBigliettiEventiDaDB();
     }
+
+    public int scriviSuDB() {
+        EventoDAO s = new EventoDAO();
+        s.setTitolo(this.titolo);
+        s.setData(this.data);
+        s.setOra(this.ora);
+        s.setDescrizione(this.descrizione);
+        s.setLuogo(this.luogo);
+        s.setCapienza(this.capienza);
+        s.setCosto(this.costo);
+        //s.setIdamministratore(this.id_amministratore);
+        return s.SalvaInDB();
+    }
+
 
     private String creazioneIDUnivoco(){
         String eventoSanificato = this.titolo.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
