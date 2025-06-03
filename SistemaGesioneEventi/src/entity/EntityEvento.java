@@ -46,14 +46,14 @@ public class EntityEvento {
         return prefisso + "-" + uuidParte;
     }
 
-    private boolean verificaCodice(String codice) {
-        for (EntityBiglietto b : this.biglietti) {
-            if (b.getCodiceUnivoco().equals(codice)) {
-                return true;
-            }
-        }
-        return false;
-    }
+   // private boolean verificaCodice(String codice) {
+   //     for (EntityBiglietto b : this.biglietti) {
+   //         if (b.getCodiceUnivoco().equals(codice)) {
+   //             return true;
+   //         }
+   //     }
+   //     return false;
+   // }
 
 
 

@@ -38,7 +38,7 @@ public class EventoDAO {
 
     //metodo per prelevare tutti gli eventi dal database
 
-    public ArrayList<EventoDAO> getEventi() {
+    public static ArrayList<EventoDAO> getEventi() throws DBException {
         ArrayList<EventoDAO> lista_temp = new ArrayList<>();
         String query = "SELECT * FROM eventi;";
 
@@ -62,7 +62,7 @@ public class EventoDAO {
                 }
             }
         } catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
+            throw new DBException(String.format("Errore nel caricamento degli eventi.%n%s", e.getMessage()));
         }
 
         return lista_temp;

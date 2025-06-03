@@ -2,9 +2,10 @@ package entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import database.
+import database.EventoDAO;
 import DTO.DTOEvento;
 import database.EventoDAO;
+import exceptions.DBException;
 
 public class EntityCatalogo {
 
