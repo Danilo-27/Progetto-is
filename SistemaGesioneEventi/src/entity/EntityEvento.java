@@ -71,7 +71,7 @@ public class EntityEvento {
    //     }
    //     return false;
    // }
-    public EntityBiglietto creazioneBiglietto(){
+    public EntityBiglietto creazioneBiglietto(int IDutente){
         //creazione ID univoco
         String codiceUnivoco= creazioneIDUnivoco();
         //creazione di entity biglietto con param ingresso ID univoco
