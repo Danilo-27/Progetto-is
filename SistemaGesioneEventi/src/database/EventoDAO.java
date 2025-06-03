@@ -51,11 +51,12 @@ public class EventoDAO {
                     evento_temp.setTitolo(rs.getString("Titolo"));
                     evento_temp.setDescrizione(rs.getString("Descrizione"));
                     evento_temp.setData(rs.getDate("Data").toLocalDate());
-                    evento_temp.setOra(LocalTime.parse(rs.getString("Ora")));
+                    evento_temp.setOra(LocalTime.parse(rs.getString("Orario")));
                     evento_temp.setLuogo(rs.getString("Luogo"));
                     evento_temp.setPartecipanti(rs.getInt("Partecipanti"));
                     evento_temp.setCapienza(rs.getInt("Capienza"));
-                    evento_temp.setAmministrazioneid(rs.getInt("Amministratoreid"));
+                    evento_temp.setAmministrazioneid(rs.getInt("Amministratore_id"));
+                    evento_temp.setCosto(rs.getInt("Costo"));
 
 
                     lista_temp.add(evento_temp);
@@ -70,7 +71,7 @@ public class EventoDAO {
 
     public int SalvaInDB() {
         int ret = 0;
-        String query = "INSERT INTO eventi (titolo,descrizione,data,ora,luogo,capienza,Amministratoreid) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.capienza + "','"+ this.Amministratoreid +"')";
+        String query = "INSERT INTO eventi (titolo,descrizione,data,orario,luogo,capienza,Amministratoreid) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.capienza + "','"+ this.Amministratoreid +"')";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
@@ -89,7 +90,7 @@ public class EventoDAO {
                 this.titolo=(rs.getString("Titolo"));
                 this.descrizione=(rs.getString("Descrizione"));
                 this.data=(rs.getDate("Data").toLocalDate());
-                this.ora=(LocalTime.parse(rs.getString("Ora")));
+                this.ora=(LocalTime.parse(rs.getString("Orario")));
                 this.luogo=(rs.getString("Luogo"));
                 this.partecipanti=(rs.getInt("Partecipanti"));
                 this.capienza=(rs.getInt("Capienza"));

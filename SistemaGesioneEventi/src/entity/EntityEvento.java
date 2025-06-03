@@ -17,7 +17,7 @@ public class EntityEvento {
     private int costo;
     private int capienza;
     private int partecipanti;
-    private ArrayList<EntityBiglietto> biglietti;
+    //private ArrayList<EntityBiglietto> biglietti;
 
     public EntityEvento(EventoDAO evento) {
         this.titolo = evento.getTitolo();
@@ -25,6 +25,8 @@ public class EntityEvento {
         this.data = evento.getData();
         this.ora = evento.getOra();
         this.luogo = evento.getLuogo();
+        this.costo = evento.getCosto();
+        this.capienza = evento.getCapienza();
     }
 
     public EntityEvento(String titolo) {
@@ -35,7 +37,7 @@ public class EntityEvento {
         this.descrizione=evento.getDescrizione();
         this.luogo=evento.getLuogo();
         this.capienza=evento.getCapienza();
-        this.biglietti=new ArrayList<>();
+        //this.biglietti=new ArrayList<>();
         evento.caricaBigliettiEventiDaDB();
     }
 
@@ -108,9 +110,9 @@ public class EntityEvento {
         return partecipanti;
     }
 
-    public ArrayList<EntityBiglietto> getBiglietti() {
-        return biglietti;
-    }
+   // public ArrayList<EntityBiglietto> getBiglietti() {
+    //    return biglietti;
+    //}
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
@@ -140,7 +142,15 @@ public class EntityEvento {
         this.partecipanti = partecipanti;
     }
 
-    public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
-        this.biglietti = biglietti;
+    //public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
+    //    this.biglietti = biglietti;
+    //}
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void setCosto(int costo) {
+        this.costo = costo;
     }
 }

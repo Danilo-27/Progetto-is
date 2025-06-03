@@ -34,7 +34,8 @@ public class EntityCatalogo {
             eventi.add(EventoCreato);
     }
 
-    public List<EntityEvento> ConsultaCtalogo() {
+
+    public List<EntityEvento> ConsultaCatalogo() {
         return eventi;
     }
 
