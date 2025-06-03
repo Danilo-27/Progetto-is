@@ -85,10 +85,6 @@ public class EntityEvento {
         return partecipanti;
     }
 
-    public int getId_amministratore() {
-        return id_amministratore;
-    }
-
     public ArrayList<EntityBiglietto> getBiglietti() {
         return biglietti;
     }
