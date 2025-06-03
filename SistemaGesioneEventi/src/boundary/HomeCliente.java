@@ -82,7 +82,9 @@ public class HomeCliente extends HomeUtenteRegistrato {
         });
 
         catalogoEventiButton.addActionListener(e -> {
-            // TODO: richiamo controller per Consulta Catalogo
+            CatalogoEventi catalogo = new CatalogoEventi(this);
+            catalogo.setVisible(true);
+            this.setVisible(false);
         });
 
         JPanel buttonsPanel = new JPanel();
