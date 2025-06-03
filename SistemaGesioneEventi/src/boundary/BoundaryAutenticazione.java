@@ -94,7 +94,6 @@ public class BoundaryAutenticazione extends JFrame {
                 section.setUtenteAutenticato(email,utente.getTipoUtente());
 
 
-
                 if (utente.getTipoUtente()==0){
                     new HomeCliente(utente.getNome(),utente.getCognome(),email, utente.getImmagine()).setVisible(true);
                     dispose();
