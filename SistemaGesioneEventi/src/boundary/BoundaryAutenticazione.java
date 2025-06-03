@@ -97,10 +97,13 @@ public class BoundaryAutenticazione extends JFrame {
                 new HomePage().setVisible(true);
                 dispose();
 
-                Sessione section=Sessione.getInstance();
-                section.setUtenteAutenticato(email,Tipo);
+                Sessione section = Sessione.getInstance();
+                section.setUtenteAutenticato(email, Tipo);
             } catch (LoginFailedException Lfe) {
-                JOptionPane.showMessageDialog(contentPane, "Login fallito: credenziali errate", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane,
+                        Lfe.getMessage(),
+                        "Errore",
+                        JOptionPane.ERROR_MESSAGE);
             }
 
 

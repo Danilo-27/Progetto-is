@@ -17,6 +17,7 @@ public class BigliettoDAO{
 
     public BigliettoDAO() {}
 
+    //carico un biglietto dato il codice
     public BigliettoDAO(String codice_univoco){
         this.codice_univoco = codice_univoco;
         this.caricaDaDB();
@@ -66,7 +67,6 @@ public class BigliettoDAO{
         }
     }
 
-    //NON SERVE
     public int SalvaInDB() {
         int ret = 0;
         String query = "INSERT INTO biglietti(codice_univoco,stato,Cliente_id,IDEvento) VALUES ( '" + this.codice_univoco + "','"+ this.nome_titolare + "','" + this.stato + "','" + this.Cliente_id + "','" + this.Evento_id + "');";
@@ -79,7 +79,6 @@ public class BigliettoDAO{
         return ret;
     }
 
-//
 
     public String getNome_titolare() {
         return nome_titolare;

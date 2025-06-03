@@ -22,9 +22,8 @@ public class EventoDAO {
     private int Amministratoreid;
     private ArrayList<BigliettoDAO> biglietti;
 
-
     //costruttore vuoto
-    public EventoDAO(){this.biglietti=new ArrayList<>();}
+    public EventoDAO(){}
 
     //costruttore con titolo
     public EventoDAO(String titolo){
@@ -39,7 +38,7 @@ public class EventoDAO {
 
     //metodo per prelevare tutti gli eventi dal database
 
-    public ArrayList<EventoDAO> getListaEventi() {
+    public ArrayList<EventoDAO> getEventi() {
         ArrayList<EventoDAO> lista_temp = new ArrayList<>();
         String query = "SELECT * FROM eventi;";
 
@@ -96,7 +95,7 @@ public class EventoDAO {
                 this.capienza=(rs.getInt("Capienza"));
 
             } else {
-                throw new DBException(String.format("Utente '%s' non esistente", id));
+                throw new DBException(String.format("Evento '%s' non esistente", id));
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -218,10 +217,11 @@ public class EventoDAO {
         this.biglietti = biglietti;
     }
 
+    public int getAmministratoreid() {
+        return Amministratoreid;
+    }
 
-
-
-//    //METODO PER FARE IL FILTRAGGIO DEGLI EVENTI PER DATA LUOGO O TITOLO DAL DATABASE
+    //    //METODO PER FARE IL FILTRAGGIO DEGLI EVENTI PER DATA LUOGO O TITOLO DAL DATABASE
 //    public void caricaDaDB(String titolo,String luogo,LocalDate data) {
 //
 //        // Inizializzo la query base con WHERE 1=1 per facilitare l'aggiunta dinamica di filtri

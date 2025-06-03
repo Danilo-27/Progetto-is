@@ -50,9 +50,9 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
         });
 
         creaEventoButton.addActionListener(e -> {
-            FormEvento form = new FormEvento(this);
-            form.setVisible(true);
-            this.setVisible(false);
+            //FormEvento form = new FormEvento(this);
+            //form.setVisible(true);
+            //this.setVisible(false);
         });
 
         JPanel buttonsPanel = new JPanel();

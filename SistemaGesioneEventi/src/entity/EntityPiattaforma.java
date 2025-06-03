@@ -44,15 +44,19 @@ public class EntityPiattaforma {
 
 
     public int Autenticazione(String email, String password) throws LoginFailedException {
-        EntityUtente u = new EntityUtente(email);
-        if (u.verificaCredenziali(password)) {
-            if (u.getTipoUtente() == 0) {
-                return 0;
+        try {
+            EntityUtente u = new EntityUtente(email);
+            if (u.verificaCredenziali(password)) {
+                if (u.getTipoUtente() == 0) {
+                    return 0;
+                } else {
+                    return 1;
+                }
             } else {
-                return 1;
+                throw new LoginFailedException("Login fallito, password errata");
             }
-        } else {
-            throw new LoginFailedException("Login fallito, password errata");
+        } catch (DBException e) {
+            throw new LoginFailedException("Login fallito, email non registrata");
         }
     }
 

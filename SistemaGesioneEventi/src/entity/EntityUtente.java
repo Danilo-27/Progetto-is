@@ -23,7 +23,7 @@ public class EntityUtente {
         this.password = password;
     }
 
-    public EntityUtente(String email) {
+    public EntityUtente(String email) throws DBException {
         this.email = email;
         try {
             UtenteDAO dao = new UtenteDAO(email);
@@ -34,6 +34,7 @@ public class EntityUtente {
             this.TipoUtente = dao.getTipoUtente();
         }catch(DBException e){
             System.out.println(e.getMessage());
+            throw  e;
         }
     }
 
