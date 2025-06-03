@@ -69,6 +69,14 @@ public class EntityEvento {
    //     }
    //     return false;
    // }
+    public EntityBiglietto creazioneBiglietto(){
+        //creazione ID univoco
+        String codiceUnivoco= creazioneIDUnivoco();
+        //creazione di entity biglietto con param ingresso ID univoco
+        EntityBiglietto biglietto=new EntityBiglietto(codiceUnivoco);
+        //return entityBiglietto
+        return biglietto;
+    }
 
 
 

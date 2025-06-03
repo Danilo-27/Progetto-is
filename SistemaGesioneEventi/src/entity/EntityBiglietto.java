@@ -8,19 +8,18 @@ public class EntityBiglietto {
     private String codiceUnivoco;
     private int stato;
     private EntityEvento evento;
-    private EntityUtente;
+    private EntityUtente utente;
 
-    public EntityBiglietto() {
-    }
+    public EntityBiglietto() {}
 
-    public EntityBiglietto(BigliettoDAO biglietto) {
-        this.id = biglietto.getId();
-        this.codiceUnivoco=biglietto.getCodice_univoco();
-        this.stato=biglietto.getStato();
-        this.IDcliente=biglietto.getIDcliente(); //togliere
-        this.IDEvento=biglietto.getIDEvento(); //togliere
-        biglietto.caricaEventoBigliettoDaDB();
-        this.caricaEvento(biglietto);
+    public EntityBiglietto(String codiceUnivoco){
+        this.codiceUnivoco = codiceUnivoco;
+        BigliettoDAO dao=new BigliettoDAO(codiceUnivoco);
+        this.id = dao.getId();
+        this.codiceUnivoco=dao.getCodice_univoco();
+        this.stato=dao.getStato();
+        this.caricaEvento(dao);
+        this.caricaUtente(dao);
     }
 
 
@@ -32,23 +31,29 @@ public class EntityBiglietto {
         return s.SalvaInDB();
     }
 
-    public void caricaEvento(DBBiglietto biglietto) {
+    public void caricaEvento(BigliettoDAO biglietto) {
         //devo prendere l'evento dal biglietto che ho creato mediante il metodo
         //caricaEventoBigliettoDaDB, chiamato nel costruttore ""public EntityBiglietto(DBBiglietto biglietto)""
         EntityEvento evento = new EntityEvento(biglietto.getEvento());
         this.evento=evento;
+    }
+    public void caricaUtente(BigliettoDAO biglietto) {
+        //devo prendere l'evento dal biglietto che ho creato mediante il metodo
+        //caricaEventoBigliettoDaDB, chiamato nel costruttore ""public EntityBiglietto(DBBiglietto biglietto)""
+        EntityUtente utente = new EntityUtente(biglietto.getUtente());
+        this.utente=utente;
     }
 
 
     @Override
     public String toString() {
         return "EntityBiglietto{" +
-                "id=" + id +
-                ", nome_titolare='" + nome_titolare + '\'' +
-                ", codice_univoco='" + codice_univoco + '\'' +
-                ", stato='" + stato + '\'' +
-                ", IDcliente=" + IDcliente +
-                ", IDEvento=" + IDEvento +
+                "id=" + this.id +
+                ", nome_titolare='" + this.utente.getNome() + '\'' +
+                ", codice_univoco='" + this.codiceUnivoco + '\'' +
+                ", stato='" + this.stato + '\'' +
+                ", IDcliente=" + this.utente.getId() +
+                ", Evento=" + this.evento.getTitolo() +
                 '}';
     }
 
@@ -74,19 +79,19 @@ public class EntityBiglietto {
     }
 
     public String getNome_titolare() {
-        return nome_titolare;
+        return this.utente.getNome();
     }
 
     public void setNome_titolare(String nome_titolare) {
-        this.nome_titolare = nome_titolare;
+        this.utente.setNome(nome_titolare);
     }
 
     public String getCodice_univoco() {
-        return codice_univoco;
+        return this.codiceUnivoco;
     }
 
     public void setCodice_univoco(String codice_univoco) {
-        this.codice_univoco = codice_univoco;
+        this.codiceUnivoco = codice_univoco;
     }
 
     public int getStato() {
@@ -98,19 +103,19 @@ public class EntityBiglietto {
     }
 
     public int getIDcliente() {
-        return IDcliente;
+        return this.utente.getId();
     }
 
     public void setIDcliente(int IDcliente) {
-        this.IDcliente = IDcliente;
+        this.utente.setId(IDcliente);
     }
 
-    public int getIDEvento() {
-        return IDEvento;
+    public String getTitoloEvento() {
+        return this.evento.getTitolo();
     }
 
-    public void setIDEvento(int IDEvento) {
-        this.IDEvento = IDEvento;
+    public void setTitoloEvento(String titolo) {
+        this.evento.setTitolo(titolo);
     }
 
     public EntityEvento getEvento() {
@@ -119,5 +124,11 @@ public class EntityBiglietto {
 
     public void setEvento(EntityEvento evento) {
         this.evento = evento;
+    }
+    public EntityUtente getUtente() {
+        return this.utente;
+    }
+    public void setUtente(EntityUtente utente) {
+        this.utente = utente;
     }
 }

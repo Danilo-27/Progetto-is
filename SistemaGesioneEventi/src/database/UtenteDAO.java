@@ -122,5 +122,7 @@ public class UtenteDAO {
         return tipoUtente;
     }
 
+    public void setTipoUtente(int tipoUtente) {this.tipoUtente = tipoUtente;}
+
 }
 

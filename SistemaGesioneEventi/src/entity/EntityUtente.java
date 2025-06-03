@@ -1,5 +1,6 @@
 package entity;
 
+import database.EventoDAO;
 import database.UtenteDAO;
 import database.UtenteDAO;
 import exceptions.DBException;
@@ -15,6 +16,15 @@ public class EntityUtente {
     private int TipoUtente;
 
     public EntityUtente(){}
+
+    public EntityUtente(UtenteDAO utente) {
+        this.nome = utente.getNome();
+        this.cognome = utente.getCognome();
+        this.email = utente.getEmail();
+        this.password = utente.getPassword();
+        this.immagine = utente.getImmagine();
+        this.TipoUtente = utente.getTipoUtente();
+    }
 
     public EntityUtente(String nome, String cognome, String email, String password) {
         this.nome = nome;

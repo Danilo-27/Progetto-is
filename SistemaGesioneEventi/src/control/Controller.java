@@ -1,4 +1,3 @@
-//test commento
 
 package control;
 

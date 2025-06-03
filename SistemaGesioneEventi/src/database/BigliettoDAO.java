@@ -1,5 +1,7 @@
 package database;
 
+import entity.EntityEvento;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -14,13 +16,16 @@ public class BigliettoDAO{
     private int Cliente_id;
     private int Evento_id;
     private EventoDAO evento;
+    private UtenteDAO utente;
 
     public BigliettoDAO() {}
 
-    //carico un biglietto dato il codice
+    //carico un biglietto dato il codice (usato in entityEvento)
     public BigliettoDAO(String codice_univoco){
         this.codice_univoco = codice_univoco;
         this.caricaDaDB();
+        this.caricaEventoFromBigliettoDaDB();
+        this.caricaUtenteDaBigliettoDaDB();
     }
 
     public void caricaDaDB() {
@@ -33,7 +38,7 @@ public class BigliettoDAO{
                 this.Cliente_id = rs.getInt("Cliente_id");
                 this.Evento_id = rs.getInt("IDEvento");
             } else {
-                System.out.println("Utente non trovato nel DB");
+                System.out.println("Biglietto non trovato nel DB");
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -57,6 +62,29 @@ public class BigliettoDAO{
                 evento.setLuogo(rs.getString("luogo"));
 
                 this.evento = evento;
+
+            } else {
+                System.out.println("Evento non trovato nel DB");
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void caricaUtenteDaBigliettoDaDB() {
+        String query = "SELECT * FROM utenti WHERE ID = " + this.Cliente_id + ";";
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            if (rs.next()) {
+                UtenteDAO utente= new UtenteDAO();
+                utente.setEmail(rs.getString("email"));
+                utente.setPassword(rs.getString("password"));
+                utente.setNome(rs.getString("nome"));
+                utente.setCognome(rs.getString("cognome"));
+                utente.setImmagine(rs.getString("immagineProfilo"));
+                utente.setTipoUtente(rs.getInt("tipoUtente"));
+
+                this.utente = utente;
 
             } else {
                 System.out.println("Utente non trovato nel DB");
@@ -131,4 +159,6 @@ public class BigliettoDAO{
     public EventoDAO getEvento() {
         return evento;
     }
+
+    public UtenteDAO getUtente() {return utente;}
 }
