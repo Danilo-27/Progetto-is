@@ -12,17 +12,14 @@ public class EntityBiglietto {
 
     public EntityBiglietto() {}
 
-    //questo è per caricare un biglietto già nel DB
-    public EntityBiglietto(String codiceUnivoco) {
+    public EntityBiglietto(String codiceUnivoco){
         this.codiceUnivoco = codiceUnivoco;
         BigliettoDAO dao=new BigliettoDAO(codiceUnivoco);
-        this.id = dao.getId();
         this.codiceUnivoco=dao.getCodice_univoco();
         this.stato=dao.getStato();
         this.caricaEvento(dao);
         this.caricaUtente(dao);
     }
-    //questo invece è per caricare il biglietto nel DB
 
 
     //NON SERVE

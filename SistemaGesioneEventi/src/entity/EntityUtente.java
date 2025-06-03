@@ -18,6 +18,7 @@ public class EntityUtente {
     public EntityUtente(){}
 
     public EntityUtente(UtenteDAO utente) {
+        this.id=utente.getId();
         this.nome = utente.getNome();
         this.cognome = utente.getCognome();
         this.email = utente.getEmail();
@@ -126,5 +127,18 @@ public class EntityUtente {
 
     public int getTipoUtente() {
         return TipoUtente;
+    }
+
+    @Override
+    public String toString() {
+        return "EntityUtente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", immagine='" + immagine + '\'' +
+                ", TipoUtente=" + TipoUtente +
+                '}';
     }
 }

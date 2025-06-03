@@ -153,4 +153,18 @@ public class EntityEvento {
     public void setCosto(int costo) {
         this.costo = costo;
     }
+
+    @Override
+    public String toString() {
+        return "EntityEvento{" +
+                "titolo='" + titolo + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", data=" + data +
+                ", ora=" + ora +
+                ", luogo='" + luogo + '\'' +
+                ", costo=" + costo +
+                ", capienza=" + capienza +
+                ", partecipanti=" + partecipanti +
+                '}';
+    }
 }

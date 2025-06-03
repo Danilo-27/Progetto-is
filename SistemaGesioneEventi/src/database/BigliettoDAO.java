@@ -9,8 +9,6 @@ import java.time.LocalTime;
 
 public class BigliettoDAO{
 
-    private int id;
-    private String nome_titolare;
     private String codice_univoco;
     private int stato;
     private int Cliente_id;
@@ -29,14 +27,13 @@ public class BigliettoDAO{
     }
 
     public void caricaDaDB() {
-        String query = "SELECT * FROM biglietti WHERE = codice_univco'" + this.codice_univoco + "';";
+        String query = "SELECT * FROM biglietti WHERE  CodiceUnivoco = '" + this.codice_univoco + "';";
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             if (rs.next()) {
-                this.nome_titolare = rs.getString("nome_titolare");
                 this.stato = rs.getInt("stato");
                 this.Cliente_id = rs.getInt("Cliente_id");
-                this.Evento_id = rs.getInt("IDEvento");
+                this.Evento_id = rs.getInt("Evento_id");
             } else {
                 System.out.println("Biglietto non trovato nel DB");
             }
@@ -53,11 +50,11 @@ public class BigliettoDAO{
             if (rs.next()) {
                 EventoDAO evento= new EventoDAO();
                 evento.setTitolo(rs.getString("Titolo"));
-                evento.setAmministrazioneid(rs.getInt("IDamministratore"));
+                evento.setAmministrazioneid(rs.getInt("Amministratore_id"));
                 evento.setCapienza(rs.getInt("capienza"));
                 evento.setPartecipanti(rs.getInt("partecipanti"));
                 evento.setData(LocalDate.parse(rs.getString("data")));
-                evento.setOra(LocalTime.parse(rs.getString("ora")));
+                evento.setOra(LocalTime.parse(rs.getString("orario")));
                 evento.setDescrizione(rs.getString("descrizione"));
                 evento.setLuogo(rs.getString("luogo"));
 
@@ -77,12 +74,13 @@ public class BigliettoDAO{
             ResultSet rs = DBConnectionManager.selectQuery(query);
             if (rs.next()) {
                 UtenteDAO utente= new UtenteDAO();
+                utente.setId(this.Cliente_id);
                 utente.setEmail(rs.getString("email"));
                 utente.setPassword(rs.getString("password"));
                 utente.setNome(rs.getString("nome"));
                 utente.setCognome(rs.getString("cognome"));
                 utente.setImmagine(rs.getString("immagineProfilo"));
-                utente.setTipoUtente(rs.getInt("tipoUtente"));
+                utente.setTipoUtente(rs.getInt("Tipo"));
 
                 this.utente = utente;
 
@@ -97,7 +95,7 @@ public class BigliettoDAO{
 
     public int SalvaInDB() {
         int ret = 0;
-        String query = "INSERT INTO biglietti(codice_univoco,stato,Cliente_id,IDEvento) VALUES ( '" + this.codice_univoco + "','"+ this.nome_titolare + "','" + this.stato + "','" + this.Cliente_id + "','" + this.Evento_id + "');";
+        String query = "INSERT INTO biglietti(CodiceUnivoco,stato,Cliente_id,Evento_id) VALUES ( '" + this.codice_univoco + "','"+ "','" + this.stato + "','" + this.Cliente_id + "','" + this.Evento_id + "');";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
@@ -108,13 +106,7 @@ public class BigliettoDAO{
     }
 
 
-    public String getNome_titolare() {
-        return nome_titolare;
-    }
 
-    public void setNome_titolare(String nome_titolare) {
-        this.nome_titolare = nome_titolare;
-    }
 
     public String getCodice_univoco() {
         return codice_univoco;
@@ -130,14 +122,6 @@ public class BigliettoDAO{
 
     public void setStato(int stato) {
         this.stato = stato;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getCliente_id() {

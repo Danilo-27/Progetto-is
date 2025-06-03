@@ -71,7 +71,7 @@ public class EventoDAO {
 
     public int SalvaInDB() {
         int ret = 0;
-        String query = "INSERT INTO eventi (titolo,descrizione,data,orario,luogo,capienza,Amministratoreid) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.capienza + "','"+ this.Amministratoreid +"')";
+        String query = "INSERT INTO eventi (titolo,descrizione,data,orario,luogo,capienza,Amministratore_id) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.capienza + "','"+ this.Amministratoreid +"')";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
@@ -112,7 +112,6 @@ public class EventoDAO {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             while(rs.next()) {
                 BigliettoDAO biglietto = new BigliettoDAO();
-                biglietto.setNome_titolare(rs.getString("nome_titolare"));
                 biglietto.setCodice_univoco(rs.getString("codice_univoco"));
                 biglietto.setStato(rs.getInt("stato"));
                 biglietto.setCliente_id(rs.getInt("IDcliente"));
@@ -222,6 +221,8 @@ public class EventoDAO {
         return Amministratoreid;
     }
 
+
+
     //    //METODO PER FARE IL FILTRAGGIO DEGLI EVENTI PER DATA LUOGO O TITOLO DAL DATABASE
 //    public void caricaDaDB(String titolo,String luogo,LocalDate data) {
 //
@@ -282,7 +283,7 @@ public class EventoDAO {
 //
 //
 //
-//    }
+//   }
 
 }
 

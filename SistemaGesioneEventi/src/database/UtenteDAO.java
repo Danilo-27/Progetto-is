@@ -124,5 +124,12 @@ public class UtenteDAO {
 
     public void setTipoUtente(int tipoUtente) {this.tipoUtente = tipoUtente;}
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
 
