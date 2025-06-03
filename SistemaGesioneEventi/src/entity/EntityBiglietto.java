@@ -4,13 +4,19 @@ import database.BigliettoDAO;
 
 public class EntityBiglietto {
 
-    private int id;
     private String codiceUnivoco;
     private int stato;
     private EntityEvento evento;
     private EntityUtente utente;
 
     public EntityBiglietto() {}
+
+    public EntityBiglietto(BigliettoDAO biglietto) {
+        this.codiceUnivoco=biglietto.getCodice_univoco();
+        this.stato=biglietto.getStato();
+    }
+
+
 
     public EntityBiglietto(String codiceUnivoco){
         this.codiceUnivoco = codiceUnivoco;
@@ -22,13 +28,24 @@ public class EntityBiglietto {
     }
 
 
-    //NON SERVE
     public int aggiornaSuDB() {
         BigliettoDAO s = new BigliettoDAO();
         s.setStato(this.stato);
         s.setCodice_univoco(this.codiceUnivoco);
         return s.aggiornaInDB();
     }
+
+    public int scriviSuDB() {
+        BigliettoDAO b = new BigliettoDAO();
+        b.setStato(this.stato);
+        b.setCodice_univoco(this.codiceUnivoco);
+        System.out.println(this.evento.getId());
+        b.setEvento_id(this.evento.getId());
+        System.out.println(this.utente.getId());
+        b.setCliente_id(this.utente.getId());
+        return b.SalvaInDB();
+    }
+
 
 
     public void caricaEvento(BigliettoDAO biglietto) {
@@ -48,7 +65,6 @@ public class EntityBiglietto {
     @Override
     public String toString() {
         return "EntityBiglietto{" +
-                "id=" + this.id +
                 ", nome_titolare='" + this.utente.getNome() + '\'' +
                 ", codice_univoco='" + this.codiceUnivoco + '\'' +
                 ", stato='" + this.stato + '\'' +
@@ -69,13 +85,6 @@ public class EntityBiglietto {
             this.setStato(1);
         }
         return true;
-    }
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome_titolare() {

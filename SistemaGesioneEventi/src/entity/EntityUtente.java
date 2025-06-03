@@ -38,6 +38,7 @@ public class EntityUtente {
         this.email = email;
         try {
             UtenteDAO dao = new UtenteDAO(email);
+            this.id=dao.getId();
             this.nome = dao.getNome();
             this.password = dao.getPassword();
             this.cognome = dao.getCognome();

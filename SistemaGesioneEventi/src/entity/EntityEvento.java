@@ -1,6 +1,7 @@
 package entity;
 
 
+import database.BigliettoDAO;
 import database.EventoDAO;
 import exceptions.UniqueCodeException;
 
@@ -10,6 +11,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class EntityEvento {
+
+    private int id;
     private String titolo;
     private String descrizione;
     private LocalDate data;
@@ -32,6 +35,7 @@ public class EntityEvento {
 
     public EntityEvento(String titolo) {
         EventoDAO evento= new EventoDAO(titolo);
+        this.id = evento.getId();
         this.titolo = evento.getTitolo();
         this.data=evento.getData();
         this.ora=evento.getOra();
@@ -40,6 +44,8 @@ public class EntityEvento {
         this.capienza=evento.getCapienza();
         this.biglietti=new ArrayList<>();
         evento.caricaBigliettiEventiDaDB();
+        this.caricaBiglietti(evento);
+
     }
 
     public int scriviSuDB() {
@@ -60,11 +66,12 @@ public class EntityEvento {
         String eventoSanificato = this.titolo.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
         String prefisso = eventoSanificato.substring(0, Math.min(3, eventoSanificato.length()));
         String uuidParte = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase().substring(0, 8);
-
-        return prefisso + "-" + uuidParte;
+        String codice=prefisso + "-" + uuidParte;
+        System.out.println(codice);
+        return codice;
     }
 
-   public EntityBiglietto verificaCodice(String codice) {
+    public EntityBiglietto verificaCodice(String codice) {
         for (EntityBiglietto b : this.biglietti) {
             if (b.getCodice_univoco().equals(codice)) {
                 return b;
@@ -72,14 +79,33 @@ public class EntityEvento {
         }
         return null;
     }
-    public EntityBiglietto creazioneBiglietto(int IDutente) {
+
+    public EntityBiglietto creazioneBiglietto(EntityUtente utente) {
         //creazione ID univoco
         String codiceUnivoco = creazioneIDUnivoco();
         //creazione di entity biglietto con param ingresso ID univoco
-        EntityBiglietto biglietto = new EntityBiglietto(codiceUnivoco);
+        EntityBiglietto biglietto = new EntityBiglietto();
+        biglietto.setCodice_univoco(codiceUnivoco);
+        biglietto.setEvento(this);
+        biglietto.setUtente(utente);
         //return entityBiglietto
+        biglietto.scriviSuDB();
         return biglietto;
     }
+
+    public boolean verificaDisponibilita(){
+        return this.capienza>this.biglietti.size();
+    }
+
+    public void caricaBiglietti(EventoDAO eventoDAO) {
+        this.biglietti = new ArrayList<>();
+
+        for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
+            EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
+            this.biglietti.add(biglietto);
+        }
+    }
+
 
 
 
@@ -167,5 +193,9 @@ public class EntityEvento {
                 ", capienza=" + capienza +
                 ", partecipanti=" + partecipanti +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 }

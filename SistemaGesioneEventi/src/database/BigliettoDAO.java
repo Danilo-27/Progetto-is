@@ -96,7 +96,8 @@ public class BigliettoDAO{
 
     public int SalvaInDB() {
         int ret = 0;
-        String query = "INSERT INTO biglietti(CodiceUnivoco,stato,Cliente_id,Evento_id) VALUES ( '" + this.codice_univoco + "','"+ "','" + this.stato + "','" + this.Cliente_id + "','" + this.Evento_id + "');";
+        String query = "INSERT INTO biglietti (CodiceUnivoco, stato, Cliente_id, Evento_id) " +
+                "VALUES ('" + this.codice_univoco + "', '" + this.stato + "', '" + this.Cliente_id + "', '" + this.Evento_id + "');";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {

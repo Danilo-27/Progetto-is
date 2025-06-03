@@ -106,16 +106,15 @@ public class EventoDAO {
 
     public void caricaBigliettiEventiDaDB() {
 
-        String query = new String("select * from biglietti where IDEvento IN (select id from eventi where titolo = '" + this.titolo + "')");
+        String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
 
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             while(rs.next()) {
                 BigliettoDAO biglietto = new BigliettoDAO();
-                biglietto.setCodice_univoco(rs.getString("codice_univoco"));
                 biglietto.setStato(rs.getInt("stato"));
-                biglietto.setCliente_id(rs.getInt("IDcliente"));
-                biglietto.setEvento_id(rs.getInt("IDEvento"));
+                biglietto.setCliente_id(rs.getInt("cliente_id"));
+                biglietto.setEvento_id(rs.getInt("Evento_id"));
 
                 this.biglietti.add(biglietto);
             }
