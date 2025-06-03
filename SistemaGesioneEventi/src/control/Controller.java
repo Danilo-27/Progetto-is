@@ -5,9 +5,11 @@ package control;
 import DTO.DTOEvento;
 import DTO.DTOUtente;
 import entity.*;
+import exceptions.EventoNotFoundException;
 import exceptions.RegistrationFailedException;
 import exceptions.LoginFailedException;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,9 +45,21 @@ public class Controller {
         return eventiDTO;
     }
 
+    public static List<DTOEvento> RicercaEvento(String titolo, LocalDate data, String luogo) throws EventoNotFoundException {
+        List<DTOEvento> eventiDTO = new ArrayList<>();
+        EntityCatalogo catalogo = EntityCatalogo.getInstance();
+        List<EntityEvento> eventiTrovati = catalogo.ricercaEvento(titolo,data,luogo);
+        for (EntityEvento evento: eventiTrovati) {
+            DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza());
+            eventiDTO.add(dto);
+        }
 
-   // EntityUtente u = new EntityUtente();
-    // u.idUtente(email);
+
+
+        return eventiDTO;
+    }
+
+
 
 
 
