@@ -1,5 +1,6 @@
 package boundary;
 
+import DTO.DTOUtente;
 import control.Controller;
 import entity.EntityPiattaforma;
 import exceptions.RegistrationFailedException;
@@ -88,17 +89,20 @@ public class BoundaryAutenticazione extends JFrame {
 
 
             try {
-                int Tipo = Controller.Autenticazione(email, password);
-                System.out.println(Tipo);
-
-                JOptionPane.showMessageDialog(contentPane,
-                        "Login riuscito:\nEmail: " + email +
-                                "\nTipo utente: " + (Tipo == 0 ? "Cliente" : "Admin"));
-                new HomePage().setVisible(true);
-                dispose();
-
                 Sessione section = Sessione.getInstance();
-                section.setUtenteAutenticato(email, Tipo);
+                DTOUtente utente = Controller.Autenticazione(email, password);
+                section.setUtenteAutenticato(email,utente.getTipoUtente());
+
+
+
+                if (utente.getTipoUtente()==0){
+                    new HomeCliente(utente.getNome(),utente.getCognome(),email, utente.getImmagine()).setVisible(true);
+                    dispose();
+                }else{
+                    new HomeAmministratore();
+                    dispose();
+                }
+
             } catch (LoginFailedException Lfe) {
                 JOptionPane.showMessageDialog(contentPane,
                         Lfe.getMessage(),
