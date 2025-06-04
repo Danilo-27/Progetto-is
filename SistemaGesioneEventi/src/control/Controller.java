@@ -71,14 +71,13 @@ public class Controller {
         }
     }
 
-    public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws AcquistoException {
-        EntityEvento evento= new EntityEvento(eventodb);
+    public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws BigliettoConsumatoException,BigliettoNotFoundException {
+        EntityEvento evento= new EntityEvento(eventodb.getTitolo());
         EntityBiglietto biglietto = evento.verificaCodice(codiceUnivoco);
         if(biglietto == null) {
-            throw new AcquistoException("Evento non trovato");
+            throw new BigliettoNotFoundException("Biglietto non trovato");
         }else{
-            int stato=1;
-            biglietto.aggiorna(stato);
+            biglietto.validaBiglietto();
             evento.aggiornaPartecipanti();
         }
 

@@ -1,6 +1,7 @@
 package entity;
 
 import database.BigliettoDAO;
+import exceptions.BigliettoConsumatoException;
 import exceptions.DBException;
 
 public class EntityBiglietto {
@@ -30,14 +31,6 @@ public class EntityBiglietto {
         this.stato=dao.getStato();
         this.caricaEvento(dao);
         this.caricaUtente(dao);
-    }
-
-
-    public int aggiorna(int stato) {
-        BigliettoDAO dao = new BigliettoDAO();
-        dao.setStato(stato);
-        dao.setCodice_univoco(this.codiceUnivoco);
-        return dao.aggiornaInDB();
     }
 
     public int scriviSuDB() throws DBException {
@@ -73,13 +66,16 @@ public class EntityBiglietto {
         //codice
         return false;
     }
-    public boolean validaBiglietto(){
-        if(this.getStato()==1){
-            return false;
+    public int validaBiglietto() throws BigliettoConsumatoException {
+        if(this.getStato()==EntityBiglietto.OBLITERATO){
+            throw new BigliettoConsumatoException("Biglietto già obliterato");
         }else{
-            this.setStato(1);
+            this.setStato(EntityBiglietto.OBLITERATO);
+            BigliettoDAO dao = new BigliettoDAO();
+            dao.setStato(this.stato);
+            dao.setCodice_univoco(this.codiceUnivoco);
+            return dao.aggiornaInDB();
         }
-        return true;
     }
 
     public String getNome_titolare() {

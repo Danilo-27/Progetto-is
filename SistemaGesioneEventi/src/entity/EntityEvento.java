@@ -34,15 +34,6 @@ public class EntityEvento {
         this.costo = evento.getCosto();
         this.capienza = evento.getCapienza();
     }
-    public EntityEvento(DTOEvento evento) {
-        this.titolo = evento.getTitolo();
-        this.descrizione = evento.getDescrizione();
-        this.data = evento.getData();
-        this.ora = evento.getOra();
-        this.luogo = evento.getLuogo();
-        this.costo = evento.getCosto();
-        this.capienza = evento.getCapienza();
-    }
     public EntityEvento(String titolo) {
         EventoDAO evento= new EventoDAO(titolo);
         this.id = evento.getId();
