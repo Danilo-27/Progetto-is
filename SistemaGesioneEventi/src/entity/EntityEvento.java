@@ -75,7 +75,7 @@ public class EntityEvento {
         EventoDAO dao = new EventoDAO();
         dao.setTitolo(this.titolo);
         dao.setPartecipanti(this.partecipanti);
-        return dao.SalvaInDB();
+        return dao.AggiornaInDB();
     }
 
 

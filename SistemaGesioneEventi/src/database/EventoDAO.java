@@ -71,7 +71,9 @@ public class EventoDAO {
 
     public int SalvaInDB() {
         int ret = 0;
-        String query = "INSERT INTO eventi (titolo,descrizione,data,orario,luogo,capienza,Amministratore_id) VALUES ( '" + this.titolo + "','"+ this.descrizione+ "','" + this.data + "','" + this.ora + "','" + this.luogo + "','"+ this.capienza + "','"+ this.Amministratoreid +"')";
+        String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, capienza, partecipanti, Amministratore_id) " +
+                "VALUES ('" + this.titolo + "','" + this.descrizione + "','" + this.data + "','" + this.ora + "','" + this.luogo + "'," +
+                "'" + this.capienza + "','" + this.partecipanti + "','" + this.Amministratoreid + "')";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
@@ -123,6 +125,7 @@ public class EventoDAO {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             while(rs.next()) {
                 BigliettoDAO biglietto = new BigliettoDAO();
+                biglietto.setCodice_univoco(rs.getString("CodiceUnivoco"));
                 biglietto.setStato(rs.getInt("stato"));
                 biglietto.setCliente_id(rs.getInt("cliente_id"));
                 biglietto.setEvento_id(rs.getInt("Evento_id"));

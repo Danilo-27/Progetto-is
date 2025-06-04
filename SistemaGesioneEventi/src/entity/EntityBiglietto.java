@@ -18,6 +18,7 @@ public class EntityBiglietto {
 
     public EntityBiglietto(BigliettoDAO biglietto) {
         this.codiceUnivoco=biglietto.getCodice_univoco();
+        System.out.println(this.codiceUnivoco);
         this.stato=biglietto.getStato();
     }
 
@@ -66,16 +67,6 @@ public class EntityBiglietto {
     }
 
 
-    @Override
-    public String toString() {
-        return "EntityBiglietto{" +
-                ", nome_titolare='" + this.utente.getNome() + '\'' +
-                ", codice_univoco='" + this.codiceUnivoco + '\'' +
-                ", stato='" + this.stato + '\'' +
-                ", IDcliente=" + this.utente.getId() +
-                ", Evento=" + this.evento.getTitolo() +
-                '}';
-    }
 
     //DA IMPLEMENTARE
     public boolean verificaBiglietto(){

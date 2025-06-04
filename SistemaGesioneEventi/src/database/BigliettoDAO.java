@@ -113,7 +113,7 @@ public class BigliettoDAO{
 
     public int aggiornaInDB() {
         int ret = 0;
-        String query="UPDATE biglietti SET stato='" + this.stato + "' WHERE id ='" + this.codice_univoco + "';";
+        String query="UPDATE biglietti SET stato='" + this.stato + "' WHERE CodiceUnivoco ='" + this.codice_univoco + "';";
         try{
             ret=DBConnectionManager.updateQuery(query);
         }catch (SQLException | ClassNotFoundException e) {
