@@ -1,6 +1,7 @@
 package entity;
 
 import database.BigliettoDAO;
+import exceptions.DBException;
 
 public class EntityBiglietto {
 
@@ -35,7 +36,7 @@ public class EntityBiglietto {
         return s.aggiornaInDB();
     }
 
-    public int scriviSuDB() {
+    public int scriviSuDB() throws DBException {
         BigliettoDAO b = new BigliettoDAO();
         b.setStato(this.stato);
         b.setCodice_univoco(this.codiceUnivoco);

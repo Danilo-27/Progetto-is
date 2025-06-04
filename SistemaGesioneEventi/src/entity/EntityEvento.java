@@ -3,6 +3,7 @@ package entity;
 
 import database.BigliettoDAO;
 import database.EventoDAO;
+import exceptions.DBException;
 import exceptions.UniqueCodeException;
 
 import java.util.UUID;
@@ -80,7 +81,7 @@ public class EntityEvento {
         return null;
     }
 
-    public EntityBiglietto creazioneBiglietto(EntityUtente utente) {
+    public EntityBiglietto creazioneBiglietto(EntityUtente utente) throws DBException {
         //creazione ID univoco
         String codiceUnivoco = creazioneIDUnivoco();
         //creazione di entity biglietto con param ingresso ID univoco

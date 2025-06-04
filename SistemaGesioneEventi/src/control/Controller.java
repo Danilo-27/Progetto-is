@@ -57,7 +57,11 @@ public class Controller {
             // Chiede di inserire i dati del pagamento
             SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
             if (sga.elaboraPagamento("1234", u.getNome(), u.getCognome())) {
-                evento.creazioneBiglietto(u);
+                try {
+                    evento.creazioneBiglietto(u);
+                } catch (DBException e) {
+                    throw new AcquistoException("L'utente " + email + " ha già acquistato un biglietto per l'evento: " + evento.getTitolo());
+                }
             } else {
                 throw new AcquistoException("Pagamento non riuscito per l'utente: " + email);
             }

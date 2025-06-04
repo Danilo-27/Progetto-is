@@ -5,6 +5,7 @@ import exceptions.DBException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -94,18 +95,22 @@ public class BigliettoDAO{
         }
     }
 
-    public int SalvaInDB() {
+    public int SalvaInDB() throws DBException {
         int ret = 0;
         String query = "INSERT INTO biglietti (CodiceUnivoco, stato, Cliente_id, Evento_id) " +
                 "VALUES ('" + this.codice_univoco + "', '" + this.stato + "', '" + this.Cliente_id + "', '" + this.Evento_id + "');";
         try {
             ret = DBConnectionManager.updateQuery(query);
+        } catch (SQLIntegrityConstraintViolationException e) {
+            throw new DBException("Violazione dei vincoli di integrità: " + e.getMessage());
         } catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
+            e.printStackTrace();
             ret = -1;
         }
         return ret;
     }
+
+
     public int aggiornaInDB() {
         int ret = 0;
         String query="UPDATE biglietti SET stato='" + this.stato + "' " + this.codice_univoco + "';";
