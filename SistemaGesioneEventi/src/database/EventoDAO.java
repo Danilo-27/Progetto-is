@@ -81,6 +81,17 @@ public class EventoDAO {
 
         return ret;
     }
+    public int AggiornaInDB() {
+        int ret = 0;
+        String query="UPDATE eventi SET Partecipanti='" + this.partecipanti + "' WHERE id ='" + this.id + "';";
+        try{
+            ret=DBConnectionManager.updateQuery(query);
+        }catch (SQLException | ClassNotFoundException e) {
+            ((Exception)e).printStackTrace();
+            ret = -1;
+        }
+        return ret;
+    }
     public void caricaDaDB() throws DBException{
         String query = "SELECT * FROM eventi WHERE titolo='" + this.titolo + "';";
         try {

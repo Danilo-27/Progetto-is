@@ -1,6 +1,7 @@
 package entity;
 
 
+import DTO.DTOEvento;
 import database.BigliettoDAO;
 import database.EventoDAO;
 import exceptions.DBException;
@@ -25,6 +26,15 @@ public class EntityEvento {
     private ArrayList<EntityBiglietto> biglietti;
 
     public EntityEvento(EventoDAO evento) {
+        this.titolo = evento.getTitolo();
+        this.descrizione = evento.getDescrizione();
+        this.data = evento.getData();
+        this.ora = evento.getOra();
+        this.luogo = evento.getLuogo();
+        this.costo = evento.getCosto();
+        this.capienza = evento.getCapienza();
+    }
+    public EntityEvento(DTOEvento evento) {
         this.titolo = evento.getTitolo();
         this.descrizione = evento.getDescrizione();
         this.data = evento.getData();

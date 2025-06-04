@@ -69,7 +69,17 @@ public class Controller {
             throw new AcquistoException("Biglietti esauriti per l'evento: " + evento.getTitolo());
         }
     }
+    public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws DBException, AcquistoException {
+        EntityEvento evento= new EntityEvento(eventodb);
+        EntityBiglietto biglietto = evento.verificaCodice(codiceUnivoco);
+        if(biglietto == null) {
+            throw new AcquistoException("Evento non trovato");
+        }else{
+            int stato=1;
+            biglietto.aggiorna(stato);
+        }
 
+    }
     //inseriscievento
     //partecipaevento
     //acquistobiglietto

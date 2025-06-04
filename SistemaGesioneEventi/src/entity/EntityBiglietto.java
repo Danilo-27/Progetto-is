@@ -10,6 +10,10 @@ public class EntityBiglietto {
     private EntityEvento evento;
     private EntityUtente utente;
 
+    public static final int OBLITERATO=1;
+    public static final int VALIDO=0;
+
+
     public EntityBiglietto() {}
 
     public EntityBiglietto(BigliettoDAO biglietto) {
@@ -20,7 +24,6 @@ public class EntityBiglietto {
 
 
     public EntityBiglietto(String codiceUnivoco){
-        this.codiceUnivoco = codiceUnivoco;
         BigliettoDAO dao=new BigliettoDAO(codiceUnivoco);
         this.codiceUnivoco=dao.getCodice_univoco();
         this.stato=dao.getStato();
@@ -29,11 +32,11 @@ public class EntityBiglietto {
     }
 
 
-    public int aggiornaSuDB() {
-        BigliettoDAO s = new BigliettoDAO();
-        s.setStato(this.stato);
-        s.setCodice_univoco(this.codiceUnivoco);
-        return s.aggiornaInDB();
+    public int aggiorna(int stato) {
+        BigliettoDAO dao = new BigliettoDAO();
+        dao.setStato(stato);
+        dao.setCodice_univoco(this.codiceUnivoco);
+        return dao.aggiornaInDB();
     }
 
     public int scriviSuDB() throws DBException {
