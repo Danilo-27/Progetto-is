@@ -32,7 +32,7 @@ public class EventoDAO {
         try {
             this.caricaDaDB();
         }catch(DBException e){
-
+            e.printStackTrace();
         }
     }
 

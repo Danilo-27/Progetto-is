@@ -43,7 +43,6 @@ public class EntityEvento {
         this.costo = evento.getCosto();
         this.capienza = evento.getCapienza();
     }
-
     public EntityEvento(String titolo) {
         EventoDAO evento= new EventoDAO(titolo);
         this.id = evento.getId();

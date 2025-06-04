@@ -7,57 +7,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="swingx-1.6.1" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/build/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/demo/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/generated/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/legacy/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/main/core-api/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/main/core-impl/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/main/protocol-impl/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/main/user-api/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/main/user-impl/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/src/test/java" />
-        </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/build/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/demo/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/generated/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/legacy/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/main/core-api/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/main/core-impl/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/main/protocol-impl/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/main/user-api/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/main/user-impl/java" />
-          <root url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/src/test/java" />
-        </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/Documents/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/DatePickerJava/swingx-1.6.1.jar!/" />
+          <root url="jar://$USER_HOME$/OneDrive/Documenti/Università/Progetto IS/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="swingx-1.6.1" level="project" />
   </component>
 </module>
