@@ -22,7 +22,7 @@ public class FormAcquistoBiglietto extends JFrame {
 
     public FormAcquistoBiglietto(HomeCliente homeCliente, String emailUtente) {
         this.homeCliente = homeCliente;
-        this.emailUtente = emailUtente; // Assicurati che questo metodo esista
+        this.emailUtente = emailUtente;
         setTitle("Acquisto Biglietto");
         setSize(600, 400);
         setLocationRelativeTo(null);

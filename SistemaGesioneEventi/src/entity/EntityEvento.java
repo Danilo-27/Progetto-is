@@ -101,6 +101,7 @@ public class EntityEvento {
     public EntityBiglietto creazioneBiglietto(EntityUtente utente) throws DBException {
         //creazione ID univoco
         String codiceUnivoco = creazioneIDUnivoco();
+        System.out.println("CODICE UNIVOCO GENERATO "+codiceUnivoco);
         //creazione di entity biglietto con param ingresso ID univoco
         EntityBiglietto biglietto = new EntityBiglietto();
         biglietto.setCodice_univoco(codiceUnivoco);

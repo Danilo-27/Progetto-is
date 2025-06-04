@@ -52,7 +52,7 @@ public class Controller {
     }
 
     public static void AcquistoBiglietto(DTOEvento evento_dto, String email) throws DBException, AcquistoException {
-        EntityEvento evento = new EntityEvento(evento_dto);
+        EntityEvento evento = new EntityEvento(evento_dto.getTitolo());
         if (evento.verificaDisponibilita()) {
             EntityUtente u = new EntityUtente(email);
             // Chiede di inserire i dati del pagamento
