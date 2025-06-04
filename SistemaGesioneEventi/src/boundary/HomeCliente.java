@@ -98,6 +98,24 @@ public class HomeCliente extends HomeUtenteRegistrato {
             dispose();
         });
 
+        JButton acquistaBigliettoButton = new JButton("Acquista Biglietto");
+        acquistaBigliettoButton.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        acquistaBigliettoButton.setBackground(new Color(39, 174, 96));
+        acquistaBigliettoButton.setForeground(Color.WHITE);
+        acquistaBigliettoButton.setFocusPainted(false);
+        acquistaBigliettoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        acquistaBigliettoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        acquistaBigliettoButton.setMaximumSize(new Dimension(220, 35));
+
+        tornaHomeButton.addActionListener(e -> {
+            new FormAcquistoBiglietto(this).setVisible(true);
+            dispose();
+        });
+
+        buttonsPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+        buttonsPanel.add(acquistaBigliettoButton);
+
+
         sinistraPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         sinistraPanel.add(tornaHomeButton);
 
