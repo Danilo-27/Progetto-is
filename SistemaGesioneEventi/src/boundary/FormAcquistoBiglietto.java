@@ -2,7 +2,8 @@ package boundary;
 
 import DTO.DTOEvento;
 import control.Controller;
-import exceptions.AcquistoBigliettoException;
+import exceptions.AcquistoException;
+import exceptions.DBException;
 import exceptions.EventoNotFoundException;
 
 import javax.swing.*;
@@ -14,12 +15,14 @@ import java.util.List;
 public class FormAcquistoBiglietto extends JFrame {
 
     private final HomeCliente homeCliente;
+    private final String emailUtente;
     private JList<DTOEvento> listaEventi;
     private DefaultListModel<DTOEvento> eventiModel;
     private JButton acquistaButton;
 
-    public FormAcquistoBiglietto(HomeCliente homeCliente) {
+    public FormAcquistoBiglietto(HomeCliente homeCliente, String emailUtente) {
         this.homeCliente = homeCliente;
+        this.emailUtente = emailUtente; // Assicurati che questo metodo esista
         setTitle("Acquisto Biglietto");
         setSize(600, 400);
         setLocationRelativeTo(null);
@@ -76,7 +79,7 @@ public class FormAcquistoBiglietto extends JFrame {
 
     private void caricaEventiDisponibili() {
         try {
-            List<DTOEvento> eventi = Controller.RicercaEvento(null, null, null); // carica tutti
+            List<DTOEvento> eventi = Controller.RicercaEvento(null, null, null);
             eventiModel.clear();
             for (DTOEvento evento : eventi) {
                 eventiModel.addElement(evento);
@@ -87,19 +90,18 @@ public class FormAcquistoBiglietto extends JFrame {
     }
 
     private void acquistaBiglietto() {
-        DTOEvento eventoSelezionato = listaEventi.getSelectedValue();
-        if (eventoSelezionato == null) {
+        DTOEvento dto = listaEventi.getSelectedValue();
+        if (dto == null) {
             JOptionPane.showMessageDialog(this, "Seleziona un evento prima di procedere.", "Errore", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         try {
-            Controller.AcquistoBiglietto(eventoSelezionato);
+            Controller.AcquistoBiglietto(dto, emailUtente);
             JOptionPane.showMessageDialog(this, "Biglietto acquistato con successo!", "Successo", JOptionPane.INFORMATION_MESSAGE);
             dispose();
-        } catch (AcquistoBigliettoException e) {
+        } catch (DBException | AcquistoException e) {
             JOptionPane.showMessageDialog(this, "Errore durante l'acquisto: " + e.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
-

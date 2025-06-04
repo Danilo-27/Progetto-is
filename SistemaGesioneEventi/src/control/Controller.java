@@ -51,7 +51,8 @@ public class Controller {
         return eventiDTO;
     }
 
-    public static void AcquistoBiglietto(EntityEvento evento, String email) throws DBException, AcquistoException {
+    public static void AcquistoBiglietto(DTOEvento evento_dto, String email) throws DBException, AcquistoException {
+        EntityEvento evento = new EntityEvento(evento_dto);
         if (evento.verificaDisponibilita()) {
             EntityUtente u = new EntityUtente(email);
             // Chiede di inserire i dati del pagamento
@@ -69,7 +70,12 @@ public class Controller {
             throw new AcquistoException("Biglietti esauriti per l'evento: " + evento.getTitolo());
         }
     }
-    public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws DBException, AcquistoException {
+
+
+
+
+
+    public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws AcquistoException {
         EntityEvento evento= new EntityEvento(eventodb);
         EntityBiglietto biglietto = evento.verificaCodice(codiceUnivoco);
         if(biglietto == null) {

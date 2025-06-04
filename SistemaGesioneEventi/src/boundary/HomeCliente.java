@@ -108,7 +108,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
         acquistaBigliettoButton.setMaximumSize(new Dimension(220, 35));
 
         tornaHomeButton.addActionListener(e -> {
-            new FormAcquistoBiglietto(this).setVisible(true);
+            new FormAcquistoBiglietto(this,email).setVisible(true);
             dispose();
         });
 
