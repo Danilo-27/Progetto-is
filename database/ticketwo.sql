@@ -23,11 +23,13 @@ DROP TABLE IF EXISTS `biglietti`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `biglietti` (
-  `CodiceUnivoco` varchar(6) NOT NULL,
+  `CodiceUnivoco` varchar(15) NOT NULL,
   `stato` int DEFAULT '0',
   `Cliente_id` int NOT NULL,
   `Evento_id` int NOT NULL,
-  PRIMARY KEY (`CodiceUnivoco`,`Cliente_id`,`Evento_id`),
+  PRIMARY KEY (`CodiceUnivoco`),
+  UNIQUE KEY `Cliente_id_UNIQUE` (`Cliente_id`),
+  UNIQUE KEY `Evento_id_UNIQUE` (`Evento_id`),
   KEY `fk_Biglietti_Utenti1_idx` (`Cliente_id`),
   KEY `fk_Biglietti_eventi_idx` (`Evento_id`),
   CONSTRAINT `fk_Biglietti_eventi` FOREIGN KEY (`Evento_id`) REFERENCES `eventi` (`id`),
@@ -41,7 +43,6 @@ CREATE TABLE `biglietti` (
 
 LOCK TABLES `biglietti` WRITE;
 /*!40000 ALTER TABLE `biglietti` DISABLE KEYS */;
-INSERT INTO `biglietti` VALUES ('MAT321',0,1,1),('MAT322',0,3,1);
 /*!40000 ALTER TABLE `biglietti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,7 +77,7 @@ CREATE TABLE `eventi` (
 
 LOCK TABLES `eventi` WRITE;
 /*!40000 ALTER TABLE `eventi` DISABLE KEYS */;
-INSERT INTO `eventi` VALUES (1,'Workshop di Fotografia','Corso base di fotografia digitale','2025-05-15','10:00:00',20,2,50,1,'lampedusa'),(2,'Corso di Cucina Italiana','Lezione pratica di cucina regionale','2025-04-10','18:00:00',15,NULL,75,1,'napoli'),(3,'Seminario di Project Management','Incontro formativo su metodi agili','2025-07-20','14:00:00',30,NULL,0,1,'cacca'),(4,'Concerto Jazz Estivo','Concerto serale all’aperto','2025-08-05','21:00:00',100,NULL,20,1,'milano'),(5,'Yoga al Parco','Lezione di yoga all’aperto per tutti i livelli','2025-06-15','08:30:00',25,NULL,10,1,'tristezza');
+INSERT INTO `eventi` VALUES (1,'Workshop di Fotografia','Corso base di fotografia digitale','2025-05-15','10:00:00',3,2,50,1,'lampedusa'),(2,'Corso di Cucina Italiana','Lezione pratica di cucina regionale','2025-04-10','18:00:00',15,NULL,75,1,'napoli'),(3,'Seminario di Project Management','Incontro formativo su metodi agili','2025-07-20','14:00:00',30,NULL,0,1,'cacca'),(4,'Concerto Jazz Estivo','Concerto serale all’aperto','2025-08-05','21:00:00',100,NULL,20,1,'milano'),(5,'Yoga al Parco','Lezione di yoga all’aperto per tutti i livelli','2025-06-15','08:30:00',25,NULL,10,1,'tristezza');
 /*!40000 ALTER TABLE `eventi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +97,7 @@ CREATE TABLE `utenti` (
   `email` varchar(45) NOT NULL,
   `Tipo` int DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +106,7 @@ CREATE TABLE `utenti` (
 
 LOCK TABLES `utenti` WRITE;
 /*!40000 ALTER TABLE `utenti` DISABLE KEYS */;
-INSERT INTO `utenti` VALUES (1,'Mario','Rossi','password123','mario.png','mario.rossi@example.com',0),(2,'papa','otheja','mamma','prova','marios.rossi@example.com',1),(3,'cjcjcj','djdjdj','!ferferf','prova','mario.rossiss@example.com',0),(4,'francesco','ardolino','Diamo!','prova','franc.ardolino@gmail.com',0);
+INSERT INTO `utenti` VALUES (1,'Mario','Rossi','password123','mario.png','mario.rossi@example.com',0),(2,'papa','otheja','mamma','prova','marios.rossi@example.com',1),(3,'cjcjcj','djdjdj','!ferferf','prova','mario.rossiss@example.com',0),(4,'francesco','ardolino','Diamo!','prova','franc.ardolino@gmail.com',0),(5,'chiara','boccia','pass123!','prova','chiaraboccia@gmail.com',0);
 /*!40000 ALTER TABLE `utenti` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -118,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-03 23:16:24
+-- Dump completed on 2025-06-04 13:27:12
