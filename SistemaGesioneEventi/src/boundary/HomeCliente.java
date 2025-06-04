@@ -2,6 +2,7 @@ package boundary;
 
 import DTO.DTOEvento;
 import control.Controller;
+import exceptions.AcquistoException;
 import exceptions.EventoNotFoundException;
 
 import javax.swing.*;
@@ -240,7 +241,13 @@ public class HomeCliente extends HomeUtenteRegistrato {
         button.addActionListener(e -> {
             DTOEvento eventoSelezionato = listaEventiOdierni.getSelectedValue();
             if (eventoSelezionato != null) {
-                apriFormPartecipazione(eventoSelezionato);
+                String codiceUnivoco = apriFormPartecipazione(eventoSelezionato);
+                try {
+                    Controller.partecipaEvento(codiceUnivoco,eventoSelezionato);
+                } catch (EventoNotFoundException ex) {
+                    System.out.println(ex.getMessage());//cambiare
+                }
+
             }
         });
         return button;
@@ -262,14 +269,23 @@ public class HomeCliente extends HomeUtenteRegistrato {
         }
     }
 
-    private void apriFormPartecipazione(DTOEvento evento) {
+    private String apriFormPartecipazione(DTOEvento evento) {
         String messaggio = String.format(
-                "Partecipazione all'evento:\n\nTitolo: %s\nLuogo: %s\nOrario: %s\nDescrizione: %s",
+                "Partecipazione all'evento:\n\nTitolo: %s\nLuogo: %s\nOrario: %s\nDescrizione: %s\n\nInserisci il codice univoco del biglietto:",
                 evento.getTitolo(),
                 evento.getLuogo() != null ? evento.getLuogo() : "Da definire",
                 evento.getOra(),
                 evento.getDescrizione()
         );
-        JOptionPane.showMessageDialog(this, messaggio, "Partecipazione Evento", JOptionPane.INFORMATION_MESSAGE);
+
+        String codiceBiglietto = JOptionPane.showInputDialog(this, messaggio, "Partecipazione Evento", JOptionPane.PLAIN_MESSAGE);
+
+        // Puoi gestire il caso in cui l'utente annulla o lascia vuoto
+        if (codiceBiglietto == null || codiceBiglietto.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Codice biglietto non inserito.", "Attenzione", JOptionPane.WARNING_MESSAGE);
+            return null;
+        }
+
+        return codiceBiglietto.trim(); // Ritorna il codice inserito, rimuovendo eventuali spazi
     }
 }

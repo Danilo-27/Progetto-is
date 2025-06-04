@@ -71,10 +71,6 @@ public class Controller {
         }
     }
 
-
-
-
-
     public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws AcquistoException {
         EntityEvento evento= new EntityEvento(eventodb);
         EntityBiglietto biglietto = evento.verificaCodice(codiceUnivoco);
