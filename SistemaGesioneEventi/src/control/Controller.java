@@ -77,6 +77,7 @@ public class Controller {
         }else{
             int stato=1;
             biglietto.aggiorna(stato);
+            evento.aggiornaPartecipanti();
         }
 
     }

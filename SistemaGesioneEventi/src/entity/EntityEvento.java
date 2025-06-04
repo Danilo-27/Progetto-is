@@ -71,6 +71,13 @@ public class EntityEvento {
         //s.setIdamministratore(this.id_amministratore);
         return s.SalvaInDB();
     }
+    public int aggiornaPartecipanti() {
+        this.partecipanti++;
+        EventoDAO dao = new EventoDAO();
+        dao.setTitolo(this.titolo);
+        dao.setPartecipanti(this.partecipanti);
+        return dao.SalvaInDB();
+    }
 
 
     private String creazioneIDUnivoco(){
