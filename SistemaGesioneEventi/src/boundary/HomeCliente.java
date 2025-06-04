@@ -201,7 +201,6 @@ public class HomeCliente extends HomeUtenteRegistrato {
             updateEventiOdierni(eventi);
         } catch (EventoNotFoundException e) {
             eventiModel.clear();
-            JOptionPane.showMessageDialog(this, "Nessun evento trovato per oggi.", "Info", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
