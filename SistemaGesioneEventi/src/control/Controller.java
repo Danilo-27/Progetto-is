@@ -76,7 +76,7 @@ public class Controller {
         EntityBiglietto biglietto = evento.verificaCodice(codiceUnivoco);
         if(biglietto == null) {
             throw new BigliettoNotFoundException("Biglietto non trovato");
-        }else{
+        }else {
             biglietto.validaBiglietto();
             evento.aggiornaPartecipanti();
         }

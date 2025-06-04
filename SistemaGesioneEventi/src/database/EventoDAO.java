@@ -28,7 +28,7 @@ public class EventoDAO {
     //costruttore con titolo
     public EventoDAO(String titolo){
         this.titolo=titolo;
-        this.biglietti=new ArrayList<>();
+        this.biglietti= new ArrayList<>();
         try {
             this.caricaDaDB();
         }catch(DBException e){
@@ -95,7 +95,7 @@ public class EventoDAO {
         return ret;
     }
     public void caricaDaDB() throws DBException{
-        String query = "SELECT * FROM eventi WHERE titolo='" + this.titolo + "';";
+        String query = "SELECT * FROM eventi WHERE Titolo='" + this.titolo + "';";
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             if (rs.next()) {
@@ -118,7 +118,6 @@ public class EventoDAO {
     }
 
     public void caricaBigliettiEventiDaDB() {
-
         String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
 
         try {
@@ -127,9 +126,8 @@ public class EventoDAO {
                 BigliettoDAO biglietto = new BigliettoDAO();
                 biglietto.setCodice_univoco(rs.getString("CodiceUnivoco"));
                 biglietto.setStato(rs.getInt("stato"));
-                biglietto.setCliente_id(rs.getInt("cliente_id"));
+                biglietto.setCliente_id(rs.getInt("Cliente_id"));
                 biglietto.setEvento_id(rs.getInt("Evento_id"));
-
                 this.biglietti.add(biglietto);
             }
             rs.close();

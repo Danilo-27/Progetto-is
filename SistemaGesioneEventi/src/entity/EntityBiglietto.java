@@ -19,7 +19,6 @@ public class EntityBiglietto {
 
     public EntityBiglietto(BigliettoDAO biglietto) {
         this.codiceUnivoco=biglietto.getCodice_univoco();
-        System.out.println(this.codiceUnivoco);
         this.stato=biglietto.getStato();
     }
 

@@ -46,7 +46,6 @@ public class EntityEvento {
         this.biglietti=new ArrayList<>();
         evento.caricaBigliettiEventiDaDB();
         this.caricaBiglietti(evento);
-
     }
 
     public int scriviSuDB() {
@@ -75,7 +74,6 @@ public class EntityEvento {
         String prefisso = eventoSanificato.substring(0, Math.min(3, eventoSanificato.length()));
         String uuidParte = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase().substring(0, 8);
         String codice=prefisso + "-" + uuidParte;
-        System.out.println(codice);
         return codice;
     }
 
