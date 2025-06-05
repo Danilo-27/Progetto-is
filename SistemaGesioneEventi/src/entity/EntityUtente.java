@@ -26,7 +26,9 @@ public class EntityUtente {
     public static int CLIENTE=0;
 
     public EntityUtente(){}
-
+    /**
+     * Costruttore che crea un EntityEvento a partire da un EventoDAO
+     */
     public EntityUtente(UtenteDAO utente) {
         this.id=utente.getId();
         this.nome = utente.getNome();
@@ -37,6 +39,9 @@ public class EntityUtente {
         this.TipoUtente = utente.getTipoUtente();
     }
 
+    /**
+     * Costruttore che crea un EntityEvento a partire da un EventoDAO
+     */
     public EntityUtente(String nome, String cognome, String email, String password) {
         this.nome = nome;
         this.cognome = cognome;
@@ -55,8 +60,7 @@ public class EntityUtente {
             this.cognome = udao.getCognome();
             this.immagine = udao.getImmagine();
             this.TipoUtente = udao.getTipoUtente();
-
-            if(this.TipoUtente==1){
+            if(this.TipoUtente==AMMINISTRATORE){
                 //carica eventi
                 this.eventi=new ArrayList<>();
                 udao.caricaEventiDaDB();
@@ -67,8 +71,6 @@ public class EntityUtente {
                 udao.caricaBigliettiDaDB();
                 this.caricaBiglietti(udao);
             }
-
-
         }catch(DBException e){
             System.out.println(e.getMessage());
             throw  e;
