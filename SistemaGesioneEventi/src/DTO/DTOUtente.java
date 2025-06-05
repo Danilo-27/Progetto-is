@@ -18,6 +18,11 @@ public class DTOUtente {
         TipoUtente = tipoUtente;
     }
 
+    public DTOUtente(String nome, String cognome) {
+        this.nome=nome;
+        this.cognome=cognome;
+    }
+
     public String getNome() {
         return nome;
     }

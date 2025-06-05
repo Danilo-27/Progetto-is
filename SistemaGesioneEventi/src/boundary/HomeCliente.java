@@ -2,10 +2,7 @@ package boundary;
 
 import DTO.DTOEvento;
 import control.Controller;
-import exceptions.AcquistoException;
-import exceptions.BigliettoNotFoundException;
-import exceptions.BigliettoConsumatoException;
-import exceptions.EventoNotFoundException;
+import exceptions.*;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -247,6 +244,8 @@ public class HomeCliente extends HomeUtenteRegistrato {
                     Controller.partecipaEvento(codiceUnivoco,eventoSelezionato);
                 } catch (BigliettoConsumatoException | BigliettoNotFoundException ex) {
                     System.out.println(ex.getMessage());//cambiare
+                } catch (DBException ex) {
+                    throw new RuntimeException(ex);
                 }
 
             }

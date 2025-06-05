@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 
 
@@ -61,7 +63,7 @@ public class Controller {
             if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
                 try {
                     u.getBiglietti().add(evento.creazioneBiglietto(u));
-                } catch (DBException _) {
+                } catch (DBException e) {
                     throw new AcquistoException("L'utente " + email + " ha già acquistato un biglietto per l'evento: " + evento.getTitolo());
                 }
             } else {
@@ -72,7 +74,7 @@ public class Controller {
         }
     }
 
-    public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws BigliettoConsumatoException,BigliettoNotFoundException {
+    public static void partecipaEvento(String codiceUnivoco,DTOEvento eventodb) throws BigliettoConsumatoException, BigliettoNotFoundException, DBException {
         EntityEvento evento= new EntityEvento(eventodb.getTitolo());
         EntityBiglietto biglietto = evento.verificaCodice(codiceUnivoco);
         if(biglietto == null) {
@@ -93,35 +95,57 @@ public class Controller {
 
     }
 
-    public static void ConsultaEventiPubblicati(String email) throws DBException {
-        ArrayList<DTOEvento> eventiDTO = new ArrayList<>();
-
+    public static Map<DTOEvento, Object> ConsultaEventiPubblicati(String email) throws DBException {
+        Map<DTOEvento, Object> eventoPartecipantiMap = new HashMap<>();
+        LocalDate oggi = LocalDate.now();
         try {
-            EntityUtente u = new EntityUtente(email);
-            if(!u.getEventi().isEmpty()) {
-                for (EntityEvento evento : u.getEventi()) {
+            EntityUtente utente = new EntityUtente(email);
+            List<EntityEvento> eventi = utente.getEventi();
 
-
-                    evento.getInfoPartecipanti();
-                }
-            }else{
-                throw new DBException("Nesssun Biglietto Venduto");
+            // Verifica se l'utente ha eventi pubblicati
+            if (eventi.isEmpty()) {
+                throw new DBException("Nessun evento pubblicato per l'utente: " + email);
             }
+
+            // Processa ogni evento
+            for (EntityEvento evento : eventi) {
+
+                DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza());
+
+                // Crea mappa informazioni evento
+                Map<String, Object> infoEvento = new HashMap<>();
+                LocalDate dataEvento = evento.getData();
+
+                infoEvento.put("bigliettiVenduti", evento.getNumeroBigliettiVenduti());
+
+                if (dataEvento.isEqual(oggi)) {
+
+                    infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
+
+                    List<EntityUtente> partecipanti = evento.getpartecipanti();
+                    List<DTOUtente> dtoPartecipanti = new ArrayList<>();
+                    for (EntityUtente partecipante : partecipanti) {
+                        DTOUtente dtoUtente = new DTOUtente(partecipante.getNome(), partecipante.getCognome());
+                        dtoPartecipanti.add(dtoUtente);
+                    }
+                    infoEvento.put("listaPartecipanti", dtoPartecipanti);
+
+                } else if (dataEvento.isBefore(oggi)) {
+                    infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
+                }
+
+                eventoPartecipantiMap.put(dtoEvento, infoEvento);
+            }
+
+            return eventoPartecipantiMap;
+
         } catch (DBException e) {
+            // Re-throw delle eccezioni specifiche del database
             throw e;
+        } catch (Exception e) {
+            // Gestione di altre eccezioni non previste
+            throw new DBException("Errore imprevisto durante la consultazione degli eventi: " + e.getMessage());
         }
     }
 
-
-
 }
-
-
-
-
-
-
-
-
-
-

@@ -11,7 +11,6 @@ public class EntityBiglietto {
     private int stato;
     private EntityEvento evento;
     private EntityUtente utente;
-    private int cliente_id;
 
     public static final int OBLITERATO=1;
     public static final int VALIDO=0;
@@ -22,22 +21,29 @@ public class EntityBiglietto {
     public EntityBiglietto(BigliettoDAO biglietto) {
         this.codiceUnivoco=biglietto.getCodice_univoco();
         this.stato=biglietto.getStato();
-
     }
+
+    //costruttore per far caricare da parte dell'evento tutti i biglietti e i clienti che hanno acquistato il biglietto
+    public EntityBiglietto(BigliettoDAO biglietto,EntityEvento evento) throws DBException {
+        this.codiceUnivoco=biglietto.getCodice_univoco();
+        this.stato=biglietto.getStato();
+        this.evento=evento;
+        this.utente=new EntityUtente(biglietto.getCliente_id());
+    }
+
+
 
     public void getInfoPartecipante(){
 
     }
 
-
-
-    public EntityBiglietto(String codiceUnivoco){
-        BigliettoDAO dao=new BigliettoDAO(codiceUnivoco);
-        this.codiceUnivoco=dao.getCodice_univoco();
-        this.stato=dao.getStato();
-        this.caricaEvento(dao);
-        this.caricaUtente(dao);
-    }
+//    public EntityBiglietto(String codiceUnivoco){
+//        BigliettoDAO dao=new BigliettoDAO(codiceUnivoco);
+//        this.codiceUnivoco=dao.getCodice_univoco();
+//        this.stato=dao.getStato();
+//        this.caricaEvento(dao);
+//        this.caricaUtente(dao);
+//    }
 
     public int scriviSuDB() throws DBException {
         BigliettoDAO b = new BigliettoDAO();

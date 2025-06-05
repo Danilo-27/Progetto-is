@@ -4,7 +4,6 @@ package entity;
 import database.BigliettoDAO;
 import database.EventoDAO;
 import database.UtenteDAO;
-import database.UtenteDAO;
 import exceptions.DBException;
 
 import java.time.LocalDate;
@@ -60,7 +59,6 @@ public class EntityUtente {
             if(this.TipoUtente==1){
                 //carica eventi
                 this.eventi=new ArrayList<>();
-                System.out.println("otheja");
                 udao.caricaEventiDaDB();
                 this.caricaEventiPubblicati(udao);
             }else{
@@ -77,6 +75,12 @@ public class EntityUtente {
         }
     }
 
+    public EntityUtente(int id) throws DBException {
+        this.id=id;
+        this.caricadaDB();
+    }
+
+
     public int scriviSuDB() {
         UtenteDAO u = new UtenteDAO();
         u.setNome(this.nome);
@@ -86,7 +90,7 @@ public class EntityUtente {
         return u.SalvaInDB();
     }
 
-    public void cercaSuDB(String email) throws DBException {
+    public void caricadaDBPerEmail(String email) throws DBException {
         try{
             UtenteDAO dbCliente = new UtenteDAO(email);
             this.setNome(dbCliente.getNome());
@@ -96,6 +100,19 @@ public class EntityUtente {
         }catch(DBException e) {
             throw e;
         }
+    }
+
+    public void caricadaDB() throws DBException {
+        try{
+            UtenteDAO dbCliente = new UtenteDAO(id);
+            this.setNome(dbCliente.getNome());
+            this.setCognome(dbCliente.getCognome());
+            this.setPassword(dbCliente.getPassword());
+            this.setEmail(dbCliente.getEmail());
+        }catch(DBException e) {
+            throw e;
+        }
+
     }
 
 //    public int idUtente(String email) throws DBException {

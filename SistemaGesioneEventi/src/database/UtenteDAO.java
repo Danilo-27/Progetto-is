@@ -21,10 +21,7 @@ public class UtenteDAO {
 
     //Costruttori
 
-    public UtenteDAO() {
-    }
-
-    ;
+    public UtenteDAO() {}
 
     //costruttore di un utente data l'email
     public UtenteDAO(String email) throws DBException {
@@ -37,9 +34,12 @@ public class UtenteDAO {
         this.biglietti = new ArrayList<>();
         this.eventi = new ArrayList<>();
         this.caricaDaDB();
-
     }
-
+    //costruttore di un utente dato l'id
+    public UtenteDAO(int id) throws DBException {
+        this.id=id;
+        this.caricaDaDB();
+    }
 
     //metodo per caricare da DB un utente tramite la sua PK
     public void caricaDaDB() throws DBException {

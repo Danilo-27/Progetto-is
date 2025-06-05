@@ -122,7 +122,6 @@ public class EventoDAO {
             e.printStackTrace();
         }
     }
-
     public void caricaBigliettiEventiDaDB() {
         String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
         System.out.println(query);
@@ -143,6 +142,9 @@ public class EventoDAO {
         }
 
     }
+
+
+
 
 
 //getter e setter
@@ -235,69 +237,6 @@ public class EventoDAO {
         this.biglietti = biglietti;
     }
 
-
-
-    //    //METODO PER FARE IL FILTRAGGIO DEGLI EVENTI PER DATA LUOGO O TITOLO DAL DATABASE
-//    public void caricaDaDB(String titolo,String luogo,LocalDate data) {
-//
-//        // Inizializzo la query base con WHERE 1=1 per facilitare l'aggiunta dinamica di filtri
-//        StringBuilder query = new StringBuilder( "SELECT * FROM eventi WHERE 1=1");
-//
-//        // Controllo se il parametro 'titolo' è non nullo e non vuoto
-//        if (titolo != null && !titolo.isEmpty()) {
-//            // Aggiungo una condizione LIKE per il titolo, con percentuali per la ricerca parziale
-//            // Prima di concatenare il titolo, sostituisco ogni singolo apostrofo con due apostrofi per evitare errori SQL
-//            query.append(" AND titolo LIKE '%").append(titolo.replace("'", "''")).append("%");
-//        }
-//
-//        // Controllo se il parametro 'luogo' è valorizzato (non nullo e non vuoto)
-//        if (luogo != null && !luogo.isEmpty()) {
-//            // Aggiungo una condizione LIKE per il luogo, con percentuali per la ricerca parziale
-//            // Anche qui sostituisco ogni apostrofo con due apostrofi
-//            query.append(" AND luogo LIKE '%").append(luogo.replace("'", "''")).append("%'");
-//        }
-//
-//        // Controllo se il parametro 'data' è valorizzato (non nullo)
-//        if (data != null) {
-//            // Aggiungo una condizione di uguaglianza per la data, formattandola come stringa ISO
-//            query.append(" AND data = '").append(Date.valueOf(data).toString()).append("'");
-//        }
-//
-//        try {
-//            // Eseguo la query costruita dinamicamente passando la stringa a selectQuery
-//            ResultSet rs = DBConnectionManager.selectQuery(query.toString());
-//
-//            // Se la query ha restituito almeno una riga, popolo i campi dell'oggetto con i dati ottenuti
-//            if (rs.next()) {
-//                this.id = rs.getInt("id");
-//
-//                // Se i campi filtro sono nulli, li recupero dal DB
-//                if (this.titolo == null) {
-//                    this.titolo = rs.getString("titolo");
-//                }
-//                if (this.luogo == null) {
-//                    this.luogo = rs.getString("luogo");
-//                }
-//                if (this.data == null) {
-//                    this.data = rs.getDate("data").toLocalDate();
-//                }
-//
-//                // Recupero sempre gli altri campi
-//                this.descrizione = rs.getString("descrizione");
-//                this.ora = rs.getTime("ora").toLocalTime();
-//                this.costo = rs.getInt("costo");
-//                this.capienza = rs.getInt("capienza");
-//                this.partecipanti = rs.getInt("partecipanti");
-//                this.Amministrazioneid = rs.getInt("Amministrazioneid");
-//            }
-//
-//        } catch (SQLException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//
-//   }
 
 }
 

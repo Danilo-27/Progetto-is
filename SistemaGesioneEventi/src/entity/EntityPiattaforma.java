@@ -2,7 +2,6 @@
 package entity;
 
 import DTO.DTOUtente;
-import database.UtenteDAO;
 import exceptions.RegistrationFailedException;
 import exceptions.DBException;
 import exceptions.LoginFailedException;
@@ -36,7 +35,7 @@ public class EntityPiattaforma {
     private int verificaEmail(String email) {
         EntityUtente u = new EntityUtente();
         try {
-            u.cercaSuDB(email);
+            u.caricadaDBPerEmail(email);
             return 1;
         } catch (DBException e) {
             System.out.println(e.getMessage());

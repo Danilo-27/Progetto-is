@@ -29,7 +29,7 @@ BoundaryTEST {
 //                System.err.println("Errore durante la pubblicazione dell'evento: " + e.getMessage());
 //            }
 
-            Controller.ConsultaEventiPubblicati("marios.rossi@example.com");
+            System.out.println(Controller.ConsultaEventiPubblicati("marios.rossi@example.com"));
 
 
 
