@@ -55,9 +55,11 @@ public class EntityBiglietto {
         b.setCliente_id(this.utente.getId());
         return b.SalvaInDB();
     }
-
-
-
+/*
+    public BigliettoDAO creaBigliettoDao(){
+        BigliettoDAO bigliettoDao = new BigliettoDAO(this.codiceUnivoco);
+    }
+*/
     public void caricaEvento(BigliettoDAO biglietto) {
         //devo prendere l'evento dal biglietto che ho creato mediante il metodo
         //caricaEventoBigliettoDaDB, chiamato nel costruttore ""public EntityBiglietto(DBBiglietto biglietto)""

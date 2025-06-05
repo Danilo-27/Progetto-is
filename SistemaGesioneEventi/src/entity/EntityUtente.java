@@ -70,7 +70,7 @@ public class EntityUtente {
     public EntityUtente(String email) throws DBException {
         this.email = email;
         UtenteDAO udao = new UtenteDAO(email);
-        System.out.println(udao.getId());
+        //System.out.println(udao.getId());
         this.id=udao.getId();
         this.nome = udao.getNome();
         this.password = udao.getPassword();
@@ -98,7 +98,7 @@ public class EntityUtente {
     }
 
     /**
-    *metodo che permette di creare un utente data la sua email senza chiedere i biglietti acquistati
+    *Metodo che permette di creare un utente data la sua email senza chiedere i biglietti acquistati
      * oppure gli eventi creati
      */
     public void caricaPerEmail(String email) throws DBException {

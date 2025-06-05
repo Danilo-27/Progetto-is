@@ -64,7 +64,6 @@ public class UtenteDAO {
 
     public int cercaInDB() throws DBException {
         String query = String.format("SELECT * FROM utenti WHERE email = '%s';", this.email);
-        System.out.println(query);
         try (ResultSet rs = DBConnectionManager.selectQuery(query)) {
             if (!rs.next())
                 return -1;
@@ -109,7 +108,6 @@ public class UtenteDAO {
 
     public void caricaEventiDaDB () throws DBException {
         String query = "SELECT * FROM eventi WHERE Amministratore_id = " + this.id + ";";
-        System.out.println(query);
         try (ResultSet rs = DBConnectionManager.selectQuery(query)) {
             while (rs.next()) {
                 EventoDAO evento_temp = new EventoDAO();

@@ -2,6 +2,7 @@
 
 package control;
 
+import DTO.DTOBiglietto;
 import DTO.DTOEvento;
 import DTO.DTOUtente;
 import entity.*;
@@ -144,6 +145,21 @@ public class Controller {
             // Gestione di altre eccezioni non previste
             throw new DBException("Errore imprevisto durante la consultazione degli eventi: " + e.getMessage());
         }
+    }
+    public static ArrayList<DTOBiglietto> consultaStoricoBiglietti(String emailUtente) throws DBException {
+        ArrayList<DTOBiglietto> biglietti = new ArrayList<>();
+        EntityUtente utente = new EntityUtente(emailUtente);
+        System.out.println("asd");
+        for(EntityBiglietto biglietto : utente.getBiglietti()){
+            System.out.println(biglietto.getNome_titolare());
+            String codiceUnivoco=biglietto.getCodice_univoco();
+            int stato=biglietto.getStato();
+            String titoloEvento="ppap";//biglietto.caricaEvento();
+            LocalDate dataEvento = biglietto.getEvento().getData();
+            DTOBiglietto dtoBiglietto=new DTOBiglietto(codiceUnivoco,stato,titoloEvento,dataEvento);
+            biglietti.add(dtoBiglietto);
+        }
+        return biglietti;
     }
 
 }
