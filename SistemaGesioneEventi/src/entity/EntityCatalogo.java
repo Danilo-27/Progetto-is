@@ -32,15 +32,37 @@ public class EntityCatalogo {
         return uniqueInstance;
     }
 
+    /**
+     * Aggiunge un nuovo evento al catalogo e lo salva nel database.
+     *
+     * @param EventoCreato l'oggetto EntityEvento che rappresenta l'evento da aggiungere
+     * @throws DBException se si verifica un errore durante il salvataggio dell'evento nel database
+     */
+
     public void aggiungiEvento(EntityEvento EventoCreato) throws DBException {
             EventoCreato.salvaSuDB();
             eventi.add(EventoCreato);
     }
 
-
+    /**
+     * Restituisce la lista di eventi presenti nel catalogo.
+     *
+     * @return una lista di oggetti di tipo EntityEvento che rappresentano gli eventi presenti nel catalogo
+     */
     public List<EntityEvento> ConsultaCatalogo() {
         return eventi;
     }
+
+    /**
+     * Searches for events in the catalog based on the specified criteria: title, date, and location.
+     * If no events match the criteria, an EventoNotFoundException is thrown.
+     *
+     * @param titolo the title of the event to search for; can be null to ignore this criterion
+     * @param data the date of the event to search for; can be null to ignore this criterion
+     * @param luogo the location of the event to search for; can be null to ignore this criterion
+     * @return a list of events that match the specified criteria
+     * @throws EventoNotFoundException if no events matching the specified criteria are found
+     */
 
     // Metodo aggiornato con gestione eccezione
     public List<EntityEvento> ricercaEvento(String titolo, LocalDate data, String luogo) throws  EventoNotFoundException {
