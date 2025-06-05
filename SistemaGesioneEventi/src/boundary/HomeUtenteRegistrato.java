@@ -75,7 +75,8 @@ public class HomeUtenteRegistrato extends JFrame {
 
     protected void setupDefaultActions() {
         ricercaEventoButton.addActionListener(e -> {
-            // TODO: richiamo controller Ricerca Evento
+            this.setVisible(false);
+            new FormRicercaEvento(this);
         });
 
         catalogoEventiButton.addActionListener(e -> {
