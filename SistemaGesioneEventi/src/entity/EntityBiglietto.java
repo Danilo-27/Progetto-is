@@ -1,3 +1,4 @@
+//test commento 1
 package entity;
 
 import database.BigliettoDAO;
@@ -10,6 +11,7 @@ public class EntityBiglietto {
     private int stato;
     private EntityEvento evento;
     private EntityUtente utente;
+    private int cliente_id;
 
     public static final int OBLITERATO=1;
     public static final int VALIDO=0;
@@ -20,6 +22,11 @@ public class EntityBiglietto {
     public EntityBiglietto(BigliettoDAO biglietto) {
         this.codiceUnivoco=biglietto.getCodice_univoco();
         this.stato=biglietto.getStato();
+
+    }
+
+    public void getInfoPartecipante(){
+
     }
 
 
@@ -65,6 +72,7 @@ public class EntityBiglietto {
         //codice
         return false;
     }
+
     public int validaBiglietto() throws BigliettoConsumatoException {
         if(this.getStato()==EntityBiglietto.OBLITERATO){
             throw new BigliettoConsumatoException("Biglietto già obliterato");

@@ -1,4 +1,4 @@
-//test commento
+//test commento 1
 
 package control;
 
@@ -8,6 +8,7 @@ import entity.*;
 import exceptions.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,16 +52,16 @@ public class Controller {
         return eventiDTO;
     }
 
-    public static void AcquistoBiglietto(DTOEvento evento_dto, String email) throws DBException, AcquistoException {
+    public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws DBException, AcquistoException {
         EntityEvento evento = new EntityEvento(evento_dto.getTitolo());
         if (evento.verificaDisponibilita()) {
             EntityUtente u = new EntityUtente(email);
             // Chiede di inserire i dati del pagamento
             SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
-            if (sga.elaboraPagamento("1234", u.getNome(), u.getCognome())) {
+            if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
                 try {
-                    evento.creazioneBiglietto(u);
-                } catch (DBException e) {
+                    u.getBiglietti().add(evento.creazioneBiglietto(u));
+                } catch (DBException _) {
                     throw new AcquistoException("L'utente " + email + " ha già acquistato un biglietto per l'evento: " + evento.getTitolo());
                 }
             } else {
@@ -80,12 +81,37 @@ public class Controller {
             biglietto.validaBiglietto();
             evento.aggiornaPartecipanti();
         }
+    }
+
+    public static void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza,String emailAmministratore) throws DBException{
+        //richiama pubblica evento di utente
+        //poi fa aggiungi evento al catalogo (prendendo la instance di catalogo)
+        EntityUtente amministratore=new EntityUtente(emailAmministratore);
+        EntityEvento evento= amministratore.pubblicaEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
+        EntityCatalogo catalogo = EntityCatalogo.getInstance();
+        catalogo.aggiungiEvento(evento);
 
     }
-    //inseriscievento
-    //partecipaevento
-    //acquistobiglietto
-    //consultaEventiPublicati
+
+    public static void ConsultaEventiPubblicati(String email) throws DBException {
+        ArrayList<DTOEvento> eventiDTO = new ArrayList<>();
+
+        try {
+            EntityUtente u = new EntityUtente(email);
+            if(!u.getEventi().isEmpty()) {
+                for (EntityEvento evento : u.getEventi()) {
+
+
+                    evento.getInfoPartecipanti();
+                }
+            }else{
+                throw new DBException("Nesssun Biglietto Venduto");
+            }
+        } catch (DBException e) {
+            throw e;
+        }
+    }
+
 
 
 }

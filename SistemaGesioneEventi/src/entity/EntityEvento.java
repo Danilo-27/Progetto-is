@@ -1,9 +1,11 @@
+//test commento 1
 package entity;
 
 
 import DTO.DTOEvento;
 import database.BigliettoDAO;
 import database.EventoDAO;
+import database.UtenteDAO;
 import exceptions.DBException;
 import exceptions.UniqueCodeException;
 
@@ -24,8 +26,10 @@ public class EntityEvento {
     private int capienza;
     private int partecipanti;
     private ArrayList<EntityBiglietto> biglietti;
+    private EntityUtente utente;
 
     public EntityEvento(EventoDAO evento) {
+        this.id = evento.getId();
         this.titolo = evento.getTitolo();
         this.descrizione = evento.getDescrizione();
         this.data = evento.getData();
@@ -33,6 +37,18 @@ public class EntityEvento {
         this.luogo = evento.getLuogo();
         this.costo = evento.getCosto();
         this.capienza = evento.getCapienza();
+    }
+    public EntityEvento(String Titolo,String Descrizione,LocalDate Data,LocalTime Ora,String Luogo,int Costo,int Capienza,EntityUtente utente) {
+        this.titolo = Titolo;
+        this.descrizione = Descrizione;
+        this.data = Data;
+        this.ora=Ora;
+        this.luogo = Luogo;
+        this.costo = Costo;
+        this.capienza = Capienza;
+        this.partecipanti = 0;
+        this.biglietti = new ArrayList<>();
+        this.utente = utente;
     }
     public EntityEvento(String titolo) {
         EventoDAO evento= new EventoDAO(titolo);
@@ -47,36 +63,37 @@ public class EntityEvento {
         evento.caricaBigliettiEventiDaDB();
         this.caricaBiglietti(evento);
     }
-
-    public int scriviSuDB() {
-        EventoDAO s = new EventoDAO();
-        s.setTitolo(this.titolo);
-        s.setData(this.data);
-        s.setOra(this.ora);
-        s.setDescrizione(this.descrizione);
-        s.setLuogo(this.luogo);
-        s.setCapienza(this.capienza);
-        s.setCosto(this.costo);
-        //s.setIdamministratore(this.id_amministratore);
-        return s.SalvaInDB();
+    public EntityUtente caricaDaDB(String email)throws DBException {
+        UtenteDAO dao=new UtenteDAO(email);
+        return new EntityUtente(dao);
     }
-    public int aggiornaPartecipanti() {
+    public void salvaSuDB() throws DBException{
+        EventoDAO evento = new EventoDAO();
+        evento.setTitolo(titolo);
+        System.out.println(evento.toString());
+        evento.setDescrizione(descrizione);
+        evento.setData(data);
+        evento.setOra(ora);
+        evento.setLuogo(luogo);
+        evento.setCosto(costo);
+        evento.setCapienza(capienza);
+        evento.setPartecipanti(partecipanti);
+        evento.setAmministratoreid(utente.getId());
+        evento.SalvaInDB();
+    }
+    public void aggiornaPartecipanti() {
         this.partecipanti++;
         EventoDAO dao = new EventoDAO();
         dao.setTitolo(this.titolo);
         dao.setPartecipanti(this.partecipanti);
-        return dao.AggiornaInDB();
+        dao.AggiornaInDB();
     }
-
-
     private String creazioneIDUnivoco(){
         String eventoSanificato = this.titolo.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
         String prefisso = eventoSanificato.substring(0, Math.min(3, eventoSanificato.length()));
         String uuidParte = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase().substring(0, 8);
-        String codice=prefisso + "-" + uuidParte;
-        return codice;
+        return prefisso + "-" + uuidParte;
     }
-
     public EntityBiglietto verificaCodice(String codice) {
         for (EntityBiglietto b : this.biglietti) {
             if (b.getCodice_univoco().equals(codice)) {
@@ -85,7 +102,6 @@ public class EntityEvento {
         }
         return null;
     }
-
     public EntityBiglietto creazioneBiglietto(EntityUtente utente) throws DBException {
         //creazione ID univoco
         String codiceUnivoco = creazioneIDUnivoco();
@@ -99,31 +115,45 @@ public class EntityEvento {
         biglietto.scriviSuDB();
         return biglietto;
     }
-
     public boolean verificaDisponibilita(){
         return this.capienza>this.biglietti.size();
     }
 
+
+
     public void caricaBiglietti(EventoDAO eventoDAO) {
         this.biglietti = new ArrayList<>();
-
-        for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
-            EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
-            this.biglietti.add(biglietto);
+        if(eventoDAO.getBiglietti() !=null){
+            for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
+                EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
+                this.biglietti.add(biglietto);
+            }
+        }else{
+            System.out.println("non ha biglietti");
         }
+
     }
 
+    public void getInfoPartecipanti(){
+        //carico in memoria tutti i biglietti associati all'evento
+        EventoDAO eventoDAO = new EventoDAO(id);
+        eventoDAO.caricaBigliettiEventiDaDB();
+        BigliettoDAO bigliettoDAO = new BigliettoDAO();
+        this.caricaBiglietti(eventoDAO);
+        //a questo punto per ogni biglietto conosco il codice univoco e stato
+        for (EntityBiglietto biglietto : this.biglietti) {
 
-
+            biglietto.caricaUtente();
+            biglietto.getPartecipanti();
+        }
+    }
 
     public String getTitolo() {
         return titolo;
     }
-
     public String getDescrizione() {
         return descrizione;
     }
-
     public LocalDate getData() {
         return data;
     }
@@ -204,5 +234,13 @@ public class EntityEvento {
 
     public int getId() {
         return id;
+    }
+
+    public EntityUtente getUtente() {
+        return utente;
+    }
+
+    public void setUtente(EntityUtente utente) {
+        this.utente = utente;
     }
 }

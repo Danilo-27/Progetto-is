@@ -1,3 +1,4 @@
+//test commento 1
 package database;
 
 import java.sql.*;
@@ -19,7 +20,7 @@ public class EventoDAO {
     private int costo;
     private int capienza;
     private int partecipanti;
-    private int Amministratoreid;
+    private int amministratoreID;
     private ArrayList<BigliettoDAO> biglietti;
 
     //costruttore vuoto
@@ -34,6 +35,10 @@ public class EventoDAO {
         }catch(DBException e){
             e.printStackTrace();
         }
+    }
+    public EventoDAO(int id){
+        this.id=id;
+        this.biglietti= new ArrayList<>();
     }
 
     //metodo per prelevare tutti gli eventi dal database
@@ -55,7 +60,7 @@ public class EventoDAO {
                     evento_temp.setLuogo(rs.getString("Luogo"));
                     evento_temp.setPartecipanti(rs.getInt("Partecipanti"));
                     evento_temp.setCapienza(rs.getInt("Capienza"));
-                    evento_temp.setAmministrazioneid(rs.getInt("Amministratore_id"));
+                    evento_temp.setAmministratoreid(rs.getInt("Amministratore_id"));
                     evento_temp.setCosto(rs.getInt("Costo"));
 
 
@@ -69,16 +74,17 @@ public class EventoDAO {
         return lista_temp;
     }
 
-    public int SalvaInDB() {
+    public int SalvaInDB() throws DBException{
         int ret = 0;
-        String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, capienza, partecipanti, Amministratore_id) " +
-                "VALUES ('" + this.titolo + "','" + this.descrizione + "','" + this.data + "','" + this.ora + "','" + this.luogo + "'," +
-                "'" + this.capienza + "','" + this.partecipanti + "','" + this.Amministratoreid + "')";
+        String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, costo, capienza, partecipanti, Amministratore_id) " +
+                "VALUES ('" + this.titolo + "', '" + this.descrizione + "', '" + this.data + "', '" + this.ora + "', '" + this.luogo + "', " +
+                this.costo + ", " + this.capienza + ", " + this.partecipanti + ", " + this.amministratoreID + ")";
+        System.out.println(query);
+
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
-            ret = -1;
+            throw new DBException("Evento già creato");
         }
 
         return ret;
@@ -119,6 +125,7 @@ public class EventoDAO {
 
     public void caricaBigliettiEventiDaDB() {
         String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
+        System.out.println(query);
 
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
@@ -204,12 +211,12 @@ public class EventoDAO {
         this.id = id;
     }
 
-    public int getAmministrazioneid() {
-        return Amministratoreid;
+    public int getAmministratoreid() {
+        return amministratoreID;
     }
 
-    public void setAmministrazioneid(int amministratoreid) {
-        this.Amministratoreid = amministratoreid;
+    public void setAmministratoreid(int amministratoreid) {
+        this.amministratoreID = amministratoreid;
     }
 
     public int getCosto() {
@@ -226,10 +233,6 @@ public class EventoDAO {
 
     public void setBiglietti(ArrayList<BigliettoDAO> biglietti) {
         this.biglietti = biglietti;
-    }
-
-    public int getAmministratoreid() {
-        return Amministratoreid;
     }
 
 

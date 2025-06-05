@@ -1,3 +1,4 @@
+//test commento 1
 package entity;
 
 import java.time.LocalDate;
@@ -31,8 +32,8 @@ public class EntityCatalogo {
         return uniqueInstance;
     }
 
-    public void aggiungiEvento(EntityEvento EventoCreato) {
-            EventoCreato.scriviSuDB();
+    public void aggiungiEvento(EntityEvento EventoCreato) throws DBException {
+            EventoCreato.salvaSuDB();
             eventi.add(EventoCreato);
     }
 
