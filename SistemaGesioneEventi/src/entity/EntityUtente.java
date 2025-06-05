@@ -45,6 +45,7 @@ public class EntityUtente {
         this.email = email;
         try {
             UtenteDAO dao = new UtenteDAO(email);
+            System.out.println(dao.getId());
             this.id=dao.getId();
             this.nome = dao.getNome();
             this.password = dao.getPassword();
@@ -87,9 +88,10 @@ public class EntityUtente {
             throw e;
         }
     }
-    public void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza) throws DBException {
+    public EntityEvento pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza) throws DBException {
         EntityEvento evento=new EntityEvento(Titolo,Descrizione,Data,Ora,Luogo,Costo,Capienza);
         evento.setUtente(this);
+        return evento;
     }
 
     public boolean verificaCredenziali(String Password){

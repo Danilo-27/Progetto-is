@@ -99,7 +99,7 @@ public class FormEvento extends JFrame {
 
         // Campo Costo
         JSpinner spinnerCosto = new JSpinner();
-        spinnerCosto.setModel(new SpinnerNumberModel(0.0, 0.0, null, 0.01));
+        spinnerCosto.setModel(new SpinnerNumberModel(0, 0, null, 1));
         spinnerCosto.setFont(new Font("Arial Black", Font.PLAIN, 18));
         spinnerCosto.setBounds(366, 180, 217, 34);
         FormEvento.add(spinnerCosto);
