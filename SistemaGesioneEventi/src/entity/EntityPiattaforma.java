@@ -19,6 +19,17 @@ public class EntityPiattaforma {
         return uniqueInstance;
     }
 
+    /**
+     * Permette di registrare un nuovo utente nel sistema. Se l'email fornita è già presente
+     * nel database, la registrazione fallisce e viene sollevata un'eccezione.
+     *
+     * @param password la password dell'utente da registrare
+     * @param nome il nome dell'utente da registrare
+     * @param cognome il cognome dell'utente da registrare
+     * @param email l'email dell'utente da registrare, che deve essere univoca nel sistema
+     * @throws RegistrationFailedException se l'email è già associata a un altro utente nel sistema
+     */
+
     public void registrazione(String password, String nome, String cognome, String email) throws RegistrationFailedException {
 
         if(verificaEmail(email)==0){
@@ -32,6 +43,13 @@ public class EntityPiattaforma {
 
     }
 
+    /**
+     * Verifica se un'email specificata è già registrata nel sistema.
+     *
+     * @param email l'email da verificare
+     * @return 1 se l'email è presente nel sistema, 0 altrimenti
+     */
+
     private int verificaEmail(String email) {
         EntityUtente u = new EntityUtente();
         try {
@@ -43,6 +61,16 @@ public class EntityPiattaforma {
         }
     }
 
+    /**
+     * Permette di autenticare un utente esistente nel sistema tramite email e password.
+     * Se l'autenticazione ha esito positivo, restituisce un oggetto DTO contenente le informazioni
+     * dell'utente autenticato. Altrimenti, viene sollevata un'eccezione.
+     *
+     * @param email l'email dell'utente da autenticare
+     * @param password la password associata all'utente
+     * @return un oggetto di tipo {@code DTOUtente} che rappresenta l'utente autenticato
+     * @throws LoginFailedException se l'email non è registrata o la password è errata
+     */
 
     public DTOUtente Autenticazione(String email, String password) throws LoginFailedException {
         try {
@@ -58,9 +86,6 @@ public class EntityPiattaforma {
         }
 
     }
-
-
-
 
 
 }
