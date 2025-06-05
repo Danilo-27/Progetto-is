@@ -60,8 +60,8 @@ public class Controller {
             SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
             if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
                 try {
-                    evento.creazioneBiglietto(u);
-                } catch (DBException e) {
+                    u.getBiglietti().add(evento.creazioneBiglietto(u));
+                } catch (DBException _) {
                     throw new AcquistoException("L'utente " + email + " ha già acquistato un biglietto per l'evento: " + evento.getTitolo());
                 }
             } else {

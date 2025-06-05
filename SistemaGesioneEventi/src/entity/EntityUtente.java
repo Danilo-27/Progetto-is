@@ -1,6 +1,7 @@
 //test commento 1
 package entity;
 
+import database.BigliettoDAO;
 import database.EventoDAO;
 import database.UtenteDAO;
 import database.UtenteDAO;
@@ -8,6 +9,7 @@ import exceptions.DBException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 
 public class EntityUtente {
@@ -18,6 +20,8 @@ public class EntityUtente {
     private String password;
     private String immagine;
     private int TipoUtente;
+    private ArrayList<EntityEvento> eventi;
+    private ArrayList<EntityBiglietto> biglietti;
 
     public static int AMMINISTRATORE=1;
     public static int CLIENTE=0;
@@ -44,14 +48,25 @@ public class EntityUtente {
     public EntityUtente(String email) throws DBException {
         this.email = email;
         try {
-            UtenteDAO dao = new UtenteDAO(email);
-            System.out.println(dao.getId());
-            this.id=dao.getId();
-            this.nome = dao.getNome();
-            this.password = dao.getPassword();
-            this.cognome = dao.getCognome();
-            this.immagine = dao.getImmagine();
-            this.TipoUtente = dao.getTipoUtente();
+            UtenteDAO udao = new UtenteDAO(email);
+            System.out.println(udao.getId());
+            this.id=udao.getId();
+            this.nome = udao.getNome();
+            this.password = udao.getPassword();
+            this.cognome = udao.getCognome();
+            this.immagine = udao.getImmagine();
+            this.TipoUtente = udao.getTipoUtente();
+            if(this.TipoUtente==1){
+                //carica eventi
+                udao.caricaEventiDaDB();
+                this.caricaEventiPubblicati(udao);
+            }else{
+                //carica biglietti
+                udao.caricaBigliettiDaDB();
+                this.caricaBiglietti(udao);
+            }
+
+
         }catch(DBException e){
             System.out.println(e.getMessage());
             throw  e;
@@ -79,15 +94,16 @@ public class EntityUtente {
         }
     }
 
-    public int idUtente(String email) throws DBException {
-        try{
-            UtenteDAO dbCliente = new UtenteDAO();
-            dbCliente.setEmail(email);
-            return dbCliente.cercaInDB();
-        }catch(DBException e) {
-            throw e;
-        }
-    }
+//    public int idUtente(String email) throws DBException {
+//        try{
+//            UtenteDAO dbCliente = new UtenteDAO();
+//            dbCliente.setEmail(email);
+//            return dbCliente.cercaInDB();
+//        }catch(DBException e) {
+//            throw e;
+//        }
+//    }
+
     public EntityEvento pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza) throws DBException {
         EntityEvento evento=new EntityEvento(Titolo,Descrizione,Data,Ora,Luogo,Costo,Capienza);
         evento.setUtente(this);
@@ -96,6 +112,24 @@ public class EntityUtente {
 
     public boolean verificaCredenziali(String Password){
         return this.password.equals(Password);
+    }
+
+
+    public void caricaBiglietti(UtenteDAO utente) {
+        this.biglietti = new ArrayList<>();
+
+        for (BigliettoDAO bigliettoDAO : utente.getBiglietti()) {
+            EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
+            this.biglietti.add(biglietto);
+        }
+    }
+
+    public void caricaEventiPubblicati(UtenteDAO utente) {
+        this.eventi = new ArrayList<>();
+        for (EventoDAO eventoDAO : utente.getEventi()) {
+            EntityEvento evento = new EntityEvento(eventoDAO);
+            this.eventi.add(evento);
+        }
     }
 
 
@@ -164,5 +198,13 @@ public class EntityUtente {
                 ", immagine='" + immagine + '\'' +
                 ", TipoUtente=" + TipoUtente +
                 '}';
+    }
+
+    public ArrayList<EntityEvento> getEventi() {
+        return eventi;
+    }
+
+    public ArrayList<EntityBiglietto> getBiglietti() {
+        return biglietti;
     }
 }
