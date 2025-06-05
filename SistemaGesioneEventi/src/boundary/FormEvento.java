@@ -4,9 +4,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import control.Controller;
+import exceptions.DBException;
+import exceptions.WrongUserTypeException;
 import org.jdesktop.swingx.JXDatePicker;
 import java.text.SimpleDateFormat;
-
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -22,17 +24,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+
 public class FormEvento extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel FormEvento;
     private JTextField textTitolo;
     private JTextField textLuogo;
-
-
-    /**
-     * Create the frame.
-     */
 
     public FormEvento() {
         this(null);
@@ -47,6 +48,7 @@ public class FormEvento extends JFrame {
         setContentPane(FormEvento);
         FormEvento.setLayout(null);
 
+        // Campo Titolo
         textTitolo = new JTextField();
         textTitolo.setFont(new Font("Arial Black", Font.PLAIN, 18));
         textTitolo.setBounds(68, 88, 217, 35);
@@ -59,6 +61,7 @@ public class FormEvento extends JFrame {
         LabelTitolo.setBounds(68, 55, 77, 23);
         FormEvento.add(LabelTitolo);
 
+        // Campo Luogo
         textLuogo = new JTextField();
         textLuogo.setBounds(68, 183, 217, 35);
         FormEvento.add(textLuogo);
@@ -70,6 +73,7 @@ public class FormEvento extends JFrame {
         labelLuogo.setBounds(68, 150, 77, 23);
         FormEvento.add(labelLuogo);
 
+        // Campo Capienza
         JLabel CapienzaLabel = new JLabel("CAPIENZA");
         CapienzaLabel.setForeground(new Color(0, 128, 255));
         CapienzaLabel.setFont(new Font("Arial Black", Font.PLAIN, 18));
@@ -82,6 +86,7 @@ public class FormEvento extends JFrame {
         spinnerCapienza.setBounds(366, 88, 217, 34);
         FormEvento.add(spinnerCapienza);
 
+        // Campo Descrizione
         TextArea textArea = new TextArea();
         textArea.setBounds(68, 408, 603, 195);
         FormEvento.add(textArea);
@@ -92,8 +97,9 @@ public class FormEvento extends JFrame {
         lblNewLabel.setBounds(68, 379, 142, 23);
         FormEvento.add(lblNewLabel);
 
+        // Campo Costo
         JSpinner spinnerCosto = new JSpinner();
-        spinnerCosto.setModel(new SpinnerNumberModel(0.0, 0.0, null, 0.01));
+        spinnerCosto.setModel(new SpinnerNumberModel(0, 0, null, 1));
         spinnerCosto.setFont(new Font("Arial Black", Font.PLAIN, 18));
         spinnerCosto.setBounds(366, 180, 217, 34);
         FormEvento.add(spinnerCosto);
@@ -104,6 +110,7 @@ public class FormEvento extends JFrame {
         labelCosto.setBounds(366, 150, 125, 21);
         FormEvento.add(labelCosto);
 
+        // Campo Data (JXDatePicker)
         JXDatePicker dataDatePicker = new JXDatePicker();
         dataDatePicker.setFont(new Font("Arial Black", Font.PLAIN, 18));
         dataDatePicker.getEditor().setFont(new Font("Arial Black", Font.PLAIN, 18));
@@ -119,56 +126,101 @@ public class FormEvento extends JFrame {
         labelData.setBounds(68, 245, 77, 35);
         FormEvento.add(labelData);
 
-
+        // Campo Ora e Minuti
         JLabel labelOra = new JLabel("ORA");
         labelOra.setForeground(new Color(0, 128, 255));
         labelOra.setFont(new Font("Arial Black", Font.PLAIN, 18));
         labelOra.setBounds(366, 245, 83, 35);
         FormEvento.add(labelOra);
 
-        // ComboBox per ora e minuti
         JComboBox<String> comboOra = new JComboBox<>();
         comboOra.setBackground(new Color(255, 255, 255));
         JComboBox<String> comboMinuti = new JComboBox<>();
         comboMinuti.setBackground(new Color(255, 255, 255));
 
-        comboOra.addItem(""); // valore vuoto iniziale
+        comboOra.addItem("");
         for (int i = 0; i < 24; i++) {
             comboOra.addItem(String.format("%02d", i));
         }
 
-        comboMinuti.addItem(""); // valore vuoto iniziale
+        comboMinuti.addItem("");
         for (int i = 0; i < 60; i += 5) {
             comboMinuti.addItem(String.format("%02d", i));
         }
 
-        // Posizionamento
         comboOra.setBounds(366, 295, 107, 30);
         comboMinuti.setBounds(476, 295, 107, 30);
-
-        // Aggiunta al pannello
         FormEvento.add(comboOra);
         FormEvento.add(comboMinuti);
 
+        // Pulsante Back
         JButton BackButton = new JButton("Back");
         BackButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                homeamministratore.setVisible(true); // riporta visibilità
+                if (homeamministratore != null) {
+                    homeamministratore.setVisible(true);
+                }
                 dispose();
             }
         });
         BackButton.setBackground(new Color(192, 192, 192));
         BackButton.setFont(new Font("Arial Black", Font.PLAIN, 18));
-        BackButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         BackButton.setBounds(866, 568, 142, 35);
         FormEvento.add(BackButton);
 
+        // Pulsante Crea
+        JButton creaButton = new JButton("Crea");
+        creaButton.setBackground(new Color(0, 204, 102));
+        creaButton.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        creaButton.setBounds(710, 568, 142, 35);
+        creaButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Raccogliere i dati dal form
+                String titolo = textTitolo.getText();
+                String luogo = textLuogo.getText();
+                int capienza = (int) spinnerCapienza.getValue();
+                int costo = (int) spinnerCosto.getValue();
+                String descrizione = textArea.getText();
+
+                // Ottengo la java.util.Date dal date picker
+                java.util.Date dateUtil = dataDatePicker.getDate();
+                LocalDate data = null;
+                if (dateUtil != null) {
+                    data = dateUtil.toInstant()
+                            .atZone(ZoneId.systemDefault())
+                            .toLocalDate();
+                }
+
+                String oraStr = (String) comboOra.getSelectedItem();
+                String minutiStr = (String) comboMinuti.getSelectedItem();
+                LocalTime ora = null;
+                if (oraStr != null && !oraStr.isEmpty() && minutiStr != null && !minutiStr.isEmpty()) {
+                    int hour = Integer.parseInt(oraStr);
+                    int minute = Integer.parseInt(minutiStr);
+                    ora = LocalTime.of(hour, minute);
+                    System.out.println("Evento da creare:");
+                    System.out.println("Titolo: " + titolo);
+                    System.out.println("Luogo: " + luogo);
+                    System.out.println("Capienza: " + capienza);
+                    System.out.println("Costo: " + costo);
+                    System.out.println("Descrizione: " + descrizione);
+                    System.out.println("Data (LocalDate): " + data);
+                    System.out.println("Ora: " + hour + ":" + minute);
+                }
+
+                // ESEMPIO: stampa a console con LocalDate
 
 
+                Sessione sess = Sessione.getInstance();
 
+                try {
+                    Controller.pubblicaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
+                } catch (DBException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        FormEvento.add(creaButton);
     }
 }

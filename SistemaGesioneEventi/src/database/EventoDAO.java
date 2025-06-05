@@ -36,6 +36,10 @@ public class EventoDAO {
             e.printStackTrace();
         }
     }
+    public EventoDAO(int id){
+        this.id=id;
+        this.biglietti= new ArrayList<>();
+    }
 
     //metodo per prelevare tutti gli eventi dal database
 
@@ -70,16 +74,17 @@ public class EventoDAO {
         return lista_temp;
     }
 
-    public int SalvaInDB() {
+    public int SalvaInDB() throws DBException{
         int ret = 0;
-        String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, capienza, partecipanti, Amministratore_id) " +
-                "VALUES ('" + this.titolo + "','" + this.descrizione + "','" + this.data + "','" + this.ora + "','" + this.luogo + "'," +
-                "'" + this.capienza + "','" + this.partecipanti + "','" + this.amministratoreID + "')";
+        String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, costo, capienza, partecipanti, Amministratore_id) " +
+                "VALUES ('" + this.titolo + "', '" + this.descrizione + "', '" + this.data + "', '" + this.ora + "', '" + this.luogo + "', " +
+                this.costo + ", " + this.capienza + ", " + this.partecipanti + ", " + this.amministratoreID + ")";
+        System.out.println(query);
+
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
-            ret = -1;
+            throw new DBException("Evento già creato");
         }
 
         return ret;
@@ -120,6 +125,7 @@ public class EventoDAO {
 
     public void caricaBigliettiEventiDaDB() {
         String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
+        System.out.println(query);
 
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
