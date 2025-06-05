@@ -74,16 +74,17 @@ public class EventoDAO {
         return lista_temp;
     }
 
-    public int SalvaInDB() {
+    public int SalvaInDB() throws DBException{
         int ret = 0;
-        String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, capienza, partecipanti, Amministratore_id) " +
-                "VALUES ('" + this.titolo + "','" + this.descrizione + "','" + this.data + "','" + this.ora + "','" + this.luogo + "'," +
-                "'" + this.capienza + "','" + this.partecipanti + "','" + this.amministratoreID + "')";
+        String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, costo, capienza, partecipanti, Amministratore_id) " +
+                "VALUES ('" + this.titolo + "', '" + this.descrizione + "', '" + this.data + "', '" + this.ora + "', '" + this.luogo + "', " +
+                this.costo + ", " + this.capienza + ", " + this.partecipanti + ", " + this.amministratoreID + ")";
+        System.out.println(query);
+
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
-            ret = -1;
+            throw new DBException("Evento già creato");
         }
 
         return ret;

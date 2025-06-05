@@ -109,9 +109,7 @@ public class EntityUtente {
 //    }
 
     public EntityEvento pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza) throws DBException {
-        EntityEvento evento=new EntityEvento(Titolo,Descrizione,Data,Ora,Luogo,Costo,Capienza);
-        evento.setUtente(this);
-        return evento;
+        return new EntityEvento(Titolo,Descrizione,Data,Ora,Luogo,Costo,Capienza,this);
     }
 
     public boolean verificaCredenziali(String Password){

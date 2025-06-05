@@ -83,18 +83,35 @@ public class Controller {
         }
     }
 
-    public void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza,String emailAmministratore) throws DBException{
+    public static void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza,String emailAmministratore) throws DBException{
         //richiama pubblica evento di utente
         //poi fa aggiungi evento al catalogo (prendendo la instance di catalogo)
         EntityUtente amministratore=new EntityUtente(emailAmministratore);
-        EntityEvento evento= amministratore.pubblicaEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza,emailAmministratore);
+        EntityEvento evento= amministratore.pubblicaEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         catalogo.aggiungiEvento(evento);
 
     }
-    //inseriscievento
-    //acquistobiglietto
-    //consultaEventiPublicati
+
+    public static void ConsultaEventiPubblicati(String email) throws DBException {
+        ArrayList<DTOEvento> eventiDTO = new ArrayList<>();
+
+        try {
+            EntityUtente u = new EntityUtente(email);
+            if(!u.getEventi().isEmpty()) {
+                for (EntityEvento evento : u.getEventi()) {
+
+
+                    evento.getInfoPartecipanti();
+                }
+            }else{
+                throw new DBException("Nesssun Biglietto Venduto");
+            }
+        } catch (DBException e) {
+            throw e;
+        }
+    }
+
 
 
 }
