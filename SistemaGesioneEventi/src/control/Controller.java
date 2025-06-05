@@ -91,7 +91,6 @@ public class Controller {
         }else throw new WrongUserTypeException("L'utente non è un amministratore");
     }
     //inseriscievento
-    //partecipaevento
     //acquistobiglietto
     //consultaEventiPublicati
 
