@@ -1,3 +1,4 @@
+//test commento 1
 package entity;
 
 // Stub semplice per sistema di pagamento
