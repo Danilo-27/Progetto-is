@@ -15,7 +15,7 @@ public class DBConnectionManager {
         conn = DriverManager.getConnection(url + dbName, userName, password);
         return conn;
     }
-
+    //prova
     public static void closeConnection(Connection c) throws SQLException {
         c.close();
     }
