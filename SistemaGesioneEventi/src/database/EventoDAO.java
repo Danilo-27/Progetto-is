@@ -36,6 +36,10 @@ public class EventoDAO {
             e.printStackTrace();
         }
     }
+    public EventoDAO(int id){
+        this.id=id;
+        this.biglietti= new ArrayList<>();
+    }
 
     //metodo per prelevare tutti gli eventi dal database
 
@@ -120,6 +124,7 @@ public class EventoDAO {
 
     public void caricaBigliettiEventiDaDB() {
         String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
+        System.out.println(query);
 
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);

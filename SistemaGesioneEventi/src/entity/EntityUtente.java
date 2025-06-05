@@ -56,12 +56,16 @@ public class EntityUtente {
             this.cognome = udao.getCognome();
             this.immagine = udao.getImmagine();
             this.TipoUtente = udao.getTipoUtente();
+
             if(this.TipoUtente==1){
                 //carica eventi
+                this.eventi=new ArrayList<>();
+                System.out.println("otheja");
                 udao.caricaEventiDaDB();
                 this.caricaEventiPubblicati(udao);
             }else{
                 //carica biglietti
+                this.biglietti =new ArrayList<>();
                 udao.caricaBigliettiDaDB();
                 this.caricaBiglietti(udao);
             }
@@ -117,7 +121,6 @@ public class EntityUtente {
 
     public void caricaBiglietti(UtenteDAO utente) {
         this.biglietti = new ArrayList<>();
-
         for (BigliettoDAO bigliettoDAO : utente.getBiglietti()) {
             EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
             this.biglietti.add(biglietto);

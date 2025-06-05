@@ -5,6 +5,7 @@ package entity;
 import DTO.DTOEvento;
 import database.BigliettoDAO;
 import database.EventoDAO;
+import database.UtenteDAO;
 import exceptions.DBException;
 import exceptions.UniqueCodeException;
 
@@ -37,7 +38,7 @@ public class EntityEvento {
         this.costo = evento.getCosto();
         this.capienza = evento.getCapienza();
     }
-    public EntityEvento(String Titolo,String Descrizione,LocalDate Data,LocalTime Ora,String Luogo,int Costo,int Capienza) {
+    public EntityEvento(String Titolo,String Descrizione,LocalDate Data,LocalTime Ora,String Luogo,int Costo,int Capienza,EntityUtente utente) {
         this.titolo = Titolo;
         this.descrizione = Descrizione;
         this.data = Data;
@@ -47,8 +48,7 @@ public class EntityEvento {
         this.capienza = Capienza;
         this.partecipanti = 0;
         this.biglietti = new ArrayList<>();
-        this.utente = new EntityUtente();
-        this.salvaSuDB();
+        this.utente = utente;
     }
     public EntityEvento(String titolo) {
         EventoDAO evento= new EventoDAO(titolo);
@@ -63,7 +63,11 @@ public class EntityEvento {
         evento.caricaBigliettiEventiDaDB();
         this.caricaBiglietti(evento);
     }
-    public void salvaSuDB(){
+    public EntityUtente caricaDaDB(String email)throws DBException {
+        UtenteDAO dao=new UtenteDAO(email);
+        return new EntityUtente(dao);
+    }
+    public void salvaSuDB() throws DBException{
         EventoDAO evento = new EventoDAO();
         evento.setTitolo(titolo);
         System.out.println(evento.toString());
@@ -82,7 +86,7 @@ public class EntityEvento {
         EventoDAO dao = new EventoDAO();
         dao.setTitolo(this.titolo);
         dao.setPartecipanti(this.partecipanti);
-        return dao.AggiornaInDB();
+        dao.AggiornaInDB();
     }
     private String creazioneIDUnivoco(){
         String eventoSanificato = this.titolo.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
@@ -114,21 +118,34 @@ public class EntityEvento {
     public boolean verificaDisponibilita(){
         return this.capienza>this.biglietti.size();
     }
+
+
+
     public void caricaBiglietti(EventoDAO eventoDAO) {
         this.biglietti = new ArrayList<>();
-        for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
-            EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
-            this.biglietti.add(biglietto);
+        if(eventoDAO.getBiglietti() !=null){
+            for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
+                EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
+                this.biglietti.add(biglietto);
+            }
+        }else{
+            System.out.println("non ha biglietti");
         }
+
     }
 
     public void getInfoPartecipanti(){
         //carico in memoria tutti i biglietti associati all'evento
-        EventoDAO eventoDAO = new EventoDAO();
-        eventoDAO.setId(this.id);
+        EventoDAO eventoDAO = new EventoDAO(id);
         eventoDAO.caricaBigliettiEventiDaDB();
+        BigliettoDAO bigliettoDAO = new BigliettoDAO();
         this.caricaBiglietti(eventoDAO);
-        System.out.println(this.biglietti.size());
+        //a questo punto per ogni biglietto conosco il codice univoco e stato
+        for (EntityBiglietto biglietto : this.biglietti) {
+
+            biglietto.caricaUtente();
+            biglietto.getPartecipanti();
+        }
     }
 
     public String getTitolo() {
