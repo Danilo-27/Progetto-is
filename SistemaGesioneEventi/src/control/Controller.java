@@ -51,13 +51,13 @@ public class Controller {
         return eventiDTO;
     }
 
-    public static void AcquistoBiglietto(DTOEvento evento_dto, String email) throws DBException, AcquistoException {
+    public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws DBException, AcquistoException {
         EntityEvento evento = new EntityEvento(evento_dto.getTitolo());
         if (evento.verificaDisponibilita()) {
             EntityUtente u = new EntityUtente(email);
             // Chiede di inserire i dati del pagamento
             SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
-            if (sga.elaboraPagamento("1234", u.getNome(), u.getCognome())) {
+            if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
                 try {
                     evento.creazioneBiglietto(u);
                 } catch (DBException e) {
