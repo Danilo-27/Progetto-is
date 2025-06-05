@@ -8,6 +8,7 @@ import entity.*;
 import exceptions.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,7 +81,14 @@ public class Controller {
             biglietto.validaBiglietto();
             evento.aggiornaPartecipanti();
         }
-
+    }
+    public static void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza,String emailAmministratore) throws DBException,WrongUserTypeException{
+        //richiama pubblica evento di utente
+        //poi fa aggiungi evento al catalogo (prendendo la instance di catalogo)
+        EntityUtente amministratore=new EntityUtente(emailAmministratore);
+        if (amministratore.getTipoUtente()==EntityUtente.AMMINISTRATORE){
+            amministratore.pubblicaEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
+        }else throw new WrongUserTypeException("L'utente non è un amministratore");
     }
     //inseriscievento
     //partecipaevento

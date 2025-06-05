@@ -25,6 +25,7 @@ public class EntityEvento {
     private int capienza;
     private int partecipanti;
     private ArrayList<EntityBiglietto> biglietti;
+    private EntityUtente utente;
 
     public EntityEvento(EventoDAO evento) {
         this.titolo = evento.getTitolo();
@@ -34,6 +35,18 @@ public class EntityEvento {
         this.luogo = evento.getLuogo();
         this.costo = evento.getCosto();
         this.capienza = evento.getCapienza();
+    }
+    public EntityEvento(String Titolo,String Descrizione,LocalDate Data,LocalTime Ora,String Luogo,int Costo,int Capienza) {
+        this.titolo = Titolo;
+        this.descrizione = Descrizione;
+        this.data = Data;
+        this.ora=Ora;
+        this.luogo = Luogo;
+        this.costo = Costo;
+        this.capienza = Capienza;
+        this.partecipanti = 0;
+        this.biglietti = new ArrayList<>();
+        this.salvaSuDB();
     }
     public EntityEvento(String titolo) {
         EventoDAO evento= new EventoDAO(titolo);
@@ -48,7 +61,19 @@ public class EntityEvento {
         evento.caricaBigliettiEventiDaDB();
         this.caricaBiglietti(evento);
     }
-
+    public void salvaSuDB(){
+        EventoDAO evento = new EventoDAO();
+        evento.setTitolo(titolo);
+        evento.setDescrizione(descrizione);
+        evento.setData(data);
+        evento.setOra(ora);
+        evento.setLuogo(luogo);
+        evento.setCosto(costo);
+        evento.setCapienza(capienza);
+        evento.setPartecipanti(partecipanti);
+        evento.setAmministratoreid(utente.getId());
+        evento.SalvaInDB();
+    }
     public int scriviSuDB() {
         EventoDAO s = new EventoDAO();
         s.setTitolo(this.titolo);
@@ -205,5 +230,13 @@ public class EntityEvento {
 
     public int getId() {
         return id;
+    }
+
+    public EntityUtente getUtente() {
+        return utente;
+    }
+
+    public void setUtente(EntityUtente utente) {
+        this.utente = utente;
     }
 }
