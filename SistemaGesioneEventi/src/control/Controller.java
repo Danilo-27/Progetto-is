@@ -149,17 +149,17 @@ public class Controller {
     public static ArrayList<DTOBiglietto> consultaStoricoBiglietti(String emailUtente) throws DBException {
         ArrayList<DTOBiglietto> biglietti = new ArrayList<>();
         EntityUtente utente = new EntityUtente(emailUtente);
-        System.out.println("asd");
         for(EntityBiglietto biglietto : utente.getBiglietti()){
-            System.out.println(biglietto.getNome_titolare());
             String codiceUnivoco=biglietto.getCodice_univoco();
             int stato=biglietto.getStato();
-            String titoloEvento="ppap";//biglietto.caricaEvento();
             LocalDate dataEvento = biglietto.getEvento().getData();
-            DTOBiglietto dtoBiglietto=new DTOBiglietto(codiceUnivoco,stato,titoloEvento,dataEvento);
+            DTOBiglietto dtoBiglietto=new DTOBiglietto(codiceUnivoco,stato,biglietto.getEvento().getTitolo(),dataEvento);
+            System.out.println(dtoBiglietto);
             biglietti.add(dtoBiglietto);
         }
         return biglietti;
     }
+
+
 
 }

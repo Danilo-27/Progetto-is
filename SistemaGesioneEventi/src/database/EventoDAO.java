@@ -31,14 +31,20 @@ public class EventoDAO {
         this.titolo=titolo;
         this.biglietti= new ArrayList<>();
         try {
-            this.caricaDaDB();
+            this.caricaDaDBPerTitolo();
         }catch(DBException e){
             e.printStackTrace();
         }
     }
-    public EventoDAO(int id){
-        this.id=id;
-        this.biglietti= new ArrayList<>();
+
+    public EventoDAO(int id) {
+        this.id = id;
+        this.biglietti = new ArrayList<>();
+        try {
+            this.caricaDaDB();
+        } catch (DBException e) {
+            e.printStackTrace();
+        }
     }
 
     //metodo per prelevare tutti gli eventi dal database
@@ -100,7 +106,35 @@ public class EventoDAO {
         }
         return ret;
     }
-    public void caricaDaDB() throws DBException{
+
+
+    public void caricaDaDB() throws DBException {
+        String query = "SELECT * FROM eventi WHERE id = " + this.id + ";";
+        try {
+            ResultSet rs = DBConnectionManager.selectQuery(query);
+            if (rs.next()) {
+                this.titolo = rs.getString("Titolo");
+                this.descrizione = rs.getString("Descrizione");
+                this.data = rs.getDate("Data").toLocalDate();
+                this.ora = LocalTime.parse(rs.getString("Orario"));
+                this.luogo = rs.getString("Luogo");
+                this.partecipanti = rs.getInt("Partecipanti");
+                this.capienza = rs.getInt("Capienza");
+                this.amministratoreID = rs.getInt("Amministratore_id");
+                this.costo = rs.getInt("Costo");
+            } else {
+                throw new DBException(String.format("Evento con ID '%d' non esistente", this.id));
+            }
+            rs.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            throw new DBException("Errore durante il caricamento dell'evento dal database.");
+        }
+    }
+
+
+
+    public void caricaDaDBPerTitolo() throws DBException{
         String query = "SELECT * FROM eventi WHERE Titolo='" + this.titolo + "';";
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
@@ -122,6 +156,9 @@ public class EventoDAO {
             e.printStackTrace();
         }
     }
+
+
+
     public void caricaBigliettiEventiDaDB() {
         String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
         System.out.println(query);

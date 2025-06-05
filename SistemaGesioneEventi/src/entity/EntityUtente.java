@@ -187,10 +187,10 @@ public class EntityUtente {
      *               dell'utente dal database
      */
 
-    public void caricaBiglietti(UtenteDAO utente) {
+    public void caricaBiglietti(UtenteDAO utente) throws DBException {
         this.biglietti = new ArrayList<>();
         for (BigliettoDAO bigliettoDAO : utente.getBiglietti()) {
-            EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
+            EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO,this);
             this.biglietti.add(biglietto);
         }
     }

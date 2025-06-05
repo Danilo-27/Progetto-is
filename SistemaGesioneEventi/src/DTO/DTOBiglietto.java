@@ -49,4 +49,14 @@ public class DTOBiglietto {
     public void setData(LocalDate data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "DTOBiglietto{" +
+                "codiceUnivoco='" + codiceUnivoco + '\'' +
+                ", stato=" + stato +
+                ", titoloEvento='" + titoloEvento + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

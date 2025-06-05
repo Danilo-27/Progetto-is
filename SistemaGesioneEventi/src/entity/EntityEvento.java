@@ -64,13 +64,11 @@ public class EntityEvento {
     /**
      * Costruttore che carica un evento dal database dato l'ID
      */
-    public EntityEvento(int id) throws DBException {
+    public EntityEvento(int id)  {
         EventoDAO evento = new EventoDAO(id);
         inizializzaDaEventoDAO(evento);
-        this.biglietti = new ArrayList<>();
-        evento.caricaBigliettiEventiDaDB();
-        this.caricaBiglietti(evento);
     }
+
 
     private void inizializzaDaEventoDAO(EventoDAO evento) {
         this.id = evento.getId();

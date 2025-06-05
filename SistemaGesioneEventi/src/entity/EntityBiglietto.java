@@ -18,16 +18,19 @@ public class EntityBiglietto {
 
     public EntityBiglietto() {}
 
-    public EntityBiglietto(BigliettoDAO biglietto) {
-        this.codiceUnivoco=biglietto.getCodice_univoco();
-        this.stato=biglietto.getStato();
-    }
 
     //costruttore per far caricare da parte dell'evento tutti i biglietti e i clienti che hanno acquistato il biglietto
     public EntityBiglietto(BigliettoDAO biglietto,EntityEvento evento) throws DBException {
         this.codiceUnivoco=biglietto.getCodice_univoco();
         this.stato=biglietto.getStato();
         this.evento=evento;
+        this.utente=new EntityUtente(biglietto.getCliente_id());
+    }
+
+    public EntityBiglietto(BigliettoDAO biglietto,EntityUtente utente) throws DBException {
+        this.codiceUnivoco=biglietto.getCodice_univoco();
+        this.stato=biglietto.getStato();
+        this.evento=new EntityEvento(biglietto.getEvento_id());
         this.utente=new EntityUtente(biglietto.getCliente_id());
     }
 
