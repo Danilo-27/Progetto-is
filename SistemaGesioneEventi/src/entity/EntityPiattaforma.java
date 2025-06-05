@@ -35,7 +35,7 @@ public class EntityPiattaforma {
     private int verificaEmail(String email) {
         EntityUtente u = new EntityUtente();
         try {
-            u.caricadaDBPerEmail(email);
+            u.caricaPerEmail(email);
             return 1;
         } catch (DBException e) {
             System.out.println(e.getMessage());
@@ -46,12 +46,10 @@ public class EntityPiattaforma {
 
     public DTOUtente Autenticazione(String email, String password) throws LoginFailedException {
         try {
-            EntityUtente u = new EntityUtente(email);
-
+            EntityUtente u = new EntityUtente();
+            u.caricaPerEmail(email);
             if (u.verificaCredenziali(password)) {
-
                 return new DTOUtente(u.getNome(),u.getCognome(),email, u.getImmagine(), u.getTipoUtente());
-
             } else {
                 throw new LoginFailedException("Login fallito, password errata");
             }

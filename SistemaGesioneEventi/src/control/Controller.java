@@ -86,13 +86,11 @@ public class Controller {
     }
 
     public static void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza,String emailAmministratore) throws DBException{
-        //richiama pubblica evento di utente
-        //poi fa aggiungi evento al catalogo (prendendo la instance di catalogo)
-        EntityUtente amministratore=new EntityUtente(emailAmministratore);
-        EntityEvento evento= amministratore.pubblicaEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
+        EntityUtente amministratore=new EntityUtente();
+        amministratore.caricaPerEmail(emailAmministratore);
+        EntityEvento evento= amministratore.creazioneEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         catalogo.aggiungiEvento(evento);
-
     }
 
     public static Map<DTOEvento, Object> ConsultaEventiPubblicati(String email) throws DBException {
