@@ -20,7 +20,7 @@ public class EventoDAO {
     private int costo;
     private int capienza;
     private int partecipanti;
-    private int Amministratoreid;
+    private int amministratoreID;
     private ArrayList<BigliettoDAO> biglietti;
 
     //costruttore vuoto
@@ -56,7 +56,7 @@ public class EventoDAO {
                     evento_temp.setLuogo(rs.getString("Luogo"));
                     evento_temp.setPartecipanti(rs.getInt("Partecipanti"));
                     evento_temp.setCapienza(rs.getInt("Capienza"));
-                    evento_temp.setAmministrazioneid(rs.getInt("Amministratore_id"));
+                    evento_temp.setAmministratoreid(rs.getInt("Amministratore_id"));
                     evento_temp.setCosto(rs.getInt("Costo"));
 
 
@@ -74,7 +74,7 @@ public class EventoDAO {
         int ret = 0;
         String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, capienza, partecipanti, Amministratore_id) " +
                 "VALUES ('" + this.titolo + "','" + this.descrizione + "','" + this.data + "','" + this.ora + "','" + this.luogo + "'," +
-                "'" + this.capienza + "','" + this.partecipanti + "','" + this.Amministratoreid + "')";
+                "'" + this.capienza + "','" + this.partecipanti + "','" + this.amministratoreID + "')";
         try {
             ret = DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
@@ -205,12 +205,12 @@ public class EventoDAO {
         this.id = id;
     }
 
-    public int getAmministrazioneid() {
-        return Amministratoreid;
+    public int getAmministratoreid() {
+        return amministratoreID;
     }
 
-    public void setAmministrazioneid(int amministratoreid) {
-        this.Amministratoreid = amministratoreid;
+    public void setAmministratoreid(int amministratoreid) {
+        this.amministratoreID = amministratoreid;
     }
 
     public int getCosto() {
@@ -227,10 +227,6 @@ public class EventoDAO {
 
     public void setBiglietti(ArrayList<BigliettoDAO> biglietti) {
         this.biglietti = biglietti;
-    }
-
-    public int getAmministratoreid() {
-        return Amministratoreid;
     }
 
 

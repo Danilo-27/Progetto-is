@@ -1,7 +1,6 @@
 //test commento 1
 package database;
 
-import entity.EntityEvento;
 import exceptions.DBException;
 
 import java.sql.ResultSet;
@@ -53,7 +52,7 @@ public class BigliettoDAO{
             if (rs.next()) {
                 EventoDAO evento= new EventoDAO();
                 evento.setTitolo(rs.getString("Titolo"));
-                evento.setAmministrazioneid(rs.getInt("Amministratore_id"));
+                evento.setAmministratoreid(rs.getInt("Amministratore_id"));
                 evento.setCapienza(rs.getInt("capienza"));
                 evento.setPartecipanti(rs.getInt("partecipanti"));
                 evento.setData(LocalDate.parse(rs.getString("data")));

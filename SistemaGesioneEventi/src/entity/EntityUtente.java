@@ -6,6 +6,9 @@ import database.UtenteDAO;
 import database.UtenteDAO;
 import exceptions.DBException;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 public class EntityUtente {
     private int id;
@@ -15,6 +18,9 @@ public class EntityUtente {
     private String password;
     private String immagine;
     private int TipoUtente;
+
+    public static int AMMINISTRATORE=1;
+    public static int CLIENTE=0;
 
     public EntityUtente(){}
 
@@ -80,6 +86,10 @@ public class EntityUtente {
         }catch(DBException e) {
             throw e;
         }
+    }
+    public void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza) throws DBException {
+        EntityEvento evento=new EntityEvento(Titolo,Descrizione,Data,Ora,Luogo,Costo,Capienza);
+        evento.setUtente(this);
     }
 
     public boolean verificaCredenziali(String Password){
