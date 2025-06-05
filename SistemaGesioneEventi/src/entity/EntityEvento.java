@@ -46,6 +46,7 @@ public class EntityEvento {
         this.capienza = Capienza;
         this.partecipanti = 0;
         this.biglietti = new ArrayList<>();
+        this.utente = new EntityUtente();
         this.salvaSuDB();
     }
     public EntityEvento(String titolo) {
