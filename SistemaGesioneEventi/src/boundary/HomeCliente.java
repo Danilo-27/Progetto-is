@@ -85,6 +85,12 @@ public class HomeCliente extends HomeUtenteRegistrato {
         sinistraPanel.add(acquistaBigliettoButton);
         sinistraPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 
+        // Pulsante Storico Biglietti
+        sinistraPanel.add(createStoricoBigliettiButton(email));
+        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+
+
+
         // ✅ Aggiungi i pulsanti ereditati dal padre usando il metodo helper
         JPanel pulsantiPadre = createParentButtonsPanel();
         sinistraPanel.add(pulsantiPadre);
@@ -96,6 +102,20 @@ public class HomeCliente extends HomeUtenteRegistrato {
 
         return sinistraPanel;
     }
+
+    private JButton createStoricoBigliettiButton(String email) {
+        JButton storicoButton = new JButton("Consulta Storico Biglietti");
+        styleButton(storicoButton, new Color(41, 128, 185)); // colore blu
+        storicoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        storicoButton.setMaximumSize(new Dimension(220, 35));
+        storicoButton.addActionListener(e -> {
+            FormStoricoBiglietti form = new FormStoricoBiglietti(email, this);
+            form.setVisible(true);
+            this.setVisible(false);
+        });
+        return storicoButton;
+    }
+
 
     private JPanel createProfileImagePanel(String immagineProfilo) {
         JPanel imagePanel = new JPanel();
