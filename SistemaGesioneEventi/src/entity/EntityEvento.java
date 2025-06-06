@@ -84,7 +84,6 @@ public class EntityEvento {
     public void salvaSuDB() throws DBException{
         EventoDAO evento = new EventoDAO();
         evento.setTitolo(titolo);
-        System.out.println(evento.toString());
         evento.setDescrizione(descrizione);
         evento.setData(data);
         evento.setOra(ora);
@@ -119,7 +118,6 @@ public class EntityEvento {
     public EntityBiglietto creazioneBiglietto(EntityUtente utente) throws DBException {
         //creazione ID univoco
         String codiceUnivoco = creazioneIDUnivoco();
-        System.out.println("CODICE UNIVOCO GENERATO "+codiceUnivoco);
         //creazione di entity biglietto con param ingresso ID univoco
         EntityBiglietto biglietto = new EntityBiglietto();
         biglietto.setCodice_univoco(codiceUnivoco);
@@ -140,7 +138,7 @@ public class EntityEvento {
                 this.biglietti.add(biglietto);
             }
         }else{
-            System.out.println("non ha biglietti");
+            //System.out.println("non ha biglietti");
         }
 
     }

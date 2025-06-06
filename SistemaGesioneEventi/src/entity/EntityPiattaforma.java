@@ -56,7 +56,7 @@ public class EntityPiattaforma {
             u.caricaPerEmail(email);
             return 1;
         } catch (DBException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             return 0;
         }
     }

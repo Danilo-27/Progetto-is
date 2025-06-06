@@ -35,7 +35,7 @@ public class Controller {
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         List<EntityEvento> eventi = catalogo.ConsultaCatalogo();
         for (EntityEvento evento: eventi) {
-            DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza());
+            DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza(),evento.getBiglietti().toArray().length);
             eventiDTO.add(dto);
         }
         return eventiDTO;
@@ -46,7 +46,7 @@ public class Controller {
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         List<EntityEvento> eventiTrovati = catalogo.ricercaEvento(titolo,data,luogo);
         for (EntityEvento evento: eventiTrovati) {
-            DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza());
+            DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza(),evento.getBiglietti().toArray().length);
             eventiDTO.add(dto);
         }
 
@@ -109,8 +109,7 @@ public class Controller {
             // Processa ogni evento
             for (EntityEvento evento : eventi) {
 
-                DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza());
-
+                DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza(),evento.getNumeroBigliettiVenduti());
                 // Crea mappa informazioni evento
                 Map<String, Object> infoEvento = new HashMap<>();
                 LocalDate dataEvento = evento.getData();
@@ -133,6 +132,8 @@ public class Controller {
                     infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
                 }
 
+                dtoEvento.setBigliettivenduti(evento.getNumeroBigliettiVenduti());
+
                 eventoPartecipantiMap.put(dtoEvento, infoEvento);
             }
 
@@ -154,7 +155,6 @@ public class Controller {
             int stato=biglietto.getStato();
             LocalDate dataEvento = biglietto.getEvento().getData();
             DTOBiglietto dtoBiglietto=new DTOBiglietto(codiceUnivoco,stato,biglietto.getEvento().getTitolo(),dataEvento);
-            System.out.println(dtoBiglietto);
             biglietti.add(dtoBiglietto);
         }
         return biglietti;

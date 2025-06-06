@@ -46,11 +46,19 @@ public class FormAcquistoBiglietto extends JFrame {
                                                           boolean isSelected, boolean cellHasFocus) {
                 JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 if (value instanceof DTOEvento evento) {
-                    label.setText(String.format("%s - %s (%s)", evento.getTitolo(), evento.getLuogo(), evento.getOra()));
+                    label.setText(String.format(
+                            "<html><b>%s</b> - %s<br>Data: %s, Ora: %s<br>Costo: €%d</html>",
+                            evento.getTitolo(),
+                            evento.getLuogo(),
+                            evento.getData(),
+                            evento.getOra(),
+                            evento.getCosto()
+                    ));
                 }
                 return label;
             }
         });
+
 
         listaEventi.addMouseListener(new MouseAdapter() {
             @Override

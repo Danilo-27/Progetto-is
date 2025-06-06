@@ -263,7 +263,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
                 try {
                     Controller.partecipaEvento(codiceUnivoco,eventoSelezionato);
                 } catch (BigliettoConsumatoException | BigliettoNotFoundException ex) {
-                    System.out.println(ex.getMessage());//cambiare
+                    //System.out.println(ex.getMessage());//cambiare
                 } catch (DBException ex) {
                     throw new RuntimeException(ex);
                 }

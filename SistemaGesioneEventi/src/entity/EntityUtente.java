@@ -101,6 +101,7 @@ public class EntityUtente {
     *Metodo che permette di creare un utente data la sua email senza chiedere i biglietti acquistati
      * oppure gli eventi creati
      */
+
     public void caricaPerEmail(String email) throws DBException {
         try{
             UtenteDAO dbCliente = new UtenteDAO(email);
@@ -109,9 +110,14 @@ public class EntityUtente {
             this.setCognome(dbCliente.getCognome());
             this.setPassword(dbCliente.getPassword());
             this.setEmail(dbCliente.getEmail());
+            this.setTipoUtente(dbCliente.getTipoUtente());
         }catch(DBException e) {
             throw e;
         }
+    }
+
+    private void setTipoUtente(int tipoUtente) {
+        this.TipoUtente = tipoUtente;
     }
 
     /**

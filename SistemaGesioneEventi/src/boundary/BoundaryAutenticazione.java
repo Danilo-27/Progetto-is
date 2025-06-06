@@ -93,7 +93,6 @@ public class BoundaryAutenticazione extends JFrame {
                 DTOUtente utente = Controller.Autenticazione(email, password);
                 section.setUtenteAutenticato(email,utente.getTipoUtente());
 
-
                 if (utente.getTipoUtente()==0){
                     new HomeCliente(utente.getNome(),utente.getCognome(),email, utente.getImmagine()).setVisible(true);
                     dispose();
@@ -108,12 +107,6 @@ public class BoundaryAutenticazione extends JFrame {
                         "Errore",
                         JOptionPane.ERROR_MESSAGE);
             }
-
-
-
-
-
-
 
         });
 

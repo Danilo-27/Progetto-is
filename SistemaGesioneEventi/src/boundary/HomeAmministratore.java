@@ -77,6 +77,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
                 DTOEvento evento = entry.getKey();
                 Map<String, Object> info = (Map<String, Object>) entry.getValue();
 
+                System.out.println(evento.getTitolo()+" "+evento.getBigliettivenduti());
                 // Stringa multilinea con tutte le info
                 StringBuilder sb = new StringBuilder();
                 sb.append("Titolo: ").append(evento.getTitolo()).append("\n")
@@ -85,10 +86,12 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
                         .append("Luogo: ").append(evento.getLuogo()).append("\n")
                         .append("Costo: ").append(evento.getCosto()).append("€")
                         .append("  |  Capienza: ").append(evento.getCapienza()).append("\n")
-                        .append("Biglietti venduti: ").append(info.getOrDefault("bigliettiVenduti", 0));
+                        .append("Biglietti venduti: ").append(evento.getBigliettivenduti()).append("\n");
 
                 if (info.containsKey("numeroPartecipanti")) {
                     sb.append("  |  Partecipanti: ").append(info.get("numeroPartecipanti"));
+                }else{
+                    sb.append("  |  Partecipanti: ").append(0);
                 }
 
                 eventiModel.addElement(sb.toString());
@@ -134,7 +137,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
             }
         }
 
-        if (partecipantiInfo.length() == 0) {
+        if (partecipantiInfo.isEmpty()) {
             partecipantiInfo.append("Nessun dato disponibile sui partecipanti.");
         }
 

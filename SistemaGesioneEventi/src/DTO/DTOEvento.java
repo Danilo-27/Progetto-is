@@ -14,12 +14,13 @@ public class DTOEvento {
     private int costo;
     private int capienza;
     private int partecipanti;
+    private int bigliettivenduti;
 
     public DTOEvento() {
     }
 
 
-    public DTOEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza) {
+    public DTOEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza,int bigliettivenduti) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.data = data;
@@ -27,6 +28,7 @@ public class DTOEvento {
         this.luogo = luogo;
         this.costo = costo;
         this.capienza = capienza;
+        this.bigliettivenduti = bigliettivenduti;
     }
 
 
@@ -92,5 +94,13 @@ public class DTOEvento {
 
     public int getPartecipanti() {
         return partecipanti;
+    }
+
+    public int getBigliettivenduti() {
+        return bigliettivenduti;
+    }
+
+    public void setBigliettivenduti(int bigliettivenduti) {
+        this.bigliettivenduti = bigliettivenduti;
     }
 }

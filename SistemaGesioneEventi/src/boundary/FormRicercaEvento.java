@@ -141,7 +141,6 @@ public class FormRicercaEvento extends JFrame {
             sb.append("Data: ").append(evento.getData()).append(" ").append(evento.getOra()).append("\n");
             sb.append("Luogo: ").append(evento.getLuogo()).append("\n");
             sb.append("Costo: ").append(evento.getCosto()).append("€\n");
-            sb.append("Capienza: ").append(evento.getCapienza()).append(" - Partecipanti: ").append(evento.getPartecipanti()).append("\n");
             sb.append("------------------------------------------------\n");
         }
         risultatoArea.setText(sb.toString());
