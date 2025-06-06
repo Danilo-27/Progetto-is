@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.ArrayList;
-
+import entity.EntityUtente;
 import exceptions.DBException;
 
 public class UtenteDAO {
@@ -22,56 +22,18 @@ public class UtenteDAO {
     //Costruttori
 
     public UtenteDAO() {}
-
-    //costruttore di un utente data l'email
-    public UtenteDAO(String email) throws DBException {
-        this.email = email;
-        int idUtente = cercaInDB();
-        if (idUtente == -1) {
-            throw new DBException(String.format("Utente '%s' non esistente", this.email));
-        }
-        this.id = idUtente;
+    //metodo per caricare da DB un utente tramite la sua PK
+    public UtenteDAO(int id,int tipoUtente) throws DBException {
+        this.id = id;
+        this.tipoUtente = tipoUtente;
         this.biglietti = new ArrayList<>();
         this.eventi = new ArrayList<>();
-        this.caricaDaDB();
-    }
-    //costruttore di un utente dato l'id
-    public UtenteDAO(int id) throws DBException {
-        this.id=id;
-        this.caricaDaDB();
-    }
-
-    //metodo per caricare da DB un utente tramite la sua PK
-    public void caricaDaDB() throws DBException {
-        String query = "SELECT * FROM utenti WHERE id='" + this.id + "';";
-        try {
-            ResultSet rs = DBConnectionManager.selectQuery(query);
-            if (rs.next()) {
-                this.password = rs.getString("password");
-                this.nome = rs.getString("nome");
-                this.cognome = rs.getString("cognome");
-                this.email = rs.getString("email");
-                this.immagineProfilo = rs.getString("ImmagineProfilo");
-                this.tipoUtente = rs.getInt("Tipo");
-            } else {
-                throw new DBException(String.format("Utente '%s' non esistente", id));
-            }
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+        if(tipoUtente == EntityUtente.CLIENTE){
+            this.caricaBigliettiDaDB();
+        }else{
+            this.caricaEventiDaDB();
         }
-    }
 
-    public int cercaInDB() throws DBException {
-        String query = String.format("SELECT * FROM utenti WHERE email = '%s';", this.email);
-        try (ResultSet rs = DBConnectionManager.selectQuery(query)) {
-            if (!rs.next())
-                return -1;
-            return rs.getInt("id");
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println(e.getStackTrace());
-            throw new DBException(String.format("Errore nella ricerca dell'utente '%s'.%n%s", this.email, e.getMessage()));
-        }
     }
 
     public int SalvaInDB() {
@@ -87,25 +49,53 @@ public class UtenteDAO {
         return ret;
     }
 
+    public static ArrayList<UtenteDAO> getUtenti() throws DBException {
+        ArrayList<UtenteDAO> lista_temp = new ArrayList<>();
+        String query = "SELECT * FROM utenti;";
+        try {
+            try (ResultSet rs = DBConnectionManager.selectQuery(query)) {
+
+                while (rs.next()) {
+                    UtenteDAO udao = new UtenteDAO();
+                    udao.setId(rs.getInt("id"));
+                    udao.setNome(rs.getString("nome"));
+                    udao.setCognome(rs.getString("cognome"));
+                    udao.setEmail(rs.getString("email"));
+                    udao.setPassword(rs.getString("password"));
+                    udao.setTipoUtente(rs.getInt("Tipo"));
+                    udao.setImmagine(rs.getString("ImmagineProfilo"));
+
+                    lista_temp.add(udao);
+                }
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new DBException(String.format("Errore nel caricamento degli eventi.%n%s", e.getMessage()));
+        }
+
+        return lista_temp;
+    }
     public void caricaBigliettiDaDB(){
         String query = "SELECT * FROM biglietti WHERE Cliente_id = " + this.id + ";";
 
         try {
             ResultSet rs = DBConnectionManager.selectQuery(query);
             while (rs.next()) {
-                BigliettoDAO biglietto = new BigliettoDAO();
-                biglietto.setCodice_univoco(rs.getString("CodiceUnivoco"));
-                biglietto.setStato(rs.getInt("stato"));
-                biglietto.setCliente_id(rs.getInt("Cliente_id"));
-                biglietto.setEvento_id(rs.getInt("Evento_id"));
-                this.biglietti.add(biglietto);
+                BigliettoDAO bigliettoDao=this.createBigliettoDao(rs);
+                this.biglietti.add(bigliettoDao);
             }
             rs.close();
         } catch (SQLException | ClassNotFoundException e) {
             ((Exception) e).printStackTrace();
         }
     }
-
+    private BigliettoDAO createBigliettoDao(ResultSet rs) throws SQLException {
+        BigliettoDAO biglietto = new BigliettoDAO();
+        biglietto.setCodice_univoco(rs.getString("CodiceUnivoco"));
+        biglietto.setStato(rs.getInt("stato"));
+        biglietto.setCliente_id(rs.getInt("Cliente_id"));
+        biglietto.setEvento_id(rs.getInt("Evento_id"));
+        return biglietto;
+    }
     public void caricaEventiDaDB () throws DBException {
         String query = "SELECT * FROM eventi WHERE Amministratore_id = " + this.id + ";";
         try (ResultSet rs = DBConnectionManager.selectQuery(query)) {

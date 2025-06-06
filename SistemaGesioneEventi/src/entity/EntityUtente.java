@@ -68,33 +68,44 @@ public class EntityUtente {
      * @throws DBException se si verifica un errore durante l'accesso al database
      */
     public EntityUtente(String email) throws DBException {
-        this.email = email;
-        UtenteDAO udao = new UtenteDAO(email);
-        //System.out.println(udao.getId());
-        this.id=udao.getId();
-        this.nome = udao.getNome();
-        this.password = udao.getPassword();
-        this.cognome = udao.getCognome();
-        this.immagine = udao.getImmagine();
-        this.TipoUtente = udao.getTipoUtente();
-        if(this.TipoUtente==AMMINISTRATORE){
-                //carica eventi creati
-            this.eventi=new ArrayList<>();
-            udao.caricaEventiDaDB();
-            this.caricaEventiPubblicati(udao);
+        EntityPiattaforma piattaforma=EntityPiattaforma.getInstance();
+        EntityUtente utente=piattaforma.cercaInUtenti(email);
+        if(utente!=null){
+            this.id=utente.getId();
+            this.nome=utente.getNome();
+            this.cognome=utente.getCognome();
+            this.email=email;
+            this.password=utente.getPassword();
+            this.immagine=utente.getImmagine();
+            this.TipoUtente=utente.getTipoUtente();
+            if(this.TipoUtente==EntityUtente.CLIENTE){
+                this.biglietti=new ArrayList<>();
+                this.caricaBiglietti();
+            }else{
+                this.eventi=new ArrayList<>();
+                this.caricaEventiPubblicati();
+            }
         }else{
-                //carica biglietti acquistati
-            this.biglietti =new ArrayList<>();
-            udao.caricaBigliettiDaDB();
-            this.caricaBiglietti(udao);
+            throw new DBException("Utente non trovato");
         }
     }
     /**
     *Costruttore che crea un EntityUtente dato il suo id
      */
     public EntityUtente(int id) throws DBException {
-        this.id=id;
-        this.caricadaDB();
+        EntityPiattaforma piattaforma=EntityPiattaforma.getInstance();
+        EntityUtente utente=piattaforma.cercaInUtenti(id);
+        if(utente!=null){
+            this.id=id;
+            this.nome=utente.getNome();
+            this.cognome=utente.getCognome();
+            this.email=utente.getEmail();
+            this.password=utente.getPassword();
+            this.immagine=utente.getImmagine();
+            this.TipoUtente=utente.getTipoUtente();
+        }else{
+            throw new DBException("Utente non trovato");
+        }
     }
 
     /**
@@ -103,21 +114,19 @@ public class EntityUtente {
      */
 
     public void caricaPerEmail(String email) throws DBException {
-        try{
-            UtenteDAO dbCliente = new UtenteDAO(email);
-            this.setId(dbCliente.getId());
-            this.setNome(dbCliente.getNome());
-            this.setCognome(dbCliente.getCognome());
-            this.setPassword(dbCliente.getPassword());
-            this.setEmail(dbCliente.getEmail());
-            this.setTipoUtente(dbCliente.getTipoUtente());
-        }catch(DBException e) {
-            throw e;
+        EntityPiattaforma piattaforma=EntityPiattaforma.getInstance();
+        EntityUtente utente=piattaforma.cercaInUtenti(email);
+        if(utente!=null){
+            this.id=utente.getId();
+            this.nome=utente.getNome();
+            this.cognome=utente.getCognome();
+            this.email=email;
+            this.password=utente.getPassword();
+            this.immagine=utente.getImmagine();
+            this.TipoUtente=utente.getTipoUtente();
+        }else{
+            throw new DBException("Utente non trovato");
         }
-    }
-
-    private void setTipoUtente(int tipoUtente) {
-        this.TipoUtente = tipoUtente;
     }
 
     /**
@@ -128,7 +137,7 @@ public class EntityUtente {
      *         mentre un valore pari -1 indica un errore.
      */
 
-    public int scriviSuDB() {
+    public int Aggiornamento() {
         UtenteDAO u = new UtenteDAO();
         u.setNome(this.nome);
         u.setEmail(this.email);
@@ -137,24 +146,7 @@ public class EntityUtente {
         return u.SalvaInDB();
     }
 
-    /**
-     * Carica i dati dell'utente dal database identificato tramite
-     * il suo id e aggiorna l'istanza corrente con le informazioni recuperate.
-     *
-     * @throws DBException se si verifica un errore durante l'accesso al database.
-     */
-    public void caricadaDB() throws DBException {
-        try{
-            UtenteDAO dbCliente = new UtenteDAO(id);
-            this.setNome(dbCliente.getNome());
-            this.setCognome(dbCliente.getCognome());
-            this.setPassword(dbCliente.getPassword());
-            this.setEmail(dbCliente.getEmail());
-        }catch(DBException e) {
-            throw e;
-        }
 
-    }
 
     /**
      * Crea un nuovo evento e lo ritorna.L'evento sarà associato all'amministratore corrente che l'ha creato
@@ -189,11 +181,10 @@ public class EntityUtente {
      * viene creata una nuova istanza di EntityBiglietto, che viene aggiunta
      * alla lista dei biglietti dell'utente corrente.
      *
-     * @param utente l'oggetto UtenteDAO che contiene le informazioni e i biglietti
-     *               dell'utente dal database
      */
 
-    public void caricaBiglietti(UtenteDAO utente) throws DBException {
+    public void caricaBiglietti() throws DBException {
+        UtenteDAO utente = new UtenteDAO(this.getId(),this.getTipoUtente());
         this.biglietti = new ArrayList<>();
         for (BigliettoDAO bigliettoDAO : utente.getBiglietti()) {
             EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO,this);
@@ -207,10 +198,9 @@ public class EntityUtente {
      * viene creata una nuova istanza di EntityEvento, che viene aggiunta
      * alla lista degli eventi dell'utente corrente.
      *
-     * @param utente l'oggetto UtenteDAO che rappresenta l'utente contenente
-     *               le informazioni sugli eventi pubblicati.
      */
-    public void caricaEventiPubblicati(UtenteDAO utente) {
+    public void caricaEventiPubblicati() throws DBException {
+        UtenteDAO utente = new UtenteDAO(this.getId(),this.getTipoUtente());
         this.eventi = new ArrayList<>();
         for (EventoDAO eventoDAO : utente.getEventi()) {
             EntityEvento evento = new EntityEvento(eventoDAO);
@@ -258,6 +248,9 @@ public class EntityUtente {
     }
     public int getTipoUtente() {
         return TipoUtente;
+    }
+    public void setTipoUtente(int tipoUtente) {
+        TipoUtente = tipoUtente;
     }
     public ArrayList<EntityEvento> getEventi() {
         return eventi;

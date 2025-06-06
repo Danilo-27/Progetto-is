@@ -4,7 +4,6 @@ package entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import DTO.DTOEvento;
 import database.EventoDAO;
 import exceptions.DBException;
 import exceptions.EventoNotFoundException;
@@ -69,12 +68,8 @@ public class EntityCatalogo {
         List<EntityEvento> risultati = new ArrayList<>();
 
         for (EntityEvento evento : eventi) {
-            boolean match = true;
+            boolean match = titolo == null || evento.getTitolo().equalsIgnoreCase(titolo);
 
-            // Controllo titolo
-            if (titolo != null && !evento.getTitolo().equalsIgnoreCase(titolo)) {
-                match = false;
-            }
 
             // Controllo data
             if (data != null && !evento.getData().equals(data)) {

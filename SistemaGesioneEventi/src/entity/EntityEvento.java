@@ -104,7 +104,7 @@ public class EntityEvento {
     private String creazioneIDUnivoco(){
         String eventoSanificato = this.titolo.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
         String prefisso = eventoSanificato.substring(0, Math.min(3, eventoSanificato.length()));
-        String uuidParte = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase().substring(0, 8);
+        String uuidParte = UUID.randomUUID().toString().replace("-", "").toUpperCase().substring(0, 8);
         return prefisso + "-" + uuidParte;
     }
     public EntityBiglietto verificaCodice(String codice) {
@@ -127,7 +127,7 @@ public class EntityEvento {
         biglietto.scriviSuDB();
         return biglietto;
     }
-    public boolean verificaDisponibilita(){
+    public boolean verificaDisponibilità(){
         return this.capienza>this.biglietti.size();
     }
     public void caricaBiglietti(EventoDAO eventoDAO) throws DBException {
@@ -138,7 +138,7 @@ public class EntityEvento {
                 this.biglietti.add(biglietto);
             }
         }else{
-            //System.out.println("non ha biglietti");
+            System.out.println("non ha biglietti");
         }
 
     }
@@ -152,7 +152,7 @@ public class EntityEvento {
         //a questo punto per ogni biglietto conosco il codice univoco e stato
         ArrayList<EntityUtente> partecipanti=new ArrayList<>();
         for (EntityBiglietto biglietto : this.biglietti) {
-            if(biglietto.getStato()==1){
+            if(biglietto.getStato()==EntityBiglietto.OBLITERATO){
                 partecipanti.add(biglietto.getUtente());
             }
         }
@@ -227,9 +227,6 @@ public class EntityEvento {
         this.partecipanti = partecipanti;
     }
 
-    //public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
-    //    this.biglietti = biglietti;
-    //}
 
     public int getCosto() {
         return costo;

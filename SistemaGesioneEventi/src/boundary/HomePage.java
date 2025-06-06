@@ -2,13 +2,14 @@ package boundary;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.Serial;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class HomePage extends JFrame {
 
+    @Serial
     private static final long serialVersionUID = 1L;
-    private JLabel titleLabel;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -23,7 +24,7 @@ public class HomePage extends JFrame {
 
     public HomePage() {
         setTitle("TicketTwo");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1129, 522);
         setLocationRelativeTo(null);
 
@@ -34,7 +35,7 @@ public class HomePage extends JFrame {
         topPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         add(topPanel, BorderLayout.NORTH);
 
-        titleLabel = new JLabel("TicketTwo");
+        JLabel titleLabel = new JLabel("TicketTwo");
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 48));
         titleLabel.setForeground(new Color(44, 62, 80));
         topPanel.add(titleLabel, BorderLayout.WEST);
@@ -64,7 +65,13 @@ public class HomePage extends JFrame {
 
         topPanel.add(buttonsPanel, BorderLayout.EAST);
 
+        JPanel centerPanel = getJPanel();
+        add(centerPanel, BorderLayout.CENTER);
+    }
+
+    private static JPanel getJPanel() {
         JPanel centerPanel = new JPanel() {
+            @Serial
             private static final long serialVersionUID = 1L;
 
             @Override
@@ -81,7 +88,7 @@ public class HomePage extends JFrame {
             }
         };
         centerPanel.setOpaque(false);
-        add(centerPanel, BorderLayout.CENTER);
+        return centerPanel;
     }
 
     private void styleButton(JButton button) {

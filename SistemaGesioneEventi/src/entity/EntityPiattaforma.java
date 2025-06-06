@@ -2,19 +2,34 @@
 package entity;
 
 import DTO.DTOUtente;
+import database.UtenteDAO;
 import exceptions.RegistrationFailedException;
 import exceptions.DBException;
 import exceptions.LoginFailedException;
 
+import java.util.ArrayList;
+
 public class EntityPiattaforma {
     private static EntityPiattaforma uniqueInstance;
+    private final ArrayList<EntityUtente> utenti;
 
-    private EntityPiattaforma() {
+
+    private EntityPiattaforma() throws DBException {
+        this.utenti = new ArrayList<>();
+        for (UtenteDAO utente : UtenteDAO.getUtenti()) {
+            utenti.add(new EntityUtente(utente));
+        }
     }
 
     public static EntityPiattaforma getInstance() {
         if (uniqueInstance == null) {
-            uniqueInstance = new EntityPiattaforma();
+            try{
+                uniqueInstance = new EntityPiattaforma();
+            }catch(DBException e){
+                System.out.println(e.getMessage());
+            }
+
+
         }
         return uniqueInstance;
     }
@@ -28,13 +43,15 @@ public class EntityPiattaforma {
      * @param cognome il cognome dell'utente da registrare
      * @param email l'email dell'utente da registrare, che deve essere univoca nel sistema
      * @throws RegistrationFailedException se l'email è già associata a un altro utente nel sistema
+     *
      */
 
     public void registrazione(String password, String nome, String cognome, String email) throws RegistrationFailedException {
 
-        if(verificaEmail(email)==0){
+        if(verificaEmail(email)){
             EntityUtente u = new EntityUtente(nome,cognome,email,password);
-            u.scriviSuDB();
+            this.utenti.add(u);
+            u.Aggiornamento();
         }else{
             throw new RegistrationFailedException(
                     String.format("Registrazione fallita: l'email '%s' è già presente nel sistema.", email)
@@ -50,15 +67,26 @@ public class EntityPiattaforma {
      * @return 1 se l'email è presente nel sistema, 0 altrimenti
      */
 
-    private int verificaEmail(String email) {
-        EntityUtente u = new EntityUtente();
-        try {
-            u.caricaPerEmail(email);
-            return 1;
-        } catch (DBException e) {
-            //System.out.println(e.getMessage());
-            return 0;
+    private boolean verificaEmail(String email) {
+        return this.cercaInUtenti(email) != null;
+    }
+
+
+    public EntityUtente cercaInUtenti(String email) {
+        for (EntityUtente utente : this.utenti) {
+            if (utente.getEmail().equals(email)) {
+                return utente;
+            }
         }
+        return null;
+    }
+    public EntityUtente cercaInUtenti(int id) {
+        for (EntityUtente utente : this.utenti) {
+            if (utente.getId()==id) {
+                return utente;
+            }
+        }
+        return null;
     }
 
     /**
@@ -73,18 +101,17 @@ public class EntityPiattaforma {
      */
 
     public DTOUtente Autenticazione(String email, String password) throws LoginFailedException {
-        try {
-            EntityUtente u = new EntityUtente();
-            u.caricaPerEmail(email);
-            if (u.verificaCredenziali(password)) {
-                return new DTOUtente(u.getNome(),u.getCognome(),email, u.getImmagine(), u.getTipoUtente());
+        //u.caricaPerEmail(email);
+        EntityUtente utente = this.cercaInUtenti(email);
+        if(utente==null){
+            throw new LoginFailedException("Utente non registrato");
+        }else{
+            if (utente.verificaCredenziali(password)) {
+                return new DTOUtente(utente.getNome(),utente.getCognome(),email, utente.getImmagine(), utente.getTipoUtente());
             } else {
                 throw new LoginFailedException("Login fallito, password errata");
             }
-        } catch (DBException e) {
-            throw new LoginFailedException("Login fallito, email non registrata");
         }
-
     }
 
 

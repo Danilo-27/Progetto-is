@@ -72,6 +72,7 @@ public class BigliettoDAO{
             e.printStackTrace();
         }
     }
+
     public void caricaUtenteDaBigliettoDaDB() {
         String query = "SELECT * FROM utenti WHERE ID = " + this.Cliente_id + ";";
         try {

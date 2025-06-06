@@ -118,7 +118,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
 
         Map<String, Object> info = eventiInfoMap.get(index);
         if (info == null || !info.containsKey("listaPartecipanti")) {
-            JOptionPane.showMessageDialog(this, "Nessun partecipante disponibile per questo evento.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Lista partecipanti non disponibile.", "Info", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
