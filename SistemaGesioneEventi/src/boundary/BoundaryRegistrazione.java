@@ -125,7 +125,7 @@ public class BoundaryRegistrazione extends JFrame {
                 return;
             }
             if (!password.matches(".*[!@#$%^&*()\\-_=+{};:,<.>§°?].*")) {
-                JOptionPane.showMessageDialog(contentPane, "La password deve contenere almeno un carattere speciale.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "La PASSWORD deve contenere almeno un carattere speciale.", "Errore", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 

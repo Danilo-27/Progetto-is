@@ -5,17 +5,17 @@ public class DTOUtente {
     private String cognome;
     private String email;
     private String immagine;
-    private int TipoUtente;
+    private int tipoUtente;
 
     public DTOUtente() {
     }
 
-    public DTOUtente(String nome, String cognome, String email, String immagine, int tipoUtente) {
+    public DTOUtente(String nome, String cognome, String email, String immagine,int tipoUtente) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.immagine = immagine;
-        TipoUtente = tipoUtente;
+        this.tipoUtente = tipoUtente;
     }
 
     public DTOUtente(String nome, String cognome) {
@@ -56,11 +56,11 @@ public class DTOUtente {
     }
 
     public int getTipoUtente() {
-        return TipoUtente;
+        return tipoUtente;
     }
 
     public void setTipoUtente(int tipoUtente) {
-        TipoUtente = tipoUtente;
+        this.tipoUtente = tipoUtente;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class DTOUtente {
                 ", cognome='" + cognome + '\'' +
                 ", email='" + email + '\'' +
                 ", immagine='" + immagine + '\'' +
-                ", TipoUtente=" + TipoUtente +
+                ", tipoUtente=" + tipoUtente +
                 '}';
     }
 }

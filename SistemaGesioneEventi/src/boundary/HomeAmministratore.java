@@ -19,10 +19,15 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
     private JList<String> eventiList;
     private String emailAmministratore;
     private Map<Integer, Map<String, Object>> eventiInfoMap;
+    private String nomeAmministratore;
+    private String cognomeAmministratore;
 
     public HomeAmministratore(String nome, String cognome, String email) {
         super();
         this.emailAmministratore = email;
+        this.nomeAmministratore = nome;
+        this.cognomeAmministratore = cognome;
+
         eventiInfoMap = new HashMap<>();
 
         setPreferredSize(new Dimension(800, 600));
@@ -63,7 +68,6 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
     }
 
     private void caricaEventiPubblicati(String email) {
-        try {
             Map<DTOEvento, Object> eventiPubblicati = control.Controller.ConsultaEventiPubblicati(email);
             eventiModel.clear();
             eventiInfoMap.clear();
@@ -102,15 +106,6 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
             if (eventiModel.isEmpty()) {
                 eventiModel.addElement("Nessun evento pubblicato al momento.");
             }
-
-        } catch (DBException e) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Errore nel caricamento degli eventi pubblicati:\n" + e.getMessage(),
-                    "Errore",
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
     }
 
     private void mostraDettagliPartecipanti(int index) {
@@ -306,6 +301,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
                 SwingUtilities.invokeLater(() -> {
                     JFrame homePage = new HomePage();
                     homePage.setVisible(true);
+                    dispose();
                 });
                 Window window = SwingUtilities.getWindowAncestor(this);
                 if (window != null) window.dispose();
@@ -317,9 +313,10 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
 
     private void openFormEvento() {
         try {
-            FormEvento form = new FormEvento(this);
+            FormEvento form = new FormEvento(this,this.nomeAmministratore,this.cognomeAmministratore,this.emailAmministratore);
             form.setVisible(true);
-            this.setVisible(false);
+            dispose();
+            form=null;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Errore apertura form: " + e.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
         }
@@ -364,4 +361,6 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
             return this;
         }
     }
+
+
 }

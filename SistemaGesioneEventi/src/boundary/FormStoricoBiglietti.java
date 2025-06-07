@@ -95,7 +95,11 @@ public class FormStoricoBiglietti extends JFrame {
         mainPanel.add(tornaIndietroButton, BorderLayout.SOUTH);
 
         // Carica i biglietti dallo storico
-        caricaStorico(emailUtente);
+        try {
+            caricaStorico(emailUtente);
+        }catch(DBException e){
+            System.out.println("DIOCANE");
+        }
 
         // Permetti di copiare il codice al doppio click su un biglietto
         listaBiglietti.addMouseListener(new MouseAdapter() {
@@ -142,15 +146,12 @@ public class FormStoricoBiglietti extends JFrame {
         });
     }
 
-    private void caricaStorico(String emailUtente) {
-        try {
+    private void caricaStorico(String emailUtente)throws DBException {
+
             ArrayList<DTOBiglietto> biglietti = Controller.consultaStoricoBiglietti(emailUtente);
             bigliettiModel.clear();
             for (DTOBiglietto biglietto : biglietti) {
                 bigliettiModel.addElement(biglietto);
             }
-        } catch (DBException e) {
-            JOptionPane.showMessageDialog(this, "Errore nel caricamento dello storico biglietti.", "Errore", JOptionPane.ERROR_MESSAGE);
-        }
     }
 }

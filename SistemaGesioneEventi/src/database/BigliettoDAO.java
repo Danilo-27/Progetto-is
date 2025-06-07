@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BigliettoDAO{
 
@@ -39,7 +37,7 @@ public class BigliettoDAO{
                 this.Cliente_id = rs.getInt("Cliente_id");
                 this.Evento_id = rs.getInt("Evento_id");
             } else {
-                System.out.println("Biglietto non trovato nel DB");
+                throw new SQLException();
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -54,7 +52,7 @@ public class BigliettoDAO{
             if (rs.next()) {
                 EventoDAO evento= new EventoDAO();
                 evento.setTitolo(rs.getString("Titolo"));
-                evento.setAmministratoreid(rs.getInt("Amministratore_id"));
+                evento.setAmministratoreId(rs.getInt("Amministratore_id"));
                 evento.setCapienza(rs.getInt("capienza"));
                 evento.setPartecipanti(rs.getInt("partecipanti"));
                 evento.setData(LocalDate.parse(rs.getString("data")));
@@ -65,7 +63,7 @@ public class BigliettoDAO{
                 this.evento = evento;
 
             } else {
-                System.out.println("Evento non trovato nel DB");
+                throw new SQLException();
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -81,7 +79,7 @@ public class BigliettoDAO{
                 UtenteDAO utente= new UtenteDAO();
                 utente.setId(this.Cliente_id);
                 utente.setEmail(rs.getString("email"));
-                utente.setPassword(rs.getString("password"));
+                utente.setPassword(rs.getString("PASSWORD"));
                 utente.setNome(rs.getString("nome"));
                 utente.setCognome(rs.getString("cognome"));
                 utente.setImmagine(rs.getString("immagineProfilo"));
@@ -90,7 +88,7 @@ public class BigliettoDAO{
                 this.utente = utente;
 
             } else {
-                System.out.println("Utente non trovato nel DB");
+                throw new SQLException();
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -98,32 +96,26 @@ public class BigliettoDAO{
         }
     }
 
-    public int SalvaInDB() throws DBException {
-        int ret = 0;
+    public void SalvaInDB() throws DBException {
         String query = "INSERT INTO biglietti (CodiceUnivoco, stato, Cliente_id, Evento_id) " +
                 "VALUES ('" + this.codice_univoco + "', '" + this.stato + "', '" + this.Cliente_id + "', '" + this.Evento_id + "');";
         try {
-            ret = DBConnectionManager.updateQuery(query);
+            DBConnectionManager.updateQuery(query);
         } catch (SQLIntegrityConstraintViolationException e) {
             throw new DBException("Violazione dei vincoli di integrità: " + e.getMessage());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-            ret = -1;
         }
-        return ret;
     }
 
 
-    public int aggiornaInDB() {
-        int ret = 0;
+    public void aggiornaInDB() {
         String query="UPDATE biglietti SET stato='" + this.stato + "' WHERE CodiceUnivoco ='" + this.codice_univoco + "';";
         try{
-            ret=DBConnectionManager.updateQuery(query);
+            DBConnectionManager.updateQuery(query);
         }catch (SQLException | ClassNotFoundException e) {
             ((Exception)e).printStackTrace();
-            ret = -1;
         }
-        return ret;
     }
 
 

@@ -2,8 +2,6 @@ package boundary;
 
 import DTO.DTOUtente;
 import control.Controller;
-import entity.EntityPiattaforma;
-import exceptions.RegistrationFailedException;
 import exceptions.LoginFailedException;
 
 import java.awt.*;
@@ -12,25 +10,16 @@ import javax.swing.border.EmptyBorder;
 
 public class BoundaryAutenticazione extends JFrame {
 
-    private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
-    private JPasswordField passwordField;
-    private JTextField emailField;
+    private final JPanel contentPane;
+    private final JPasswordField passwordField;
+    private final JTextField emailField;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                BoundaryAutenticazione frame = new BoundaryAutenticazione();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
+//    private final String = "Segoe UI";
+
 
     public BoundaryAutenticazione() {
         setTitle("Accesso Utente");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(500, 400);
         setLocationRelativeTo(null);
 
@@ -87,10 +76,9 @@ public class BoundaryAutenticazione extends JFrame {
                 return;
             }
 
-
             try {
                 Sessione section = Sessione.getInstance();
-                DTOUtente utente = Controller.Autenticazione(email, password);
+                DTOUtente utente = Controller.Autenticazione(email, password);//problema
                 section.setUtenteAutenticato(email,utente.getTipoUtente());
 
                 if (utente.getTipoUtente()==0){
@@ -155,7 +143,7 @@ public class BoundaryAutenticazione extends JFrame {
             return "Errore: Password vuota.";
         }
         if (password.length() > 40) {
-            return "Errore: Lunghezza password maggiore di 40 caratteri.";
+            return "Errore: Lunghezza PASSWORD maggiore di 40 caratteri.";
         }
         if (!containsSpecialCharacter(password)) {
             return "Errore: Password deve contenere almeno un carattere speciale.";
@@ -173,8 +161,8 @@ public class BoundaryAutenticazione extends JFrame {
     }
 
 //    // 🔐 Simulazione autenticazione (da sostituire con Controller BCED reale)
-//    private boolean verificaCredenziali(String email, String password) {
-//        return email.equals("f@g.com") && password.equals("@123");
+//    private boolean verificaCredenziali(String email, String PASSWORD) {
+//        return email.equals("f@g.com") && PASSWORD.equals("@123");
 //    }
 
 }

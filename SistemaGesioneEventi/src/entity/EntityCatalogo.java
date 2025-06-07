@@ -4,6 +4,8 @@ package entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import database.EventoDAO;
 import exceptions.DBException;
 import exceptions.EventoNotFoundException;
@@ -13,89 +15,89 @@ public class EntityCatalogo {
     private static EntityCatalogo uniqueInstance;
     private final List<EntityEvento> eventi;
 
-    private EntityCatalogo() {
+    private EntityCatalogo() throws DBException {
         eventi = new ArrayList<>();
-        try {
-            for (EventoDAO evento : EventoDAO.getEventi()) {
-                eventi.add(new EntityEvento(evento));
-            }
-        } catch (DBException e) {
-            throw new RuntimeException(e);
+        for (EventoDAO evento : EventoDAO.getEventi()) {
+            eventi.add(new EntityEvento(evento));
         }
     }
 
     public static EntityCatalogo getInstance() {
         if (uniqueInstance == null) {
-            uniqueInstance = new EntityCatalogo();
+            try{
+                uniqueInstance = new EntityCatalogo();
+            }catch(DBException e) {
+                System.out.println(e.getMessage());
+            }
         }
         return uniqueInstance;
     }
-
-    /**
-     * Aggiunge un nuovo evento al catalogo e lo salva nel database.
-     *
-     * @param EventoCreato l'oggetto EntityEvento che rappresenta l'evento da aggiungere
-     * @throws DBException se si verifica un errore durante il salvataggio dell'evento nel database
-     */
 
     public void aggiungiEvento(EntityEvento EventoCreato) throws DBException {
             EventoCreato.salvaSuDB();
             eventi.add(EventoCreato);
     }
 
-    /**
-     * Restituisce la lista di eventi presenti nel catalogo.
-     *
-     * @return una lista di oggetti di tipo EntityEvento che rappresentano gli eventi presenti nel catalogo
-     */
-    public List<EntityEvento> ConsultaCatalogo() {
-        return eventi;
+    public EntityEvento cercaEventoPerId(int id) {
+        EntityEvento Evento = null;
+        for (EntityEvento evento : this.eventi) {
+            if (evento.getId() == id) Evento = evento;
+        }
+        return Evento;
     }
 
-    /**
-     * Searches for events in the catalog based on the specified criteria: title, date, and location.
-     * If no events match the criteria, an EventoNotFoundException is thrown.
-     *
-     * @param titolo the title of the event to search for; can be null to ignore this criterion
-     * @param data the date of the event to search for; can be null to ignore this criterion
-     * @param luogo the location of the event to search for; can be null to ignore this criterion
-     * @return a list of events that match the specified criteria
-     * @throws EventoNotFoundException if no events matching the specified criteria are found
-     */
+    public EntityEvento cercaEventoPerTitolo(String titolo){
+        EntityEvento Evento = null;
+        for (EntityEvento evento : this.eventi) {
+            if (Objects.equals(evento.getTitolo(), titolo)) Evento = evento;
+        }
+        return Evento;
+    }
 
-    // Metodo aggiornato con gestione eccezione
+
+
+
+    public List<EntityEvento> ConsultaCatalogo() {
+        LocalDate oggi = LocalDate.now();
+        List<EntityEvento> eventiValidi = new ArrayList<>();
+        for (EntityEvento evento : eventi) {
+            if (evento.getData().isAfter(oggi) || evento.getData().isEqual(oggi)) {
+                eventiValidi.add(evento);
+            }
+        }
+        return eventiValidi;
+    }
+
+
     public List<EntityEvento> ricercaEvento(String titolo, LocalDate data, String luogo) throws  EventoNotFoundException {
         List<EntityEvento> risultati = new ArrayList<>();
-
-        for (EntityEvento evento : eventi) {
+        for (EntityEvento evento : this.ConsultaCatalogo()) {
             boolean match = titolo == null || evento.getTitolo().equalsIgnoreCase(titolo);
-
-
-            // Controllo data
             if (data != null && !evento.getData().equals(data)) {
                 match = false;
             }
-
-            // Controllo luogo
             if (luogo != null && !evento.getLuogo().equalsIgnoreCase(luogo)) {
                 match = false;
             }
-
-            // Se tutti i criteri sono soddisfatti, aggiungi alla lista
             if (match) {
                 risultati.add(evento);
             }
         }
-
-        // Se non è stato trovato nessun evento, lancia l'eccezione
         if (risultati.isEmpty()) {
             throw new EventoNotFoundException("nessun evento trovato");
         }
-
         return risultati;
     }
 
-
+    public ArrayList<EntityEvento> get_EventiPubblicati(EntityAmministratore amministratore){
+        ArrayList<EntityEvento> risultati = new ArrayList<>();
+        for (EntityEvento evento : this.eventi) {
+            if(evento.getAmministratore()== amministratore){
+                risultati.add(evento);
+            }
+        }
+        return risultati;
+    }
 
 
 

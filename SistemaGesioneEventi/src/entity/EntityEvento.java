@@ -22,14 +22,17 @@ public class EntityEvento {
     private int costo;
     private int capienza;
     private int partecipanti;
+    private int amministratore_id;
     private ArrayList<EntityBiglietto> biglietti;
-    private EntityUtente utente;
+    private EntityAmministratore amministratore;
 
     /**
      * Costruttore che crea un EntityEvento a partire da un EventoDAO
      */
     public EntityEvento(EventoDAO evento) {
         inizializzaDaEventoDAO(evento);
+        EntityPiattaforma ep =EntityPiattaforma.getInstance();
+        this.amministratore=ep.cercaAmministratorePerId(evento.getAmministratoreId());
         this.biglietti = new ArrayList<>();
     }
 
@@ -37,7 +40,7 @@ public class EntityEvento {
      * Costruttore per creare un nuovo evento
      */
     public EntityEvento(String titolo, String descrizione, LocalDate data, LocalTime ora,
-                       String luogo, int costo, int capienza, EntityUtente utente) {
+                       String luogo, int costo, int capienza, EntityAmministratore amministratore) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.data = data;
@@ -47,26 +50,18 @@ public class EntityEvento {
         this.capienza = capienza;
         this.partecipanti = 0;
         this.biglietti = new ArrayList<>();
-        this.utente = utente;
+        this.amministratore = amministratore;
     }
 
     /**
      * Costruttore che carica un evento dal database dato il titolo
      */
-    public EntityEvento(String titolo) throws DBException {
+    public EntityEvento(String titolo) {
         EventoDAO evento = new EventoDAO(titolo);
         inizializzaDaEventoDAO(evento);
         this.biglietti = new ArrayList<>();
         evento.caricaBigliettiEventiDaDB();
         this.caricaBiglietti(evento);
-    }
-
-    /**
-     * Costruttore che carica un evento dal database dato l'ID
-     */
-    public EntityEvento(int id)  {
-        EventoDAO evento = new EventoDAO(id);
-        inizializzaDaEventoDAO(evento);
     }
 
 
@@ -79,6 +74,7 @@ public class EntityEvento {
         this.luogo = evento.getLuogo();
         this.costo = evento.getCosto();
         this.capienza = evento.getCapienza();
+        this.amministratore_id=evento.getAmministratoreId();
     }
 
     public void salvaSuDB() throws DBException{
@@ -91,7 +87,7 @@ public class EntityEvento {
         evento.setCosto(costo);
         evento.setCapienza(capienza);
         evento.setPartecipanti(partecipanti);
-        evento.setAmministratoreid(utente.getId());
+        evento.setAmministratoreId(amministratore.getId());
         evento.SalvaInDB();
     }
     public void aggiornaPartecipanti() {
@@ -115,14 +111,14 @@ public class EntityEvento {
         }
         return null;
     }
-    public EntityBiglietto creazioneBiglietto(EntityUtente utente) throws DBException {
+    public EntityBiglietto creazioneBiglietto(EntityCliente cliente) throws DBException {
         //creazione ID univoco
         String codiceUnivoco = creazioneIDUnivoco();
         //creazione di entity biglietto con param ingresso ID univoco
         EntityBiglietto biglietto = new EntityBiglietto();
         biglietto.setCodice_univoco(codiceUnivoco);
         biglietto.setEvento(this);
-        biglietto.setUtente(utente);
+        biglietto.setCliente(cliente);
         //return entityBiglietto
         biglietto.scriviSuDB();
         return biglietto;
@@ -130,11 +126,11 @@ public class EntityEvento {
     public boolean verificaDisponibilità(){
         return this.capienza>this.biglietti.size();
     }
-    public void caricaBiglietti(EventoDAO eventoDAO) throws DBException {
+    public void caricaBiglietti(EventoDAO eventoDAO) {
         this.biglietti = new ArrayList<>();
         if(eventoDAO.getBiglietti() !=null){
             for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
-                EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO,this);
+                EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
                 this.biglietti.add(biglietto);
             }
         }else{
@@ -142,25 +138,23 @@ public class EntityEvento {
         }
 
     }
-
-
-    public ArrayList<EntityUtente> getpartecipanti() throws DBException {
+    public ArrayList<EntityCliente> listaPartecipanti() {
         //carico in memoria tutti i biglietti associati all'evento
-        EventoDAO eventoDAO = new EventoDAO(this.id);
+        EventoDAO eventoDAO = new EventoDAO(this.titolo);
         eventoDAO.caricaBigliettiEventiDaDB();
         this.caricaBiglietti(eventoDAO);
         //a questo punto per ogni biglietto conosco il codice univoco e stato
-        ArrayList<EntityUtente> partecipanti=new ArrayList<>();
+        ArrayList<EntityCliente> partecipanti=new ArrayList<>();
         for (EntityBiglietto biglietto : this.biglietti) {
             if(biglietto.getStato()==EntityBiglietto.OBLITERATO){
-                partecipanti.add(biglietto.getUtente());
+                partecipanti.add(biglietto.getCliente());
             }
         }
         return partecipanti;
     }
 
-    public int getNumeroPartecipanti() throws DBException {
-        ArrayList<EntityUtente> partecipanti = getpartecipanti();
+    public int getNumeroPartecipanti() {
+        ArrayList<EntityCliente> partecipanti = listaPartecipanti();
         return partecipanti.size();
     }
 
@@ -236,10 +230,35 @@ public class EntityEvento {
         this.costo = costo;
     }
 
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public int getAmministratore_id() {
+        return amministratore_id;
+    }
+
+
+    public EntityAmministratore getAmministratore() {
+        return amministratore;
+    }
+
+    public void setAmministratore(EntityAmministratore amministratore) {
+        this.amministratore = amministratore;
+    }
+
+    public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
+        this.biglietti = biglietti;
+    }
+
     @Override
     public String toString() {
         return "EntityEvento{" +
-                "titolo='" + titolo + '\'' +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
                 ", descrizione='" + descrizione + '\'' +
                 ", data=" + data +
                 ", ora=" + ora +
@@ -247,18 +266,9 @@ public class EntityEvento {
                 ", costo=" + costo +
                 ", capienza=" + capienza +
                 ", partecipanti=" + partecipanti +
+                ", amministratore_id=" + amministratore_id +
+                ", biglietti=" + biglietti +
+                ", amministratore=" + amministratore +
                 '}';
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public EntityUtente getUtente() {
-        return utente;
-    }
-
-    public void setUtente(EntityUtente utente) {
-        this.utente = utente;
     }
 }

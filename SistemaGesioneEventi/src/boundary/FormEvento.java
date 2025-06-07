@@ -6,8 +6,9 @@ import javax.swing.border.EmptyBorder;
 
 import control.Controller;
 import exceptions.DBException;
-import exceptions.WrongUserTypeException;
 import org.jdesktop.swingx.JXDatePicker;
+
+import java.io.Serial;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JTextField;
@@ -30,16 +31,14 @@ import java.time.ZoneId;
 
 public class FormEvento extends JFrame {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private JPanel FormEvento;
     private JTextField textTitolo;
     private JTextField textLuogo;
 
-    public FormEvento() {
-        this(null);
-    }
 
-    public FormEvento(HomeAmministratore homeamministratore) {
+    public FormEvento(HomeAmministratore homeamministratore,String nomeAmministratore,String cognomeAmministratore,String emailAmministratore) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1051, 697);
         FormEvento = new JPanel();
@@ -63,6 +62,7 @@ public class FormEvento extends JFrame {
 
         // Campo Luogo
         textLuogo = new JTextField();
+        textLuogo.setFont(new Font("Arial Black", Font.PLAIN, 18));
         textLuogo.setBounds(68, 183, 217, 35);
         FormEvento.add(textLuogo);
         textLuogo.setColumns(10);
@@ -174,51 +174,44 @@ public class FormEvento extends JFrame {
         creaButton.setBackground(new Color(0, 204, 102));
         creaButton.setFont(new Font("Arial Black", Font.PLAIN, 18));
         creaButton.setBounds(710, 568, 142, 35);
-        creaButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Raccogliere i dati dal form
-                String titolo = textTitolo.getText();
-                String luogo = textLuogo.getText();
-                int capienza = (int) spinnerCapienza.getValue();
-                int costo = (int) spinnerCosto.getValue();
-                String descrizione = textArea.getText();
+        creaButton.addActionListener(e -> {
+            // Raccogliere i dati dal form
+            String titolo = textTitolo.getText();
+            String luogo = textLuogo.getText();
+            int capienza = (int) spinnerCapienza.getValue();
+            int costo = (int) spinnerCosto.getValue();
+            String descrizione = textArea.getText();
 
-                // Ottengo la java.util.Date dal date picker
-                java.util.Date dateUtil = dataDatePicker.getDate();
-                LocalDate data = null;
-                if (dateUtil != null) {
-                    data = dateUtil.toInstant()
-                            .atZone(ZoneId.systemDefault())
-                            .toLocalDate();
-                }
+            // Ottengo la java.util.Date dal date picker
+            java.util.Date dateUtil = dataDatePicker.getDate();
+            LocalDate data = null;
+            if (dateUtil != null) {
+                data = dateUtil.toInstant()
+                        .atZone(ZoneId.systemDefault())
+                        .toLocalDate();
+            }
 
-                String oraStr = (String) comboOra.getSelectedItem();
-                String minutiStr = (String) comboMinuti.getSelectedItem();
-                LocalTime ora = null;
-                if (oraStr != null && !oraStr.isEmpty() && minutiStr != null && !minutiStr.isEmpty()) {
-                    int hour = Integer.parseInt(oraStr);
-                    int minute = Integer.parseInt(minutiStr);
-                    ora = LocalTime.of(hour, minute);
-                    System.out.println("Evento da creare:");
-                    System.out.println("Titolo: " + titolo);
-                    System.out.println("Luogo: " + luogo);
-                    System.out.println("Capienza: " + capienza);
-                    System.out.println("Costo: " + costo);
-                    System.out.println("Descrizione: " + descrizione);
-                    System.out.println("Data (LocalDate): " + data);
-                    System.out.println("Ora: " + hour + ":" + minute);
-                }
+            String oraStr = (String) comboOra.getSelectedItem();
+            String minutiStr = (String) comboMinuti.getSelectedItem();
+            LocalTime ora = null;
+            if (oraStr != null && !oraStr.isEmpty() && minutiStr != null && !minutiStr.isEmpty()) {
+                int hour = Integer.parseInt(oraStr);
+                int minute = Integer.parseInt(minutiStr);
+                ora = LocalTime.of(hour, minute);
+            }
 
-                // ESEMPIO: stampa a console con LocalDate
+            // ESEMPIO: stampa a console con LocalDate
 
 
-                Sessione sess = Sessione.getInstance();
+            Sessione sess = Sessione.getInstance();
 
-                try {
-                    Controller.pubblicaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
-                } catch (DBException ex) {
-                    throw new RuntimeException(ex);
-                }
+            try {
+                Controller.pubblicaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
+                dispose();
+                new HomeAmministratore(nomeAmministratore,cognomeAmministratore,emailAmministratore).setVisible(true);
+
+            } catch (DBException ex) {
+                throw new RuntimeException(ex);
             }
         });
         FormEvento.add(creaButton);

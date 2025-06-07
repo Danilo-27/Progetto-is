@@ -10,7 +10,7 @@ public class EntityBiglietto {
     private String codiceUnivoco;
     private int stato;
     private EntityEvento evento;
-    private EntityUtente utente;
+    private EntityCliente cliente;
 
     public static final int OBLITERATO=1;
     public static final int VALIDO=0;
@@ -19,72 +19,30 @@ public class EntityBiglietto {
     public EntityBiglietto() {}
 
 
-    //costruttore per far caricare da parte dell'evento tutti i biglietti e i clienti che hanno acquistato il biglietto
-    public EntityBiglietto(BigliettoDAO biglietto,EntityEvento evento) throws DBException {
+    public EntityBiglietto(BigliettoDAO biglietto) {
+        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
+        EntityCatalogo catalogo = EntityCatalogo.getInstance();
         this.codiceUnivoco=biglietto.getCodice_univoco();
         this.stato=biglietto.getStato();
-        this.evento=evento;
-        this.utente=new EntityUtente(biglietto.getCliente_id());
+        this.evento=catalogo.cercaEventoPerId(biglietto.getEvento_id());
+        this.cliente =piattaforma.cercaClientePerId(biglietto.getCliente_id());
     }
 
-    public EntityBiglietto(BigliettoDAO biglietto,EntityUtente utente) throws DBException {
-        this.codiceUnivoco=biglietto.getCodice_univoco();
-        this.stato=biglietto.getStato();
-        this.evento=new EntityEvento(biglietto.getEvento_id());
-        this.utente=new EntityUtente(biglietto.getCliente_id());
-    }
-
-
-
-    public void getInfoPartecipante(){
-
-    }
-
-//    public EntityBiglietto(String codiceUnivoco){
-//        BigliettoDAO dao=new BigliettoDAO(codiceUnivoco);
-//        this.codiceUnivoco=dao.getCodice_univoco();
-//        this.stato=dao.getStato();
-//        this.caricaEvento(dao);
-//        this.caricaUtente(dao);
-//    }
-
-    public int scriviSuDB() throws DBException {
+    public void scriviSuDB() throws DBException {
         BigliettoDAO b = new BigliettoDAO();
         b.setStato(this.stato);
         b.setCodice_univoco(this.codiceUnivoco);
-        System.out.println(this.evento.getId());
         b.setEvento_id(this.evento.getId());
-        System.out.println(this.utente.getId());
-        b.setCliente_id(this.utente.getId());
-        return b.SalvaInDB();
-    }
-/*
-    public BigliettoDAO creaBigliettoDao(){
-        BigliettoDAO bigliettoDao = new BigliettoDAO(this.codiceUnivoco);
-    }
-*/
-    public void caricaEvento(BigliettoDAO biglietto) {
-        //devo prendere l'evento dal biglietto che ho creato mediante il metodo
-        //caricaEventoBigliettoDaDB, chiamato nel costruttore ""public EntityBiglietto(DBBiglietto biglietto)""
-        EntityEvento evento = new EntityEvento(biglietto.getEvento());
-        this.evento=evento;
-    }
-    public void caricaUtente(BigliettoDAO biglietto) {
-        //devo prendere l'evento dal biglietto che ho creato mediante il metodo
-        //caricaEventoBigliettoDaDB, chiamato nel costruttore ""public EntityBiglietto(DBBiglietto biglietto)""
-        EntityUtente utente = new EntityUtente(biglietto.getUtente());
-        this.utente=utente;
+        b.setCliente_id(this.cliente.getId());
+        b.SalvaInDB();
     }
 
-
-
-    //DA IMPLEMENTARE
     public boolean verificaBiglietto(){
         //codice
         return false;
     }
 
-    public int validaBiglietto() throws BigliettoConsumatoException {
+    public void validaBiglietto() throws BigliettoConsumatoException {
         if(this.getStato()==EntityBiglietto.OBLITERATO){
             throw new BigliettoConsumatoException("Biglietto già obliterato");
         }else{
@@ -92,16 +50,16 @@ public class EntityBiglietto {
             BigliettoDAO dao = new BigliettoDAO();
             dao.setStato(this.stato);
             dao.setCodice_univoco(this.codiceUnivoco);
-            return dao.aggiornaInDB();
+            dao.aggiornaInDB();
         }
     }
 
     public String getNome_titolare() {
-        return this.utente.getNome();
+        return this.cliente.getNome();
     }
 
     public void setNome_titolare(String nome_titolare) {
-        this.utente.setNome(nome_titolare);
+        this.cliente.setNome(nome_titolare);
     }
 
     public String getCodice_univoco() {
@@ -120,12 +78,12 @@ public class EntityBiglietto {
         this.stato = stato;
     }
 
-    public int getIDcliente() {
-        return this.utente.getId();
+    public int getClienteId() {
+        return this.cliente.getId();
     }
 
-    public void setIDcliente(int IDcliente) {
-        this.utente.setId(IDcliente);
+    public void setClienteId(int clienteId) {
+        this.cliente.setId(clienteId);
     }
 
     public String getTitoloEvento() {
@@ -140,13 +98,23 @@ public class EntityBiglietto {
         return evento;
     }
 
+    public String getCodiceUnivoco() {
+        return codiceUnivoco;
+    }
+
+    public void setCodiceUnivoco(String codiceUnivoco) {
+        this.codiceUnivoco = codiceUnivoco;
+    }
+
     public void setEvento(EntityEvento evento) {
         this.evento = evento;
     }
-    public EntityUtente getUtente() {
-        return this.utente;
+
+    public EntityCliente getCliente() {
+        return cliente;
     }
-    public void setUtente(EntityUtente utente) {
-        this.utente = utente;
+
+    public void setCliente(EntityCliente cliente) {
+        this.cliente = cliente;
     }
 }

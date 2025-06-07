@@ -5,7 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import entity.EntityUtente;
+
+import entity.EntityAmministratore;
+import entity.EntityPiattaforma;
+import entity.EntityUtenteRegistrato;
 import exceptions.DBException;
 
 public class UtenteDAO {
@@ -22,50 +25,38 @@ public class UtenteDAO {
     //Costruttori
 
     public UtenteDAO() {}
-    //metodo per caricare da DB un utente tramite la sua PK
-    public UtenteDAO(int id,int tipoUtente) throws DBException {
-        this.id = id;
-        this.tipoUtente = tipoUtente;
-        this.biglietti = new ArrayList<>();
-        this.eventi = new ArrayList<>();
-        if(tipoUtente == EntityUtente.CLIENTE){
-            this.caricaBigliettiDaDB();
-        }else{
-            this.caricaEventiDaDB();
-        }
 
+
+    public UtenteDAO(int id) throws DBException {
+        this.id = id;
     }
 
-    public int SalvaInDB() {
-        int ret = 0;
-        String query = "INSERT INTO utenti(email,password,nome,cognome) VALUES ( '" + this.email + "','" + this.password + "','" + this.nome + "','" + this.cognome + "')";
+    public void SalvaInDB() {
+        String query = "INSERT INTO utenti(email,PASSWORD,nome,cognome) VALUES ( '" + this.email + "','" + this.password + "','" + this.nome + "','" + this.cognome + "')";
         try {
-            ret = DBConnectionManager.updateQuery(query);
+            DBConnectionManager.updateQuery(query);
         } catch (SQLException | ClassNotFoundException e) {
             ((Exception) e).printStackTrace();
-            ret = -1;
         }
-
-        return ret;
     }
 
     public static ArrayList<UtenteDAO> getUtenti() throws DBException {
         ArrayList<UtenteDAO> lista_temp = new ArrayList<>();
         String query = "SELECT * FROM utenti;";
+
         try {
             try (ResultSet rs = DBConnectionManager.selectQuery(query)) {
 
                 while (rs.next()) {
-                    UtenteDAO udao = new UtenteDAO();
-                    udao.setId(rs.getInt("id"));
-                    udao.setNome(rs.getString("nome"));
-                    udao.setCognome(rs.getString("cognome"));
-                    udao.setEmail(rs.getString("email"));
-                    udao.setPassword(rs.getString("password"));
-                    udao.setTipoUtente(rs.getInt("Tipo"));
-                    udao.setImmagine(rs.getString("ImmagineProfilo"));
-
-                    lista_temp.add(udao);
+                    UtenteDAO dao = new UtenteDAO();
+                    dao.setId(rs.getInt("id"));
+                    dao.setNome(rs.getString("nome"));
+                    dao.setCognome(rs.getString("cognome"));
+                    dao.setEmail(rs.getString("email"));
+                    dao.setPassword(rs.getString("PASSWORD"));
+                    dao.setTipoUtente(rs.getInt("Tipo"));
+                    dao.setImmagine(rs.getString("ImmagineProfilo"));
+                    lista_temp.add(dao);
                 }
             }
         } catch (SQLException | ClassNotFoundException e) {
@@ -74,7 +65,10 @@ public class UtenteDAO {
 
         return lista_temp;
     }
+
+
     public void caricaBigliettiDaDB(){
+        this.biglietti = new ArrayList<>();
         String query = "SELECT * FROM biglietti WHERE Cliente_id = " + this.id + ";";
 
         try {
@@ -88,6 +82,7 @@ public class UtenteDAO {
             ((Exception) e).printStackTrace();
         }
     }
+
     private BigliettoDAO createBigliettoDao(ResultSet rs) throws SQLException {
         BigliettoDAO biglietto = new BigliettoDAO();
         biglietto.setCodice_univoco(rs.getString("CodiceUnivoco"));
@@ -97,22 +92,22 @@ public class UtenteDAO {
         return biglietto;
     }
     public void caricaEventiDaDB () throws DBException {
+        this.eventi = new ArrayList<>();
         String query = "SELECT * FROM eventi WHERE Amministratore_id = " + this.id + ";";
         try (ResultSet rs = DBConnectionManager.selectQuery(query)) {
             while (rs.next()) {
-                EventoDAO evento_temp = new EventoDAO();
-                evento_temp.setId(rs.getInt("id"));
-                evento_temp.setTitolo(rs.getString("Titolo"));
-                evento_temp.setDescrizione(rs.getString("Descrizione"));
-                evento_temp.setData(rs.getDate("Data").toLocalDate());
-                evento_temp.setOra(LocalTime.parse(rs.getString("Orario")));
-                evento_temp.setLuogo(rs.getString("Luogo"));
-                evento_temp.setPartecipanti(rs.getInt("Partecipanti"));
-                evento_temp.setCapienza(rs.getInt("Capienza"));
-                evento_temp.setAmministratoreid(rs.getInt("Amministratore_id"));
-                evento_temp.setCosto(rs.getInt("Costo"));
-                System.out.println(evento_temp);
-                this.eventi.add(evento_temp);
+                EventoDAO eventoTemp = new EventoDAO();
+                eventoTemp.setId(rs.getInt("id"));
+                eventoTemp.setTitolo(rs.getString("Titolo"));
+                eventoTemp.setDescrizione(rs.getString("Descrizione"));
+                eventoTemp.setData(rs.getDate("Data").toLocalDate());
+                eventoTemp.setOra(LocalTime.parse(rs.getString("Orario")));
+                eventoTemp.setLuogo(rs.getString("Luogo"));
+                eventoTemp.setPartecipanti(rs.getInt("Partecipanti"));
+                eventoTemp.setCapienza(rs.getInt("Capienza"));
+                eventoTemp.setAmministratoreId(rs.getInt("Amministratore_id"));
+                eventoTemp.setCosto(rs.getInt("Costo"));
+                this.eventi.add(eventoTemp);
 
             }
         } catch(SQLException | ClassNotFoundException e){

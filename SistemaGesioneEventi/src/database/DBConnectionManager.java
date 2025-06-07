@@ -3,16 +3,19 @@ package database;
 import java.sql.*;
 
 public class DBConnectionManager {
-    public static String url = "jdbc:mysql://localhost:3306/";
-    public static String dbName = "ticketwo";
-    public static String driver = "com.mysql.cj.jdbc.Driver";
-    public static String userName = "root";
-    public static String password = "admin";
+    public static final String URL = "jdbc:mysql://localhost:3306/";
+    public static final String DB_NAME = "ticketwo";
+    public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    public static final String USER_NAME = "root";
+    public static final String PASSWORD = "admin";
+
+
+    private DBConnectionManager(){}
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Connection conn = null;
-        Class.forName(driver);
-        conn = DriverManager.getConnection(url + dbName, userName, password);
+        Class.forName(DRIVER);
+        conn = DriverManager.getConnection(URL + DB_NAME, USER_NAME, PASSWORD);
         return conn;
     }
     //prova
@@ -23,16 +26,14 @@ public class DBConnectionManager {
     public static ResultSet selectQuery(String query) throws ClassNotFoundException, SQLException {
         Connection conn = getConnection();
         Statement statment = conn.createStatement();
-        ResultSet ret = statment.executeQuery(query);
-        return ret;
+        return statment.executeQuery(query);
     }
 
-    public static int updateQuery(String query) throws ClassNotFoundException, SQLException {
+    public static void updateQuery(String query) throws ClassNotFoundException, SQLException {
         Connection conn = getConnection();
         Statement statement = conn.createStatement();
-        int ret = statement.executeUpdate(query);
+        statement.executeUpdate(query);
         conn.close();
-        return ret;
     }
 
     public static Integer updateQueryReturnGeneratedKey(String query) throws ClassNotFoundException, SQLException {

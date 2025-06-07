@@ -50,15 +50,14 @@ public class Controller {
             eventiDTO.add(dto);
         }
 
-
-
         return eventiDTO;
     }
 
     public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws DBException, AcquistoException {
+        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityEvento evento = new EntityEvento(evento_dto.getTitolo());
         if (evento.verificaDisponibilità()) {
-            EntityUtente u = new EntityUtente(email);
+            EntityCliente u = piattaforma.cercaClientePerEmail(email);
             // Chiede di inserire i dati del pagamento
             SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
             if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
@@ -87,79 +86,68 @@ public class Controller {
     }
 
     public static void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza,String emailAmministratore) throws DBException{
-        EntityUtente amministratore=new EntityUtente();
-        amministratore.caricaPerEmail(emailAmministratore);
+        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
+        EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
         EntityEvento evento= amministratore.creazioneEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         catalogo.aggiungiEvento(evento);
     }
 
-    public static Map<DTOEvento, Object> ConsultaEventiPubblicati(String email) throws DBException {
+    public static Map<DTOEvento, Object> ConsultaEventiPubblicati(String email){
+        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         Map<DTOEvento, Object> eventoPartecipantiMap = new HashMap<>();
         LocalDate oggi = LocalDate.now();
-        try {
-            EntityUtente utente = new EntityUtente(email);
-            List<EntityEvento> eventi = utente.getEventi();
-
-            // Verifica se l'utente ha eventi pubblicati
-            if (eventi.isEmpty()) {
-                throw new DBException("Nessun evento pubblicato per l'utente: " + email);
-            }
-
-            // Processa ogni evento
-            for (EntityEvento evento : eventi) {
-
-                DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza(),evento.getNumeroBigliettiVenduti());
-                // Crea mappa informazioni evento
-                Map<String, Object> infoEvento = new HashMap<>();
-                LocalDate dataEvento = evento.getData();
-
-                infoEvento.put("bigliettiVenduti", evento.getNumeroBigliettiVenduti());
-
-                if (dataEvento.isEqual(oggi)) {
-
-                    infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
-
-                    List<EntityUtente> partecipanti = evento.getpartecipanti();
-                    List<DTOUtente> dtoPartecipanti = new ArrayList<>();
-                    for (EntityUtente partecipante : partecipanti) {
-                        DTOUtente dtoUtente = new DTOUtente(partecipante.getNome(), partecipante.getCognome());
-                        dtoPartecipanti.add(dtoUtente);
-                    }
-                    infoEvento.put("listaPartecipanti", dtoPartecipanti);
-
-                } else if (dataEvento.isBefore(oggi)) {
-                    infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
-                }
-
-                dtoEvento.setBigliettivenduti(evento.getNumeroBigliettiVenduti());
-
-                eventoPartecipantiMap.put(dtoEvento, infoEvento);
-            }
-
-            return eventoPartecipantiMap;
-
-        } catch (DBException e) {
-            // Re-throw delle eccezioni specifiche del database
-            throw e;
-        } catch (Exception e) {
-            // Gestione di altre eccezioni non previste
-            throw new DBException("Errore imprevisto durante la consultazione degli eventi: " + e.getMessage());
+        EntityAmministratore amministratore = piattaforma.cercaAmministratorePerEmail(email);
+        amministratore.caricaEventiPubblicati();
+        for (EntityEvento evento : amministratore.getEventiPubblicati()) {
+            System.out.println(evento);
         }
+
+        for (EntityEvento evento : amministratore.getEventiPubblicati()) {
+            //creo un dto evento da ritornare all'interfaccia
+            DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza(), evento.getNumeroBigliettiVenduti());
+            Map<String, Object> infoEvento = new HashMap<>();
+            infoEvento.put("bigliettiVenduti", evento.getNumeroBigliettiVenduti());
+
+            if (evento.getData().isEqual(oggi)) {
+                infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
+                List<EntityCliente> partecipanti = evento.listaPartecipanti();
+                List<DTOUtente> dtoPartecipanti = new ArrayList<>();
+                for (EntityCliente partecipante : partecipanti) {
+                    DTOUtente dtoUtente = new DTOUtente(partecipante.getNome(), partecipante.getCognome());
+                    dtoPartecipanti.add(dtoUtente);
+                }
+                infoEvento.put("listaPartecipanti", dtoPartecipanti);
+            } else if (evento.getData().isBefore(oggi)) {
+                infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
+            }
+
+            dtoEvento.setBigliettivenduti(evento.getNumeroBigliettiVenduti());
+
+            eventoPartecipantiMap.put(dtoEvento, infoEvento);
+        }
+        System.out.println(eventoPartecipantiMap);
+        return eventoPartecipantiMap;
     }
+
     public static ArrayList<DTOBiglietto> consultaStoricoBiglietti(String emailUtente) throws DBException {
         ArrayList<DTOBiglietto> biglietti = new ArrayList<>();
-        EntityUtente utente = new EntityUtente(emailUtente);
-        for(EntityBiglietto biglietto : utente.getBiglietti()){
-            String codiceUnivoco=biglietto.getCodice_univoco();
-            int stato=biglietto.getStato();
-            LocalDate dataEvento = biglietto.getEvento().getData();
-            DTOBiglietto dtoBiglietto=new DTOBiglietto(codiceUnivoco,stato,biglietto.getEvento().getTitolo(),dataEvento);
+
+        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
+        EntityCliente cliente = piattaforma.cercaClientePerEmail(emailUtente);
+        cliente.caricaBiglietti();
+        //per ogni biglietto acquistato ne creo un DTO con le sue informazioni e le informazioni
+        //all'evento per cui è stato acquistato il biglietto
+        for(EntityBiglietto biglietto : cliente.getBiglietti()){
+
+            DTOBiglietto dtoBiglietto=new DTOBiglietto(biglietto.getCodice_univoco(),
+                    biglietto.getStato(), biglietto.getEvento().getTitolo(),
+                    biglietto.getEvento().getData());
+
             biglietti.add(dtoBiglietto);
         }
+
         return biglietti;
     }
-
-
 
 }
