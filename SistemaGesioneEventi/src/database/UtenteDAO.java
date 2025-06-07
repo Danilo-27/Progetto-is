@@ -6,10 +6,8 @@ import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import entity.EntityAmministratore;
-import entity.EntityPiattaforma;
-import entity.EntityUtenteRegistrato;
 import exceptions.DBException;
+import exceptions.EventoNotFoundException;
 
 public class UtenteDAO {
     private int id;
@@ -27,16 +25,16 @@ public class UtenteDAO {
     public UtenteDAO() {}
 
 
-    public UtenteDAO(int id) throws DBException {
+    public UtenteDAO(int id){
         this.id = id;
     }
 
-    public void SalvaInDB() {
+    public void SalvaInDB() throws DBException{
         String query = "INSERT INTO utenti(email,PASSWORD,nome,cognome) VALUES ( '" + this.email + "','" + this.password + "','" + this.nome + "','" + this.cognome + "')";
         try {
             DBConnectionManager.updateQuery(query);
-        } catch (SQLException | ClassNotFoundException e) {
-            ((Exception) e).printStackTrace();
+        } catch (SQLException | ClassNotFoundException _) {
+            throw new DBException("Utente già presente nel DB.");
         }
     }
 
@@ -67,7 +65,7 @@ public class UtenteDAO {
     }
 
 
-    public void caricaBigliettiDaDB(){
+    public void caricaBigliettiDaDB() throws DBException{
         this.biglietti = new ArrayList<>();
         String query = "SELECT * FROM biglietti WHERE Cliente_id = " + this.id + ";";
 
@@ -78,19 +76,26 @@ public class UtenteDAO {
                 this.biglietti.add(bigliettoDao);
             }
             rs.close();
-        } catch (SQLException | ClassNotFoundException e) {
-            ((Exception) e).printStackTrace();
+        } catch (SQLException | ClassNotFoundException _) {
+            throw new DBException("Biglietto non trovato.");
         }
     }
 
-    private BigliettoDAO createBigliettoDao(ResultSet rs) throws SQLException {
+    private BigliettoDAO createBigliettoDao(ResultSet rs) throws DBException{
         BigliettoDAO biglietto = new BigliettoDAO();
-        biglietto.setCodice_univoco(rs.getString("CodiceUnivoco"));
-        biglietto.setStato(rs.getInt("stato"));
-        biglietto.setCliente_id(rs.getInt("Cliente_id"));
-        biglietto.setEvento_id(rs.getInt("Evento_id"));
+        try {
+            biglietto.setCodice_univoco(rs.getString("CodiceUnivoco"));
+            biglietto.setStato(rs.getInt("stato"));
+            biglietto.setCliente_id(rs.getInt("Cliente_id"));
+            biglietto.setEvento_id(rs.getInt("Evento_id"));
         return biglietto;
+
+        } catch (SQLException e) {
+
+            throw new DBException("Errore nel caricamento dei biglietti.");
+        }
     }
+
     public void caricaEventiDaDB () throws DBException {
         this.eventi = new ArrayList<>();
         String query = "SELECT * FROM eventi WHERE Amministratore_id = " + this.id + ";";
@@ -113,8 +118,14 @@ public class UtenteDAO {
         } catch(SQLException | ClassNotFoundException e){
             throw new DBException(String.format("Errore nel caricamento degli eventi.%n%s", e.getMessage()));
         }
-
-
+    }
+    public void eliminaEventiDaDb() throws DBException {
+        String query = "DELETE FROM utenti WHERE email = '" + this.email + "'";
+        try {
+            DBConnectionManager.updateQuery(query);
+        } catch (SQLException | ClassNotFoundException _) {
+            throw new DBException("Errore durante l'eliminazione dell'utente dal DB.");
+        }
     }
 
     //metodi set e get

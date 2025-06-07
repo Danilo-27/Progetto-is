@@ -10,15 +10,18 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.Serial;
 import java.time.LocalDate;
 import java.util.List;
 
 public class HomeCliente extends HomeUtenteRegistrato {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private JList<DTOEvento> listaEventiOdierni;
     private JButton partecipaButton;
     private DefaultListModel<DTOEvento> eventiModel;
+    private static final String SEGOE="Segoe UI";
 
     public HomeCliente(String nome, String cognome, String email, String immagineProfilo) {
         super();
@@ -56,13 +59,13 @@ public class HomeCliente extends HomeUtenteRegistrato {
     private JPanel createLeftPanel(String nome, String cognome, String email, String immagineProfilo) {
         JPanel sinistraPanel = new JPanel();
         sinistraPanel.setLayout(new BoxLayout(sinistraPanel, BoxLayout.Y_AXIS));
-        sinistraPanel.setBackground(Color.WHITE);
+        getAVoid(sinistraPanel, Color.WHITE);
         sinistraPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 10));
         sinistraPanel.setPreferredSize(new Dimension(400, 0));
 
         // Titolo del profilo
         JLabel titolo = new JLabel("Profilo Cliente");
-        titolo.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        titolo.setFont(new Font(SEGOE, Font.BOLD, 22));
         titolo.setAlignmentX(Component.CENTER_ALIGNMENT);
         sinistraPanel.add(titolo);
         sinistraPanel.add(Box.createRigidArea(new Dimension(0, 20)));
@@ -122,7 +125,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
         imagePanel.setPreferredSize(new Dimension(120, 120));
         imagePanel.setMaximumSize(new Dimension(120, 120));
         imagePanel.setBorder(new LineBorder(new Color(52, 152, 219), 2, true));
-        imagePanel.setBackground(Color.WHITE);
+        getAVoid(imagePanel, Color.WHITE);
         imagePanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         imagePanel.setLayout(new BorderLayout());
 
@@ -134,7 +137,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
             profilePic.setIcon(new ImageIcon(immagineProfilo));
         } else {
             profilePic.setText("Nessuna immagine");
-            profilePic.setFont(new Font("Segoe UI", Font.ITALIC, 14));
+            profilePic.setFont(new Font(SEGOE, Font.ITALIC, 14));
             profilePic.setForeground(new Color(127, 140, 141));
         }
 
@@ -147,9 +150,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
         styleButton(acquistaBigliettoButton, new Color(39, 174, 96));
         acquistaBigliettoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         acquistaBigliettoButton.setMaximumSize(new Dimension(220, 35));
-        acquistaBigliettoButton.addActionListener(e -> {
-            new FormAcquistoBiglietto(this, email).setVisible(true);
-        });
+        acquistaBigliettoButton.addActionListener(e -> new FormAcquistoBiglietto(email).setVisible(true));
         return acquistaBigliettoButton;
     }
 
@@ -168,12 +169,12 @@ public class HomeCliente extends HomeUtenteRegistrato {
     private JPanel createRightPanel() {
         JPanel destraPanel = new JPanel();
         destraPanel.setLayout(new BoxLayout(destraPanel, BoxLayout.Y_AXIS));
-        destraPanel.setBackground(Color.WHITE);
+        getAVoid(destraPanel, Color.WHITE);
         destraPanel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 20));
 
         // Titolo sezione eventi
         JLabel eventiTitleLabel = new JLabel("Eventi di Oggi");
-        eventiTitleLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        eventiTitleLabel.setFont(new Font(SEGOE, Font.BOLD, 20));
         eventiTitleLabel.setForeground(new Color(44, 62, 80));
         eventiTitleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         destraPanel.add(eventiTitleLabel);
@@ -195,7 +196,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
         eventiModel = new DefaultListModel<>();
         listaEventiOdierni = new JList<>(eventiModel);
         listaEventiOdierni.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listaEventiOdierni.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        listaEventiOdierni.setFont(new Font(SEGOE, Font.PLAIN, 15));
         listaEventiOdierni.setFixedCellHeight(70);
 
         // Custom renderer per la lista eventi
@@ -206,16 +207,24 @@ public class HomeCliente extends HomeUtenteRegistrato {
                 JPanel panel = new JPanel(new BorderLayout());
                 panel.setOpaque(true);
                 panel.setBorder(new EmptyBorder(8, 12, 8, 12));
-                panel.setBackground(isSelected ? new Color(52, 152, 219) :
-                        (index % 2 == 0 ? Color.WHITE : new Color(248, 249, 250)));
+                Color backgroundColor;
+
+                if (isSelected) {
+                    backgroundColor = new Color(52, 152, 219);
+                } else if (index % 2 == 0) {
+                    backgroundColor = Color.WHITE;
+                } else {
+                    backgroundColor = new Color(248, 249, 250);
+                }
+                getAVoid(panel, backgroundColor);
 
                 if (value instanceof DTOEvento evento) {
                     JLabel titoloLabel = new JLabel(evento.getTitolo());
-                    titoloLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
+                    titoloLabel.setFont(new Font(SEGOE, Font.BOLD, 16));
                     titoloLabel.setForeground(isSelected ? Color.WHITE : new Color(44, 62, 80));
 
                     JLabel dettagliLabel = new JLabel(evento.getLuogo() + "  •  " + evento.getOra());
-                    dettagliLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+                    dettagliLabel.setFont(new Font(SEGOE, Font.PLAIN, 13));
                     dettagliLabel.setForeground(isSelected ? new Color(230, 230, 230) : new Color(127, 140, 141));
 
                     JPanel textPanel = new JPanel();
@@ -251,6 +260,10 @@ public class HomeCliente extends HomeUtenteRegistrato {
         return scrollPane;
     }
 
+    private static void getAVoid(JPanel panel, Color isSelected) {
+        panel.setBackground(isSelected);
+    }
+
     private JButton createPartecipaButton() {
         JButton button = new JButton("Partecipa all'Evento");
         styleButton(button, new Color(155, 89, 182));
@@ -263,9 +276,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
                 try {
                     Controller.partecipaEvento(codiceUnivoco,eventoSelezionato);
                 } catch (BigliettoConsumatoException | BigliettoNotFoundException ex) {
-                    //System.out.println(ex.getMessage());//cambiare
-                } catch (DBException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(this, "Errore apertura form: " + ex.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
                 }
 
             }
@@ -277,7 +288,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
         try {
             List<DTOEvento> eventi = Controller.RicercaEvento(null, LocalDate.now(), null);
             updateEventiOdierni(eventi);
-        } catch (EventoNotFoundException e) {
+        } catch (EventoNotFoundException _) {
             eventiModel.clear();
         }
     }
@@ -291,12 +302,13 @@ public class HomeCliente extends HomeUtenteRegistrato {
 
     private String apriFormPartecipazione(DTOEvento evento) {
         String messaggio = String.format(
-                "Partecipazione all'evento:\n\nTitolo: %s\nLuogo: %s\nOrario: %s\nDescrizione: %s\n\nInserisci il codice univoco del biglietto:",
+                "Partecipazione all'evento:%n%nTitolo: %s%nLuogo: %s%nOrario: %s%nDescrizione: %s%n%nInserisci il codice univoco del biglietto:",
                 evento.getTitolo(),
                 evento.getLuogo() != null ? evento.getLuogo() : "Da definire",
                 evento.getOra(),
                 evento.getDescrizione()
         );
+
 
         String codiceBiglietto = JOptionPane.showInputDialog(this, messaggio, "Partecipazione Evento", JOptionPane.PLAIN_MESSAGE);
 

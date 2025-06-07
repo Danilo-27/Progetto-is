@@ -3,10 +3,8 @@ package entity;
 
 import DTO.DTOUtente;
 import database.UtenteDAO;
-import exceptions.RegistrationFailedException;
-import exceptions.DBException;
-import exceptions.LoginFailedException;
-import exceptions.WrongUserTypeException;
+import exceptions.*;
+
 import java.util.ArrayList;
 
 public class EntityPiattaforma {
@@ -21,22 +19,28 @@ public class EntityPiattaforma {
         if (uniqueInstance == null) {
             try{
                 uniqueInstance = new EntityPiattaforma();
-            }catch(DBException | WrongUserTypeException e){
+            }catch(WrongUserTypeException e){
                 System.out.println(e.getMessage());
             }
         }
         return uniqueInstance;
     }
 
-    private EntityPiattaforma() throws WrongUserTypeException,DBException {
+    private EntityPiattaforma() throws WrongUserTypeException,UtenteNotFoundException{
         this.utenti = new ArrayList<>();
-        for (UtenteDAO utente : UtenteDAO.getUtenti()) {
-            EntityUtenteRegistrato utenteRegistrato = this.creaUtenteRegistrato(utente);
-            if(utenteRegistrato==null){
-                throw new WrongUserTypeException("Utente non autorizzato");
-            }else utenti.add(utenteRegistrato);
+        try {
+            for (UtenteDAO utente : UtenteDAO.getUtenti()) {
+                EntityUtenteRegistrato utenteRegistrato = this.creaUtenteRegistrato(utente);
+                if(utenteRegistrato==null){
+                    throw new WrongUserTypeException("Utente non autorizzato");
+                }else utenti.add(utenteRegistrato);
+            }
+        } catch (DBException _) {
+            throw new UtenteNotFoundException("Utente non trovato");
         }
     }
+
+
     public EntityUtenteRegistrato creaUtenteRegistrato(UtenteDAO utenteDao) {
         if(utenteDao.getTipoUtente()==EntityPiattaforma.AMMINISTRATORE){
             return new EntityAmministratore(utenteDao);
@@ -69,6 +73,12 @@ public class EntityPiattaforma {
         }
     }
 
+    /**
+     * Cerca la presenza di un'email data nella lista degli utenti registrati.
+     *
+     * @param email l'indirizzo email da cercare all'interno della lista degli utenti
+     * @return true se l'email specificata viene trovata, false altrimenti
+     */
     private boolean findEmail(String email) {
         for (EntityUtenteRegistrato utente : this.utenti) {
             if (utente.getEmail().equals(email)) {
@@ -78,6 +88,15 @@ public class EntityPiattaforma {
         return false;
     }
 
+    /**
+     * Cerca un cliente nella lista degli utenti registrati in base all'indirizzo email fornito.
+     * Se l'email corrisponde a un'istanza di {@code EntityCliente}, il metodo la restituisce.
+     * Se nessun cliente viene trovato con l'email specificata, il metodo restituisce {@code null}.
+     *
+     * @param email l'indirizzo email da cercare nella lista degli utenti registrati
+     * @return un'istanza di {@code EntityCliente} se esiste un cliente con l'email specificata,
+     * oppure {@code null} se nessun cliente viene trovato
+     */
     public EntityCliente cercaClientePerEmail(String email) {
         for (EntityUtenteRegistrato utente : this.utenti) {
             if (utente.getEmail().equals(email) && (utente instanceof EntityCliente entityCliente)) return entityCliente;
@@ -85,6 +104,14 @@ public class EntityPiattaforma {
         return null;
     }
 
+    /**
+     * Cerca un amministratore nella lista degli utenti registrati utilizzando l'indirizzo email fornito.
+     * Se viene trovato un amministratore con l'email specificata, restituisce l'istanza corrispondente di {@code EntityAmministratore}.
+     * Se non viene trovato nessun amministratore, restituisce {@code null}.
+     *
+     * @param email l'indirizzo email da cercare nella lista degli utenti registrati
+     * @return un'istanza di {@code EntityAmministratore} se viene trovato un amministratore con l'email specificata, oppure {@code null} se non esiste
+     */
     public EntityAmministratore cercaAmministratorePerEmail(String email) {
         for (EntityUtenteRegistrato utente : this.utenti) {
             if (utente.getEmail().equals(email)&&( utente instanceof EntityAmministratore entityAmministratore)) return entityAmministratore;
@@ -93,6 +120,15 @@ public class EntityPiattaforma {
 
     }
 
+    /**
+     * Cerca un cliente nella lista degli utenti registrati tramite il suo identificativo univoco.
+     * Se l'identificativo corrisponde a un'istanza di {@code EntityCliente}, il metodo la restituisce.
+     * Se nessun cliente viene trovato con l'id specificato, il metodo restituisce {@code null}.
+     *
+     * @param id l'identificativo univoco del cliente da cercare
+     * @return un'istanza di {@code EntityCliente} se esiste un cliente con l'id specificato,
+     * oppure {@code null} se nessun cliente viene trovato
+     */
     public EntityCliente cercaClientePerId(int id) {
         for (EntityUtenteRegistrato utente : this.utenti) {
             if (utente.getId()==id && (utente instanceof EntityCliente entityCliente)) return entityCliente;
@@ -100,6 +136,15 @@ public class EntityPiattaforma {
         return null;
     }
 
+    /**
+     * Cerca un amministratore nella lista degli utenti registrati utilizzando un identificativo univoco.
+     * Se l'identificativo corrisponde a un'istanza di {@code EntityAmministratore}, il metodo lo restituisce.
+     * Se nessun amministratore viene trovato con l'ID specificato, il metodo restituisce {@code null}.
+     *
+     * @param id l'identificativo univoco dell'amministratore da cercare
+     * @return un'istanza di {@code EntityAmministratore} se viene trovato un amministratore con l'ID specificato,
+     * oppure {@code null} se non esiste
+     */
     public EntityAmministratore cercaAmministratorePerId(int id) {
         for (EntityUtenteRegistrato utente : this.utenti) {
             if (utente.getId()==id &&( utente instanceof EntityAmministratore entityAmministratore)) return entityAmministratore;
@@ -119,7 +164,6 @@ public class EntityPiattaforma {
      * @throws LoginFailedException se l'email non è registrata o la PASSWORD è errata
      */
 
-
     public DTOUtente Autenticazione(String email, String password) throws LoginFailedException {
         EntityUtenteRegistrato utente = this.utenti.stream()
                 .filter(u -> u.getEmail().equalsIgnoreCase(email))
@@ -136,5 +180,4 @@ public class EntityPiattaforma {
         }
         throw new LoginFailedException("Login fallito, PASSWORD errata");
     }
-
 }

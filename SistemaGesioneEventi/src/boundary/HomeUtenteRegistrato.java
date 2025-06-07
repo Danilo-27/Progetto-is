@@ -1,11 +1,13 @@
 package boundary;
 
 import java.awt.*;
+import java.io.Serial;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class HomeUtenteRegistrato extends JFrame {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     protected JPanel contentPanel;
     protected JPanel titlePanel;
@@ -19,7 +21,7 @@ public class HomeUtenteRegistrato extends JFrame {
 
     public HomeUtenteRegistrato() {
         setTitle("Home Utente Registrato");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(600, 500);
         setLocationRelativeTo(null);
 
@@ -79,9 +81,7 @@ public class HomeUtenteRegistrato extends JFrame {
             new FormRicercaEvento(this);
         });
 
-        catalogoEventiButton.addActionListener(e -> {
-            openCatalogoEventi();
-        });
+        catalogoEventiButton.addActionListener(e -> openCatalogoEventi());
     }
 
     protected void openCatalogoEventi() {

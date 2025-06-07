@@ -85,15 +85,14 @@ public class EventoDAO {
         } catch (SQLException | ClassNotFoundException _) {
             throw new DBException("Evento già creato");
         }
-
     }
 
-    public void AggiornaInDB() {
+    public void AggiornaInDB() throws DBException{
         String query="UPDATE eventi SET Partecipanti='" + this.partecipanti + "' WHERE titolo ='" + this.titolo + "';";
         try{
             DBConnectionManager.updateQuery(query);
         }catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
+            throw new DBException("Problema nell'aggiornare l'evento");
         }
     }
 
@@ -117,7 +116,7 @@ public class EventoDAO {
             rs.close();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            throw new DBException("Errore durante il caricamento dell'evento dal database.");
+            throw new DBException("Evento non presente nel DB.");
         }
     }
 
@@ -140,11 +139,11 @@ public class EventoDAO {
             }
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            throw new DBException("Errore nel caricamento dell'evento dal database.");
         }
     }
 
-    public void caricaBigliettiEventiDaDB() {
+    public void caricaBigliettiEventiDaDB() throws DBException{
         String query = "SELECT * FROM biglietti WHERE Evento_id = " + this.id + ";";
 
         try {
@@ -158,10 +157,17 @@ public class EventoDAO {
                 this.biglietti.add(biglietto);
             }
             rs.close();
-        } catch (SQLException | ClassNotFoundException e) {
-            ((Exception)e).printStackTrace();
+        } catch (SQLException | ClassNotFoundException _) {
+            throw new DBException("Biglietti non presenti nel DB.");
         }
-
+    }
+    public void eliminaEventoDaDb() throws DBException{
+        String query = "DELETE FROM eventi WHERE Titolo = '" + this.titolo + "'";
+        try {
+            DBConnectionManager.updateQuery(query);
+        } catch (SQLException | ClassNotFoundException _) {
+            throw new DBException("Errore durante l'eliminazione dell'evento dal DB.");
+        }
     }
 
     public String getTitolo() {

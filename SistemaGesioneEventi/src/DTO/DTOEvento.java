@@ -1,7 +1,5 @@
 package DTO;
 
-import entity.EntityEvento;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -14,13 +12,12 @@ public class DTOEvento {
     private int costo;
     private int capienza;
     private int partecipanti;
-    private int bigliettivenduti;
+    private int bigliettiVenduti;
 
     public DTOEvento() {
     }
 
-
-    public DTOEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza,int bigliettivenduti) {
+    public DTOEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza,int bigliettiVenduti) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.data = data;
@@ -28,9 +25,8 @@ public class DTOEvento {
         this.luogo = luogo;
         this.costo = costo;
         this.capienza = capienza;
-        this.bigliettivenduti = bigliettivenduti;
+        this.bigliettiVenduti = bigliettiVenduti;
     }
-
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
@@ -96,11 +92,11 @@ public class DTOEvento {
         return partecipanti;
     }
 
-    public int getBigliettivenduti() {
-        return bigliettivenduti;
+    public int getBigliettiVenduti() {
+        return bigliettiVenduti;
     }
 
-    public void setBigliettivenduti(int bigliettivenduti) {
-        this.bigliettivenduti = bigliettivenduti;
+    public void setBigliettiVenduti(int bigliettiVenduti) {
+        this.bigliettiVenduti = bigliettiVenduti;
     }
 }

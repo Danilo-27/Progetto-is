@@ -3,9 +3,8 @@ package boundary;
 import DTO.DTOEvento;
 import control.Controller;
 import exceptions.AcquistoException;
-import exceptions.DBException;
+import exceptions.BigliettoNotFoundException;
 import exceptions.EventoNotFoundException;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -14,20 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FormAcquistoBiglietto extends JFrame {
-
-    private final HomeCliente homeCliente;
     private final String emailUtente;
     private JList<DTOEvento> listaEventi;
     private DefaultListModel<DTOEvento> eventiModel;
     private JButton acquistaButton;
+    private static final String ERRORE="Errore";
 
-    public FormAcquistoBiglietto(HomeCliente homeCliente, String emailUtente) {
-        this.homeCliente = homeCliente;
+    public FormAcquistoBiglietto(String emailUtente) {
         this.emailUtente = emailUtente;
         setTitle("Acquisto Biglietto");
         setSize(600, 400);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         initComponents();
         caricaEventiDisponibili();
@@ -93,22 +90,22 @@ public class FormAcquistoBiglietto extends JFrame {
             for (DTOEvento evento : eventi) {
                 eventiModel.addElement(evento);
             }
-        } catch (EventoNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "Nessun evento disponibile al momento.", "Errore", JOptionPane.ERROR_MESSAGE);
+        } catch (EventoNotFoundException _) {
+            JOptionPane.showMessageDialog(this, "Nessun evento disponibile al momento.", ERRORE, JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void acquistaBiglietto() {
         DTOEvento dto = listaEventi.getSelectedValue();
         if (dto == null) {
-            JOptionPane.showMessageDialog(this, "Seleziona un evento prima di procedere.", "Errore", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Seleziona un evento prima di procedere.", ERRORE, JOptionPane.WARNING_MESSAGE);
             return;
         }
 
         ArrayList<String> datiCarta = apriFormDatiCarta();
         if (datiCarta == null || datiCarta.size() < 3 ||
                 datiCarta.get(0).isEmpty() || datiCarta.get(1).isEmpty() || datiCarta.get(2).isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Dati carta non validi o annullati.", "Errore", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Dati carta non validi o annullati.", ERRORE, JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -116,8 +113,8 @@ public class FormAcquistoBiglietto extends JFrame {
             Controller.AcquistoBiglietto(dto, emailUtente, datiCarta.get(0), datiCarta.get(1), datiCarta.get(2));
             JOptionPane.showMessageDialog(this, "Biglietto acquistato con successo!", "Successo", JOptionPane.INFORMATION_MESSAGE);
             dispose();
-        } catch (DBException | AcquistoException e) {
-            JOptionPane.showMessageDialog(this, "Errore durante l'acquisto: " + e.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
+        } catch (AcquistoException | BigliettoNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Errore durante l'acquisto: " + e.getMessage(), ERRORE, JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -145,7 +142,7 @@ public class FormAcquistoBiglietto extends JFrame {
             datiCarta.add(cognomeTitolareField.getText().trim());
             return datiCarta;
         } else {
-            return null;
+            return new ArrayList<>();
         }
     }
 
