@@ -2,12 +2,10 @@ package boundary;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
-
 import DTO.DTOEvento;
 import control.Controller;
 import exceptions.EventoNotFoundException;
@@ -25,7 +23,7 @@ public class FormRicercaEvento extends JFrame {
         this.homeCaller = homeCaller;
 
         setTitle("Ricerca Evento");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setSize(900, 500);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -126,7 +124,7 @@ public class FormRicercaEvento extends JFrame {
         try {
             List<DTOEvento> eventi = Controller.RicercaEvento(titolo, data, luogo);
             mostraRisultati(eventi);
-        } catch (EventoNotFoundException ex) {
+        } catch (EventoNotFoundException _) {
             risultatoArea.setText("Nessun evento trovato.");
         } catch (Exception ex) {
             risultatoArea.setText("Errore durante la ricerca: " + ex.getMessage());

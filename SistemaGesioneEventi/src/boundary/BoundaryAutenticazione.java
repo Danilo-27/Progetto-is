@@ -13,6 +13,7 @@ public class BoundaryAutenticazione extends JFrame {
     private final JPanel contentPane;
     private final JPasswordField passwordField;
     private final JTextField emailField;
+    private static final String SEGOE="Segoe UI";
 
 //    private final String = "Segoe UI";
 
@@ -30,7 +31,7 @@ public class BoundaryAutenticazione extends JFrame {
         setContentPane(contentPane);
 
         JLabel titleLabel = new JLabel("Login");
-        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 26));
+        titleLabel.setFont(new Font(SEGOE, Font.BOLD, 26));
         titleLabel.setForeground(new Color(44, 62, 80));
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         contentPane.add(titleLabel);
@@ -47,7 +48,7 @@ public class BoundaryAutenticazione extends JFrame {
         JButton homeButton = new JButton("Home");
         homeButton.setBackground(new Color(200, 200, 200));
         homeButton.setForeground(Color.BLACK);
-        homeButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        homeButton.setFont(new Font(SEGOE, Font.PLAIN, 14));
         homeButton.setFocusPainted(false);
         homeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         homeButton.setBorder(BorderFactory.createEmptyBorder(8, 20, 8, 20));
@@ -59,7 +60,7 @@ public class BoundaryAutenticazione extends JFrame {
         JButton loginButton = new JButton("Accedi");
         loginButton.setBackground(new Color(52, 152, 219));
         loginButton.setForeground(Color.WHITE);
-        loginButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        loginButton.setFont(new Font(SEGOE, Font.BOLD, 16));
         loginButton.setFocusPainted(false);
         loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         loginButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
@@ -75,7 +76,6 @@ public class BoundaryAutenticazione extends JFrame {
                 JOptionPane.showMessageDialog(this, emailValidation, "Errore Email", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
             try {
                 Sessione section = Sessione.getInstance();
                 DTOUtente utente = Controller.Autenticazione(email, password);//problema
@@ -111,7 +111,7 @@ public class BoundaryAutenticazione extends JFrame {
     private JTextField createTextField(String placeholder) {
         JTextField field = new JTextField();
         field.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
-        field.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+        field.setFont(new Font(SEGOE, Font.PLAIN, 16));
         field.setBorder(BorderFactory.createTitledBorder(placeholder));
         return field;
     }
@@ -119,7 +119,7 @@ public class BoundaryAutenticazione extends JFrame {
     private JPasswordField createPasswordField(String placeholder) {
         JPasswordField field = new JPasswordField();
         field.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
-        field.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+        field.setFont(new Font(SEGOE, Font.PLAIN, 16));
         field.setBorder(BorderFactory.createTitledBorder(placeholder));
         return field;
     }
@@ -139,7 +139,7 @@ public class BoundaryAutenticazione extends JFrame {
     }
 
     private String validatePassword(String password) {
-        if (password == null || password.length() == 0) {
+        if (password == null || password.isEmpty()) {
             return "Errore: Password vuota.";
         }
         if (password.length() > 40) {
@@ -159,10 +159,4 @@ public class BoundaryAutenticazione extends JFrame {
         }
         return false;
     }
-
-//    // 🔐 Simulazione autenticazione (da sostituire con Controller BCED reale)
-//    private boolean verificaCredenziali(String email, String PASSWORD) {
-//        return email.equals("f@g.com") && PASSWORD.equals("@123");
-//    }
-
 }

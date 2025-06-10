@@ -4,6 +4,8 @@ package entity;
 import database.BigliettoDAO;
 import exceptions.BigliettoConsumatoException;
 import exceptions.DBException;
+import exceptions.RedundancyException;
+import exceptions.UpdateException;
 
 public class EntityBiglietto {
 
@@ -28,18 +30,17 @@ public class EntityBiglietto {
         this.cliente =piattaforma.cercaClientePerId(biglietto.getCliente_id());
     }
 
-    public void scriviSuDB() throws DBException {
+    public void scriviSuDB() throws RedundancyException{
         BigliettoDAO b = new BigliettoDAO();
         b.setStato(this.stato);
         b.setCodice_univoco(this.codiceUnivoco);
         b.setEvento_id(this.evento.getId());
         b.setCliente_id(this.cliente.getId());
-        b.SalvaInDB();
-    }
-
-    public boolean verificaBiglietto(){
-        //codice
-        return false;
+        try {
+            b.SalvaInDB();
+        } catch (DBException _) {
+            throw new RedundancyException("Biglietto già creato.");
+        }
     }
 
     public void validaBiglietto() throws BigliettoConsumatoException {
@@ -50,7 +51,11 @@ public class EntityBiglietto {
             BigliettoDAO dao = new BigliettoDAO();
             dao.setStato(this.stato);
             dao.setCodice_univoco(this.codiceUnivoco);
-            dao.aggiornaInDB();
+            try{
+                dao.aggiornaInDB();
+            }catch(DBException _){
+                throw new UpdateException("Errore di aggiornamento del biglietto");
+            }
         }
     }
 

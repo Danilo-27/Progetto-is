@@ -2,8 +2,7 @@ package boundary;
 
 import DTO.DTOBiglietto;
 import control.Controller;
-import exceptions.DBException;
-
+import exceptions.BigliettoNotFoundException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -13,8 +12,8 @@ import java.util.ArrayList;
 
 public class FormStoricoBiglietti extends JFrame {
 
-    private DefaultListModel<DTOBiglietto> bigliettiModel;
-    private JList<DTOBiglietto> listaBiglietti;
+    private final DefaultListModel<DTOBiglietto> bigliettiModel;
+    private final JList<DTOBiglietto> listaBiglietti;
 
     public FormStoricoBiglietti(String emailUtente, JFrame parentFrame) {
         setTitle("Storico Biglietti");
@@ -94,14 +93,12 @@ public class FormStoricoBiglietti extends JFrame {
         });
         mainPanel.add(tornaIndietroButton, BorderLayout.SOUTH);
 
-        // Carica i biglietti dallo storico
         try {
             caricaStorico(emailUtente);
-        }catch(DBException e){
-            System.out.println("DIOCANE");
+        }catch(BigliettoNotFoundException _){
+            JOptionPane.showMessageDialog(this, "Non hai acquistato alcun biglietto." , "Errore", JOptionPane.ERROR_MESSAGE);
         }
 
-        // Permetti di copiare il codice al doppio click su un biglietto
         listaBiglietti.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -146,8 +143,7 @@ public class FormStoricoBiglietti extends JFrame {
         });
     }
 
-    private void caricaStorico(String emailUtente)throws DBException {
-
+    private void caricaStorico(String emailUtente) throws BigliettoNotFoundException {
             ArrayList<DTOBiglietto> biglietti = Controller.consultaStoricoBiglietti(emailUtente);
             bigliettiModel.clear();
             for (DTOBiglietto biglietto : biglietti) {

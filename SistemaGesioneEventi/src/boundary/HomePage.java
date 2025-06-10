@@ -52,16 +52,16 @@ public class HomePage extends JFrame {
             dispose();
         });
 
-        JButton signinButton = new JButton("Sign in");
-        styleButton(signinButton);
-        signinButton.addActionListener(e -> {
-            BoundaryRegistrazione signininterface = new BoundaryRegistrazione();
-            signininterface.setVisible(true);
+        JButton signInButton = new JButton("Sign in");
+        styleButton(signInButton);
+        signInButton.addActionListener(e -> {
+            BoundaryRegistrazione signInInterface = new BoundaryRegistrazione();
+            signInInterface.setVisible(true);
             dispose();
         });
 
         buttonsPanel.add(loginButton);
-        buttonsPanel.add(signinButton);
+        buttonsPanel.add(signInButton);
 
         topPanel.add(buttonsPanel, BorderLayout.EAST);
 

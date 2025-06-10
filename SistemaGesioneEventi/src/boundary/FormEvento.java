@@ -1,137 +1,124 @@
 package boundary;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
 import control.Controller;
-import exceptions.DBException;
+import exceptions.LoadingException;
+import exceptions.RedundancyException;
 import org.jdesktop.swingx.JXDatePicker;
-
 import java.io.Serial;
 import java.text.SimpleDateFormat;
-
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JSpinner;
 import java.awt.TextArea;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
-
 public class FormEvento extends JFrame {
 
     @Serial
     private static final long serialVersionUID = 1L;
-    private JPanel FormEvento;
-    private JTextField textTitolo;
-    private JTextField textLuogo;
+    private final JTextField textTitolo;
+    private final JTextField textLuogo;
+    private static final String ARIAL_BLACK="Arial Black";
 
 
     public FormEvento(HomeAmministratore homeamministratore,String nomeAmministratore,String cognomeAmministratore,String emailAmministratore) {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setBounds(100, 100, 1051, 697);
-        FormEvento = new JPanel();
-        FormEvento.setBorder(new EmptyBorder(5, 5, 5, 5));
+        JPanel formEvento = new JPanel();
+        formEvento.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-        setContentPane(FormEvento);
-        FormEvento.setLayout(null);
+        setContentPane(formEvento);
+        formEvento.setLayout(null);
 
         // Campo Titolo
         textTitolo = new JTextField();
-        textTitolo.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        textTitolo.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         textTitolo.setBounds(68, 88, 217, 35);
-        FormEvento.add(textTitolo);
+        formEvento.add(textTitolo);
         textTitolo.setColumns(10);
 
         JLabel LabelTitolo = new JLabel("TITOLO");
         LabelTitolo.setForeground(new Color(0, 128, 255));
-        LabelTitolo.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        LabelTitolo.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         LabelTitolo.setBounds(68, 55, 77, 23);
-        FormEvento.add(LabelTitolo);
+        formEvento.add(LabelTitolo);
 
         // Campo Luogo
         textLuogo = new JTextField();
-        textLuogo.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        textLuogo.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         textLuogo.setBounds(68, 183, 217, 35);
-        FormEvento.add(textLuogo);
+        formEvento.add(textLuogo);
         textLuogo.setColumns(10);
 
         JLabel labelLuogo = new JLabel("LUOGO");
-        labelLuogo.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        labelLuogo.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         labelLuogo.setForeground(new Color(0, 128, 255));
         labelLuogo.setBounds(68, 150, 77, 23);
-        FormEvento.add(labelLuogo);
+        formEvento.add(labelLuogo);
 
         // Campo Capienza
         JLabel CapienzaLabel = new JLabel("CAPIENZA");
         CapienzaLabel.setForeground(new Color(0, 128, 255));
-        CapienzaLabel.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        CapienzaLabel.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         CapienzaLabel.setBounds(366, 52, 125, 35);
-        FormEvento.add(CapienzaLabel);
+        formEvento.add(CapienzaLabel);
 
         JSpinner spinnerCapienza = new JSpinner();
-        spinnerCapienza.setModel(new SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        spinnerCapienza.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        spinnerCapienza.setModel(new SpinnerNumberModel(0, 0, null, 1));
+        spinnerCapienza.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         spinnerCapienza.setBounds(366, 88, 217, 34);
-        FormEvento.add(spinnerCapienza);
+        formEvento.add(spinnerCapienza);
 
         // Campo Descrizione
         TextArea textArea = new TextArea();
         textArea.setBounds(68, 408, 603, 195);
-        FormEvento.add(textArea);
+        formEvento.add(textArea);
 
         JLabel lblNewLabel = new JLabel("DESCRIZIONE");
-        lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        lblNewLabel.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         lblNewLabel.setForeground(new Color(0, 128, 255));
         lblNewLabel.setBounds(68, 379, 142, 23);
-        FormEvento.add(lblNewLabel);
+        formEvento.add(lblNewLabel);
 
         // Campo Costo
         JSpinner spinnerCosto = new JSpinner();
         spinnerCosto.setModel(new SpinnerNumberModel(0, 0, null, 1));
-        spinnerCosto.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        spinnerCosto.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         spinnerCosto.setBounds(366, 180, 217, 34);
-        FormEvento.add(spinnerCosto);
+        formEvento.add(spinnerCosto);
 
         JLabel labelCosto = new JLabel("COSTO");
-        labelCosto.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        labelCosto.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         labelCosto.setForeground(new Color(0, 128, 255));
         labelCosto.setBounds(366, 150, 125, 21);
-        FormEvento.add(labelCosto);
+        formEvento.add(labelCosto);
 
         // Campo Data (JXDatePicker)
         JXDatePicker dataDatePicker = new JXDatePicker();
-        dataDatePicker.setFont(new Font("Arial Black", Font.PLAIN, 18));
-        dataDatePicker.getEditor().setFont(new Font("Arial Black", Font.PLAIN, 18));
+        dataDatePicker.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
+        dataDatePicker.getEditor().setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         dataDatePicker.getEditor().setForeground(new Color(0, 0, 0));
         dataDatePicker.getEditor().setText("DATA");
         dataDatePicker.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
         dataDatePicker.setBounds(68, 290, 217, 35);
-        FormEvento.add(dataDatePicker);
+        formEvento.add(dataDatePicker);
 
         JLabel labelData = new JLabel("DATA");
-        labelData.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        labelData.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         labelData.setForeground(new Color(0, 128, 255));
         labelData.setBounds(68, 245, 77, 35);
-        FormEvento.add(labelData);
+        formEvento.add(labelData);
 
         // Campo Ora e Minuti
         JLabel labelOra = new JLabel("ORA");
         labelOra.setForeground(new Color(0, 128, 255));
-        labelOra.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        labelOra.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         labelOra.setBounds(366, 245, 83, 35);
-        FormEvento.add(labelOra);
+        formEvento.add(labelOra);
 
         JComboBox<String> comboOra = new JComboBox<>();
         comboOra.setBackground(new Color(255, 255, 255));
@@ -150,10 +137,9 @@ public class FormEvento extends JFrame {
 
         comboOra.setBounds(366, 295, 107, 30);
         comboMinuti.setBounds(476, 295, 107, 30);
-        FormEvento.add(comboOra);
-        FormEvento.add(comboMinuti);
+        formEvento.add(comboOra);
+        formEvento.add(comboMinuti);
 
-        // Pulsante Back
         JButton BackButton = new JButton("Back");
         BackButton.addMouseListener(new MouseAdapter() {
             @Override
@@ -165,14 +151,14 @@ public class FormEvento extends JFrame {
             }
         });
         BackButton.setBackground(new Color(192, 192, 192));
-        BackButton.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        BackButton.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         BackButton.setBounds(866, 568, 142, 35);
-        FormEvento.add(BackButton);
+        formEvento.add(BackButton);
 
         // Pulsante Crea
         JButton creaButton = new JButton("Crea");
         creaButton.setBackground(new Color(0, 204, 102));
-        creaButton.setFont(new Font("Arial Black", Font.PLAIN, 18));
+        creaButton.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         creaButton.setBounds(710, 568, 142, 35);
         creaButton.addActionListener(e -> {
             // Raccogliere i dati dal form
@@ -204,16 +190,16 @@ public class FormEvento extends JFrame {
 
 
             Sessione sess = Sessione.getInstance();
-
-            try {
+            try{
                 Controller.pubblicaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
-                dispose();
-                new HomeAmministratore(nomeAmministratore,cognomeAmministratore,emailAmministratore).setVisible(true);
-
-            } catch (DBException ex) {
-                throw new RuntimeException(ex);
+            }catch(RedundancyException _){
+                JOptionPane.showMessageDialog(this, "Campo/i non validi.", "Errore", JOptionPane.ERROR_MESSAGE);
+            }catch(LoadingException _){
+                JOptionPane.showMessageDialog(this, "Errore di caricamento.", "Errore", JOptionPane.ERROR_MESSAGE);
             }
+            dispose();
+            new HomeAmministratore(nomeAmministratore,cognomeAmministratore,emailAmministratore).setVisible(true);
         });
-        FormEvento.add(creaButton);
+        formEvento.add(creaButton);
     }
 }

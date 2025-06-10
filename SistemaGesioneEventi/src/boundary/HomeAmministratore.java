@@ -1,6 +1,7 @@
 package boundary;
 
 import java.awt.*;
+import java.io.Serial;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
@@ -9,18 +10,18 @@ import javax.swing.border.EmptyBorder;
 
 import DTO.DTOEvento;
 import DTO.DTOUtente;
-import exceptions.DBException;
+import exceptions.BigliettoNotFoundException;
 
 public class HomeAmministratore extends HomeUtenteRegistrato {
 
+    @Serial
     private static final long serialVersionUID = 1L;
-    private JButton creaEventoButton;
-    private DefaultListModel<String> eventiModel;
-    private JList<String> eventiList;
-    private String emailAmministratore;
-    private Map<Integer, Map<String, Object>> eventiInfoMap;
-    private String nomeAmministratore;
-    private String cognomeAmministratore;
+    private final DefaultListModel<String> eventiModel;
+    private final JList<String> eventiList;
+    private final String emailAmministratore;
+    private final Map<Integer, Map<String, Object>> eventiInfoMap;
+    private final String nomeAmministratore;
+    private final String cognomeAmministratore;
 
     public HomeAmministratore(String nome, String cognome, String email) {
         super();
@@ -39,7 +40,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
         eventiModel = new DefaultListModel<>();
         eventiList = new JList<>(eventiModel);
         eventiList.setVisibleRowCount(8);
-        eventiList.setFixedCellHeight(-1); // altezza variabile per adattarsi al contenuto multilinea
+        eventiList.setFixedCellHeight(-1);
         eventiList.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         eventiList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         eventiList.setCellRenderer(new EventListCellRenderer());
@@ -56,6 +57,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
         caricaEventiPubblicati(emailAmministratore);
 
         eventiList.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 if (evt.getClickCount() == 2) {
                     int index = eventiList.locationToIndex(evt.getPoint());
@@ -67,8 +69,10 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
         });
     }
 
-    private void caricaEventiPubblicati(String email) {
+    private void  caricaEventiPubblicati(String email) {
+        try {
             Map<DTOEvento, Object> eventiPubblicati = control.Controller.ConsultaEventiPubblicati(email);
+
             eventiModel.clear();
             eventiInfoMap.clear();
 
@@ -76,13 +80,11 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
             DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
             int idCounter = 0;
-
             for (Map.Entry<DTOEvento, Object> entry : eventiPubblicati.entrySet()) {
                 DTOEvento evento = entry.getKey();
-                Map<String, Object> info = (Map<String, Object>) entry.getValue();
+                Map<String, Object> info = (Map<String,Object>) entry.getValue();
 
-                System.out.println(evento.getTitolo()+" "+evento.getBigliettivenduti());
-                // Stringa multilinea con tutte le info
+                System.out.println(evento.getTitolo()+" "+evento.getBigliettiVenduti());
                 StringBuilder sb = new StringBuilder();
                 sb.append("Titolo: ").append(evento.getTitolo()).append("\n")
                         .append("Data: ").append(evento.getData().format(dateFormatter))
@@ -90,7 +92,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
                         .append("Luogo: ").append(evento.getLuogo()).append("\n")
                         .append("Costo: ").append(evento.getCosto()).append("€")
                         .append("  |  Capienza: ").append(evento.getCapienza()).append("\n")
-                        .append("Biglietti venduti: ").append(evento.getBigliettivenduti()).append("\n");
+                        .append("Biglietti venduti: ").append(evento.getBigliettiVenduti()).append("\n");
 
                 if (info.containsKey("numeroPartecipanti")) {
                     sb.append("  |  Partecipanti: ").append(info.get("numeroPartecipanti"));
@@ -106,6 +108,10 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
             if (eventiModel.isEmpty()) {
                 eventiModel.addElement("Nessun evento pubblicato al momento.");
             }
+
+        }catch(BigliettoNotFoundException _){
+            JOptionPane.showMessageDialog(this, "Non sono stati venduti biglietti per l'evento.", "Errore", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void mostraDettagliPartecipanti(int index) {
@@ -221,7 +227,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
         adminSection.add(sectionTitle);
         adminSection.add(Box.createRigidArea(new Dimension(0, 15)));
 
-        creaEventoButton = createCreaEventoButton();
+        JButton creaEventoButton = createCreaEventoButton();
         adminSection.add(creaEventoButton);
 
         return adminSection;
@@ -312,25 +318,11 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
     }
 
     private void openFormEvento() {
-        try {
-            FormEvento form = new FormEvento(this,this.nomeAmministratore,this.cognomeAmministratore,this.emailAmministratore);
-            form.setVisible(true);
-            dispose();
-            form=null;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Errore apertura form: " + e.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
-        }
+        FormEvento form = new FormEvento(this,this.nomeAmministratore,this.cognomeAmministratore,this.emailAmministratore);
+        form.setVisible(true);
+        dispose();
     }
 
-//    private static void styleButton(JButton button, Color bgColor) {
-//        button.setBackground(bgColor);
-//        button.setForeground(Color.WHITE);
-//        button.setFocusPainted(false);
-//        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-//        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
-//    }
-
-    // Renderer personalizzato per lista eventi multilinea con margini e spazio tra eventi
     private static class EventListCellRenderer extends JPanel implements ListCellRenderer<String> {
         private final JTextArea textArea;
 

@@ -4,28 +4,21 @@ import control.Controller;
 import exceptions.RegistrationFailedException;
 
 import java.awt.*;
+import java.io.Serial;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class BoundaryRegistrazione extends JFrame {
 
+    @Serial
     private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                BoundaryRegistrazione frame = new BoundaryRegistrazione();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
+    private final JPanel contentPane;
+    private static final String ERRORE ="Errore";
+    
 
     public BoundaryRegistrazione() {
         setTitle("Registrazione Utente");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quando clicca sulla X termina l'applicazione
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(100, 100, 600, 500);
         setLocationRelativeTo(null);
 
@@ -46,7 +39,7 @@ public class BoundaryRegistrazione extends JFrame {
         JTextField nomeField = createTextField("Nome");
         JTextField cognomeField = createTextField("Cognome");
         JTextField emailField = createTextField("Email");
-        JPasswordField passwordField = createPasswordField("Password");
+        JPasswordField passwordField = createPasswordField();
 
         contentPane.add(nomeField);
         contentPane.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -87,49 +80,47 @@ public class BoundaryRegistrazione extends JFrame {
             String password = new String(passwordField.getPassword()).trim();
 
             if (nome.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Nome non può essere vuoto.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Nome non può essere vuoto.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (nome.length() > 20) {
-                JOptionPane.showMessageDialog(contentPane, "Nome non valido. Deve essere lungo ≤ 20 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Nome non valido. Deve essere lungo ≤ 20 caratteri.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (cognome.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Cognome non può essere vuoto.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Cognome non può essere vuoto.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (cognome.length() > 30) {
-                JOptionPane.showMessageDialog(contentPane, "Cognome non valido. Deve essere lungo ≤ 30 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Cognome non valido. Deve essere lungo ≤ 30 caratteri.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (email.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Email non può essere vuota.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Email non può essere vuota.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (email.length() > 50) {
-                JOptionPane.showMessageDialog(contentPane, "Email non valida. Deve essere lunga ≤ 50 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Email non valida. Deve essere lunga ≤ 50 caratteri.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             // Controllo formato email
             String emailRegex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
             if (!email.matches(emailRegex)) {
-                JOptionPane.showMessageDialog(contentPane, "Formato email non valido. Deve essere del tipo esempio@dominio.estensione", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Formato email non valido. Deve essere del tipo esempio@dominio.estensione", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (password.isEmpty()) {
-                JOptionPane.showMessageDialog(contentPane, "Password non può essere vuota.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Password non può essere vuota.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (password.length() > 40) {
-                JOptionPane.showMessageDialog(contentPane, "Password non valida. Deve essere lunga ≤ 40 caratteri.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "Password non valida. Deve essere lunga ≤ 40 caratteri.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (!password.matches(".*[!@#$%^&*()\\-_=+{};:,<.>§°?].*")) {
-                JOptionPane.showMessageDialog(contentPane, "La PASSWORD deve contenere almeno un carattere speciale.", "Errore", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(contentPane, "La PASSWORD deve contenere almeno un carattere speciale.", ERRORE, JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
-            //SE I CONTROLLI VANNO A BUON FINE SI REGISTRA
 
             try {
                 Controller.registrazione(password, nome, cognome, email);
@@ -140,14 +131,9 @@ public class BoundaryRegistrazione extends JFrame {
                 new HomePage().setVisible(true);
                 dispose();
 
-            } catch (RegistrationFailedException Rfe) {
-                JOptionPane.showMessageDialog(contentPane, "Email già registrata", "Errore", JOptionPane.ERROR_MESSAGE);
-
-
+            } catch (RegistrationFailedException _) {
+                JOptionPane.showMessageDialog(contentPane, "Email già registrata", ERRORE, JOptionPane.ERROR_MESSAGE);
             }
-
-
-
         });
 
         buttonPanel.add(homeButton);
@@ -163,11 +149,11 @@ public class BoundaryRegistrazione extends JFrame {
         return field;
     }
 
-    private JPasswordField createPasswordField(String placeholder) {
+    private JPasswordField createPasswordField() {
         JPasswordField field = new JPasswordField();
         field.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         field.setFont(new Font("Segoe UI", Font.PLAIN, 16));
-        field.setBorder(BorderFactory.createTitledBorder(placeholder));
+        field.setBorder(BorderFactory.createTitledBorder("Password"));
         return field;
     }
 }

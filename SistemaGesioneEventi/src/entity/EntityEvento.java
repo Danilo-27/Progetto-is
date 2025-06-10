@@ -4,7 +4,10 @@ package entity;
 
 import database.BigliettoDAO;
 import database.EventoDAO;
+import exceptions.BigliettoNotFoundException;
 import exceptions.DBException;
+import exceptions.RedundancyException;
+import exceptions.UpdateException;
 
 import java.util.UUID;
 import java.time.LocalDate;
@@ -56,15 +59,24 @@ public class EntityEvento {
     /**
      * Costruttore che carica un evento dal database dato il titolo
      */
-    public EntityEvento(String titolo) {
+    public EntityEvento(String titolo) throws BigliettoNotFoundException{
         EventoDAO evento = new EventoDAO(titolo);
         inizializzaDaEventoDAO(evento);
         this.biglietti = new ArrayList<>();
-        evento.caricaBigliettiEventiDaDB();
+        try {
+            evento.caricaBigliettiEventiDaDB();
+        } catch (DBException _) {
+            throw new BigliettoNotFoundException("Biglietto non trovato.");
+        }
         this.caricaBiglietti(evento);
     }
 
 
+    /**
+     * Inizializza gli attributi dell'istanza EntityEvento utilizzando i dati forniti dall'oggetto EventoDAO.
+     *
+     * @param evento l'oggetto EventoDAO contenente i dati per inizializzare questa istanza
+     */
     private void inizializzaDaEventoDAO(EventoDAO evento) {
         this.id = evento.getId();
         this.titolo = evento.getTitolo();
@@ -77,7 +89,16 @@ public class EntityEvento {
         this.amministratore_id=evento.getAmministratoreId();
     }
 
-    public void salvaSuDB() throws DBException{
+    /**
+     * Salva nel database l'istanza corrente dell'evento.
+     * Questo metodo crea un oggetto EventoDAO e inizializza le sue proprietà
+     * in base agli attributi dell'istanza corrente dell'evento.
+     * Tenta poi di salvare l'evento nel database tramite il metodo SalvaInDB di EventoDAO.
+     * Se l'evento già esiste nel database viene lanciata una RedundancyException.
+     *
+     * @throws RedundancyException nel caso in cui l'evento da salvare sia già presente nel DB
+     */
+    public void salvaSuDB() throws RedundancyException {
         EventoDAO evento = new EventoDAO();
         evento.setTitolo(titolo);
         evento.setDescrizione(descrizione);
@@ -88,22 +109,61 @@ public class EntityEvento {
         evento.setCapienza(capienza);
         evento.setPartecipanti(partecipanti);
         evento.setAmministratoreId(amministratore.getId());
-        evento.SalvaInDB();
+        try {
+            evento.SalvaInDB();
+        } catch (DBException _) {
+            throw new RedundancyException("Evento già creato");
+        }
     }
-    public void aggiornaPartecipanti() {
+
+    /**
+     * Aggiorna il numero dei partecipanti per l'evento corrente e riflette il cambiamento nel database.
+     * Questo metodo incrementa il numero di partecipanti dell'evento e aggiorna il relativo record
+     * nel database utilizzando un oggetto EventoDAO. Se si verifica un errore durante l'aggiornamento,
+     * viene lanciata una UpdateException.
+     *
+     * @throws UpdateException se si verifica un problema nell'aggiornamento dell'evento nel database
+     */
+    public void aggiornaPartecipanti() throws UpdateException {
         this.partecipanti++;
         EventoDAO dao = new EventoDAO();
         dao.setTitolo(this.titolo);
         dao.setPartecipanti(this.partecipanti);
-        dao.AggiornaInDB();
+        try{
+            dao.AggiornaInDB();
+        }catch(DBException _){
+            throw new UpdateException("Errore nell'aggiornamento");
+        }
+
     }
+
+    /**
+     * Genera un ID univoco per un evento mediante la combinazione di un prefisso derivato dal titolo e una
+     * componente casuale generata utilizzando un UUID.
+     * Il prefisso è costituito dai primi tre caratteri alfanumerici del titolo, convertiti in maiuscolo e
+     * privati di eventuali caratteri non alfanumerici. Se il titolo contiene meno di tre caratteri, viene
+     * usata l'intera stringa disponibile. La parte casuale è composta dai primi otto caratteri di un UUID
+     * senza separatori.
+     *
+     * @return una stringa che rappresenta l'ID univoco generato nel formato "PREFISSO-UUIDPARTE".
+     */
+    
     private String creazioneIDUnivoco(){
         String eventoSanificato = this.titolo.replaceAll("[^a-zA-Z0-9]", "").toUpperCase();
         String prefisso = eventoSanificato.substring(0, Math.min(3, eventoSanificato.length()));
         String uuidParte = UUID.randomUUID().toString().replace("-", "").toUpperCase().substring(0, 8);
         return prefisso + "-" + uuidParte;
     }
-    public EntityBiglietto verificaCodice(String codice) {
+
+    /**
+     * Cerca un EntityBiglietto nella lista dei biglietti associati all'evento corrente,
+     * utilizzando un dato codice univoco. Se viene trovato un biglietto con il codice specificato,
+     * questo viene restituito; altrimenti, viene restituito null.
+     *
+     * @param codice il codice univoco del biglietto da cercare
+     * @return l'EntityBiglietto corrispondente se trovato, o null se non esiste un biglietto corrispondente
+     */
+    public EntityBiglietto verificaCodice(String codice){
         for (EntityBiglietto b : this.biglietti) {
             if (b.getCodice_univoco().equals(codice)) {
                 return b;
@@ -111,22 +171,44 @@ public class EntityEvento {
         }
         return null;
     }
-    public EntityBiglietto creazioneBiglietto(EntityCliente cliente) throws DBException {
-        //creazione ID univoco
+
+    /**
+     * Crea un nuovo biglietto associato all'evento corrente e a un cliente specificato.
+     * Genera un codice univoco per il biglietto, associa l'evento e il cliente al biglietto,
+     * e archivia il biglietto nel database.
+     *
+     * @param cliente l'entità del cliente a cui il biglietto verrà associato
+     * @return un'entità EntityBiglietto che rappresenta il biglietto creato
+     */
+    public EntityBiglietto creazioneBiglietto(EntityCliente cliente){
         String codiceUnivoco = creazioneIDUnivoco();
-        //creazione di entity biglietto con param ingresso ID univoco
         EntityBiglietto biglietto = new EntityBiglietto();
         biglietto.setCodice_univoco(codiceUnivoco);
         biglietto.setEvento(this);
         biglietto.setCliente(cliente);
-        //return entityBiglietto
         biglietto.scriviSuDB();
         return biglietto;
     }
+
+    /**
+     * Verifica la disponibilità di posti per l'evento corrente confrontando la capienza massima
+     * con il numero di biglietti già emessi.
+     *
+     * @return true se ci sono ancora posti disponibili per l'evento, altrimenti false
+     */
     public boolean verificaDisponibilità(){
         return this.capienza>this.biglietti.size();
     }
-    public void caricaBiglietti(EventoDAO eventoDAO) {
+
+    /**
+     * Carica i biglietti associati a un evento specificato tramite l'oggetto EventoDAO e li memorizza
+     * in una lista di oggetti EntityBiglietto. Se l'evento specificato non contiene biglietti, viene
+     * lanciata un'eccezione BigliettoNotFoundException.
+     *
+     * @param eventoDAO l'oggetto EventoDAO da cui recuperare i biglietti associati all'evento
+     * @throws BigliettoNotFoundException se non sono presenti biglietti associati all'evento nel database
+     */
+    public void caricaBiglietti(EventoDAO eventoDAO) throws BigliettoNotFoundException{
         this.biglietti = new ArrayList<>();
         if(eventoDAO.getBiglietti() !=null){
             for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
@@ -134,14 +216,31 @@ public class EntityEvento {
                 this.biglietti.add(biglietto);
             }
         }else{
-            System.out.println("non ha biglietti");
+            throw new BigliettoNotFoundException("Biglietti assenti nel DB.");
         }
 
     }
-    public ArrayList<EntityCliente> listaPartecipanti() {
+
+    /**
+     * Restituisce una lista di partecipanti associati all'evento corrente.
+     * Un partecipante è identificato come cliente il cui biglietto
+     * relativo all'evento risulta obliterato.
+     * Durante l'esecuzione, i biglietti dell'evento vengono caricati
+     * dal database, e successivamente vengono filtrati in base al loro stato.
+     * Viene lanciata un'eccezione se non sono presenti biglietti associati
+     * all'evento nel database.
+     *
+     * @return una lista di oggetti EntityCliente che rappresentano i partecipanti all'evento
+     * @throws BigliettoNotFoundException se non sono presenti biglietti per l'evento nel database
+     */
+    public ArrayList<EntityCliente> listaPartecipanti() throws BigliettoNotFoundException{
         //carico in memoria tutti i biglietti associati all'evento
         EventoDAO eventoDAO = new EventoDAO(this.titolo);
-        eventoDAO.caricaBigliettiEventiDaDB();
+        try {
+            eventoDAO.caricaBigliettiEventiDaDB();
+        } catch (DBException _) {
+            throw new BigliettoNotFoundException("Biglietti non presenti nel DB.");
+        }
         this.caricaBiglietti(eventoDAO);
         //a questo punto per ogni biglietto conosco il codice univoco e stato
         ArrayList<EntityCliente> partecipanti=new ArrayList<>();
@@ -153,11 +252,24 @@ public class EntityEvento {
         return partecipanti;
     }
 
-    public int getNumeroPartecipanti() {
+    /**
+     * Restituisce il numero totale di partecipanti associati all'evento corrente.
+     * I partecipanti vengono determinati tramite la lista di clienti che hanno biglietti validi
+     * per l'evento.
+     *
+     * @return il numero di partecipanti all'evento
+     * @throws BigliettoNotFoundException se non sono presenti biglietti per l'evento nel database
+     */
+    public int getNumeroPartecipanti() throws BigliettoNotFoundException {
         ArrayList<EntityCliente> partecipanti = listaPartecipanti();
         return partecipanti.size();
     }
 
+    /**
+     * Restituisce il numero totale di biglietti venduti associati all'evento corrente.
+     *
+     * @return il numero totale di biglietti venduti
+     */
     public int getNumeroBigliettiVenduti() {
         return this.biglietti.size();
     }

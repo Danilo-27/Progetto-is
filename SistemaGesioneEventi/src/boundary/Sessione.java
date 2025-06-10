@@ -1,7 +1,5 @@
 package boundary;
 
-
-
 public class Sessione {
     private static Sessione instance;
 
