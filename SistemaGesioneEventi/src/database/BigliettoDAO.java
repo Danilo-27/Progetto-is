@@ -120,7 +120,7 @@ public class BigliettoDAO{
                 utente.setNome(rs.getString("nome"));
                 utente.setCognome(rs.getString("cognome"));
                 utente.setImmagine(rs.getString("immagineProfilo"));
-                utente.setTipoUtente(rs.getInt("Tipo"));
+                utente.setRuolo(rs.getInt("Tipo"));
                 this.utente = utente;
             } else {
                 throw new SQLException();

@@ -50,7 +50,7 @@ public class Controller {
      *
      * @return una lista di oggetti DTOEvento che rappresentano gli eventi nel catalogo
      */
-    public static List<DTOEvento> ConsultaCatalogo() {
+    public static List<DTOEvento>ConsultaCatalogo() {
         List<DTOEvento> eventiDTO = new ArrayList<>();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         List<EntityEvento> eventi = catalogo.ConsultaCatalogo();

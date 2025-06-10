@@ -42,9 +42,9 @@ public class EntityPiattaforma {
 
 
     public EntityUtenteRegistrato creaUtenteRegistrato(UtenteDAO utenteDao) {
-        if(utenteDao.getTipoUtente()==EntityPiattaforma.AMMINISTRATORE){
+        if(utenteDao.getRuolo()==EntityPiattaforma.AMMINISTRATORE){
             return new EntityAmministratore(utenteDao);
-        }else if(utenteDao.getTipoUtente()==EntityPiattaforma.CLIENTE){
+        }else if(utenteDao.getRuolo()==EntityPiattaforma.CLIENTE){
             return new EntityCliente(utenteDao);
         }
         return null;
@@ -171,7 +171,7 @@ public class EntityPiattaforma {
                 .orElseThrow(() -> new LoginFailedException("Email non registrata"));
         if (utente.verificaCredenziali(password)) {
             if (utente instanceof EntityCliente entityCliente) {
-                return new DTOUtente(entityCliente.getNome(), entityCliente.getCognome(), email, entityCliente.getImmagine(), EntityPiattaforma.CLIENTE);
+                return new DTOUtente(entityCliente.getNome(), entityCliente.getCognome(), email, entityCliente.getImmagineProfilo(), EntityPiattaforma.CLIENTE);
             }
 
             else {

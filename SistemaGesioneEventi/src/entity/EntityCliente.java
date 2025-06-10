@@ -8,7 +8,7 @@ import exceptions.DBException;
 import java.util.ArrayList;
 
 public class EntityCliente extends EntityUtenteRegistrato{
-    private String immagine;
+    private String immagineProfilo;
     private ArrayList<EntityBiglietto> storico_biglietti;
 
     public EntityCliente() {}
@@ -19,7 +19,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
         this.cognome = utente.getCognome();
         this.email = utente.getEmail();
         this.password = utente.getPassword();
-        this.immagine=utente.getImmagine();
+        this.immagineProfilo =utente.getImmagine();
         this.storico_biglietti = new ArrayList<>();
     }
 
@@ -56,12 +56,12 @@ public class EntityCliente extends EntityUtenteRegistrato{
         }
     }
 
-    public String getImmagine() {
-        return immagine;
+    public String getImmagineProfilo() {
+        return immagineProfilo;
     }
 
-    public void setImmagine(String immagine) {
-        this.immagine = immagine;
+    public void setImmagineProfilo(String immagineProfilo) {
+        this.immagineProfilo = immagineProfilo;
     }
 
     public ArrayList<EntityBiglietto> getBiglietti() {

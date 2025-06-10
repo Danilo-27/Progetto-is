@@ -15,7 +15,7 @@ public class UtenteDAO {
     private String nome;
     private String cognome;
     private String immagineProfilo;
-    private int tipoUtente;
+    private int ruolo;
     private ArrayList<BigliettoDAO> biglietti;
     private ArrayList<EventoDAO> eventi;
 
@@ -69,7 +69,7 @@ public class UtenteDAO {
                     dao.setCognome(rs.getString("cognome"));
                     dao.setEmail(rs.getString("email"));
                     dao.setPassword(rs.getString("PASSWORD"));
-                    dao.setTipoUtente(rs.getInt("Tipo"));
+                    dao.setRuolo(rs.getInt("Ruolo"));
                     dao.setImmagine(rs.getString("ImmagineProfilo"));
                     lista_temp.add(dao);
                 }
@@ -229,11 +229,11 @@ public class UtenteDAO {
         this.immagineProfilo = immagine;
     }
 
-    public int getTipoUtente() {
-        return tipoUtente;
+    public int getRuolo() {
+        return ruolo;
     }
 
-    public void setTipoUtente(int tipoUtente) {this.tipoUtente = tipoUtente;}
+    public void setRuolo(int ruolo) {this.ruolo = ruolo;}
 
     public int getId() {
         return id;

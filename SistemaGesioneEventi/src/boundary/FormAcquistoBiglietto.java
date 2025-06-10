@@ -86,15 +86,18 @@ public class FormAcquistoBiglietto extends JFrame {
     }
 
     private void caricaEventiDisponibili() {
-        try {
-            List<DTOEvento> eventi = Controller.RicercaEvento(null, null, null);
-            eventiModel.clear();
-            for (DTOEvento evento : eventi) {
-                eventiModel.addElement(evento);
+            List<DTOEvento> eventi = Controller.ConsultaCatalogo();
+        System.out.println(eventi.size() + " eventi disponibili");
+            if (!eventi.isEmpty()) {
+                eventiModel.clear();
+                for (DTOEvento evento : eventi) {
+                    eventiModel.addElement(evento);
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Nessun evento disponibile al momento.", ERRORE, JOptionPane.ERROR_MESSAGE);
+
             }
-        } catch (EventoNotFoundException _) {
-            JOptionPane.showMessageDialog(this, "Nessun evento disponibile al momento.", ERRORE, JOptionPane.ERROR_MESSAGE);
-        }
+
     }
 
     private void acquistaBiglietto() {

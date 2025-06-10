@@ -78,7 +78,7 @@ public class BoundaryAutenticazione extends JFrame {
             }
             try {
                 Sessione section = Sessione.getInstance();
-                DTOUtente utente = Controller.Autenticazione(email, password);//problema
+                DTOUtente utente = Controller.Autenticazione(email, password);
                 section.setUtenteAutenticato(email,utente.getTipoUtente());
 
                 if (utente.getTipoUtente()==0){
