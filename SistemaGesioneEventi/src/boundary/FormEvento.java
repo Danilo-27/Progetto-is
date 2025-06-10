@@ -191,7 +191,7 @@ public class FormEvento extends JFrame {
 
             Sessione sess = Sessione.getInstance();
             try{
-                Controller.pubblicaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
+                Controller.creaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
             }catch(RedundancyException _){
                 JOptionPane.showMessageDialog(this, "Campo/i non validi.", "Errore", JOptionPane.ERROR_MESSAGE);
             }catch(LoadingException _){

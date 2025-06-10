@@ -142,7 +142,7 @@ public class Controller {
      * @param Capienza            la capienza massima di partecipanti all'evento
      * @param emailAmministratore l'indirizzo email dell'amministratore che pubblica l'evento
      */
-    public static void pubblicaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza,String emailAmministratore) throws RedundancyException,LoadingException {
+    public static void creaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza, String emailAmministratore) throws RedundancyException,LoadingException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
         EntityEvento evento= amministratore.creazioneEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
