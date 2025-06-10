@@ -15,7 +15,7 @@
 		\begin{minipage}[t]{\linewidth}
 			\paragraph{Attori secondari}
 			\begin{itemize}[leftmargin=*]
-				\item entity.SistemaGestioneAcquisti
+				\item SistemaGestioneAcquisti
 			\end{itemize}
 		\end{minipage} \\
 	\end{tblr}
@@ -30,7 +30,7 @@
 				\item Autenticazione
 				\item RicercaEvento
 				\item PubblicaEvento
-				\item ConsultaInformazioniEvento
+				\item ConsultaEventiPubblicati
 				\item ConsultaCatalogoEventi
 				\item PartecipazioneEvento
 				\item AcquistoBiglietto
@@ -62,7 +62,7 @@ Registrazione & UtenteNonRegistrato & -- & -- & \Req{rf}{01} \\
 Autenticazione & UtenteRegistrato & -- & -- & \Req{rf}{02} \\
 RicercaEvento & UtenteRegistrato & -- & -- &\Req{rf}{08} \\
 PubblicaEvento & Amministratore & -- & -- & \Req{rf}{06} \\
-EventiPubblicati & Amministratore & -- & -- & \Req{rf}{16}, \Req{rf}{17} \\
+ConsultaEventiPubblicati & Amministratore & -- & -- & \Req{rf}{15}, \Req{rf}{16} \\
 ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 PartecipazioneEvento& Utente & -- & -- & \Req{rf}{14} \\
 AcquistaBiglietto & Utente & Sistema Gestione Acquisti & Include: Consulta Catalogo Eventi & \Req{rf}{09} \\
@@ -83,13 +83,13 @@ ScaricaBiglietto & Utente & -- & Include:Consulta Storico Biglietti  & \Req{rf}{
 \section{Scenari}
 \IncludeTable{capitoli/scenari/Registrazione}
 \IncludeTable{capitoli/scenari/Autenticazione}
-\IncludeTable{capitoli/scenari/ModificaDatiPersonali}
+%\IncludeTable{capitoli/scenari/ModificaDatiPersonali}
 \IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
 \IncludeTable{capitoli/scenari/RicercaEvento}
 \IncludeTable{capitoli/scenari/VisualizzaBiglietto}
 \IncludeTable{capitoli/scenari/ConsultaStoricoBiglietti}
-\IncludeTable{capitoli/scenari/ScaricaBiglietto}
-\IncludeTable{capitoli/scenari/AcquistaBiglietto}
+%\IncludeTable{capitoli/scenari/ScaricaBiglietto}
+%\IncludeTable{capitoli/scenari/AcquistaBiglietto}
 \IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/PartecipazioneEvento}
 \IncludeTable{capitoli/scenari/ConsultaInformazioniEvento}

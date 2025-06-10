@@ -4,20 +4,20 @@
 		Caso d'uso: & Partecipazione Evento \\
 		Attore primario & Utente \\
 		Attore secondario & -- \\
-		Descrizione & L’cliente partecipa ad un evento specifico \\
-		Pre-condizioni & L’cliente deve essersi autenticato \\
+		Descrizione & Il cliente partecipa ad un evento\\
+		Pre-condizioni & Il cliente deve essersi autenticato \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Il caso d’uso inizia quando l’cliente desidera partecipare ad un evento
-				\item L’cliente seleziona l’evento a cui intende partecipare
+				\item Il caso d’uso inizia quando il cliente vuole partecipare ad un evento
+				\item il cliente seleziona l’evento a cui intende partecipare
 				\item Il sistema richiede il codice del biglietto
-				\item L'cliente inserisce il codice del biglietto
+				\item il cliente inserisce il codice del biglietto
 				\item Il Sistema esegue delle verifiche sul biglietto inserito
 				\item Se le verifiche sono soddisfatte:
 				\begin{enumerate}[label*=\arabic*.]
 				    \item Il sistema marca il biglietto come consumato
 				    \item Il sistema aggiorna il numero di partecipanti all’evento
-				    \item La partecipazione all'evento è consentita all'cliente
+				    \item La partecipazione all'evento è consentita al cliente
 				\end{enumerate}
 				\item Altrimenti:
 				\begin{enumerate}[label*=\arabic*.]

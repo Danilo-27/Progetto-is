@@ -38,18 +38,17 @@ L’applicazione deve essere accessibile via web da dispositivi desktop e mobili
     \item Il sistema offre una funzionalità di modifica dei dati personali
     \item Il sistema deve consentire agli amministratori la creazione di eventi
     \item Degli eventi si vuole memorizzare titolo, data, orario, luogo e numero massimo di partecipanti
-    \item Il sistema deve offrire un catalogo eventi consultabile da un cliente registrato
+    \item Il sistema deve offrire un catalogo eventi consultabile da un utente registrato
     \item Il sistema deve fornire una funzionalità di ricerca di un evento per nome, data o località.
-    \item Il sistema deve consentire la selezione di un evento del catalogo eventi per procedere all’acquisto del biglietto elettronico
+    \item Il sistema deve consentire l’acquisto di biglietto per un evento
     \item Ogni biglietto elettronico deve avere un codice identificativo univoco
     \item il sistema deve offrirre la possibilità all'cliente di visualizzare un biglietto acquistato
     \item Il sistema deve offrire la possibilit all'cliente di scaricare un biglietto acquistato
-    \item Il sistema deve consentire all’cliente di confermare la partecipazione ad un evento
+    \item Il sistema deve consentire al cliente la partecipazione ad un evento
     \item Un biglietto marcato come consumato non può essere più essere riutilizzato
-    \item Un cliente durante la fase di acquisto può comprare un solo biglietto
-    \item Il sistema deve tener traccia dinamicamente del numero di partecipazioni per ogni evento
-    \item Il sistema deve permettere agli amministratori di visualizzare il numero di partecipanti presenti per ogni evento in corso
-    \item Il sistema deve fornire, per gli eventi passati, il numero totale di partecipanti che hanno avuto accesso
+    \item Un cliente durante la fase di acquisto può comprare un solo biglietto ad esso associato
+    \item Il sistema deve tener traccia dei clienti presenti a ciascun evento
+    \item Il sistema deve fornire all'amministratore la possibilità di consultare informazioni aggiuntive per i suoi eventi pubblicati
     \item Il sistema deve implementare meccanismi di sicurezza per la protezione dei dati personali e per l’autenticazione degli utenti
     \item Il sistema deve offrire un’interfaccia grafica chiara e intuitiva
     \item Il sistema deve garantire l’integrità dei biglietti elettronici
@@ -93,20 +92,20 @@ ID & Requisito & Origine \\
 \hline
 \Req{rf}{01} & Il sistema offre la possibilità all’cliente di registrarsi & 1 \\
 \Req{rf}{02} & Il sistema deve offrire una funzionalità di autenticazione & 3 \\
-\Req{rf}{03} & il sistema deve gestire per ogni cliente lo storico dei biglietti acquistati, numero totali di eventi a cui l’cliente ha partecipato e un ImmagineProfilo & 4 \\
+\Req{rf}{03} & il sistema deve gestire per ogni cliente lo storico dei biglietti acquistati e un ImmagineProfilo & 4 \\
 \Req{rf}{04} & Il sistema consente di visualizzare lo storico dei biglietti acquistati dall'cliente & 5 \\
 \Req{rf}{05} & Il sistema offre una funzionalità di modifica dei dati personali & 6 \\
 \Req{rf}{06} & Il sistema deve consentire agli amministratori la creazione di eventi & 7 \\
-\Req{rf}{07} & Il sistema deve offrire un catalogo eventi consultabile da un cliente registrato & 9 \\
+\Req{rf}{07} & Il sistema deve offrire un catalogo eventi consultabile da un utente registrato & 9 \\
 \Req{rf}{08} & Il sistema deve fornire una funzionalità di ricerca di un evento per nome, data o località. & 10 \\
-\Req{rf}{09} & Il sistema deve consentire la selezione di un evento del catalogo eventi per procedere all’acquisto del biglietto elettronico & 11 \\
+\Req{rf}{09} & Il sistema deve consentire l’acquisto di biglietto per un evento & 11 \\
 \Req{rf}{11} & il sistema deve offrirre la possibilit`a all’cliente di visualizzare un biglietto acquistato & 13 \\
 \Req{rf}{12} & Il sistema deve offrire la possibilit all’cliente di scaricare un biglietto acquistato & 14\\
-\Req{rf}{14} & Il sistema deve consentire all’cliente partecipare ad un evento & 15 \\
-\Req{rf}{15} & Il sistema deve tener traccia dinamicamente del numero di partecipazioni per ogni evento & 18 \\
-\Req{rf}{16} & Il sistema deve permettere agli amministratori di visualizzare il numero di partecipanti presenti per ogni evento in corso & 19 \\
-\Req{rf}{17} & Il sistema deve fornire, per gli eventi passati, il numero totale di partecipanti che hanno avuto accesso & 20 \\
+\Req{rf}{14} & Il sistema deve consentire al cliente la partecipazione ad un evento & 15 \\
+\Req{rf}{15} & Il sistema deve tener traccia dei clienti presenti a ciascun evento & 18 \\
+\Req{rf}{16} & Il sistema deve fornire all'amministratore la possibilità di consultare informazioni aggiuntive per i suoi eventi pubblicati & 19 \\
 \end{tblr}
+
 
 \subsection{Requisiti sui Dati}
 
@@ -137,7 +136,7 @@ ID & Requisito & Origine \\
 ID & Requisito & Origine \\
 \hline
 \Req{V}{01} & Un biglietto marcato come consumato non può essere più riutilizzato & 16 \\
-\Req{V}{02} & Un cliente registrato durante la fase di acquisto può comprare un solo biglietto & 17\\
+\Req{V}{02} & Un cliente durante la fase di acquisto può comprare un solo biglietto ad esso associato & 17\\
 \Req{V}{03} & Il sistema deve implementare meccanismi di sicurezza per la protezione dei dati personali e per l’autenti-
 cazione degli utenti & 21\\
 \Req{V}{04} & Il sistema deve offrire un’interfaccia grafica chiara e intuitiva & 22 \\
