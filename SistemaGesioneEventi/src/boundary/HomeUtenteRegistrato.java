@@ -2,8 +2,11 @@ package boundary;
 
 import java.awt.*;
 import java.io.Serial;
+import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import DTO.DTOEvento;
+import exceptions.EventoNotFoundException;
 
 public class HomeUtenteRegistrato extends JFrame {
 
@@ -85,9 +88,28 @@ public class HomeUtenteRegistrato extends JFrame {
     }
 
     protected void openCatalogoEventi() {
-        CatalogoEventi catalogo = new CatalogoEventi(this);
-        catalogo.setVisible(true);
-        this.setVisible(false);
+        try {
+            // Verifica se ci sono eventi disponibili usando il Controller
+            List<DTOEvento> eventi = control.Controller.ConsultaCatalogo();
+
+            if (eventi.isEmpty()) {
+                throw new EventoNotFoundException("Nessun evento disponibile nel catalogo");
+            }
+
+            // Se ci sono eventi, apri il catalogo
+            CatalogoEventi catalogo = new CatalogoEventi(this);
+            catalogo.setVisible(true);
+            this.setVisible(false);
+
+        } catch (EventoNotFoundException ex) {
+            // Mostra popup quando non ci sono eventi
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Nessun evento disponibile",
+                    "Catalogo Vuoto",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        }
     }
 
     protected void layoutComponents() {

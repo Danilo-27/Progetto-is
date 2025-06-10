@@ -28,6 +28,19 @@ public class BigliettoDAO{
         this.caricaUtenteDaBigliettoDaDB();
     }
 
+    /**
+     * Carica i dati dell'oggetto corrente dal database utilizzando il codice univoco del biglietto.
+     * Il metodo esegue una query sulla tabella biglietti per recuperare il record
+     * associato al codice univoco memorizzato nel campo 'codice_univoco'.
+     * <p>
+     * In caso di recupero riuscito, aggiorna i campi dell'oggetto 'stato',
+     * 'Cliente_id' ed 'Evento_id' con i valori corrispondenti dal database.
+     * Se nessun record viene trovato, il metodo lancia una DBException che indica che
+     * il biglietto non è stato trovato nel database.
+     *
+     * @throws DBException se si verifica un errore SQL o se il biglietto non viene trovato nel database.
+     */
+    
     public void caricaDaDB() throws DBException {
         String query = "SELECT * FROM biglietti WHERE  CodiceUnivoco = '" + this.codice_univoco + "';";
         try {
@@ -44,6 +57,20 @@ public class BigliettoDAO{
         }
     }
 
+    /**
+     * Carica i dati dell'evento associato al biglietto corrente dal database.
+     * Questo metodo esegue una query sulla tabella "eventi" utilizzando l'ID evento
+     * memorizzato nel campo 'Evento_id' dell'oggetto corrente. Se viene trovato un record
+     * corrispondente, i dati dell'evento vengono caricati e utilizzati per popolare
+     * l'oggetto interno 'evento'.
+     * <p>
+     * Se non viene trovato alcun evento corrispondente nel database, o se si verifica
+     * un errore durante l'interazione con il database, viene lanciata una DBException
+     * che indica il fallimento.
+     *
+     * @throws DBException se l'evento non viene trovato nel database o se si verifica
+     *                     un errore SQL/di connessione.
+     */
     public void caricaEventoFromBigliettoDaDB() throws DBException{
         String query = "SELECT * FROM eventi WHERE ID = " + this.Evento_id + ";";
         try{
@@ -68,6 +95,17 @@ public class BigliettoDAO{
         }
     }
 
+    /**
+     * Carica i dati dell'utente associato al biglietto corrente dal database.
+     * Questo metodo esegue una query sulla tabella "utenti" utilizzando il campo 'Cliente_id'
+     * dell'oggetto corrente per recuperare i dati utente corrispondenti. Se viene trovato un record,
+     * i dati recuperati vengono utilizzati per popolare un oggetto interno 'utente'.
+     * <p>
+     * Se non viene trovato alcun utente corrispondente nel database, viene lanciata una DBException.
+     *
+     * @throws DBException se l'utente non viene trovato nel database o se si verifica
+     *                     un errore durante l'interazione con il database.
+     */
     public void caricaUtenteDaBigliettoDaDB() throws DBException {
         String query = "SELECT * FROM utenti WHERE ID = " + this.Cliente_id + ";";
         ResultSet rs = null;
@@ -93,6 +131,21 @@ public class BigliettoDAO{
 
     }
 
+    /**
+     * Salva i dati dell'oggetto corrente nel database.
+     *
+     * Questo metodo crea una query SQL di tipo INSERT per inserire un nuovo record
+     * nella tabella "biglietti" utilizzando i valori delle proprietà
+     * 'codice_univoco', 'stato', 'Cliente_id' ed 'Evento_id' dell'oggetto corrente.
+     * In caso di successo, il nuovo biglietto viene persistito nel database.
+     *
+     * Se si verifica una violazione dei vincoli di integrità (ad esempio,
+     * chiavi duplicate o riferimenti non validi), viene lanciata una
+     * DBException con un messaggio dettagliato sull'errore.
+     *
+     * @throws DBException Se si verifica un errore durante l'esecuzione della query
+     *                     o una violazione dei vincoli di integrità.
+     */
     public void SalvaInDB() throws DBException {
         String query = "INSERT INTO biglietti (CodiceUnivoco, stato, Cliente_id, Evento_id) " +
                 "VALUES ('" + this.codice_univoco + "', '" + this.stato + "', '" + this.Cliente_id + "', '" + this.Evento_id + "');";
@@ -106,6 +159,20 @@ public class BigliettoDAO{
     }
 
 
+    /**
+     * Aggiorna lo stato del biglietto corrente nel database.
+     * <p>
+     * Questo metodo genera una query SQL di tipo UPDATE per modificare lo stato del biglietto
+     * nella tabella "biglietti". La query aggiorna il campo "stato" del record
+     * identificato dal campo "CodiceUnivoco" dell'oggetto corrente.
+     * <p>
+     * Se l'aggiornamento ha successo, il record nel database rifletterà il nuovo stato.
+     * In caso di errori durante l'interazione con il database (come errori SQL o di connessione),
+     * il metodo lancia una DBException.
+     *
+     * @throws DBException se si verifica un errore durante l'operazione di aggiornamento o se il biglietto
+     *                     non viene trovato nel database.
+     */
     public void aggiornaInDB() throws DBException {
         String query="UPDATE biglietti SET stato='" + this.stato + "' WHERE CodiceUnivoco ='" + this.codice_univoco + "';";
         try{
@@ -115,6 +182,18 @@ public class BigliettoDAO{
         }
     }
 
+    /**
+     * Elimina un biglietto dal database utilizzando il codice univoco dell'oggetto corrente.
+     *
+     * Questo metodo esegue una query SQL di tipo DELETE sulla tabella "biglietti"
+     * per rimuovere il record associato al valore del campo 'codice_univoco' dell'oggetto corrente.
+     *
+     * Se si verifica un errore durante l'esecuzione della query, come problemi di connessione
+     * al database o errori SQL, viene lanciata una DBException con un messaggio che descrive
+     * l'errore verificatosi.
+     *
+     * @throws DBException se si verifica un errore durante l'eliminazione del biglietto dal database.
+     */
     public void eliminaBigliettoDaDb() throws DBException{
         String query = "DELETE FROM biglietti WHERE CodiceUnivoco= '" + this.codice_univoco + "'";
         try {

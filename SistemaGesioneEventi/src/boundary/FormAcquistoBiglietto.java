@@ -5,6 +5,8 @@ import control.Controller;
 import exceptions.AcquistoException;
 import exceptions.BigliettoNotFoundException;
 import exceptions.EventoNotFoundException;
+import exceptions.RedundancyException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -103,8 +105,7 @@ public class FormAcquistoBiglietto extends JFrame {
         }
 
         ArrayList<String> datiCarta = apriFormDatiCarta();
-        if (datiCarta == null || datiCarta.size() < 3 ||
-                datiCarta.get(0).isEmpty() || datiCarta.get(1).isEmpty() || datiCarta.get(2).isEmpty()) {
+        if (datiCarta.size() < 3 || datiCarta.get(0).isEmpty() || datiCarta.get(1).isEmpty() || datiCarta.get(2).isEmpty()) {
             JOptionPane.showMessageDialog(this, "Dati carta non validi o annullati.", ERRORE, JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -113,7 +114,7 @@ public class FormAcquistoBiglietto extends JFrame {
             Controller.AcquistoBiglietto(dto, emailUtente, datiCarta.get(0), datiCarta.get(1), datiCarta.get(2));
             JOptionPane.showMessageDialog(this, "Biglietto acquistato con successo!", "Successo", JOptionPane.INFORMATION_MESSAGE);
             dispose();
-        } catch (AcquistoException | BigliettoNotFoundException e) {
+        } catch (AcquistoException | BigliettoNotFoundException | RedundancyException e) {
             JOptionPane.showMessageDialog(this, "Errore durante l'acquisto: " + e.getMessage(), ERRORE, JOptionPane.ERROR_MESSAGE);
         }
     }

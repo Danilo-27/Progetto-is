@@ -37,6 +37,7 @@ public class CatalogoEventi extends JFrame {
         scrollPane.setViewportView(eventiPanel);
 
         // --- Chiamata al controller per ottenere gli eventi ---
+        // La verifica degli eventi è già stata fatta nel padre HomeUtenteRegistrato
         List<DTOEvento> eventi = control.Controller.ConsultaCatalogo();
 
         for (DTOEvento evento : eventi) {

@@ -93,7 +93,7 @@ public class Controller {
      * @throws AcquistoException            se il pagamento fallisce o i biglietti per l'evento sono esauriti
      * @throws BigliettoNotFoundException   se il biglietto dell'evento non viene trovato
      */
-    public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws AcquistoException,BigliettoNotFoundException {
+    public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws AcquistoException,BigliettoNotFoundException,RedundancyException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityEvento evento = new EntityEvento(evento_dto.getTitolo());
         if (evento.verificaDisponibilità()) {

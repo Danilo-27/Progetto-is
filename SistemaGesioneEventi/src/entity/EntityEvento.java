@@ -180,7 +180,7 @@ public class EntityEvento {
      * @param cliente l'entità del cliente a cui il biglietto verrà associato
      * @return un'entità EntityBiglietto che rappresenta il biglietto creato
      */
-    public EntityBiglietto creazioneBiglietto(EntityCliente cliente){
+    public EntityBiglietto creazioneBiglietto(EntityCliente cliente) throws RedundancyException{
         String codiceUnivoco = creazioneIDUnivoco();
         EntityBiglietto biglietto = new EntityBiglietto();
         biglietto.setCodice_univoco(codiceUnivoco);

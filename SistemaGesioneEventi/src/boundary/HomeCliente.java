@@ -112,9 +112,19 @@ public class HomeCliente extends HomeUtenteRegistrato {
         storicoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         storicoButton.setMaximumSize(new Dimension(220, 35));
         storicoButton.addActionListener(e -> {
-            FormStoricoBiglietti form = new FormStoricoBiglietti(email, this);
-            form.setVisible(true);
-            this.setVisible(false);
+            FormStoricoBiglietti form = null;
+            try {
+                form = new FormStoricoBiglietti(email, this);
+                form.setVisible(true);
+                this.setVisible(false);
+            } catch (BigliettoNotFoundException _) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Nessun biglietto trovato.",
+                        "Storico Vuoto",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            }
         });
         return storicoButton;
     }

@@ -42,7 +42,17 @@ public class EntityCliente extends EntityUtenteRegistrato{
         }
         for (BigliettoDAO bigliettoDAO : utenteDao.getBiglietti()) {
             EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
-            this.storico_biglietti.add(biglietto);
+            boolean giàPresente;
+            giàPresente = false;
+            for (EntityBiglietto b : storico_biglietti) {
+                if (b.getCodice_univoco().equals(biglietto.getCodice_univoco())) {
+                    giàPresente = true;
+                    break;
+                }
+            }
+            if (!giàPresente) {
+                storico_biglietti.add(biglietto);
+            }
         }
     }
 
