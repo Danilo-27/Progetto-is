@@ -15,11 +15,11 @@ public class FormStoricoBiglietti extends JFrame {
     private final DefaultListModel<DTOBiglietto> bigliettiModel;
     private final JList<DTOBiglietto> listaBiglietti;
 
-    public FormStoricoBiglietti(String emailUtente, JFrame parentFrame) {
+    public FormStoricoBiglietti(String emailUtente, JFrame parentFrame) throws BigliettoNotFoundException {
         setTitle("Storico Biglietti");
         setSize(600, 500);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
 
         // Pannello principale
@@ -49,8 +49,8 @@ public class FormStoricoBiglietti extends JFrame {
 
             if (value != null) {
                 String statoStr = switch (value.getStato()) {
-                    case 0 -> "Non utilizzato";
-                    case 1 -> "Utilizzato";
+                    case 0 -> "VALIDO";
+                    case 1 -> "OBLITERATO";
                     default -> "Sconosciuto";
                 };
 
@@ -93,11 +93,8 @@ public class FormStoricoBiglietti extends JFrame {
         });
         mainPanel.add(tornaIndietroButton, BorderLayout.SOUTH);
 
-        try {
-            caricaStorico(emailUtente);
-        }catch(BigliettoNotFoundException _){
-            JOptionPane.showMessageDialog(this, "Non hai acquistato alcun biglietto." , "Errore", JOptionPane.ERROR_MESSAGE);
-        }
+
+        caricaStorico(emailUtente);
 
         listaBiglietti.addMouseListener(new MouseAdapter() {
             @Override
@@ -106,8 +103,8 @@ public class FormStoricoBiglietti extends JFrame {
                     DTOBiglietto selected = listaBiglietti.getSelectedValue();
                     if (selected != null) {
                         String statoStr = switch (selected.getStato()) {
-                            case 0 -> "Non utilizzato";
-                            case 1 -> "Utilizzato";
+                            case 0 -> "VALIDO";
+                            case 1 -> "OBLITERATO";
                             default -> "Sconosciuto";
                         };
                         String testo = String.format("""
@@ -144,10 +141,14 @@ public class FormStoricoBiglietti extends JFrame {
     }
 
     private void caricaStorico(String emailUtente) throws BigliettoNotFoundException {
-            ArrayList<DTOBiglietto> biglietti = Controller.consultaStoricoBiglietti(emailUtente);
-            bigliettiModel.clear();
-            for (DTOBiglietto biglietto : biglietti) {
-                bigliettiModel.addElement(biglietto);
-            }
+        ArrayList<DTOBiglietto> biglietti = Controller.consultaStoricoBiglietti(emailUtente);
+        if (biglietti.isEmpty()) {
+            throw new BigliettoNotFoundException("Nessun biglietto trovato per l'utente: " + emailUtente);
+        }
+
+        bigliettiModel.clear();
+        for (DTOBiglietto biglietto : biglietti) {
+            bigliettiModel.addElement(biglietto);
+        }
     }
 }
