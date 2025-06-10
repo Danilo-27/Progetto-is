@@ -10,12 +10,13 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{tcolorbox}
 \usepackage{tikz}
+\usepackage[edges]{forest}
+\usepackage{verbatim} % nel preambolo
 \tikzset{every picture/.style={baseline=-0.5ex}}
 % Define colors for name-verb analysis and legend
 % https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX
 \usepackage{soul}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{comment}
 \colorlet{ColorClass}{Cyan}
 \colorlet{ColorAttr}{Green}
 \colorlet{ColorFunc}{Yellow}
@@ -81,6 +82,31 @@
 	}
 }
 
+\forestset{
+    package tree/.style={
+        for tree={
+            font=\ttfamily,
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            edge path={
+                \noexpand\path [draw, \forestoption{edge}]
+                (!u.south west) +(7.5pt,0) |- (.child anchor)\forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                    {insert before={[,phantom]}}
+                    {}
+            },
+            fit=band,
+            before computing xy={l=15pt},
+        }
+    }
+}
+
+
 % \includeonly{chapters/implementazione}
 
 \begin{document}
@@ -94,9 +120,9 @@
     \vfill
     {\huge\bfseries Titolo della Relazione \par}
     \vspace{2cm}
-    {\Large Autore: Paolo Altucci, Francesco Ardolino, Danilo Cioffi\par}
+    {\Large Autore: Nome Cognome \par}
     \vspace{0.5cm}
-    {\Large Matricola: N46007260, N46007168, N46007095\par}
+    {\Large Matricola: 123456 \par}
     \vspace{0.5cm}
     {\Large Anno Accademico: 2024/2025 \par}
     \vfill
@@ -108,11 +134,12 @@
 \end{titlepage}
 
 
-\include{capitoli/SpecificheInformali}
-\include{capitoli/AnalisiSpecificaRequisiti}
+\include{capitoli/capotolo1_specifiche_informali}
+\include{capitoli/Analisi_e_specifica_dei_requisiti}
 \include{capitoli/casid'uso}
 \include{capitoli/Pianoditestfunzionale}
-
+\include{capitoli/progettazione}
+\include{capitoli/implementazione}
 
 
 \end{document}
