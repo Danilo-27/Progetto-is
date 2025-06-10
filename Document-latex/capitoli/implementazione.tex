@@ -1,0 +1,90 @@
+\chapter{Implementazione}
+
+\subsection{Package Boundary}
+\begin{forest}
+package tree
+    [boundary/
+        [BoundaryAutenticazione.java]
+        [BoundaryAutenticazione.form]
+        [BoundaryRegistrazione.java]
+        [BoundaryRegistrazione.form]
+        [CatalogoEventi.java]
+        [CatalogoEventi.form]
+        [FormAcquistoBiglietto.java]
+        [FormAcquistoBiglietto.form]
+        [FormEvento.java]
+        [FormEvento.form]
+        [FormRicercaEvento.java]
+        [FormRicercaEvento.form]
+        [FormStoricoBiglietti.java]
+        [FormStoricoBiglietti.form]
+        [HomeAmministratore.java]
+        [HomeAmministratore.form]
+        [HomeCliente.java]
+        [HomeCliente.form]
+        [HomePage.java]
+        [HomePage.form]
+        [HomeUtenteRegistrato.java]
+        [HomeUtenteRegistrato.form]
+        [Sessione.java]
+    ]
+\end{forest}
+
+\subsection{Package Database}
+\begin{forest}
+package tree
+[database/
+[BigliettoDAO.java]
+[DBConnectionManager.java]
+[EventoDAO.java]
+[UtenteDAO.java]
+]
+\end{forest}
+
+\subsection{Package Entity}
+
+\begin{forest}
+package tree
+[entity/
+[EntityAmministratore.java]
+[EntityBiglietto.java]
+[EntityCatalogo.java]
+[EntityCliente.java]
+[EntityEvento.java]
+[EntityPiattaforma.java]
+[EntitySistemaGestioneAcquisti.java]
+[EntityUtenteRegistrato.java]
+]
+\end{forest}
+
+
+\subsection{Package Exception}
+\begin{forest}
+package tree
+[exceptions/
+[AcquistoException.java]
+[BigliettoConsumatoException.java]
+[BigliettoNotFoundException.java]
+[DBException.java]
+[EventoNotFoundException.java]
+[LoadingException.java]
+[LoginFailedException.java]
+[RedundancyException.java]
+[RegistrationFailedException.java]
+[UniqueCodeException.java]
+[UpdateException.java]
+[UtenteNotFoundException.java]
+[WrongUserTypeException.java]
+]
+\end{forest}
+
+\subsection{Package Dto}
+\begin{forest}
+package tree
+[DTO/
+[DTOBiglietto.java]
+[DTOEvento.java]
+[DTOutente.java]
+]
+\end{forest}
+
