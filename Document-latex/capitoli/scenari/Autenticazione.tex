@@ -5,12 +5,12 @@
 		Attore primario & UtenteRegistrato \\
 		Attore secondario & -- \\
 		Descrizione & Un UtenteRegistrato si autentica presso il Sistema \\
-		Pre-condizioni & L'utente sia registrato \\
+		Pre-condizioni & -- \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
 				\item Il caso d’uso inizia quando l'UtenteRegistrato richiede al Sistema di autenticarsi
-				\item Il Sistema richiede al cliente di inserire le credenziali per l'autenticazione
-				\item Il sistema verifica le credenziali
+				\item Il Sistema richiede all'utente di inserire le credenziali per l'autenticazione
+				\item Il sistema verifica l'esistenza dell'UtenteRegistrato
 				\item Se il controllo ha successo:
 				\begin{enumerate}[label*=\arabic*.]
 				    \item Il sistema consente l'accesso all'UtenteRegistrato
@@ -22,6 +22,6 @@
 			\end{enumerate} \\
 		Post-condizioni & -- \\
 		Casi d'uso correlati & -- \\
-		{Sequenza di eventi \\ alternativa} & - \\
+		{Sequenza di eventi \\ alternativa} & 4.1, 5.1
 	\end{scenery}
 \end{table}
