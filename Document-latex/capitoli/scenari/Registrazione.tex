@@ -5,7 +5,7 @@
 		Attore primario & UtenteNonRegistrato \\
 		Attore secondario & -- \\
 		Descrizione & Un cliente si registra inserendo le proprie credenziali \\
-		Pre-condizioni & L'utente non sia registrato\\
+		Pre-condizioni & -- \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}
 				\item Il caso d’uso inizia quando l’UtenteNonRegistrato richiede al sistema di registrarsi
@@ -16,10 +16,13 @@
 				\begin{enumerate}[label=5.\arabic*]
 					\item Il sistema crea un nuovo UtenteRegistrato
 				\end{enumerate}
-				\item Altrimenti il sistema genera un messaggio di errore
+				\item Altrimenti:
+				\begin{enumerate}[label=5.\arabic*]
+					\item  Il sistema genera un messaggio di errore
+				\end{enumerate}
 			\end{enumerate} \\
-		Post-condizioni &  Il sistema crea un nuovo UtenteRegistrato \\
+		Post-condizioni & -- \\
 		Casi d'uso correlati & -- \\
-		{Sequenza di eventi \\ alternativa} &--
+		{Sequenza di eventi \\ alternativa} & 5.1, 6.1
 	\end{scenery}
 \end{table}

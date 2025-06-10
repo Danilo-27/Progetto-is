@@ -4,14 +4,14 @@
 		Caso d'uso: & Consulta Storico Biglietti \\
 		Attore primario & Utente \\
 		Attore secondario & - \\
-		Descrizione & Un cliente visualizza l'elenco di tutti i biglietti acquistati \\
-		Pre-condizioni & il cliente deve essersi autenticato \\
+		Descrizione & Un utente visualizza l'elenco di tutti i biglietti acquistati in passato \\
+		Pre-condizioni & L’utente deve essersi autenticato \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
-				\item il caso d'uso inizia quando il cliente richiede di visualizzare il proprio storico dei biglietti
+				\item L’utente richiede di visualizzare il proprio storico dei biglietti
 				\item Per ogni biglietto disponibile:
 				\begin{enumerate}[label*=\arabic*.]
-				    \item Il sistema mostra informazioni sul biglietto e sull'evento associato
+				    \item Il sistema mostra il titolo dell'evento e orario
 				\end{enumerate}
 				\item Se non sono disponibili biglietti:
 				\begin{enumerate}[label*=\arabic*.]
@@ -19,7 +19,7 @@
 				\end{enumerate}
 			\end{enumerate} \\
 		Post-condizioni & - \\
-		Casi d'uso correlati & UC12 \\
+		Casi d'uso correlati & UC10, UC11 \\
 		{Sequenza di eventi \\ alternativa} & 2.1, 3.1 \\
 	\end{scenery}
 \end{table}

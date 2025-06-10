@@ -10,16 +10,16 @@
     rowhead = 1,
   }
   \textbf{ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
-  1 & Tutti gli input validi & Email, Password validi & -- &
+  1 & Tutti gli input validi & Email, Password validi & L'utente deve essere registrato &
   Email: marco bianchi@ gmail.com, Password: miapwd£ &
   Autenticazione effettuata & L'cliente è entrato correttamente nel sistema\\
-  2 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]}, Password & -- &
+  2 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]}, Password & L'utente deve essere registrato &
   Email molto lunga (>50 char), Password: miapwd£ &
   Email troppo lunga & -- \\
-  3 & Email senza caratteri & Email con 0 caratteri \texttt{[ERROR]}, Password & -- &
+  3 & Email senza caratteri & Email con 0 caratteri \texttt{[ERROR]}, Password & L'utente deve essere registrato &
   Email: "", Password: miapwd£ &
   Inserire un indirizzo Email & -- \\
-  4 & Email non memorizzata & Email non presente nel DB \texttt{[ERROR]}, Password & -- &
+  4 & Email non memorizzata & Email non presente nel sistema \texttt{[ERROR]}, Password & -- &
   Email: mario rosssi@ gmail.com, Password: miaPWD£ &
   Account non registrato & -- \\
   5 & Password $>$ 40 caratteri & Email, Password $>$ 40 caratteri \texttt{[ERROR]} & -- &
