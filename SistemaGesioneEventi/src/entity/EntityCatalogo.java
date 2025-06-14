@@ -47,7 +47,7 @@ public class EntityCatalogo {
             for (EventoDAO evento : EventoDAO.getEventi()) {
                 eventi.add(new EntityEvento(evento));
             }
-        }catch(DBException _){
+        }catch(DBException e){
             throw new LoadingException("Errore nel caricamento degli eventi");
         }
 

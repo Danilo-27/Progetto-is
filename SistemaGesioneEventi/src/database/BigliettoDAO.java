@@ -9,17 +9,88 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * Classe BigliettoDAO.
+ *
+ * Questa classe rappresenta il Data Access Object (DAO) per la gestione
+ * dei dati relativi ai biglietti all'interno di un'applicazione. Fornisce
+ * metodi per effettuare operazioni CRUD (Create, Read, Update, Delete) sui
+ * biglietti memorizzati nel database, come il caricamento dei dati di un
+ * biglietto, l'associazione degli eventi e degli utenti ad esso correlati,
+ * e la gestione dello stato del biglietto.
+ *
+ * La classe utilizza il campo 'codice_univoco' come identificatore univoco
+ * per accedere ai dati dei biglietti. Inoltre, include riferimenti ad altre
+ * entità del modello (come EventoDAO e UtenteDAO) per rappresentare le
+ * associazioni relazionali contenute nel database.
+ *
+ * Responsabilità principali:
+ * - Caricare dati del biglietto dal database.
+ * - Associare eventi e clienti al biglietto.
+ * - Salvare e aggiornare i dati del biglietto nel database.
+ * - Gestire errori relativi al database tramite eccezioni personalizzate.
+ */
 public class BigliettoDAO{
 
+    /**
+     * Rappresenta un codice univoco associato a un biglietto.
+     * Questo campo è utilizzato per identificare in modo univoco
+     * un biglietto all'interno del sistema e del database.
+     */
     private String codice_univoco;
+    /**
+     * Rappresenta lo stato del biglietto all'interno del sistema.
+     * Può indicare, ad esempio, se il biglietto è valido, scaduto o cancellato,
+     * utilizzando valori numerici definiti nel contesto applicativo.
+     */
     private int stato;
+    /**
+     * Identificativo univoco del cliente associato al biglietto.
+     * Questo campo rappresenta una chiave esterna che collega il biglietto
+     * al cliente nella tabella "utenti" del database.
+     */
     private int Cliente_id;
+    /**
+     * Identificativo univoco dell'evento associato al biglietto.
+     * Viene utilizzato per collegare un biglietto a un evento specifico
+     * all'interno del sistema e per eseguire operazioni di recupero o associazione
+     * dei dati relativi al suddetto evento.
+     */
     private int Evento_id;
+    /**
+     * Rappresenta il riferimento all'oggetto di tipo EventoDAO associato al biglietto corrente.
+     * Questo attributo viene utilizzato per gestire e accedere ai dati dell'evento
+     * associato tramite operazioni di caricamento e manipolazione nel database.
+     */
     private EventoDAO evento;
+    /**
+     * Rappresenta un oggetto di tipo UtenteDAO associato al biglietto corrente.
+     * Questo campo viene utilizzato per gestire i dati dell'utente relativo
+     * al biglietto, come il recupero o l'aggiornamento delle informazioni
+     * dell'utente nel database.
+     */
     private UtenteDAO utente;
 
+    /**
+     * Classe Data Access Object (DAO) per la gestione dei dati relativi ai biglietti.
+     * Fornisce metodi per interagire con la tabella "biglietti" del database,
+     * permettendo operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD)
+     * dei record associati ai biglietti.
+     * La classe include metodi specifici per il caricamento di informazioni aggiuntive,
+     * come dati relativi ai clienti e agli eventi collegati al biglietto.
+     */
     public BigliettoDAO() {}
 
+    /**
+     * Costruttore della classe BigliettoDAO che carica un biglietto dal database
+     * utilizzando il codice univoco fornito. Questo metodo inizializza
+     * l'oggetto BigliettoDAO e carica le informazioni correlate, come l'evento
+     * e l'utente associati al biglietto.
+     *
+     * @param codice_univoco Il codice univoco del biglietto da caricare dal database.
+     * @throws DBException Se si verifica un errore durante l'accesso al database
+     *                     o se il biglietto non viene trovato.
+     */
     //carico un biglietto dato il codice (usato in entityEvento)
     public BigliettoDAO(String codice_univoco) throws DBException{
         this.codice_univoco = codice_univoco;
@@ -52,7 +123,7 @@ public class BigliettoDAO{
             } else {
                 throw new SQLException();
             }
-        }catch (SQLException |ClassNotFoundException _){
+        }catch (SQLException |ClassNotFoundException e){
             throw new DBException("Bigleitto non trovato");
         }
     }
@@ -90,7 +161,7 @@ public class BigliettoDAO{
             } else {
                 throw new SQLException();
             }
-        }catch(SQLException | ClassNotFoundException _){
+        }catch(SQLException | ClassNotFoundException e){
             throw new DBException("Evento non trovato");
         }
     }
@@ -113,15 +184,15 @@ public class BigliettoDAO{
             rs = DBConnectionManager.selectQuery(query);
 
             if (rs.next()) {
-                UtenteDAO utente = new UtenteDAO();
-                utente.setId(this.Cliente_id);
-                utente.setEmail(rs.getString("email"));
-                utente.setPassword(rs.getString("PASSWORD"));
-                utente.setNome(rs.getString("nome"));
-                utente.setCognome(rs.getString("cognome"));
-                utente.setImmagine(rs.getString("immagineProfilo"));
-                utente.setRuolo(rs.getInt("Tipo"));
-                this.utente = utente;
+                UtenteDAO user = new UtenteDAO();
+                user.setId(this.Cliente_id);
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("PASSWORD"));
+                user.setNome(rs.getString("nome"));
+                user.setCognome(rs.getString("cognome"));
+                user.setImmagine(rs.getString("immagineProfilo"));
+                user.setRuolo(rs.getInt("Tipo"));
+                this.utente = user;
             } else {
                 throw new SQLException();
             }
@@ -198,46 +269,106 @@ public class BigliettoDAO{
         String query = "DELETE FROM biglietti WHERE CodiceUnivoco= '" + this.codice_univoco + "'";
         try {
             DBConnectionManager.updateQuery(query);
-        } catch (SQLException | ClassNotFoundException _) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new DBException("Errore durante l'eliminazione del biglietto dal DB.");
         }
     }
 
+    /**
+     * Restituisce il valore del codice univoco associato al biglietto corrente.
+     *
+     * @return Il codice univoco del biglietto come stringa.
+     */
     public String getCodice_univoco() {
         return codice_univoco;
     }
 
+    /**
+     * Imposta il codice univoco del biglietto.
+     * Il codice univoco identifica in modo univoco un biglietto all'interno del sistema.
+     *
+     * @param codice_univoco Il codice univoco da associare al biglietto.
+     */
     public void setCodice_univoco(String codice_univoco) {
         this.codice_univoco = codice_univoco;
     }
 
+    /**
+     * Restituisce lo stato del biglietto associato all'oggetto corrente.
+     * Lo stato rappresenta un valore numerico che indica la condizione o il livello
+     * di progressione del biglietto, ad esempio se è attivo, scaduto, utilizzato, ecc.
+     *
+     * @return Un intero che rappresenta lo stato del biglietto.
+     */
     public int getStato() {
         return stato;
     }
 
+    /**
+     * Imposta il valore del campo "stato" per il biglietto corrente.
+     * Questo metodo consente di aggiornare lo stato interno del biglietto,
+     * che potrebbe rappresentare informazioni come la validità o il progresso
+     * di utilizzo del biglietto.
+     *
+     * @param stato Il nuovo valore dello stato da assegnare al biglietto.
+     */
     public void setStato(int stato) {
         this.stato = stato;
     }
 
-    public int getCliente_id() {
+    /**
+     * Restituisce l'identificativo del cliente associato al biglietto.
+     *
+     * @return l'ID del cliente associato al biglietto.
+     */
+    public int getClienteId() {
         return Cliente_id;
     }
 
-    public void setCliente_id(int cliente_id) {
-        this.Cliente_id = cliente_id;
+    /**
+     * Imposta l'ID del cliente associato al biglietto.
+     *
+     * @param clienteId L'identificativo univoco del cliente da associare al biglietto.
+     */
+    public void setClienteId(int clienteId) {
+        this.Cliente_id = clienteId;
     }
 
-    public int getEvento_id() {
+    /**
+     * Restituisce l'ID dell'evento associato al biglietto.
+     *
+     * @return un intero che rappresenta l'ID dell'evento associato al biglietto.
+     */
+    public int getEventoId() {
         return Evento_id;
     }
 
-    public void setEvento_id(int evento_id) {
-        this.Evento_id = evento_id;
+    /**
+     * Imposta l'ID dell'evento associato al biglietto corrente.
+     *
+     * @param eventoId L'ID dell'evento da assegnare al biglietto.
+     */
+    public void setEventoId(int eventoId) {
+        this.Evento_id = eventoId;
     }
 
+    /**
+     * Restituisce l'oggetto EventoDAO associato al biglietto corrente.
+     * Questo oggetto rappresenta i dati dell'evento collegato
+     * al biglietto e può includere informazioni come il nome, la data
+     * e la location dell'evento.
+     *
+     * @return l'oggetto EventoDAO associato al biglietto. Se l'evento
+     *         non è stato caricato, potrebbe restituire null.
+     */
     public EventoDAO getEvento() {
         return evento;
     }
 
+    /**
+     * Restituisce l'oggetto UtenteDAO associato al biglietto corrente.
+     *
+     * @return l'istanza di UtenteDAO che rappresenta l'utente collegato al biglietto.
+     */
     public UtenteDAO getUtente() {return utente;}
 }

@@ -7,7 +7,7 @@ package entity;
  */
 // Stub semplice per sistema di pagamento
 public class SistemaGestioneAcquisti {
-
+    
     /**
      * Verifica la correttezza dei dati forniti per un pagamento,
      * confrontandoli con valori predefiniti validi.
@@ -25,12 +25,9 @@ public class SistemaGestioneAcquisti {
         String cognomeCorretto = cognomeTitolare;
 
         // Controlla se tutti i dati corrispondono a quelli validi
-        if (numeroCorretto.equals(numeroCarta) &&
-                nomeCorretto.equals(nomeTitolare) &&
-                cognomeCorretto.equals(cognomeTitolare)) {
-            return true;
-        }
 
-        return false;
+        return numeroCorretto.equals(numeroCarta) &&
+                nomeCorretto.equals(nomeTitolare) &&
+                cognomeCorretto.equals(cognomeTitolare);
     }
 }

@@ -136,7 +136,7 @@ public class EntityEvento {
         this.biglietti = new ArrayList<>();
         try {
             evento.caricaBigliettiEventiDaDB();
-        } catch (DBException _) {
+        } catch (DBException e) {
             throw new BigliettoNotFoundException("Biglietto non trovato.");
         }
         this.caricaBiglietti(evento);
@@ -183,7 +183,7 @@ public class EntityEvento {
         evento.setAmministratoreId(amministratore.getId());
         try {
             evento.SalvaInDB();
-        } catch (DBException _) {
+        } catch (DBException e) {
             throw new RedundancyException("Evento già creato");
         }
     }
@@ -203,7 +203,7 @@ public class EntityEvento {
         dao.setPartecipanti(this.partecipanti);
         try{
             dao.AggiornaInDB();
-        }catch(DBException _){
+        }catch(DBException e){
             throw new UpdateException("Errore nell'aggiornamento");
         }
 
@@ -307,7 +307,7 @@ public class EntityEvento {
         EventoDAO eventoDAO = new EventoDAO(this.titolo);
         try {
             eventoDAO.caricaBigliettiEventiDaDB();
-        } catch (DBException _) {
+        } catch (DBException e) {
             throw new BigliettoNotFoundException("Biglietti non presenti nel DB.");
         }
         this.caricaBiglietti(eventoDAO);

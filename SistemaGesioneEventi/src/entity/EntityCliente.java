@@ -23,7 +23,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
      * Contiene una lista di oggetti {@code EntityBiglietto} che rappresentano
      * i biglietti acquistati o assegnati all'utente.
      */
-    private ArrayList<EntityBiglietto> storico_biglietti;
+    private ArrayList<EntityBiglietto> storicoBiglietti;
 
     /**
      * Rappresenta un'entità che modella un cliente registrato nel sistema con
@@ -46,7 +46,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
         this.email = utente.getEmail();
         this.password = utente.getPassword();
         this.immagineProfilo =utente.getImmagine();
-        this.storico_biglietti = new ArrayList<>();
+        this.storicoBiglietti = new ArrayList<>();
     }
 
 
@@ -69,22 +69,30 @@ public class EntityCliente extends EntityUtenteRegistrato{
         for (BigliettoDAO bigliettoDAO : utenteDao.getBiglietti()) {
             EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
             boolean presente = false;
-            for (EntityBiglietto b : storico_biglietti) {
+            for (EntityBiglietto b : storicoBiglietti) {
                 if (b.getCodice_univoco().equals(biglietto.getCodice_univoco())) {
                     presente = true;
                     break;
                 }
             }
             if (!presente) {
-                storico_biglietti.add(biglietto);
+                storicoBiglietti.add(biglietto);
             }
         }
     }
 
-    //commentare
 
+
+    /**
+     * Verifica se l'entità cliente possiede un biglietto per un determinato evento.
+     * Scorre lo storico dei biglietti del cliente per determinare se esiste un biglietto
+     * associato all'evento fornito.
+     *
+     * @param evento l'oggetto {@code EntityEvento} per il quale si vuole verificare la presenza di un biglietto.
+     * @return {@code true} se il cliente possiede un biglietto per l'evento specificato, {@code false} altrimenti.
+     */
     public boolean haBigliettoPerEvento(EntityEvento evento){
-        for(EntityBiglietto biglietto:storico_biglietti){
+        for(EntityBiglietto biglietto:storicoBiglietti){
             if(biglietto.getEvento().getId() == evento.getId()){
                 return true;
             }
@@ -117,7 +125,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
      * @return una lista di oggetti {@code EntityBiglietto} che rappresenta lo storico dei biglietti del cliente.
      */
     public ArrayList<EntityBiglietto> getBiglietti() {
-        return storico_biglietti;
+        return storicoBiglietti;
     }
 
     /**
@@ -128,6 +136,6 @@ public class EntityCliente extends EntityUtenteRegistrato{
      * @param biglietti la nuova lista di oggetti {@code EntityBiglietto} da associare al cliente.
      */
     public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
-        this.storico_biglietti = biglietti;
+        this.storicoBiglietti = biglietti;
     }
 }

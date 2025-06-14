@@ -43,12 +43,13 @@ public class EntityUtenteRegistrato {
      */
     public EntityUtenteRegistrato(){}
 
-    /***
-     * 
-     * @param nome Il nome dell'utente Registrato 
-     * @param cognome Il cognome dell'utente registrato
-     * @param email La email dell'utente registrato
-     * @param password La password dell'utente registrato
+    /**
+     * Costruisce un'istanza dell'entità EntityUtenteRegistrato con i dettagli forniti.
+     *
+     * @param nome Il nome dell'utente registrato.
+     * @param cognome Il cognome dell'utente registrato.
+     * @param email L'indirizzo email dell'utente registrato.
+     * @param password La password associata all'utente registrato.
      */
     public EntityUtenteRegistrato(String nome, String cognome, String email, String password) {
         this.nome = nome;
@@ -74,7 +75,7 @@ public class EntityUtenteRegistrato {
         u.setPassword(this.password);
         try {
             u.SalvaInDB();
-        } catch (DBException _) {
+        } catch (DBException e) {
             throw new RedundancyException("Utente già registrato.");
         }
     }
@@ -83,11 +84,11 @@ public class EntityUtenteRegistrato {
     /**
      * Verifica se la password fornita corrisponde a quella associata all'utente registrato.
      *
-     * @param Password La password da confrontare con quella registrata.
+     * @param password La password da confrontare con quella registrata.
      * @return true se la password fornita corrisponde a quella registrata, false altrimenti.
      */
-    public boolean verificaCredenziali(String Password){
-        return this.password.equals(Password);
+    public boolean verificaCredenziali(String password){
+        return this.password.equals(password);
     }
 
 

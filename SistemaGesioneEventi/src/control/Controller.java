@@ -12,18 +12,35 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+/**
+ * La classe Controller rappresenta il livello di interazione tra
+ * l'utente e lo strato logico dell'applicazione. Fornisce metodi statici
+ * per la gestione delle operazioni della piattaforma, come registrazione,
+ * autenticazione, gestione degli eventi e acquisto di biglietti.
+ * Delegando le operazioni principali a specifiche entità, la classe
+ * facilita il coordinamento tra gli strati logici e gestisce le eccezioni
+ * per assicurare un'esperienza utente fluida.
+ */
 public class Controller {
 
+    /**
+     * Costruttore privato della classe Controller.
+     *
+     * Questo costruttore privato impedisce l'istanziazione diretta della classe,
+     * garantendo che i metodi statici siano l'unico modo per accedere alle funzionalità offerte.
+     */
     private Controller(){}
     
     /**
-     * Gestisce la registrazione di un nuovo utente delegando l'operazione all'entità piattaforma.
+     * Metodo che permette la registrazione di un nuovo utente sulla piattaforma.
+     * Viene inoltrata una richiesta ad un'entità di gestione interna per completare il processo.
      *
-     * @param password la password scelta dall'utente
-     * @param nome     il nome dell'utente
-     * @param cognome  il cognome dell'utente
-     * @param email    l'indirizzo email dell'utente
-     * @throws RegistrationFailedException se il processo di registrazione fallisce
+     * @param password Password scelta dall'utente per il proprio account.
+     * @param nome Nome dell'utente da registrare.
+     * @param cognome Cognome dell'utente da registrare.
+     * @param email Email dell'utente, utilizzata anche come identificativo univoco.
+     * @throws RegistrationFailedException Eccezione lanciata se si verifica un errore
+     *         durante il processo di registrazione, ad esempio se l'email è già presente nel sistema.
      */
     
     public static  void registrazione(String password, String nome, String cognome,String email) throws RegistrationFailedException {
@@ -32,12 +49,15 @@ public class Controller {
     }
 
     /**
-     * Effettua l'autenticazione di un utente delegando l'operazione all'entità piattaforma.
+     * Esegue l'autenticazione di un utente sulla piattaforma utilizzando l'email e la password forniti.
+     * Se l'autenticazione ha successo, restituisce un oggetto {@code DTOUtente} con i dettagli dell'utente autenticato.
+     * In caso contrario, genera un'eccezione {@code LoginFailedException}.
      *
-     * @param email    l'indirizzo email fornito dall'utente per l'autenticazione
-     * @param password la password fornita dall'utente per l'autenticazione
-     * @return un oggetto DTOUtente contenente le informazioni relative all'utente autenticato
-     * @throws LoginFailedException se l'autenticazione fallisce
+     * @param email L'indirizzo email dell'utente che desidera autenticarsi.
+     * @param password La password associata all'account utente.
+     * @return Un oggetto {@code DTOUtente} contenente i dati dell'utente autenticato.
+     * @throws LoginFailedException Se l'autenticazione fallisce a causa di credenziali errate
+     *                              o di problemi legati all'accesso.
      */
     public static DTOUtente Autenticazione(String email, String password) throws LoginFailedException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
@@ -45,10 +65,10 @@ public class Controller {
     }
 
     /**
-     * Recupera il catalogo degli eventi dallo strato entity, converte gli oggetti entity
-     * in oggetti DTOEvento e restituisce una lista di questi oggetti DTOEvento.
+     * Consulta il catalogo degli eventi disponibili e restituisce una lista di Data Transfer Object (DTO) degli eventi.
+     * Ogni DTO contiene le informazioni principali dell'evento, rendendole facilmente accessibili e trasferibili.
      *
-     * @return una lista di oggetti DTOEvento che rappresentano gli eventi nel catalogo
+     * @return una lista di oggetti {@code DTOEvento} che rappresentano gli eventi disponibili nel catalogo.
      */
     public static List<DTOEvento>ConsultaCatalogo() {
         List<DTOEvento> eventiDTO = new ArrayList<>();
@@ -62,14 +82,15 @@ public class Controller {
     }
 
     /**
-     * Cerca eventi nel catalogo in base ai parametri specificati e restituisce una lista di eventi corrispondenti.
+     * Metodo che permette di cercare eventi all'interno del catalogo in base ai parametri specificati.
+     * Restituisce una lista di oggetti DTOEvento corrispondenti agli eventi trovati.
      *
-     * @param titolo il titolo dell'evento da cercare
-     * @param data la data dell'evento da cercare 
-     * @param luogo il luogo dell'evento da cercare
-     * @return una lista di DTOEvento che rappresentano gli eventi che corrispondono ai criteri di ricerca
-     * @throws EventoNotFoundException se non vengono trovati eventi con i criteri specificati
-         */
+     * @param titolo Il titolo dell'evento da cercare. Può essere parziale o completo.
+     * @param data La data dell'evento da cercare. Può essere null per ignorare il filtro sulla data.
+     * @param luogo Il luogo dell'evento da cercare. Può essere parziale o completo.
+     * @return Una lista di oggetti DTOEvento che rappresentano gli eventi trovati.
+     * @throws EventoNotFoundException Se nessun evento corrisponde ai criteri di ricerca specificati.
+     */
     public static List<DTOEvento> RicercaEvento(String titolo, LocalDate data, String luogo) throws EventoNotFoundException {
         List<DTOEvento> eventiDTO = new ArrayList<>();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
@@ -83,15 +104,18 @@ public class Controller {
     }
 
     /**
-     * Permette di acquistare un biglietto per un determinato evento se disponibile.
+     * Gestisce l'acquisto di un biglietto per un evento specifico da parte di un cliente.
+     * Verifica la disponibilità dei biglietti, il pagamento e assicura che il cliente
+     * non abbia già acquistato un biglietto per lo stesso evento.
      *
-     * @param evento_dto       un oggetto DTOEvento che rappresenta l'evento per il quale effettuare l'acquisto
-     * @param email            l'indirizzo email dell'utente che effettua l'acquisto
-     * @param NumeroCarta      il numero della carta di pagamento utilizzata per l'acquisto
-     * @param NomeTitolare     il nome del titolare della carta di pagamento
-     * @param CognomeTitolare  il cognome del titolare della carta di pagamento
-     * @throws AcquistoException            se il pagamento fallisce o i biglietti per l'evento sono esauriti
-     * @throws BigliettoNotFoundException   se il biglietto dell'evento non viene trovato
+     * @param evento_dto rappresenta l'evento per il quale si desidera acquistare il biglietto.
+     * @param email l'indirizzo email dell'utente che effettua l'acquisto.
+     * @param NumeroCarta il numero della carta di pagamento usata per l'acquisto.
+     * @param NomeTitolare il nome del titolare della carta di pagamento.
+     * @param CognomeTitolare il cognome del titolare della carta di pagamento.
+     * @throws AcquistoException se il pagamento non viene elaborato correttamente o i biglietti sono esauriti.
+     * @throws BigliettoNotFoundException se l'evento non viene trovato nel catalogo.
+     * @throws RedundancyException se l'utente ha già acquistato un biglietto per lo stesso evento.
      */
     public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws AcquistoException,BigliettoNotFoundException,RedundancyException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
@@ -116,14 +140,13 @@ public class Controller {
     }
 
     /**
-     * Consente a un partecipante di partecipare a un evento verificando il codice univoco del biglietto
-     * associato e aggiornando il numero di partecipanti all'evento. Solleva eccezioni in caso di
-     * problemi durante la validazione del biglietto o di errori nel database.
+     * Permette a un utente di partecipare a un evento specificato tramite un codice univoco
+     * associato al biglietto e i dettagli dell'evento.
      *
-     * @param codiceUnivoco   il codice univoco del biglietto da validare
-     * @param dtoEvento       un oggetto DTOEvento contenente le informazioni sull'evento
-     * @throws BigliettoConsumatoException  se il biglietto è già stato utilizzato
-     * @throws BigliettoNotFoundException   se il biglietto non viene trovato
+     * @param codiceUnivoco Il codice univoco del biglietto da convalidare per partecipare all'evento.
+     * @param dtoEvento I dettagli dell'evento a cui l'utente desidera partecipare.
+     * @throws BigliettoConsumatoException Se il biglietto è già stato utilizzato in precedenza.
+     * @throws BigliettoNotFoundException Se il biglietto con il codice univoco specificato non esiste.
      */
     public static void partecipaEvento(String codiceUnivoco,DTOEvento dtoEvento) throws BigliettoConsumatoException, BigliettoNotFoundException {
         EntityEvento evento= new EntityEvento(dtoEvento.getTitolo());
@@ -137,16 +160,22 @@ public class Controller {
     }
 
     /**
-     * Pubblica un nuovo evento sulla piattaforma associandolo all'amministratore specificato.
+     * Questo metodo consente di creare un nuovo evento e aggiungerlo al catalogo di eventi
+     * della piattaforma. L'amministratore identificato dall'email fornita è responsabile
+     * della creazione dell'evento.
      *
-     * @param Titolo              il titolo dell'evento da pubblicare
-     * @param Descrizione         la descrizione dell'evento
-     * @param Data                la data in cui si terrà l'evento
-     * @param Ora                 l'orario in cui si terrà l'evento
-     * @param Luogo               il luogo dove si svolgerà l'evento
-     * @param Costo               il costo per partecipare all'evento
-     * @param Capienza            la capienza massima di partecipanti all'evento
-     * @param emailAmministratore l'indirizzo email dell'amministratore che pubblica l'evento
+     * @param Titolo il titolo dell'evento da creare.
+     * @param Descrizione una descrizione dettagliata dell'evento.
+     * @param Data la data in cui si svolgerà l'evento.
+     * @param Ora l'ora in cui inizierà l'evento.
+     * @param Luogo il luogo in cui si svolgerà l'evento.
+     * @param Costo il costo del biglietto per partecipare all'evento.
+     * @param Capienza la capienza massima di partecipanti consentiti per l'evento.
+     * @param emailAmministratore l'email dell'amministratore che crea l'evento.
+     *
+     * @throws RedundancyException se l'evento esiste già nel catalogo.
+     * @throws LoadingException se si verifica un errore durante il processo di creazione
+     *                          o di aggiunta dell'evento al catalogo.
      */
     public static void creaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza, String emailAmministratore) throws RedundancyException,LoadingException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
@@ -157,15 +186,17 @@ public class Controller {
     }
 
     /**
-     * Consulta gli eventi pubblicati da un amministratore e restituisce la lista degli eventi
-     * con le relative informazioni sui biglietti venduti e partecipanti.
+     * Recupera tutti gli eventi pubblicati da un amministratore identificato dall'indirizzo email fornito.
+     * Per ogni evento pubblicato, vengono incluse informazioni come i biglietti venduti e, se applicabile,
+     * il numero di partecipanti e l'elenco dei partecipanti sotto forma di DTO.
      *
-     * @param email l'indirizzo email dell'amministratore di cui si vogliono consultare gli eventi pubblicati
-     * @return una mappa contenente per ogni DTOEvento un oggetto con le informazioni sui biglietti venduti
-     * e, se l'evento è in corso o passato, il numero di partecipanti e la lista dei partecipanti
-     * @throws BigliettoNotFoundException se si verifica un errore durante il recupero dei biglietti associati agli eventi
+     * @param email L'indirizzo email dell'amministratore di cui recuperare gli eventi pubblicati.
+     * @return Una mappa in cui la chiave è un oggetto DTOEvento che rappresenta un evento, e il valore è
+     *         un oggetto che contiene informazioni aggiuntive sull'evento (es. numero di biglietti venduti,
+     *         numero di partecipanti, lista dei partecipanti).
+     * @throws BigliettoNotFoundException Eccezione sollevata se non sono disponibili informazioni sui biglietti relativi agli eventi.
      */
-    public static Map<DTOEvento, Object> ConsultaEventiPubblicati(String email)  throws BigliettoNotFoundException {
+    public static Map<DTOEvento, Object> consultaEventiPubblicati(String email)  throws BigliettoNotFoundException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         Map<DTOEvento, Object> eventoPartecipantiMap = new HashMap<>();
         LocalDate oggi = LocalDate.now();
@@ -194,13 +225,13 @@ public class Controller {
     }
 
     /**
-     * Recupera lo storico biglietti per uno specifico utente basato sulla sua email.
-     * Questo metodo cerca l'utente tramite email, carica i suoi biglietti,
-     * e converte i dati dei biglietti in una lista di oggetti DTOBiglietto.
+     * Consulta lo storico dei biglietti acquistati da un utente identificato tramite la sua email.
+     * I dati vengono recuperati per ogni biglietto associato al cliente e trasformati in oggetti
+     * di tipo DTOBiglietto per una facile gestione e trasferimento.
      *
-     * @param emailUtente l'email dell'utente di cui si richiede lo storico biglietti
-     * @return una lista di DTOBiglietto che rappresenta lo storico biglietti dell'utente
-     * @throws BigliettoNotFoundException se non vengono trovati biglietti per l'utente
+     * @param emailUtente l'email dell'utente per il quale si desidera consultare lo storico dei biglietti
+     * @return una lista di oggetti DTOBiglietto rappresentanti i biglietti acquistati dall'utente
+     * @throws BigliettoNotFoundException se non vengono trovati biglietti associati all'utente
      */
 
     public static ArrayList<DTOBiglietto> consultaStoricoBiglietti(String emailUtente) throws BigliettoNotFoundException {

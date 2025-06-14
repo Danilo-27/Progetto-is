@@ -88,8 +88,8 @@ public class EntityBiglietto {
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         this.codiceUnivoco=biglietto.getCodice_univoco();
         this.stato=biglietto.getStato();
-        this.evento=catalogo.cercaEventoPerId(biglietto.getEvento_id());
-        this.cliente =piattaforma.cercaClientePerId(biglietto.getCliente_id());
+        this.evento=catalogo.cercaEventoPerId(biglietto.getEventoId());
+        this.cliente =piattaforma.cercaClientePerId(biglietto.getClienteId());
     }
 
     /**
@@ -104,11 +104,11 @@ public class EntityBiglietto {
         BigliettoDAO b = new BigliettoDAO();
         b.setStato(this.stato);
         b.setCodice_univoco(this.codiceUnivoco);
-        b.setEvento_id(this.evento.getId());
-        b.setCliente_id(this.cliente.getId());
+        b.setEventoId(this.evento.getId());
+        b.setClienteId(this.cliente.getId());
         try {
             b.SalvaInDB();
-        } catch (DBException _) {
+        } catch (DBException e) {
             throw new RedundancyException("Biglietto già creato.");
         }
     }
@@ -130,7 +130,7 @@ public class EntityBiglietto {
             dao.setCodice_univoco(this.codiceUnivoco);
             try{
                 dao.aggiornaInDB();
-            }catch(DBException _){
+            }catch(DBException e){
                 throw new UpdateException("Errore di aggiornamento del biglietto");
             }
         }

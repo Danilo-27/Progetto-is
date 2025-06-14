@@ -81,7 +81,7 @@ public class EntityPiattaforma {
                     throw new WrongUserTypeException("Utente non autorizzato");
                 }else utenti.add(utenteRegistrato);
             }
-        } catch (DBException _) {
+        } catch (DBException e) {
             throw new UtenteNotFoundException("Utente non trovato");
         }
     }

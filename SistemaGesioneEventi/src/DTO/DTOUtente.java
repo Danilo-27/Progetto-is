@@ -61,47 +61,106 @@ public class DTOUtente {
     }
 
 
+    /**
+     * Costruttore della classe DTOUtente che consente di creare un'istanza
+     * con i campi nome e cognome inizializzati.
+     *
+     * @param nome Il nome dell'utente.
+     * @param cognome Il cognome dell'utente.
+     */
     public DTOUtente(String nome, String cognome) {
         this.nome=nome;
         this.cognome=cognome;
     }
 
+    /**
+     * Restituisce il nome associato all'istanza corrente.
+     *
+     * @return il nome come stringa.
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Imposta il valore del nome dell'utente.
+     *
+     * @param nome Il nome da assegnare all'utente.
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * Restituisce il cognome dell'utente.
+     *
+     * @return Il cognome dell'utente come stringa.
+     */
     public String getCognome() {
         return cognome;
     }
 
+    /**
+     * Imposta il cognome dell'utente.
+     *
+     * @param cognome Il cognome da assegnare all'utente.
+     */
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
 
+    /**
+     * Restituisce l'indirizzo email associato all'utente.
+     *
+     * @return L'indirizzo email dell'utente.
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Imposta l'indirizzo email associato all'utente.
+     *
+     * @param email L'indirizzo email da assegnare all'utente.
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Restituisce il valore dell'attributo immagine, che rappresenta il percorso
+     * o l'URL dell'immagine associata all'utente.
+     *
+     * @return Una stringa contenente il percorso o l'URL dell'immagine associata all'utente.
+     */
     public String getImmagine() {
         return immagine;
     }
 
+    /**
+     * Imposta il valore dell'attributo immagine per il DTOUtente.
+     *
+     * @param immagine Il percorso o l'URL dell'immagine associata all'utente.
+     */
     public void setImmagine(String immagine) {
         this.immagine = immagine;
     }
 
+    /**
+     * Restituisce il tipo dell'utente.
+     *
+     * @return Il tipo di utente, rappresentato come un valore intero.
+     */
     public int getTipoUtente() {
         return tipoUtente;
     }
 
+    /**
+     * Imposta il tipo dell'utente specificando un valore numerico.
+     *
+     * @param tipoUtente Valore intero che rappresenta il tipo di utente. Può essere usato
+     *                   per distinguere diverse categorie o ruoli dell'utente.
+     */
     public void setTipoUtente(int tipoUtente) {
         this.tipoUtente = tipoUtente;
     }

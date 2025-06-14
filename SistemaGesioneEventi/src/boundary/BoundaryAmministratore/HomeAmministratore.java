@@ -73,7 +73,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
 
     private void  caricaEventiPubblicati(String email) {
         try {
-            Map<DTOEvento, Object> eventiPubblicati = control.Controller.ConsultaEventiPubblicati(email);
+            Map<DTOEvento, Object> eventiPubblicati = control.Controller.consultaEventiPubblicati(email);
 
             eventiModel.clear();
             eventiInfoMap.clear();
