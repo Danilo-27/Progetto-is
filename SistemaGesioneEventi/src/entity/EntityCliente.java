@@ -7,12 +7,38 @@ import exceptions.DBException;
 
 import java.util.ArrayList;
 
+/**
+ * Rappresenta un cliente all'interno del sistema, estendendo le proprietà
+ * e le funzionalità di base di un utente registrato. La classe gestisce
+ * informazioni specifiche del cliente, come l'immagine di profilo e lo
+ * storico dei biglietti associati.
+ */
 public class EntityCliente extends EntityUtenteRegistrato{
+    /**
+     * Contiene il percorso o riferimento all'immagine associata al profilo dell'utente.
+     */
     private String immagineProfilo;
+    /**
+     * Rappresenta lo storico dei biglietti associati a un cliente specifico.
+     * Contiene una lista di oggetti {@code EntityBiglietto} che rappresentano
+     * i biglietti acquistati o assegnati all'utente.
+     */
     private ArrayList<EntityBiglietto> storico_biglietti;
 
+    /**
+     * Rappresenta un'entità che modella un cliente registrato nel sistema con
+     * funzionalità aggiuntive rispetto all'entità base {@code EntityUtenteRegistrato}.
+     * Fornisce informazioni specifiche come l'immagine di profilo e lo storico dei biglietti.
+     * La classe include metodi per gestire e recuperare tali informazioni.
+     */
     public EntityCliente() {}
 
+    /**
+     * Costruttore della classe EntityCliente che inizializza un'istanza basata sui dati di un oggetto {@code UtenteDAO}.
+     * Imposta i campi specifici dell'entità cliente utilizzando i valori forniti dall'oggetto {@code UtenteDAO}.
+     *
+     * @param utente oggetto di tipo {@code UtenteDAO} da cui vengono estrapolati i dati per inizializzare l'entità cliente.
+     */
     public EntityCliente(UtenteDAO utente){
         this.id=utente.getId();
         this.nome = utente.getNome();

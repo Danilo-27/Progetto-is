@@ -14,23 +14,78 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+/**
+ * La classe EntityEvento rappresenta un'entità che incapsula tutte le informazioni
+ * relative a un evento. È progettata per essere un modello di dominio che interagisce
+ * con DAO (Data Access Object) per gestire operazioni di persistenza sul database.
+ * Offre metodi per la creazione, il recupero, l'aggiornamento e la gestione degli eventi,
+ * inclusi la gestione dei biglietti, dei partecipanti e della capienza.
+ */
 public class EntityEvento {
 
+    /**
+     * Identificativo univoco dell'evento.
+     * Questo valore è utilizzato per distinguere e identificare univocamente un'entità di tipo evento.
+     */
     private int id;
+    /**
+     * Rappresenta il titolo dell'evento.
+     * Indica il nome o la denominazione che identifica univocamente l'evento.
+     */
     private String titolo;
+    /**
+     * Descrizione dettagliata dell'evento. Utilizzata per fornire informazioni aggiuntive
+     * riguardo al contenuto o allo scopo dell'evento.
+     */
     private String descrizione;
+    /**
+     * Rappresenta la data in cui si terrà l'evento.
+     */
     private LocalDate data;
+    /**
+     * Rappresenta l'orario di un evento.
+     * Questa variabile memorizza l'orario specifico in cui l'evento è programmato.
+     */
     private LocalTime ora;
+    /**
+     * Rappresenta il luogo in cui si svolge l'evento.
+     */
     private String luogo;
+    /**
+     * Rappresenta il costo associato all'evento in termini monetari.
+     * Espresso come valore intero che rappresenta l'importo del costo.
+     */
     private int costo;
+    /**
+     * Indica la capienza massima di partecipanti consentita per l'evento.
+     */
     private int capienza;
+    /**
+     * Campo che indica il numero di partecipanti attualmente registrati per l'evento.
+     */
     private int partecipanti;
+    /**
+     * Identificativo univoco associato all'amministratore responsabile dell'evento.
+     * Utilizzato per correlare l'evento a un oggetto EntityAmministratore.
+     */
     private int amministratore_id;
+    /**
+     * Rappresenta la lista di biglietti associati a un evento.
+     * Ogni elemento della lista è un'istanza di EntityBiglietto.
+     */
     private ArrayList<EntityBiglietto> biglietti;
+    /**
+     * Rappresenta l'amministratore associato all'evento.
+     * Questo attributo contiene un'istanza di EntityAmministratore che identifica
+     * l'amministratore responsabile della gestione dell'evento.
+     */
     private EntityAmministratore amministratore;
 
     /**
-     * Costruttore che crea un EntityEvento a partire da un EventoDAO
+     * Costruttore che inizializza un'istanza di EntityEvento utilizzando i dati forniti da un oggetto EventoDAO.
+     * Popola i dettagli essenziali dell'evento, associa l'amministratore corrispondente e inizializza la lista dei biglietti.
+     *
+     * @param evento l'oggetto EventoDAO contenente i dati relativi all'evento da inizializzare
      */
     public EntityEvento(EventoDAO evento) {
         inizializzaDaEventoDAO(evento);
@@ -39,8 +94,20 @@ public class EntityEvento {
         this.biglietti = new ArrayList<>();
     }
 
+
     /**
-     * Costruttore per creare un nuovo evento
+     * Costruttore che crea una nuova istanza della classe EntityEvento con i dettagli specificati.
+     * Questo costruttore inizializza le informazioni dell'evento, associa un amministratore
+     * responsabile e imposta la lista dei biglietti come vuota.
+     *
+     * @param titolo il titolo dell'evento
+     * @param descrizione una descrizione dell'evento
+     * @param data la data in cui si terrà l'evento
+     * @param ora l'orario dell'evento
+     * @param luogo il luogo in cui si svolgerà l'evento
+     * @param costo il costo di partecipazione all'evento
+     * @param capienza il numero massimo di partecipanti consentiti per l'evento
+     * @param amministratore l'entità EntityAmministratore responsabile dell'evento
      */
     public EntityEvento(String titolo, String descrizione, LocalDate data, LocalTime ora,
                        String luogo, int costo, int capienza, EntityAmministratore amministratore) {
@@ -57,7 +124,11 @@ public class EntityEvento {
     }
 
     /**
-     * Costruttore che carica un evento dal database dato il titolo
+     * Costruttore della classe EntityEvento che inizializza un'entità evento
+     * sulla base del titolo fornito e carica i biglietti associati dall'archivio.
+     *
+     * @param titolo Il titolo dell'evento da utilizzare per il caricamento delle informazioni.
+     * @throws BigliettoNotFoundException Se non è possibile trovare i biglietti associati all'evento nel database.
      */
     public EntityEvento(String titolo) throws BigliettoNotFoundException{
         EventoDAO evento = new EventoDAO(titolo);
@@ -73,9 +144,10 @@ public class EntityEvento {
 
 
     /**
-     * Inizializza gli attributi dell'istanza EntityEvento utilizzando i dati forniti dall'oggetto EventoDAO.
+     * Inizializza i campi dell'oggetto corrente utilizzando i dati forniti da un'istanza di {@code EventoDAO}.
      *
-     * @param evento l'oggetto EventoDAO contenente i dati per inizializzare questa istanza
+     * @param evento Un'istanza di {@code EventoDAO} da cui vengono recuperati i dati
+     *               per popolare i campi dell'oggetto corrente.
      */
     private void inizializzaDaEventoDAO(EventoDAO evento) {
         this.id = evento.getId();
@@ -272,69 +344,154 @@ public class EntityEvento {
     }
 
 
+    /**
+     * Restituisce il titolo associato a questa istanza.
+     *
+     * @return il titolo come stringa.
+     */
     public String getTitolo() {
         return titolo;
     }
+    /**
+     * Restituisce la descrizione associata.
+     *
+     * @return la descrizione come stringa.
+     */
     public String getDescrizione() {
         return descrizione;
     }
+    /**
+     * Restituisce la data associata all'oggetto.
+     *
+     * @return la data come oggetto {@link LocalDate}
+     */
     public LocalDate getData() {
         return data;
     }
 
+    /**
+     * Restituisce l'oggetto LocalTime che rappresenta l'ora corrente o un'ora specifica.
+     *
+     * @return l'oggetto LocalTime associato all'ora gestita.
+     */
     public LocalTime getOra() {
         return ora;
     }
 
+    /**
+     * Restituisce il valore del luogo associato.
+     *
+     * @return Una stringa che rappresenta il luogo.
+     */
     public String getLuogo() {
         return luogo;
     }
 
+    /**
+     * Restituisce la capienza attuale.
+     *
+     * @return un valore intero che rappresenta la capienza.
+     */
     public int getCapienza() {
         return capienza;
     }
 
+    /**
+     * Restituisce il numero di partecipanti associati.
+     *
+     * @return il numero di partecipanti.
+     */
     public int getPartecipanti() {
         return partecipanti;
     }
 
+   /**
+    * Recupera l'elenco di tutti i biglietti disponibili.
+    *
+    * @return una lista di oggetti {@code EntityBiglietto} che rappresenta i biglietti.
+    */
    public ArrayList<EntityBiglietto> getBiglietti() {
         return biglietti;
    }
 
+    /**
+     * Imposta il valore del titolo.
+     *
+     * @param titolo Il nuovo titolo da assegnare.
+     */
     public void setTitolo(String titolo) {
         this.titolo = titolo;
     }
 
+    /**
+     * Imposta la descrizione dell'oggetto.
+     *
+     * @param descrizione la descrizione da assegnare all'oggetto
+     */
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
     }
 
+    /**
+     * Imposta il valore della data.
+     *
+     * @param data la data da assegnare
+     */
     public void setData(LocalDate data) {
         this.data = data;
     }
 
+    /**
+     * Imposta l'ora specificata per l'oggetto.
+     *
+     * @param ora un oggetto {@code LocalTime} che rappresenta l'ora da assegnare
+     */
     public void setOra(LocalTime ora) {
         this.ora = ora;
     }
 
+    /**
+     * Imposta il valore del luogo.
+     *
+     * @param luogo Il nome del luogo da assegnare.
+     */
     public void setLuogo(String luogo) {
         this.luogo = luogo;
     }
 
+    /**
+     * Imposta la capienza per l'oggetto corrente.
+     *
+     * @param capienza il valore della capienza da assegnare, rappresentato come un intero
+     */
     public void setCapienza(int capienza) {
         this.capienza = capienza;
     }
 
+    /**
+     * Imposta il numero di partecipanti.
+     *
+     * @param partecipanti Il numero di partecipanti da assegnare.
+     */
     public void setPartecipanti(int partecipanti) {
         this.partecipanti = partecipanti;
     }
 
 
+    /**
+     * Restituisce il valore del costo associato.
+     *
+     * @return il valore del costo come intero.
+     */
     public int getCosto() {
         return costo;
     }
 
+    /**
+     * Imposta il costo con il valore specificato.
+     *
+     * @param costo il valore intero da assegnare al costo
+     */
     public void setCosto(int costo) {
         this.costo = costo;
     }
@@ -342,42 +499,51 @@ public class EntityEvento {
 
 
 
+    /**
+     * Restituisce l'identificatore univoco associato a questa istanza.
+     *
+     * @return l'identificatore univoco di tipo intero.
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Restituisce l'identificativo univoco dell'amministratore.
+     *
+     * @return l'ID dell'amministratore come valore intero.
+     */
     public int getAmministratore_id() {
         return amministratore_id;
     }
 
 
+    /**
+     * Restituisce l'istanza di EntityAmministratore associata.
+     *
+     * @return l'oggetto EntityAmministratore attualmente gestito.
+     */
     public EntityAmministratore getAmministratore() {
         return amministratore;
     }
 
+    /**
+     * Imposta l'oggetto amministratore associato.
+     *
+     * @param amministratore l'istanza di EntityAmministratore da assegnare
+     *                       come amministratore.
+     */
     public void setAmministratore(EntityAmministratore amministratore) {
         this.amministratore = amministratore;
     }
 
+    /**
+     * Imposta la lista dei biglietti.
+     *
+     * @param biglietti La lista di oggetti di tipo EntityBiglietto da assegnare.
+     */
     public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
         this.biglietti = biglietti;
     }
 
-    @Override
-    public String toString() {
-        return "EntityEvento{" +
-                "id=" + id +
-                ", titolo='" + titolo + '\'' +
-                ", descrizione='" + descrizione + '\'' +
-                ", data=" + data +
-                ", ora=" + ora +
-                ", luogo='" + luogo + '\'' +
-                ", costo=" + costo +
-                ", capienza=" + capienza +
-                ", partecipanti=" + partecipanti +
-                ", amministratore_id=" + amministratore_id +
-                ", biglietti=" + biglietti +
-                ", amministratore=" + amministratore +
-                '}';
-    }
 }

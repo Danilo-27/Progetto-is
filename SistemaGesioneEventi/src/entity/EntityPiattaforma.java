@@ -1,4 +1,3 @@
-//test commento 1
 package entity;
 
 import DTO.DTOUtente;
@@ -7,14 +6,51 @@ import exceptions.*;
 
 import java.util.ArrayList;
 
+/**
+ * La classe {@code EntityPiattaforma} rappresenta la piattaforma centrale del sistema,
+ * responsabile della gestione degli utenti registrati, dell'autenticazione e delle operazioni
+ * relative agli utenti amministratori e clienti. Implementa il pattern Singleton per garantire
+ * l'esistenza di una sola istanza della piattaforma.
+ *
+ * La classe supporta la registrazione di nuovi utenti, l'autenticazione tramite email e password,
+ * e la ricerca di utenti per ID o email. Inoltre, consente di distinguere tra amministratori
+ * e clienti, fornendo metodi specifici per gestire ciascun tipo di utente.
+ *
+ * Questa classe utilizza un'architettura ad oggetti per rappresentare gli utenti come entità
+ * con ruoli diversi e opera direttamente con il DAO per recuperare i dati dal database.
+ */
 public class EntityPiattaforma {
+    /**
+     * Riferimento statico utilizzato per implementare il pattern Singleton.
+     * Rappresenta l'istanza unica della classe {@code EntityPiattaforma}.
+     */
     private static EntityPiattaforma uniqueInstance;
+    /**
+     * Lista degli utenti registrati sulla piattaforma.
+     * Ogni elemento della lista rappresenta un'istanza di {@code EntityUtenteRegistrato}.
+     * La lista è immutabile poiché il campo è definito come {@code final}.
+     */
     private final ArrayList<EntityUtenteRegistrato> utenti;
 
+    /**
+     * Costante che rappresenta il ruolo di Amministratore nel sistema.
+     * Utilizzata per identificare gli utenti con privilegi amministrativi.
+     */
     public static final int AMMINISTRATORE=1;
+    /**
+     * Costante che rappresenta il tipo di utente "CLIENTE" all'interno del sistema.
+     * Utilizzata per identificare e differenziare i clienti dagli altri tipi di utenti.
+     */
     public static final int CLIENTE=0;
 
 
+    /**
+     * Restituisce l'istanza unica di {@code EntityPiattaforma} seguendo il pattern Singleton.
+     * Se l'istanza non è ancora stata creata, il metodo la inizializza gestendo eventuali
+     * eccezioni di tipo {@code WrongUserTypeException}.
+     *
+     * @return l'istanza unica di {@code EntityPiattaforma}.
+     */
     public static EntityPiattaforma getInstance() {
         if (uniqueInstance == null) {
             try{
@@ -26,6 +62,16 @@ public class EntityPiattaforma {
         return uniqueInstance;
     }
 
+    /**
+     * Costruttore privato della classe {@code EntityPiattaforma}.
+     * Inizializza la lista degli utenti recuperando i dati dal database e
+     * creando istanze di {@code EntityUtenteRegistrato} per ciascun utente trovato.
+     * Se viene rilevato un tipo di utente non autorizzato o un errore nella
+     * connessione al database, vengono sollevate eccezioni specifiche.
+     *
+     * @throws WrongUserTypeException se un utente recuperato non è autorizzato a essere registrato.
+     * @throws UtenteNotFoundException se si verifica un errore durante il recupero degli utenti dal database.
+     */
     private EntityPiattaforma() throws WrongUserTypeException,UtenteNotFoundException{
         this.utenti = new ArrayList<>();
         try {
@@ -41,6 +87,18 @@ public class EntityPiattaforma {
     }
 
 
+    /**
+     * Crea un'istanza di un utente registrato basata sul ruolo specificato in {@code UtenteDAO}.
+     * Se il ruolo è "AMMINISTRATORE", restituisce un'istanza di {@code EntityAmministratore}.
+     * Se il ruolo è "CLIENTE", restituisce un'istanza di {@code EntityCliente}.
+     * Restituisce {@code null} se il ruolo non è riconosciuto.
+     *
+     * @param utenteDao un oggetto {@code UtenteDAO} che contiene le informazioni dell'utente,
+     *                  inclusivo del ruolo specificato per esso.
+     * @return un'istanza di {@code EntityUtenteRegistrato} (o di una sua sottoclasse specifica
+     *         come {@code EntityAmministratore} o {@code EntityCliente}) basata sul ruolo,
+     *         oppure {@code null} se il ruolo non è valido.
+     */
     public EntityUtenteRegistrato creaUtenteRegistrato(UtenteDAO utenteDao) {
         if(utenteDao.getRuolo()==EntityPiattaforma.AMMINISTRATORE){
             return new EntityAmministratore(utenteDao);
