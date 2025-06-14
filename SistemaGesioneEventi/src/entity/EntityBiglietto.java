@@ -20,6 +20,11 @@ public class EntityBiglietto {
 
     public EntityBiglietto() {}
 
+    public EntityBiglietto(String codiceUnivoco, EntityEvento evento, EntityCliente cliente) {
+        this.codiceUnivoco = codiceUnivoco;
+        this.evento = evento;
+        this.cliente = cliente;
+    }
 
     public EntityBiglietto(BigliettoDAO biglietto) {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();

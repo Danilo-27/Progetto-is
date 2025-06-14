@@ -95,12 +95,13 @@ public class Controller {
      */
     public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws AcquistoException,BigliettoNotFoundException,RedundancyException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
-        EntityEvento evento = new EntityEvento(evento_dto.getTitolo());
+        EntityCatalogo catalogo = EntityCatalogo.getInstance();
+        EntityEvento evento = catalogo.cercaEventoPerTitolo(evento_dto.getTitolo());
         if (evento.verificaDisponibilità()) {
             EntityCliente u = piattaforma.cercaClientePerEmail(email);
             SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
             if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
-                u.getBiglietti().add(evento.creazioneBiglietto(u));
+                u.getBiglietti().add(evento.creaBiglietto(u));
             } else {
                 throw new AcquistoException("Pagamento non riuscito per l'utente: " + email);
             }

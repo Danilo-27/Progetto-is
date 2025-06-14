@@ -4,29 +4,25 @@
 \begin{forest}
 package tree
     [boundary/
-        [BoundaryAutenticazione.java]
-        [BoundaryAutenticazione.form]
-        [BoundaryRegistrazione.java]
-        [BoundaryRegistrazione.form]
-        [CatalogoEventi.java]
-        [CatalogoEventi.form]
-        [FormAcquistoBiglietto.java]
-        [FormAcquistoBiglietto.form]
-        [FormEvento.java]
-        [FormEvento.form]
-        [FormRicercaEvento.java]
-        [FormRicercaEvento.form]
-        [FormStoricoBiglietti.java]
-        [FormStoricoBiglietti.form]
-        [HomeAmministratore.java]
-        [HomeAmministratore.form]
-        [HomeCliente.java]
-        [HomeCliente.form]
-        [HomePage.java]
-        [HomePage.form]
-        [HomeUtenteRegistrato.java]
-        [HomeUtenteRegistrato.form]
-        [Sessione.java]
+        [BoundaryAmministratore/
+            [FormEvento]
+            [HomeAmministratore]
+        ]
+        [BoundaryCliente/
+            [FormAcquistoBiglietto]
+            [FormStoricoBiglietti]
+            [HomeCliente]
+        ]
+        [BoundaryUtente/
+            [BoundaryRegistrazione]
+            [HomePage]
+        ]
+        [BoundaryUtenteRegistrato/
+            [BoundaryAutenticazione]
+            [CatalogoEvento]
+            [FormRicercaEvento]
+            [HomeUtenteRegistrazione]
+        [Sessione]
     ]
 \end{forest}
 
