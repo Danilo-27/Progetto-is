@@ -4,28 +4,35 @@ MAIN = main
 # Estensione PDF
 PDF = $(MAIN).pdf
 
-# File inclusi da monitorare (anche nelle sottocartelle)
-INCLUDES = $(wildcard capitoli/**/*.tex) $(wildcard capitoli/*.tex)
+# File inclusi da monitorare
+INCLUDES = $(wildcard capitoli/**/*.tex) \
+           $(wildcard capitoli/*.tex) \
+           $(wildcard scenari/*.tex)
 
 # Estensioni dei file temporanei da rimuovere
 CLEAN_EXT = aux log out toc lof lot fls fdb_latexmk synctex.gz bbl blg
 
-# Regola predefinita: compila il file con pdflatex
+# Regola predefinita
 all: $(PDF)
 
+# Compilazione del PDF
 $(PDF): $(MAIN).tex $(INCLUDES)
 	pdflatex $(MAIN).tex
-	pdflatex $(MAIN).tex  # Esegui due volte per aggiornare la bibliografia e le referenze
+	pdflatex $(MAIN).tex
 
-# Pulisce i file temporanei
+# Pulizia dei file temporanei (anche nelle sottocartelle)
 clean:
 	@echo "Cleaning temporary LaTeX files..."
-	rm -f $(foreach ext, $(CLEAN_EXT), $(MAIN).$(ext))
+	@rm -f $(foreach ext,$(CLEAN_EXT),$(MAIN).$(ext))
+	@find capitoli scenari -type f \( \
+		-name "*.aux" -o -name "*.log" -o -name "*.out" -o -name "*.toc" -o \
+		-name "*.lof" -o -name "*.lot" -o -name "*.fls" -o -name "*.fdb_latexmk" -o \
+		-name "*.synctex.gz" -o -name "*.bbl" -o -name "*.blg" \) -exec rm -f {} +
 
-# Pulisce tutto, inclusi PDF e output finali
+# Pulizia completa
 cleanall: clean
-	@echo "Also removing the generated PDF..."
-	rm -f $(PDF)
+	@echo "Removing generated PDF..."
+	@rm -f $(PDF)
 
 # Regole fittizie
 .PHONY: all clean cleanall
