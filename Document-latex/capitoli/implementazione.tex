@@ -1,6 +1,6 @@
 \chapter{Implementazione}
 
-\subsection{Package Boundary}
+\section{Package Boundary}
 \begin{forest}
 package tree
     [boundary/
@@ -22,11 +22,12 @@ package tree
             [CatalogoEvento]
             [FormRicercaEvento]
             [HomeUtenteRegistrazione]
+            ]
         [Sessione]
     ]
 \end{forest}
 
-\subsection{Package Database}
+\section{Package Database}
 \begin{forest}
 package tree
 [database/
@@ -37,7 +38,7 @@ package tree
 ]
 \end{forest}
 
-\subsection{Package Entity}
+\section{Package Entity}
 
 \begin{forest}
 package tree
@@ -54,7 +55,7 @@ package tree
 \end{forest}
 
 
-\subsection{Package Exception}
+\section{Package Exception}
 \begin{forest}
 package tree
 [exceptions/
@@ -74,7 +75,7 @@ package tree
 ]
 \end{forest}
 
-\subsection{Package Dto}
+\section{Package Dto}
 \begin{forest}
 package tree
 [DTO/
@@ -84,7 +85,7 @@ package tree
 ]
 \end{forest}
 
-\subsection{Dipendenze per l'esecuzione ed il funzionamento dell'applicazione}
+\section{Dipendenze per l'esecuzione ed il funzionamento dell'applicazione}
 Per il corretto funzionamento dell'applicazione sono necessarie le seguenti risorse:
 \begin{enumerate}
     \item Oracle OpenJDK 24.0.1
@@ -93,7 +94,7 @@ Per il corretto funzionamento dell'applicazione sono necessarie le seguenti riso
     \item swingx-1.6.1
 \end{enumerate}
 
-\subsection{Documentazione Javadoc}
+\section{Documentazione Javadoc}
 La documentazione Javadoc dell'applicazione è presente nella directory \textbf{/javadoc/.}
-\subsection{Diagramma di Deployment}
-\IncludeTable{assets/deployment/deployment_diagram.png}
+\section{Diagramma di Deployment}
+\includegraphics[width=0.6\linewidth]{assets/deployment/DeploymentDiagram}
