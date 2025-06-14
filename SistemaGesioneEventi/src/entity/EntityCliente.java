@@ -4,7 +4,6 @@ import database.BigliettoDAO;
 import database.UtenteDAO;
 import exceptions.BigliettoNotFoundException;
 import exceptions.DBException;
-
 import java.util.ArrayList;
 
 /**
@@ -63,20 +62,19 @@ public class EntityCliente extends EntityUtenteRegistrato{
         UtenteDAO utenteDao = new UtenteDAO(this.getId());
         try {
             utenteDao.caricaBigliettiDaDB();
-        } catch (DBException _) {
+        } catch (DBException e) {
             throw new BigliettoNotFoundException("Biglietto non trovato.");
         }
         for (BigliettoDAO bigliettoDAO : utenteDao.getBiglietti()) {
             EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
-            boolean giàPresente;
-            giàPresente = false;
+            boolean presente = false;
             for (EntityBiglietto b : storico_biglietti) {
                 if (b.getCodice_univoco().equals(biglietto.getCodice_univoco())) {
-                    giàPresente = true;
+                    presente = true;
                     break;
                 }
             }
-            if (!giàPresente) {
+            if (!presente) {
                 storico_biglietti.add(biglietto);
             }
         }
@@ -87,7 +85,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
     /**
      * Restituisce l'immagine di profilo associata all'entità cliente.
      *
-     * @return una stringa rappresentante il percorso o l'URL dell'immagine di profilo.
+     * @return una stringa rappresentante il percorso o l' URL dell'immagine di profilo.
      */
     public String getImmagineProfilo() {
         return immagineProfilo;
@@ -96,7 +94,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
     /**
      * Imposta l'immagine di profilo dell'entità cliente.
      *
-     * @param immagineProfilo una stringa che rappresenta il percorso o l'URL dell'immagine da impostare come immagine di profilo.
+     * @param immagineProfilo una stringa che rappresenta il percorso o l' URL dell'immagine da impostare come immagine di profilo.
      */
     public void setImmagineProfilo(String immagineProfilo) {
         this.immagineProfilo = immagineProfilo;
