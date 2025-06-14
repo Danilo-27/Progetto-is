@@ -12,11 +12,35 @@ import exceptions.EventoNotFoundException;
 import exceptions.LoadingException;
 import exceptions.RedundancyException;
 
+/**
+ * La classe EntityCatalogo rappresenta un catalogo unico contenente una collezione di eventi.
+ * La classe segue il pattern Singleton per garantire l'esistenza di una sola istanza condivisa
+ * del catalogo, permettendo di gestire tutte le operazioni relative agli eventi e alle loro interazioni.
+ * Include funzionalità per aggiungere, cercare, filtrare e consultare gli eventi del catalogo.
+ */
 public class EntityCatalogo {
 
+    /**
+     * Riferimento alla singola istanza della classe {@code EntityCatalogo},
+     * implementando il pattern Singleton per garantire che esista
+     * un'unica istanza condivisa all'interno dell'applicazione.
+     */
     private static EntityCatalogo uniqueInstance;
+    /**
+     * Rappresenta la lista degli eventi presenti nel catalogo.
+     * Questo attributo contiene oggetti di tipo {@code EntityEvento}
+     * e rappresenta l'insieme dei dati gestiti dalla classe {@code EntityCatalogo}.
+     */
     private final List<EntityEvento> eventi;
 
+    /**
+     * Costruttore privato della classe EntityCatalogo.
+     * Inizializza il catalogo degli eventi caricandoli dal database tramite il DAO di riferimento.
+     * Se si verifica un errore durante il caricamento dei dati dal database, viene sollevata
+     * un'eccezione di tipo {@code LoadingException}.
+     *
+     * @throws LoadingException se il processo di caricamento degli eventi dal database fallisce.
+     */
     private EntityCatalogo() throws LoadingException {
         eventi = new ArrayList<>();
         try{
@@ -29,6 +53,15 @@ public class EntityCatalogo {
 
     }
 
+    /**
+     * Restituisce l'istanza singleton di {@code EntityCatalogo}. Se l'istanza non è stata
+     * ancora inizializzata, viene creata una nuova istanza della classe e caricati
+     * gli eventi dal database. Questo metodo garantisce che venga utilizzata sempre
+     * la stessa istanza dell'oggetto.
+     *
+     * @return l'istanza singleton di {@code EntityCatalogo}.
+     * @throws LoadingException se si verifica un errore durante il caricamento degli eventi dal database.
+     */
     public static EntityCatalogo getInstance() throws LoadingException {
         if (uniqueInstance == null) {
             uniqueInstance = new EntityCatalogo();

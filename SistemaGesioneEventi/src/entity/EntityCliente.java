@@ -84,18 +84,41 @@ public class EntityCliente extends EntityUtenteRegistrato{
 
 
 
+    /**
+     * Restituisce l'immagine di profilo associata all'entità cliente.
+     *
+     * @return una stringa rappresentante il percorso o l'URL dell'immagine di profilo.
+     */
     public String getImmagineProfilo() {
         return immagineProfilo;
     }
 
+    /**
+     * Imposta l'immagine di profilo dell'entità cliente.
+     *
+     * @param immagineProfilo una stringa che rappresenta il percorso o l'URL dell'immagine da impostare come immagine di profilo.
+     */
     public void setImmagineProfilo(String immagineProfilo) {
         this.immagineProfilo = immagineProfilo;
     }
 
+    /**
+     * Restituisce la lista dei biglietti associati al cliente corrente.
+     * I biglietti rappresentano gli eventi a cui il cliente ha partecipato o per i quali ha acquistato un biglietto.
+     *
+     * @return una lista di oggetti {@code EntityBiglietto} che rappresenta lo storico dei biglietti del cliente.
+     */
     public ArrayList<EntityBiglietto> getBiglietti() {
         return storico_biglietti;
     }
 
+    /**
+     * Imposta la lista dei biglietti associati al cliente.
+     * Questo metodo consente di aggiornare lo storico biglietti di un cliente
+     * con una nuova lista di biglietti fornita in ingresso.
+     *
+     * @param biglietti la nuova lista di oggetti {@code EntityBiglietto} da associare al cliente.
+     */
     public void setBiglietti(ArrayList<EntityBiglietto> biglietti) {
         this.storico_biglietti = biglietti;
     }
