@@ -81,6 +81,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
         }
     }
 
+    //commentare
 
     public boolean haBigliettoPerEvento(EntityEvento evento){
         for(EntityBiglietto biglietto:storico_biglietti){
