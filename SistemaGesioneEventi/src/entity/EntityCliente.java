@@ -1,6 +1,7 @@
 package entity;
 
 import database.BigliettoDAO;
+import database.EventoDAO;
 import database.UtenteDAO;
 import exceptions.BigliettoNotFoundException;
 import exceptions.DBException;
@@ -81,6 +82,14 @@ public class EntityCliente extends EntityUtenteRegistrato{
     }
 
 
+    public boolean haBigliettoPerEvento(EntityEvento evento){
+        for(EntityBiglietto biglietto:storico_biglietti){
+            if(biglietto.getEvento().getId() == evento.getId()){
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Restituisce l'immagine di profilo associata all'entità cliente.

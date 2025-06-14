@@ -344,4 +344,5 @@ public class EventoDAO {
     public void setBiglietti(ArrayList<BigliettoDAO> biglietti) {
         this.biglietti = biglietti;
     }
+
 }
