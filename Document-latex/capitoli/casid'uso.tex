@@ -83,12 +83,12 @@ ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 \section{Scenari}
 \IncludeTable{capitoli/scenari/Registrazione}
 \IncludeTable{capitoli/scenari/Autenticazione}
-\IncludeTable{capitoli/scenari/ModificaDatiPersonali}
-\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
-\IncludeTable{capitoli/scenari/RicercaEvento}
-\IncludeTable{capitoli/scenari/VisualizzaBiglietto}
+%\IncludeTable{capitoli/scenari/ModificaDatiPersonali}
+%\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
+%\IncludeTable{capitoli/scenari/RicercaEvento}
+%\IncludeTable{capitoli/scenari/VisualizzaBiglietto}
 \IncludeTable{capitoli/scenari/ConsultaStoricoBiglietti}
-\IncludeTable{capitoli/scenari/ScaricaBiglietto}
+%\IncludeTable{capitoli/scenari/ScaricaBiglietto}
 \IncludeTable{capitoli/scenari/AcquistaBiglietto}
 \IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/PartecipazioneEvento}
@@ -202,7 +202,7 @@ Di seguito riportiamo il diagramma delle classi di analisi.
     Il diagramma di sequenza del caso d'uso \textit{ConsultaEventiPubblicati} mostra la necessità di una responsabilità \textbf{getListaPartecipanti()} da parte dell'evento
 
     \vspace{2ex}
-    \includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaEventiPubblicati.png}
+    \includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaInformazioniEvento.png}
 
     \vspace{1ex}
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaEventiPubblicati}
@@ -225,7 +225,7 @@ Il diagramma di sequenza del caso d’uso \textit{AcquistoBiglietto} mostra il p
 
 \vspace{2ex}
 
-{\small
+\small
 \newpage
 \subsection{PartecipazioneEvento}
 
@@ -245,5 +245,9 @@ Come visibile dal sequence diagram del caso d'uso
 \vspace{1ex}
 \end{center}
 
-Il diagramma delle classi risultante è il seguente
-\includegraphics[height=0.38\textheight]{assets/casid'uso/DiagrammaClassiAggiornatoVero.png}
+\section{Diagramma delle classi raffinato}
+\begin{center}	
+	\vspace{1ex}
+	\includegraphics[height=0.38\linewidth]{assets/casid'uso/DiagrammaDelleClassiRaffinato.png}
+	\vspace{1ex}
+\end{center}
