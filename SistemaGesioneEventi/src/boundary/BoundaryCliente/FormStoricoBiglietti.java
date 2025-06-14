@@ -1,4 +1,4 @@
-package boundary;
+package boundary.BoundaryCliente;
 
 import DTO.DTOBiglietto;
 import control.Controller;

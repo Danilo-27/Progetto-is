@@ -1,4 +1,4 @@
-package boundary;
+package boundary.BoundaryAmministratore;
 
 import java.awt.*;
 import java.io.Serial;
@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 
 import DTO.DTOEvento;
 import DTO.DTOUtente;
+import boundary.BoundaryUtente.HomePage;
+import boundary.BoundaryUtenteRegistrato.HomeUtenteRegistrato;
 import exceptions.BigliettoNotFoundException;
 
 public class HomeAmministratore extends HomeUtenteRegistrato {

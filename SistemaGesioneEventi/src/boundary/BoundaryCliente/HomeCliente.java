@@ -1,6 +1,8 @@
-package boundary;
+package boundary.BoundaryCliente;
 
 import DTO.DTOEvento;
+import boundary.BoundaryUtenteRegistrato.HomeUtenteRegistrato;
+import boundary.BoundaryUtente.HomePage;
 import control.Controller;
 import exceptions.*;
 

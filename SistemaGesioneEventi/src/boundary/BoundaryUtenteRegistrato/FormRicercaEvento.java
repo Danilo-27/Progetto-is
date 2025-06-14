@@ -1,4 +1,4 @@
-package boundary;
+package boundary.BoundaryUtenteRegistrato;
 
 import javax.swing.*;
 import java.awt.*;

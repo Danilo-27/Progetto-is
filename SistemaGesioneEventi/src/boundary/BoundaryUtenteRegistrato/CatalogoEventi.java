@@ -1,4 +1,4 @@
-package boundary;
+package boundary.BoundaryUtenteRegistrato;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

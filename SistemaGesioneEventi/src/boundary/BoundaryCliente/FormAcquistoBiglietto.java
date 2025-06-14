@@ -1,10 +1,9 @@
-package boundary;
+package boundary.BoundaryCliente;
 
 import DTO.DTOEvento;
 import control.Controller;
 import exceptions.AcquistoException;
 import exceptions.BigliettoNotFoundException;
-import exceptions.EventoNotFoundException;
 import exceptions.RedundancyException;
 
 import javax.swing.*;

@@ -1,4 +1,4 @@
-package boundary;
+package boundary.BoundaryUtente;
 
 import control.Controller;
 import exceptions.RegistrationFailedException;

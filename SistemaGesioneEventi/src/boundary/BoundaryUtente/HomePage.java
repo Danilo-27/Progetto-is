@@ -1,4 +1,6 @@
-package boundary;
+package boundary.BoundaryUtente;
+
+import boundary.BoundaryUtenteRegistrato.BoundaryAutenticazione;
 
 import java.awt.*;
 import java.awt.event.*;

@@ -1,6 +1,10 @@
-package boundary;
+package boundary.BoundaryUtenteRegistrato;
 
 import DTO.DTOUtente;
+import boundary.BoundaryAmministratore.HomeAmministratore;
+import boundary.BoundaryCliente.HomeCliente;
+import boundary.BoundaryUtente.HomePage;
+import boundary.Sessione;
 import control.Controller;
 import exceptions.LoginFailedException;
 

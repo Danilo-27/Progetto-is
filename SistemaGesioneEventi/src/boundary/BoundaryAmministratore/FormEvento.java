@@ -1,7 +1,9 @@
-package boundary;
+package boundary.BoundaryAmministratore;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import boundary.Sessione;
 import control.Controller;
 import exceptions.LoadingException;
 import exceptions.RedundancyException;
@@ -25,7 +27,7 @@ public class FormEvento extends JFrame {
     private static final String ARIAL_BLACK="Arial Black";
 
 
-    public FormEvento(HomeAmministratore homeamministratore,String nomeAmministratore,String cognomeAmministratore,String emailAmministratore) {
+    public FormEvento(HomeAmministratore homeamministratore, String nomeAmministratore, String cognomeAmministratore, String emailAmministratore) {
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setBounds(100, 100, 1051, 697);
         JPanel formEvento = new JPanel();
