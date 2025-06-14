@@ -97,11 +97,16 @@ public class Controller {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         EntityEvento evento = catalogo.cercaEventoPerTitolo(evento_dto.getTitolo());
+        EntityCliente cliente = piattaforma.cercaClientePerEmail(email);
+        cliente.caricaBiglietti();
+
+        if(cliente.haBigliettoPerEvento(evento))
+            throw new RedundancyException ("Biglietto gia acquistato per questo evento");
+
         if (evento.verificaDisponibilità()) {
-            EntityCliente u = piattaforma.cercaClientePerEmail(email);
             SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
             if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
-                u.getBiglietti().add(evento.creaBiglietto(u));
+                cliente.getBiglietti().add(evento.creaBiglietto(cliente));
             } else {
                 throw new AcquistoException("Pagamento non riuscito per l'utente: " + email);
             }

@@ -56,6 +56,15 @@ public class EntityCliente extends EntityUtenteRegistrato{
         }
     }
 
+    public boolean haBigliettoPerEvento(EntityEvento evento) {
+        for (EntityBiglietto biglietto : storico_biglietti) {
+            if (biglietto.getEvento().equals(evento)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String getImmagineProfilo() {
         return immagineProfilo;
     }
