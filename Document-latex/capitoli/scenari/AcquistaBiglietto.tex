@@ -8,26 +8,29 @@
 		Pre-condizioni & L'utente ha effettuato l’accesso \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Il caso d'uso inizia quando l'utente vuole acquistare un biglietto elettronico
+				\item Il caso d'uso inizia quando il cliente vuole acquistare un biglietto elettronico
 				\item Include (Consulta Catalogo Eventi)
-				\item L'utente seleziona un evento e richiede l'acquisto del biglietto
-				\item Il sistema controlla i posti disponibili per l'evento
-				\item Se ci sono posti disponibili
+				\item il cliente seleziona un evento per cui vuole acquistare un biglietto
+				\item il sistema chiede al cliente di inseriri i dati per il pagamento(NumeroCarta,NomeTitolare,CognomeTitolare,DataScadenza)
+				\item il cliente inserice i dati per il pagamento
+				\item il sistema controlla la validità dei dati inseriti(Es scadenza carta nel formato MM/YY)
+				\item Se i dati inseriti sono validi
 				\begin{enumerate}[label*=\arabic*.]
-					\item L'utente invia i dati per il pagamento
-					\item Il Sistema invia una richiesta di pagamento al Sistema Gestione Acquisti e aspetta la conferma
-					\item Il sistema crea un biglietto dell'evento e lo associa al profilo personale dell'utente
-				\end{enumerate}
-				\item Altrimenti:
-				\begin{enumerate}[label*=\arabic*.]
-					\item Viene annullato il pagamento
+					\item Il sistema controlla i posti disponibili per l'evento
+					\item Se ci sono posti disponibili
+					\begin{enumerate}[label*=\arabic*.]
+						\item Il Sistema invia una richiesta di pagamento al Sistema Gestione Acquisti e aspetta la conferma
+						\item il caso d'uso termina con il sistema che crea un biglietto dell'evento e lo associa al cliente
+					\end{enumerate}
 				\end{enumerate}
 			\end{enumerate} \\
-		Post-condizioni & Il biglietto è stato generato ed è associato al profilo utente \\
+		Post-condizioni & Il biglietto è stato generato ed è associato al cliente\\
 		Casi d'uso correlati & UC12 \\
 		{Sequenza di eventi \\ alternativa} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Al punto 5.2 se il sistema non riceve conferma viene annullato il pagamento
+				\item Al punto 6 se i dati inseriti non sono validi il caso d'uso termina con il sistema che indica l'errore nei dati del pagamento
+				\item al punto 7.2 se non ci sono posti disponibili il caso d'uso termina con un messaggio di errore
+				\item al punto 7.2.1 se non arriva conferma dal sistema esterno il caso d'uso termina con un messaggio di errore ottenuto dal sistema esterno
 			\end{enumerate} \\
 	\end{scenery}
 \end{table}
