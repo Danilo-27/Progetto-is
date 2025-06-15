@@ -299,7 +299,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
 
     private void loadEventiOdierni() {
         try {
-            List<DTOEvento> eventi = Controller.RicercaEvento(null, LocalDate.now(), null);
+            List<DTOEvento> eventi = Controller.ricercaEvento(null, LocalDate.now(), null);
             updateEventiOdierni(eventi);
         } catch (EventoNotFoundException Enfe) {
             eventiModel.clear();

@@ -38,7 +38,7 @@ public class CatalogoEventi extends JFrame {
 
         // --- Chiamata al controller per ottenere gli eventi ---
         // La verifica degli eventi è già stata fatta nel padre HomeUtenteRegistrato
-        List<DTOEvento> eventi = control.Controller.ConsultaCatalogo();
+        List<DTOEvento> eventi = control.Controller.consultaCatalogo();
 
         for (DTOEvento evento : eventi) {
             JPanel eventoPanel = new JPanel();

@@ -90,7 +90,7 @@ public class FormAcquistoBiglietto extends JFrame {
     }
 
     private void caricaEventiDisponibili() {
-        List<DTOEvento> eventi = Controller.ConsultaCatalogo();
+        List<DTOEvento> eventi = Controller.consultaCatalogo();
         if (!eventi.isEmpty()) {
             eventiModel.clear();
             eventi.forEach(eventiModel::addElement);
@@ -120,7 +120,7 @@ public class FormAcquistoBiglietto extends JFrame {
         }
 
         try {
-            Controller.AcquistoBiglietto(pagamentoService, dto, emailUtente,
+            Controller.acquistoBiglietto(pagamentoService, dto, emailUtente,
                     datiCarta.get(0), datiCarta.get(1), datiCarta.get(2), datiCarta.get(3));
             JOptionPane.showMessageDialog(this, "Biglietto acquistato con successo!", "Successo", JOptionPane.INFORMATION_MESSAGE);
             dispose();

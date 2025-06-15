@@ -27,8 +27,7 @@ public class Controller {
 
     /**
      * Costruttore privato della classe Controller.
-     *
-     * Questo costruttore privato impedisce l'istanziazione diretta della classe,
+     * Questo costruttore privato impedisce l' istanziazione diretta della classe,
      * garantendo che i metodi statici siano l'unico modo per accedere alle funzionalità offerte.
      */
     private Controller(){}
@@ -61,7 +60,7 @@ public class Controller {
      * @throws LoginFailedException Se l'autenticazione fallisce a causa di credenziali errate
      *                              o di problemi legati all'accesso.
      */
-    public static DTOUtente Autenticazione(String email, String password) throws LoginFailedException {
+    public static DTOUtente autenticazione(String email, String password) throws LoginFailedException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         return piattaforma.Autenticazione(email, password);
     }
@@ -72,7 +71,7 @@ public class Controller {
      *
      * @return una lista di oggetti {@code DTOEvento} che rappresentano gli eventi disponibili nel catalogo.
      */
-    public static List<DTOEvento>ConsultaCatalogo() {
+    public static List<DTOEvento> consultaCatalogo() {
         List<DTOEvento> eventiDTO = new ArrayList<>();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         List<EntityEvento> eventi = catalogo.ConsultaCatalogo();
@@ -93,7 +92,7 @@ public class Controller {
      * @return Una lista di oggetti DTOEvento che rappresentano gli eventi trovati.
      * @throws EventoNotFoundException Se nessun evento corrisponde ai criteri di ricerca specificati.
      */
-    public static List<DTOEvento> RicercaEvento(String titolo, LocalDate data, String luogo) throws EventoNotFoundException {
+    public static List<DTOEvento> ricercaEvento(String titolo, LocalDate data, String luogo) throws EventoNotFoundException {
         List<DTOEvento> eventiDTO = new ArrayList<>();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         List<EntityEvento> eventiTrovati = catalogo.ricercaEvento(titolo,data,luogo);
@@ -110,21 +109,21 @@ public class Controller {
      * Verifica la disponibilità dei biglietti, il pagamento e assicura che il cliente
      * non abbia già acquistato un biglietto per lo stesso evento.
      *
-     * @param evento_dto rappresenta l'evento per il quale si desidera acquistare il biglietto.
+     * @param eventoDto rappresenta l'evento per il quale si desidera acquistare il biglietto.
      * @param email l'indirizzo email dell'utente che effettua l'acquisto.
-     * @param NumeroCarta il numero della carta di pagamento usata per l'acquisto.
-     * @param NomeTitolare il nome del titolare della carta di pagamento.
-     * @param CognomeTitolare il cognome del titolare della carta di pagamento.
+     * @param numeroCarta il numero della carta di pagamento usata per l'acquisto.
+     * @param nomeTitolare il nome del titolare della carta di pagamento.
+     * @param cognomeTitolare il cognome del titolare della carta di pagamento.
      * @throws AcquistoException se il pagamento non viene elaborato correttamente o i biglietti sono esauriti.
      * @throws BigliettoNotFoundException se l'evento non viene trovato nel catalogo.
      * @throws RedundancyException se l'utente ha già acquistato un biglietto per lo stesso evento.
      */
-    public static void AcquistoBiglietto(PagamentoService pagamentoService, DTOEvento evento_dto, String email, String NumeroCarta, String NomeTitolare, String CognomeTitolare, String scadenza) throws AcquistoException, BigliettoNotFoundException, RedundancyException {
+    public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, String numeroCarta, String nomeTitolare, String cognomeTitolare, String scadenza) throws AcquistoException, BigliettoNotFoundException, RedundancyException {
 
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
 
-        EntityEvento evento = catalogo.cercaEventoPerTitolo(evento_dto.getTitolo());
+        EntityEvento evento = catalogo.cercaEventoPerTitolo(eventoDto.getTitolo());
         evento.caricaBiglietti();
         EntityCliente cliente = piattaforma.cercaClientePerEmail(email);
         cliente.caricaBiglietti();
@@ -139,7 +138,7 @@ public class Controller {
 
         // Chiamata al servizio di pagamento
         PagamentoService.EsitoPagamento esito = pagamentoService.elaboraPagamento(
-                NumeroCarta, NomeTitolare, CognomeTitolare,scadenza,evento.getCosto());
+                numeroCarta, nomeTitolare, cognomeTitolare,scadenza,evento.getCosto());
 
         if (esito == PagamentoService.EsitoPagamento.SUCCESSO)
             cliente.getBiglietti().add(evento.creaBiglietto(cliente));
@@ -169,30 +168,28 @@ public class Controller {
     }
 
     /**
-     * Questo metodo consente di creare un nuovo evento e aggiungerlo al catalogo di eventi
-     * della piattaforma. L'amministratore identificato dall'email fornita è responsabile
-     * della creazione dell'evento.
+     * Metodo responsabile della creazione di un nuovo evento sulla piattaforma.
+     * Valida l'evento verificando che non sia già esistente o con una data non valida
+     * e, in caso positivo, aggiunge l'evento al catalogo.
      *
-     * @param Titolo il titolo dell'evento da creare.
-     * @param Descrizione una descrizione dettagliata dell'evento.
-     * @param Data la data in cui si svolgerà l'evento.
-     * @param Ora l'ora in cui inizierà l'evento.
-     * @param Luogo il luogo in cui si svolgerà l'evento.
-     * @param Costo il costo del biglietto per partecipare all'evento.
-     * @param Capienza la capienza massima di partecipanti consentiti per l'evento.
-     * @param emailAmministratore l'email dell'amministratore che crea l'evento.
-     *
-     * @throws RedundancyException se l'evento esiste già nel catalogo.
-     * @throws LoadingException se si verifica un errore durante il processo di creazione
-     *                          o di aggiunta dell'evento al catalogo.
+     * @param titolo Il titolo dell'evento da creare.
+     * @param descrizione Una descrizione dettagliata dell'evento.
+     * @param data La data in cui si svolgerà l'evento.
+     * @param ora L'orario in cui inizierà l'evento.
+     * @param luogo Il luogo in cui si terrà l'evento.
+     * @param costo Il costo richiesto per partecipare all'evento.
+     * @param capienza Il numero massimo di partecipanti consentito per l'evento.
+     * @param emailAmministratore L'email dell'amministratore che crea l'evento.
+     * @throws RedundancyException Se l'evento esiste già o la data fornita è precedente alla data corrente.
+     * @throws LoadingException Se si verifica un problema durante il caricamento delle informazioni necessarie.
      */
-    public static void creaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza, String emailAmministratore) throws RedundancyException,LoadingException {
+    public static void creaEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza, String emailAmministratore) throws RedundancyException,LoadingException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
 
-        if(catalogo.verificaValidita(Titolo,Data)){
+        if(catalogo.verificaValidita(titolo,data)){
             EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
-            EntityEvento evento= amministratore.creazioneEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
+            EntityEvento evento= amministratore.creazioneEvento(titolo, descrizione, data, ora, luogo, costo, capienza);
             catalogo.aggiungiEvento(evento);
         }else{
             throw new RedundancyException("Evento già creato o ha una data precedente a quella corrente");

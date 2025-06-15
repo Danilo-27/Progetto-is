@@ -90,7 +90,7 @@ public class HomeUtenteRegistrato extends JFrame {
     protected void openCatalogoEventi() {
         try {
             // Verifica se ci sono eventi disponibili usando il Controller
-            List<DTOEvento> eventi = control.Controller.ConsultaCatalogo();
+            List<DTOEvento> eventi = control.Controller.consultaCatalogo();
 
             if (eventi.isEmpty()) {
                 throw new EventoNotFoundException("Nessun evento disponibile nel catalogo");

@@ -82,7 +82,7 @@ public class BoundaryAutenticazione extends JFrame {
             }
             try {
                 Sessione section = Sessione.getInstance();
-                DTOUtente utente = Controller.Autenticazione(email, password);
+                DTOUtente utente = Controller.autenticazione(email, password);
                 section.setUtenteAutenticato(email,utente.getTipoUtente());
 
                 if (utente.getTipoUtente()==0){

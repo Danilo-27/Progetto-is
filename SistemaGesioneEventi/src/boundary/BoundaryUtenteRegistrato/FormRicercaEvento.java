@@ -122,9 +122,9 @@ public class FormRicercaEvento extends JFrame {
         }
 
         try {
-            List<DTOEvento> eventi = Controller.RicercaEvento(titolo, data, luogo);
+            List<DTOEvento> eventi = Controller.ricercaEvento(titolo, data, luogo);
             mostraRisultati(eventi);
-        } catch (EventoNotFoundException _) {
+        } catch (EventoNotFoundException e) {
             risultatoArea.setText("Nessun evento trovato.");
         } catch (Exception ex) {
             risultatoArea.setText("Errore durante la ricerca: " + ex.getMessage());
