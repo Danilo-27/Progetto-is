@@ -11,11 +11,9 @@ import java.util.ArrayList;
  * responsabile della gestione degli utenti registrati, dell'autenticazione e delle operazioni
  * relative agli utenti amministratori e clienti. Implementa il pattern Singleton per garantire
  * l'esistenza di una sola istanza della piattaforma.
- *
  * La classe supporta la registrazione di nuovi utenti, l'autenticazione tramite email e password,
  * e la ricerca di utenti per ID o email. Inoltre, consente di distinguere tra amministratori
  * e clienti, fornendo metodi specifici per gestire ciascun tipo di utente.
- *
  * Questa classe utilizza un'architettura ad oggetti per rappresentare gli utenti come entità
  * con ruoli diversi e opera direttamente con il DAO per recuperare i dati dal database.
  */

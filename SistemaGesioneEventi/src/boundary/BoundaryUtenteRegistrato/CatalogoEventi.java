@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import DTO.DTOEvento;
+import exceptions.EventoNotFoundException;
 
 public class CatalogoEventi extends JFrame {
 
@@ -38,7 +39,13 @@ public class CatalogoEventi extends JFrame {
 
         // --- Chiamata al controller per ottenere gli eventi ---
         // La verifica degli eventi è già stata fatta nel padre HomeUtenteRegistrato
-        List<DTOEvento> eventi = control.Controller.consultaCatalogo();
+        List<DTOEvento> eventi = null;
+        try {
+            eventi = control.Controller.consultaCatalogo();
+        } catch (EventoNotFoundException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
+
+        }
 
         for (DTOEvento evento : eventi) {
             JPanel eventoPanel = new JPanel();

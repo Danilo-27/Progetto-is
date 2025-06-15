@@ -163,7 +163,13 @@ public class HomeCliente extends HomeUtenteRegistrato {
         styleButton(acquistaBigliettoButton, new Color(39, 174, 96));
         acquistaBigliettoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         acquistaBigliettoButton.setMaximumSize(new Dimension(220, 35));
-        acquistaBigliettoButton.addActionListener(e -> new FormAcquistoBiglietto(email,new StubSistemaGestioneAcquisti()).setVisible(true));
+        acquistaBigliettoButton.addActionListener(e -> {
+            try {
+                new FormAcquistoBiglietto(email,new StubSistemaGestioneAcquisti()).setVisible(true);
+            } catch (EventoNotFoundException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
+            }
+        });
         return acquistaBigliettoButton;
     }
 

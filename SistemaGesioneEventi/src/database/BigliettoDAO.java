@@ -11,19 +11,16 @@ import java.time.LocalTime;
 
 /**
  * Classe BigliettoDAO.
- *
  * Questa classe rappresenta il Data Access Object (DAO) per la gestione
  * dei dati relativi ai biglietti all'interno di un'applicazione. Fornisce
  * metodi per effettuare operazioni CRUD (Create, Read, Update, Delete) sui
  * biglietti memorizzati nel database, come il caricamento dei dati di un
  * biglietto, l'associazione degli eventi e degli utenti ad esso correlati,
  * e la gestione dello stato del biglietto.
- *
  * La classe utilizza il campo 'codice_univoco' come identificatore univoco
  * per accedere ai dati dei biglietti. Inoltre, include riferimenti ad altre
  * entità del modello (come EventoDAO e UtenteDAO) per rappresentare le
  * associazioni relazionali contenute nel database.
- *
  * Responsabilità principali:
  * - Caricare dati del biglietto dal database.
  * - Associare eventi e clienti al biglietto.
@@ -86,10 +83,9 @@ public class BigliettoDAO{
      * utilizzando il codice univoco fornito. Questo metodo inizializza
      * l'oggetto BigliettoDAO e carica le informazioni correlate, come l'evento
      * e l'utente associati al biglietto.
-     *
      * @param codice_univoco Il codice univoco del biglietto da caricare dal database.
      * @throws DBException Se si verifica un errore durante l'accesso al database
-     *                     o se il biglietto non viene trovato.
+     * o se il biglietto non viene trovato.
      */
     //carico un biglietto dato il codice (usato in entityEvento)
     public BigliettoDAO(String codice_univoco) throws DBException{
@@ -204,12 +200,10 @@ public class BigliettoDAO{
 
     /**
      * Salva i dati dell'oggetto corrente nel database.
-     *
      * Questo metodo crea una query SQL di tipo INSERT per inserire un nuovo record
      * nella tabella "biglietti" utilizzando i valori delle proprietà
      * 'codice_univoco', 'stato', 'Cliente_id' ed 'Evento_id' dell'oggetto corrente.
      * In caso di successo, il nuovo biglietto viene persistito nel database.
-     *
      * Se si verifica una violazione dei vincoli di integrità (ad esempio,
      * chiavi duplicate o riferimenti non validi), viene lanciata una
      * DBException con un messaggio dettagliato sull'errore.
@@ -255,10 +249,8 @@ public class BigliettoDAO{
 
     /**
      * Elimina un biglietto dal database utilizzando il codice univoco dell'oggetto corrente.
-     *
      * Questo metodo esegue una query SQL di tipo DELETE sulla tabella "biglietti"
      * per rimuovere il record associato al valore del campo 'codice_univoco' dell'oggetto corrente.
-     *
      * Se si verifica un errore durante l'esecuzione della query, come problemi di connessione
      * al database o errori SQL, viene lanciata una DBException con un messaggio che descrive
      * l'errore verificatosi.

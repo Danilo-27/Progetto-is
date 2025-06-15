@@ -69,10 +69,10 @@ public class EntityCatalogo {
     }
 
     /**
-     * Adds a new event to the catalog and saves it to the database.
+     * Aggiunge un nuovo evento al catalogo e lo salva sul database..
      *
-     * @param EventoCreato the event to be added to the catalog. It must be an instance of EntityEvento.
-     * @throws RedundancyException if the event already exists in the catalog.
+     * @param EventoCreato l'evento da aggiungere al catalogo. Deve essere un' istanza di EntityEvento.
+     * @throws RedundancyException Se l'evento è già presente nel catalogo.
      */
     public void aggiungiEvento(EntityEvento EventoCreato) throws RedundancyException {
         EventoCreato.salvaSuDB();
@@ -114,13 +114,16 @@ public class EntityCatalogo {
      *
      * @return una lista contenente gli oggetti EntityEvento validi dal catalogo.
      */
-    public List<EntityEvento> ConsultaCatalogo() {
+    public List<EntityEvento> ConsultaCatalogo() throws EventoNotFoundException {
         LocalDate oggi = LocalDate.now();
         List<EntityEvento> eventiValidi = new ArrayList<>();
         for (EntityEvento evento : eventi) {
             if (evento.getData().isAfter(oggi) || evento.getData().isEqual(oggi)) {
                 eventiValidi.add(evento);
             }
+        }
+        if(eventiValidi.isEmpty()){
+            throw new EventoNotFoundException("Non ci sono eventi disponibili");
         }
         return eventiValidi;
     }

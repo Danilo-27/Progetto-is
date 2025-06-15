@@ -4,6 +4,7 @@ import DTO.DTOEvento;
 import control.Controller;
 import exceptions.AcquistoException;
 import exceptions.BigliettoNotFoundException;
+import exceptions.EventoNotFoundException;
 import exceptions.RedundancyException;
 import external.PagamentoService;
 
@@ -25,7 +26,7 @@ public class FormAcquistoBiglietto extends JFrame {
     private JButton acquistaButton;
     private static final String ERRORE = "Errore";
 
-    public FormAcquistoBiglietto(String emailUtente, PagamentoService pagamentoService) {
+    public FormAcquistoBiglietto(String emailUtente, PagamentoService pagamentoService) throws EventoNotFoundException {
         this.emailUtente = emailUtente;
         this.pagamentoService = pagamentoService;
         setTitle("Acquisto Biglietto");
@@ -89,14 +90,10 @@ public class FormAcquistoBiglietto extends JFrame {
         add(mainPanel);
     }
 
-    private void caricaEventiDisponibili() {
+    private void caricaEventiDisponibili() throws EventoNotFoundException {
         List<DTOEvento> eventi = Controller.consultaCatalogo();
-        if (!eventi.isEmpty()) {
-            eventiModel.clear();
-            eventi.forEach(eventiModel::addElement);
-        } else {
-            JOptionPane.showMessageDialog(this, "Nessun evento disponibile al momento.", ERRORE, JOptionPane.ERROR_MESSAGE);
-        }
+        eventiModel.clear();
+        eventi.forEach(eventiModel::addElement);
     }
 
     private void acquistaBiglietto() {

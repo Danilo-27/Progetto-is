@@ -40,6 +40,7 @@ public class FormStoricoBiglietti extends JFrame {
         listaBiglietti.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         // Renderer personalizzato per mostrare le info del biglietto su più righe
+
         listaBiglietti.setCellRenderer((list, value, index, isSelected, cellHasFocus) -> {
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));

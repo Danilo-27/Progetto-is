@@ -71,15 +71,20 @@ public class Controller {
      *
      * @return una lista di oggetti {@code DTOEvento} che rappresentano gli eventi disponibili nel catalogo.
      */
-    public static List<DTOEvento> consultaCatalogo() {
+    public static List<DTOEvento> consultaCatalogo() throws EventoNotFoundException {
         List<DTOEvento> eventiDTO = new ArrayList<>();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
-        List<EntityEvento> eventi = catalogo.ConsultaCatalogo();
-        for (EntityEvento evento: eventi) {
-            DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza(),evento.getBiglietti().toArray().length);
-            eventiDTO.add(dto);
+        List<EntityEvento> eventi = null;
+        try {
+            eventi = catalogo.ConsultaCatalogo();
+            for (EntityEvento evento: eventi) {
+                DTOEvento dto = new DTOEvento(evento.getTitolo(),evento.getDescrizione(),evento.getData(),evento.getOra(),evento.getLuogo(), evento.getCosto(),evento.getCapienza(),evento.getBiglietti().toArray().length);
+                eventiDTO.add(dto);
+            }
+            return eventiDTO;
+        } catch (EventoNotFoundException e) {
+            throw e;
         }
-        return eventiDTO;
     }
 
     /**

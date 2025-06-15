@@ -91,7 +91,6 @@ public class UtenteDAO {
     /**
      * Salva un nuovo utente nel database inserendo i valori di email, password,
      * nome e cognome nei rispettivi campi della tabella "utenti".
-     *
      * Se l'utente è già presente nel database, viene sollevata un'eccezione
      * di tipo {@link DBException}.
      *
@@ -192,7 +191,6 @@ public class UtenteDAO {
     /**
      * Carica gli eventi associati a un amministratore specifico dal database
      * e li memorizza nella lista locale degli eventi dell'oggetto corrente.
-     *
      * Ogni evento viene estratto dai risultati della query e trasformato
      * in un'istanza di {@code EventoDAO}, la quale viene aggiunta alla lista degli eventi.
      * In caso di errore di connessione, query fallita o altre problematiche

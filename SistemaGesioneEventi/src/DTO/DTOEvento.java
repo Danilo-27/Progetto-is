@@ -7,7 +7,6 @@ import java.time.LocalTime;
  * DTOEvento è una classe Data Transfer Object utilizzata per rappresentare i dati relativi a un evento.
  * La classe include informazioni come il titolo, la descrizione, la data, l'ora, il luogo, il costo,
  * la capienza e il numero di biglietti venduti.
- *
  * È progettata per semplificare il trasferimento di dati tra i livelli di un'applicazione o tra sistemi diversi.
  */
 public class DTOEvento {

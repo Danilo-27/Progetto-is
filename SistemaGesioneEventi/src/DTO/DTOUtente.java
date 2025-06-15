@@ -4,7 +4,6 @@ package DTO;
  * DTOUtente è una classe Data Transfer Object utilizzata per rappresentare i dati
  * relativi a un utente in modo strutturato. La classe include informazioni come
  * il nome, il cognome, l'email, l'immagine associata e il tipo di utente.
- *
  * Viene generalmente impiegata per il trasferimento di dati tra i livelli di un'applicazione
  * o tra sistemi diversi.
  */

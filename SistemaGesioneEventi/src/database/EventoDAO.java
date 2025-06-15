@@ -32,7 +32,6 @@ public class EventoDAO {
     private String descrizione;
     /**
      * Rappresenta la data dell'evento.
-     *
      * Questo attributo memorizza la data in cui si terrà l'evento, utilizzando il tipo `LocalDate`.
      */
     private LocalDate data;
@@ -118,7 +117,6 @@ public class EventoDAO {
     /**
      * Costante che rappresenta il nome della colonna nel database associata all'ID
      * dell'amministratore di un evento.
-     *
      * Questa costante viene utilizzata per referenziare in modo univoco la colonna
      * relativa all'identificativo dell'amministratore nella tabella 'eventi' del database,
      * garantendo coerenza e riducendo errori dovuti a stringhe duplicate nel codice.
@@ -137,9 +135,7 @@ public class EventoDAO {
 
     /**
      * Costruttore della classe EventoDAO.
-     *
      * Inizializza un'istanza vuota di EventoDAO senza impostare alcun valore iniziale agli attributi.
-     *
      * La classe EventoDAO rappresenta un'entità evento e fornisce metodi per interagire con i dati degli eventi
      * archiviati in un database, oltre a gestirne i relativi attributi.
      */
@@ -211,11 +207,9 @@ public class EventoDAO {
 
     /**
      * Salva i dati dell'evento nel database.
-     *
      * Questo metodo utilizza una query SQL per inserire i dati dell'evento corrente
      * nella tabella 'eventi' del database. I valori degli attributi dell'oggetto corrente 
      * vengono utilizzati per popolare i campi della tabella corrispondenti.
-     *
      * @throws DBException se si verifica un errore durante l'esecuzione della query
      *                     o se l'operazione non può essere completata.
      */
@@ -253,13 +247,12 @@ public class EventoDAO {
 
     /**
      * Carica i dati di un evento dal database associato all'identificativo univoco dell'istanza corrente.
-     *
      * Questo metodo esegue una query SQL per recuperare i dettagli dell'evento,
      * inclusi titolo, descrizione, data, ora, luogo, numero di partecipanti, capienza, amministratore ID e costo.
      * I dati dell'evento vengono popolati nei rispettivi attributi dell'oggetto.
      *
      * @throws DBException se l'evento non esiste nel database o si verifica un errore di connessione
-     *                     o esecuzione della query SQL.
+     * o esecuzione della query SQL.
      */
     public void caricaDaDB() throws DBException {
         String query = "SELECT * FROM eventi WHERE id = " + this.id + ";";
@@ -356,11 +349,9 @@ public class EventoDAO {
     }
     /**
      * Rimuove un evento dalla tabella 'eventi' del database in base al titolo dell'istanza corrente.
-     *
      * Questo metodo esegue una query SQL DELETE utilizzando il titolo dell'evento memorizzato
      * nella variabile di istanza `titolo` dell'oggetto corrente. L'eliminazione viene effettuata
      * direttamente nella tabella 'eventi' del database.
-     *
      * Se si verifica un errore durante l'interazione con il database, come un problema di connessione
      * o un errore nell'esecuzione della query SQL, viene lanciata una {@link DBException}.
      *

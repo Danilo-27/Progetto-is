@@ -18,7 +18,7 @@ public interface PagamentoService {
      * @param numeroCarta numero della carta
      * @param nomeTitolare nome del titolare
      * @param cognomeTitolare cognome del titolare
-     * @param scadenza
+     * @param scadenza scadenza della carta di credito
      * @param importo importo da addebitare
      * @return esito del pagamento
      */

@@ -1,7 +1,6 @@
 package entity;
 
 import database.BigliettoDAO;
-import database.EventoDAO;
 import database.UtenteDAO;
 import exceptions.BigliettoNotFoundException;
 import exceptions.DBException;

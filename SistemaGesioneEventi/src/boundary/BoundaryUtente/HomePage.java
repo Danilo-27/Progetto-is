@@ -13,17 +13,6 @@ public class HomePage extends JFrame {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                HomePage frame = new HomePage();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
     public HomePage() {
         setTitle("TicketTwo");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
