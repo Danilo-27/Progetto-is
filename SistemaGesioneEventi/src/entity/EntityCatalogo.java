@@ -172,12 +172,9 @@ public class EntityCatalogo {
         return risultati;
     }
 
-    public boolean verificaValidita(String titolo,String data){
-
+    public boolean verificaValidita(String titolo,LocalDate data){
         LocalDate oggi = LocalDate.now();
-        if (evento.getData().isAfter(oggi) || evento.getData().isEqual(oggi)) {
-            return true;
-        }
-        return false;
+        return this.cercaEventoPerTitolo(titolo) != null && !data.isBefore(oggi);
+
     }
 }
