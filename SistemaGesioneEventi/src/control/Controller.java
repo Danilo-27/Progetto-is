@@ -188,10 +188,15 @@ public class Controller {
      */
     public static void creaEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza, String emailAmministratore) throws RedundancyException,LoadingException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
-        EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
-        EntityEvento evento= amministratore.creazioneEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
-        catalogo.aggiungiEvento(evento);
+        if(catalogo.verificaValidita(Titolo,Data)){
+            EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
+            EntityEvento evento= amministratore.creazioneEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza);
+            catalogo.aggiungiEvento(evento);
+        }else{
+
+        }
+
     }
 
     /**

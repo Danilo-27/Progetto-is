@@ -50,7 +50,6 @@ public class EntityCatalogo {
         }catch(DBException e){
             throw new LoadingException("Errore nel caricamento degli eventi");
         }
-
     }
 
     /**
@@ -171,5 +170,14 @@ public class EntityCatalogo {
             }
         }
         return risultati;
+    }
+
+    public boolean verificaValidita(String titolo,String data){
+
+        LocalDate oggi = LocalDate.now();
+        if (evento.getData().isAfter(oggi) || evento.getData().isEqual(oggi)) {
+            return true;
+        }
+        return false;
     }
 }
