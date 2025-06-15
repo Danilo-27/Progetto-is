@@ -11,10 +11,10 @@
 }
 \textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
 1 & Tutti gli input validi & Titolo, Data, Luogo validi & Esiste almeno un evento che corrisponde alla ricerca & Titolo: Concerto, Data: 15-06-2025, Luogo: Teatro Comunale & Eventi trovati & -- \\
-2 & Titolo $>$ 50 caratteri & Titolo $>$ 50 caratteri [ERROR], altri validi & -- & Titolo: Festival internazionale della musica contemporanea elettronica, Data: 15-06-2025, Luogo: Teatro Comunale & Titolo troppo lungo & -- \\
-3 & Titolo vuoto & Titolo vuoto [ERROR], altri validi & -- & Titolo: (vuoto), Data: 15-06-2025, Luogo: Teatro Comunale & Inserire un titolo & -- \\
-4 & Titolo già memorizzato & Titolo già memorizzato [ERROR], altri validi & Titolo già presente nel DB & Titolo: Concerto Rock, Data: 15-06-2025, Luogo: Teatro Comunale & Titolo già utilizzato & -- \\
-5 & Data formato non valido & Data con formato non valido [ERROR], altri validi & -- & Titolo: Concerto, Data: 2025/06/15, Luogo: Teatro Comunale & Formato data non valido & -- \\
-6 & Luogo con caratteri speciali & Luogo con caratteri speciali [ERROR], altri validi & -- & Titolo: Concerto, Data: 15-06-2025, Luogo: Teatro\#Comunale & Caratteri non consentiti nel luogo & -- \\
-7 & Luogo con numeri & Luogo con numeri [ERROR], altri validi & -- & Titolo: Concerto, Data: 15-06-2025, Luogo: Teatro123 & Numeri non consentiti nel luogo & -- \\
+2 & Titolo $>$ 50 caratteri & Titolo $>$ 50 caratteri \texttt{[ERROR]}, altri validi & Utente autenticato & Titolo: Festival internazionale della musica contemporanea elettronica, Data: 15-06-2025, Luogo: Teatro Comunale & Titolo troppo lungo & -- \\
+3 & Titolo vuoto & Titolo vuoto \texttt{[ERROR]}, altri validi & Utente autenticato & Titolo: (vuoto), Data: 15-06-2025, Luogo: Teatro Comunale & Inserire un titolo & -- \\
+4 & Titolo già memorizzato & Titolo già memorizzato \texttt{[ERROR]}, altri validi & Titolo già presente nel sistema, Utente autenticato & Titolo: Concerto Rock, Data: 15-06-2025, Luogo: Teatro Comunale & Titolo già utilizzato & -- \\
+5 & Data formato non valido & Data con formato non valido \texttt{[ERROR]}, altri validi & Utente autenticato & Titolo: Concerto, Data: 2025/06/15, Luogo: Teatro Comunale & Formato data non valido & -- \\
+6 & Luogo con caratteri speciali & Luogo con caratteri speciali \texttt{[ERROR]}, altri validi & Utente autenticato & Titolo: Concerto, Data: 15-06-2025, Luogo: Teatro\#Comunale & Caratteri non consentiti nel luogo & -- \\
+7 & Luogo con numeri & Luogo con numeri \texttt{[ERROR]}, altri validi & Utente autenticato & Titolo: Concerto, Data: 15-06-2025, Luogo: Teatro123 & Numeri non consentiti nel luogo & -- \\
 \end{longtblr}

@@ -10,37 +10,37 @@
 	rowhead = 1,
   }
   \textbf{ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
-  1 & Tutti gli input validi & Tutti i parametri validi & Utente autenticato &
+  1 & Tutti gli input validi & Tutti i parametri validi & Amministratore autenticato &
   Titolo: Concerto Rock, Descrizione: Evento musicale serale, Data: 15-06-2025, Orario: 20-30, Luogo: Teatro Comunale, NumMax: 50 &
   Evento pubblicato con successo & L'evento viene correttamente aggiunto al catalogo \\
-  2 & Titolo $>$ 50 caratteri & Titolo $>$ 50 caratteri \texttt{[ERROR]} & Utente autenticato &
-  Titolo molto lungo (>50 char), altri parametri validi &
+  2 & Titolo $>$ 50 caratteri & Titolo $>$ 50 caratteri \texttt{[ERROR]} & Amministratore autenticato &
+  Titolo molto lungo ($>$ 50 char), altri parametri validi &
   Titolo troppo lungo & -- \\
-  3 & Titolo vuoto & Titolo con 0 caratteri \texttt{[ERROR]} & Utente autenticato &
+  3 & Titolo vuoto & Titolo con 0 caratteri \texttt{[ERROR]} & Amministratore autenticato &
   Titolo: "", altri parametri validi &
   Inserire un titolo & -- \\
-  4 & Titolo già esistente & Titolo già memorizzato \texttt{[ERROR]} & Utente autenticato &
+  4 & Titolo già esistente & Titolo già memorizzato \texttt{[ERROR]} & Amministratore autenticato, titolo già presente nel sistema &
   Titolo: Concerto Rock (esistente), altri parametri validi &
   Titolo già utilizzato & -- \\
-  5 & Descrizione $>$ 150 caratteri & Descrizione $>$ 150 caratteri \texttt{[ERROR]} & Utente autenticato &
-  Descrizione molto lunga (>150 char), altri parametri validi &
+  5 & Descrizione $>$ 150 caratteri & Descrizione $>$ 150 caratteri \texttt{[ERROR]} & Amministratore autenticato &
+  Descrizione molto lunga ($>$ 150 char), altri parametri validi &
   Descrizione troppo lunga & -- \\
-  6 & Descrizione vuota & Descrizione con 0 caratteri \texttt{[ERROR]} & Utente autenticato &
+  6 & Descrizione vuota & Descrizione con 0 caratteri \texttt{[ERROR]} & Amministratore autenticato &
   Descrizione: "", altri parametri validi &
   Inserire una descrizione & -- \\
-  7 & Data formato non valido & Data con formato non valido \texttt{[ERROR]} & Utente autenticato &
+  7 & Data formato non valido & Data con formato non valido \texttt{[ERROR]} & Amministratore autenticato &
   Data: 2025/06/15, altri parametri validi &
   Formato data non valido & -- \\
-  8 & Orario formato non valido & Orario con formato non valido \texttt{[ERROR]} & Utente autenticato &
+  8 & Orario formato non valido & Orario con formato non valido \texttt{[ERROR]} & Amministratore autenticato &
   Orario: 20:30, altri parametri validi &
   Formato orario non valido & -- \\
-  9 & Luogo con caratteri speciali & Luogo con caratteri speciali \texttt{[ERROR]} & Utente autenticato &
+  9 & Luogo con caratteri speciali & Luogo con caratteri speciali \texttt{[ERROR]} & Amministratore autenticato &
   Luogo: Teatro\#Comunale, altri parametri validi &
   Caratteri non consentiti nel luogo & -- \\
-  10 & Luogo con numeri & Luogo con numeri \texttt{[ERROR]} & Utente autenticato &
+  10 & Luogo con numeri & Luogo con numeri \texttt{[ERROR]} & Amministratore autenticato &
   Luogo: Teatro123, altri parametri validi &
   Numeri non consentiti nel luogo & -- \\
-  11 & NumMassimo $>$ 100 & NumMassimo $>$ 100 \texttt{[ERROR]} & Utente autenticato &
+  11 & NumMassimo $>$ 100 & NumMassimo $>$ 100 \texttt{[ERROR]} & Amministratore autenticato &
   NumMax: 150, altri parametri validi &
   Numero massimo troppo alto & -- \\
   12 & Utente non autenticato & Utente non autenticato & Utente non loggato &
