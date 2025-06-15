@@ -5,6 +5,7 @@ import boundary.BoundaryUtenteRegistrato.HomeUtenteRegistrato;
 import boundary.BoundaryUtente.HomePage;
 import control.Controller;
 import exceptions.*;
+import external.StubSistemaGestioneAcquisti;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -119,7 +120,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
                 form = new FormStoricoBiglietti(email, this);
                 form.setVisible(true);
                 this.setVisible(false);
-            } catch (BigliettoNotFoundException _) {
+            } catch (BigliettoNotFoundException Bnfe) {
                 JOptionPane.showMessageDialog(
                         this,
                         "Nessun biglietto trovato.",
@@ -162,7 +163,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
         styleButton(acquistaBigliettoButton, new Color(39, 174, 96));
         acquistaBigliettoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         acquistaBigliettoButton.setMaximumSize(new Dimension(220, 35));
-        acquistaBigliettoButton.addActionListener(e -> new FormAcquistoBiglietto(email).setVisible(true));
+        acquistaBigliettoButton.addActionListener(e -> new FormAcquistoBiglietto(email,new StubSistemaGestioneAcquisti()).setVisible(true));
         return acquistaBigliettoButton;
     }
 
@@ -300,7 +301,7 @@ public class HomeCliente extends HomeUtenteRegistrato {
         try {
             List<DTOEvento> eventi = Controller.RicercaEvento(null, LocalDate.now(), null);
             updateEventiOdierni(eventi);
-        } catch (EventoNotFoundException _) {
+        } catch (EventoNotFoundException Enfe) {
             eventiModel.clear();
         }
     }

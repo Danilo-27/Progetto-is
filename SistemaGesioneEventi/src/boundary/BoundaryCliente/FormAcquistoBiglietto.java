@@ -5,23 +5,29 @@ import control.Controller;
 import exceptions.AcquistoException;
 import exceptions.BigliettoNotFoundException;
 import exceptions.RedundancyException;
+import external.PagamentoService;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FormAcquistoBiglietto extends JFrame {
     private final String emailUtente;
+    private final PagamentoService pagamentoService;
     private JList<DTOEvento> listaEventi;
     private DefaultListModel<DTOEvento> eventiModel;
     private JButton acquistaButton;
-    private static final String ERRORE="Errore";
+    private static final String ERRORE = "Errore";
 
-    public FormAcquistoBiglietto(String emailUtente) {
+    public FormAcquistoBiglietto(String emailUtente, PagamentoService pagamentoService) {
         this.emailUtente = emailUtente;
+        this.pagamentoService = pagamentoService;
         setTitle("Acquisto Biglietto");
         setSize(600, 400);
         setLocationRelativeTo(null);
@@ -57,7 +63,6 @@ public class FormAcquistoBiglietto extends JFrame {
             }
         });
 
-
         listaEventi.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -85,18 +90,13 @@ public class FormAcquistoBiglietto extends JFrame {
     }
 
     private void caricaEventiDisponibili() {
-            List<DTOEvento> eventi = Controller.ConsultaCatalogo();
-        System.out.println(eventi.size() + " eventi disponibili");
-            if (!eventi.isEmpty()) {
-                eventiModel.clear();
-                for (DTOEvento evento : eventi) {
-                    eventiModel.addElement(evento);
-                }
-            }else{
-                JOptionPane.showMessageDialog(this, "Nessun evento disponibile al momento.", ERRORE, JOptionPane.ERROR_MESSAGE);
-
-            }
-
+        List<DTOEvento> eventi = Controller.ConsultaCatalogo();
+        if (!eventi.isEmpty()) {
+            eventiModel.clear();
+            eventi.forEach(eventiModel::addElement);
+        } else {
+            JOptionPane.showMessageDialog(this, "Nessun evento disponibile al momento.", ERRORE, JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void acquistaBiglietto() {
@@ -107,13 +107,21 @@ public class FormAcquistoBiglietto extends JFrame {
         }
 
         ArrayList<String> datiCarta = apriFormDatiCarta();
-        if (datiCarta.size() < 3 || datiCarta.get(0).isEmpty() || datiCarta.get(1).isEmpty() || datiCarta.get(2).isEmpty()) {
+        if (datiCarta.size() < 4 ||
+                datiCarta.get(0).isEmpty() || datiCarta.get(1).isEmpty() ||
+                datiCarta.get(2).isEmpty() || datiCarta.get(3).isEmpty()) {
             JOptionPane.showMessageDialog(this, "Dati carta non validi o annullati.", ERRORE, JOptionPane.WARNING_MESSAGE);
             return;
         }
 
+        if (!scadenzaValida(datiCarta.get(3))) {
+            JOptionPane.showMessageDialog(this, "Formato scadenza non valido. Usa MM/yy.", ERRORE, JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         try {
-            Controller.AcquistoBiglietto(dto, emailUtente, datiCarta.get(0), datiCarta.get(1), datiCarta.get(2));
+            Controller.AcquistoBiglietto(pagamentoService, dto, emailUtente,
+                    datiCarta.get(0), datiCarta.get(1), datiCarta.get(2), datiCarta.get(3));
             JOptionPane.showMessageDialog(this, "Biglietto acquistato con successo!", "Successo", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         } catch (AcquistoException | BigliettoNotFoundException | RedundancyException e) {
@@ -121,11 +129,11 @@ public class FormAcquistoBiglietto extends JFrame {
         }
     }
 
-
     private ArrayList<String> apriFormDatiCarta() {
         JTextField numeroCartaField = new JTextField();
         JTextField nomeTitolareField = new JTextField();
         JTextField cognomeTitolareField = new JTextField();
+        JTextField scadenzaField = new JTextField();
 
         JPanel panel = new JPanel(new GridLayout(0, 1));
         panel.add(new JLabel("Numero della carta:"));
@@ -134,19 +142,30 @@ public class FormAcquistoBiglietto extends JFrame {
         panel.add(nomeTitolareField);
         panel.add(new JLabel("Cognome Titolare:"));
         panel.add(cognomeTitolareField);
+        panel.add(new JLabel("Scadenza (MM/yy):"));
+        panel.add(scadenzaField);
 
         int result = JOptionPane.showConfirmDialog(this, panel, "Inserisci dati carta",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
+        ArrayList<String> datiCarta = new ArrayList<>();
         if (result == JOptionPane.OK_OPTION) {
-            ArrayList<String> datiCarta = new ArrayList<>();
             datiCarta.add(numeroCartaField.getText().trim());
             datiCarta.add(nomeTitolareField.getText().trim());
             datiCarta.add(cognomeTitolareField.getText().trim());
-            return datiCarta;
-        } else {
-            return new ArrayList<>();
+            datiCarta.add(scadenzaField.getText().trim());
         }
+
+        return datiCarta;
     }
 
+    private boolean scadenzaValida(String scadenza) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
+            YearMonth.parse(scadenza, formatter);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+    }
 }

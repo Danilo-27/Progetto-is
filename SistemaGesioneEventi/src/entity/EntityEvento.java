@@ -89,7 +89,7 @@ public class EntityEvento {
      */
     public EntityEvento(EventoDAO evento) {
         inizializzaDaEventoDAO(evento);
-        EntityPiattaforma ep =EntityPiattaforma.getInstance();
+        EntityPiattaforma ep = EntityPiattaforma.getInstance();
         this.amministratore=ep.cercaAmministratorePerId(evento.getAmministratoreId());
         this.biglietti = new ArrayList<>();
     }
@@ -256,6 +256,7 @@ public class EntityEvento {
         String codiceUnivoco = creazioneIDUnivoco();
         EntityBiglietto biglietto = new EntityBiglietto(codiceUnivoco,this,cliente);
         biglietto.scriviSuDB();
+        this.biglietti.add(biglietto);
         return biglietto;
     }
 
@@ -279,6 +280,25 @@ public class EntityEvento {
      */
     public void caricaBiglietti(EventoDAO eventoDAO) throws BigliettoNotFoundException{
         this.biglietti = new ArrayList<>();
+        if(eventoDAO.getBiglietti() !=null){
+            for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
+                EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
+                this.biglietti.add(biglietto);
+            }
+        }else{
+            throw new BigliettoNotFoundException("Biglietti assenti nel DB.");
+        }
+
+    }
+
+    public void caricaBiglietti() throws BigliettoNotFoundException {
+        EventoDAO eventoDAO = new EventoDAO(this.titolo);
+        this.biglietti.clear();
+        try {
+            eventoDAO.caricaBigliettiEventiDaDB();
+        } catch (DBException e) {
+            System.out.println("nessun biglietto venduto");
+        }
         if(eventoDAO.getBiglietti() !=null){
             for (BigliettoDAO bigliettoDAO : eventoDAO.getBiglietti()) {
                 EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);

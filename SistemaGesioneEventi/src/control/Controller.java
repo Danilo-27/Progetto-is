@@ -5,6 +5,8 @@ import DTO.DTOEvento;
 import DTO.DTOUtente;
 import entity.*;
 import exceptions.*;
+import external.PagamentoService;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -117,26 +119,33 @@ public class Controller {
      * @throws BigliettoNotFoundException se l'evento non viene trovato nel catalogo.
      * @throws RedundancyException se l'utente ha già acquistato un biglietto per lo stesso evento.
      */
-    public static void AcquistoBiglietto(DTOEvento evento_dto, String email,String NumeroCarta,String NomeTitolare,String CognomeTitolare) throws AcquistoException,BigliettoNotFoundException,RedundancyException {
+    public static void AcquistoBiglietto(PagamentoService pagamentoService, DTOEvento evento_dto, String email, String NumeroCarta, String NomeTitolare, String CognomeTitolare, String scadenza) throws AcquistoException, BigliettoNotFoundException, RedundancyException {
+
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
+
         EntityEvento evento = catalogo.cercaEventoPerTitolo(evento_dto.getTitolo());
+        evento.caricaBiglietti();
         EntityCliente cliente = piattaforma.cercaClientePerEmail(email);
         cliente.caricaBiglietti();
 
-        if(cliente.haBigliettoPerEvento(evento))
-            throw new RedundancyException ("Biglietto gia acquistato per questo evento");
+        if (cliente.haBigliettoPerEvento(evento))
+            throw new RedundancyException("Biglietto già acquistato per questo evento");
 
-        if (evento.verificaDisponibilità()) {
-            SistemaGestioneAcquisti sga = new SistemaGestioneAcquisti();
-            if (sga.elaboraPagamento(NumeroCarta, NomeTitolare, CognomeTitolare)) {
-                cliente.getBiglietti().add(evento.creaBiglietto(cliente));
-            } else {
-                throw new AcquistoException("Pagamento non riuscito per l'utente: " + email);
-            }
-        } else {
-            throw new AcquistoException("Biglietti esauriti per l'evento: " + evento.getTitolo());
-        }
+
+        if (!evento.verificaDisponibilità())
+            throw new AcquistoException("Biglietti esauriti per l'evento "+evento.getTitolo());
+
+
+        // Chiamata al servizio di pagamento
+        PagamentoService.EsitoPagamento esito = pagamentoService.elaboraPagamento(
+                NumeroCarta, NomeTitolare, CognomeTitolare,scadenza,evento.getCosto());
+
+        if (esito == PagamentoService.EsitoPagamento.SUCCESSO)
+            cliente.getBiglietti().add(evento.creaBiglietto(cliente));
+        else
+            throw new AcquistoException("Pagamento fallito " + esito.name().replace("_", " ").toLowerCase());
+
     }
 
     /**
