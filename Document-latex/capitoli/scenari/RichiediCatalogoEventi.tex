@@ -1,18 +1,26 @@
-\begin{table}[!hbp]
-	\centering
+\vspace{1em}
+\noindent
+\begin{minipage}{\textwidth}
 	\begin{scenery}{colspec=lX}
 		Caso d'uso: & Consulta Catalogo Eventi \\
-		Attore primario & Utente \\
+		Attore primario & UtenteRegistrato \\
 		Attore secondario & - \\
-		Descrizione & Un utente consulta il catalogo degli eventi disponibili \\
+		Descrizione & Un utenteRegistrato consulta il catalogo degli eventi disponibili \\
 		Pre-condizioni & L’utente deve essersi autenticato \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
 				\item Il caso d’uso inizia quando l’utente richiede di visualizzare l’elenco degli eventi disponibili
-				\item Il sistema fornisce all’UA una panoramica degli eventi disponibili
+				\item Se ci sono eventi disponibili
+				\begin{enumerate}[label*=\arabic*.]
+				\item il sistema mostra all'utente tutti gli eventi disponibili
+			    \end{enumerate}
+				\item altrimenti
+				\begin{enumerate}[label*=\arabic*.]
+				 \item il caso d'uso termina con un messaggio d'errore
+				\end{enumerate}
 			\end{enumerate} \\
 		Post-condizioni & - \\
 		Casi d'uso correlati & UC5, UC8 \\
 		{Sequenza di eventi \\ alternativa} & - \\
 	\end{scenery}
-\end{table}
+\end{minipage}

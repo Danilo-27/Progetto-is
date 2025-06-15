@@ -40,9 +40,9 @@
 		\end{minipage} &
 		\begin{minipage}[t]{\linewidth}
 			\paragraph{Casi d'uso di inclusione}
-			\begin{enumerate}[leftmargin=*]
+			\begin{enumerate}[leftmargin=*, start=11]
                 \item ConsultaCatalogoEventi
-	      \item ConsultaStoricoBiglietti
+	      		\item ConsultaStoricoBiglietti
 			\end{enumerate}
 
 		\end{minipage}
@@ -84,26 +84,26 @@ ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 \IncludeTable{capitoli/scenari/Registrazione}
 \IncludeTable{capitoli/scenari/Autenticazione}
 %\IncludeTable{capitoli/scenari/ModificaDatiPersonali}
-%\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
-%\IncludeTable{capitoli/scenari/ricercaEvento}
+\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
+%\IncludeTable{capitoli/scenari/RicercaEvento}
 %\IncludeTable{capitoli/scenari/VisualizzaBiglietto}
 %\IncludeTable{capitoli/scenari/ConsultaStoricoBiglietti}
 %\IncludeTable{capitoli/scenari/ScaricaBiglietto}
 \IncludeTable{capitoli/scenari/AcquistaBiglietto}
 \IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/PartecipazioneEvento}
-\IncludeTable{capitoli/scenari/ConsultaInformazioniEvento}
-\clearpage
+\IncludeTable{capitoli/scenari/ConsultaEventiPubblicati}
+
 \section{Diagramma delle Classi}
 Di seguito riportiamo il diagramma delle classi di analisi.
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagrammaDelleClassi.png}
 	\caption{Diagramma delle classi di analisi}
 \end{figure}
 
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\begin{tblr}{
 	  colspec = {X[0.6,c] X[0.6,c]},
@@ -202,7 +202,7 @@ Di seguito riportiamo il diagramma delle classi di analisi.
     Il diagramma di sequenza del caso d'uso \textit{ConsultaEventiPubblicati} mostra la necessità di una responsabilità \textbf{getListaPartecipanti()} da parte dell'evento
 
     \vspace{2ex}
-    \includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaEventiPubblicati.png}
+    \includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaInformazioniEvento.png}
 
     \vspace{1ex}
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaEventiPubblicati}

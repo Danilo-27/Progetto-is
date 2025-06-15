@@ -1,4 +1,4 @@
-\begin{table}[!hbp]
+\begin{table}[H]
 	\centering
 	\begin{scenery}{colspec=lX}
 		Caso d'uso: & Acquista Biglietto \\
@@ -8,29 +8,33 @@
 		Pre-condizioni & L'utente ha effettuato l’accesso \\
 		{Sequenza di eventi \\ principale} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Il caso d'uso inizia quando il cliente vuole acquistare un biglietto elettronico
+				\item Il caso d'uso inizia quando l'utente vuole acquistare un biglietto elettronico
 				\item Include (Consulta Catalogo Eventi)
-				\item il cliente seleziona un evento per cui vuole acquistare un biglietto
-				\item il sistema chiede al cliente di inseriri i dati per il pagamento(NumeroCarta,NomeTitolare,CognomeTitolare,DataScadenza)
-				\item il cliente inserice i dati per il pagamento
-				\item il sistema controlla la validità dei dati inseriti(Es scadenza carta nel formato MM/YY)
-				\item Se i dati inseriti sono validi
+				\item l'utente seleziona un evento per cui vuole acquistare un biglietto
+				\item Il sistema controlla che l'utente non abbia già acquistato un biglietto per questo evento
+				\item Se non ha già acquistato il biglietto:
 				\begin{enumerate}[label*=\arabic*.]
 					\item Il sistema controlla i posti disponibili per l'evento
-					\item Se ci sono posti disponibili
+					\item Se ci sono posti disponibili:
 					\begin{enumerate}[label*=\arabic*.]
-						\item Il Sistema invia una richiesta di pagamento al Sistema Gestione Acquisti e aspetta la conferma
-						\item il caso d'uso termina con il sistema che crea un biglietto dell'evento e lo associa al cliente
+						\item Il sistema chiede all'utente di inserire i dati per il pagamento
+						\item l'utente inserisce i dati per il pagamento
+						\item Se i dati inseriti sono validi:
+						\begin{enumerate}[label*=\arabic*.]
+							\item Il Sistema invia una richiesta di pagamento al Sistema Gestione Acquisti
+							\item Il sistema crea un nuovo biglietto per l'evento e lo associa al cliente
+						\end{enumerate}
 					\end{enumerate}
+					\item Altrimenti ll caso d'uso termina con un messaggio che indica la fine dei posti disponibili
 				\end{enumerate}
+				\item Atrimenti ll caso d'uso termina con un messaggio che indica al cliente di aver già acquistato il biglietto
 			\end{enumerate} \\
-		Post-condizioni & Il biglietto è stato generato ed è associato al cliente\\
+		Post-condizioni & Il biglietto è stato generato ed aggiunto allo storico dei biglietti acquistati del cliente\\
 		Casi d'uso correlati & UC12 \\
 		{Sequenza di eventi \\ alternativa} &
 			\begin{enumerate}[label=\arabic*.]
-				\item Al punto 6 se i dati inseriti non sono validi il caso d'uso termina con il sistema che indica l'errore nei dati del pagamento
-				\item al punto 7.2 se non ci sono posti disponibili il caso d'uso termina con un messaggio di errore
-				\item al punto 7.2.1 se non arriva conferma dal sistema esterno il caso d'uso termina con un messaggio di errore ottenuto dal sistema esterno
+				\item al punto 5.2.3 se i dati inseritiì non sono validi il caso d'uso termina con un messaggio d'errore
+				\item Al punto 5.2.3.1 se il sistema non riceve un esito positivo dal SistemaGestioneAcquisti il caso d'uso termina
 			\end{enumerate} \\
 	\end{scenery}
 \end{table}
