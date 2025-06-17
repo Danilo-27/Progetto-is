@@ -98,9 +98,9 @@ public class EntityBiglietto {
      * inclusi stato, codice univoco, evento associato e cliente correlato.
      * Se il biglietto esiste già nel database, viene sollevata un'eccezione {@code RedundancyException}.
      *
-     * @throws RedundancyException se il biglietto è già presente nel database e non può essere duplicato.
+     * @throws UpdateException se ci sono errori nella permenenza dei dati del biglietto
      */
-    public void scriviSuDB() throws RedundancyException{
+    public void scriviSuDB() throws UpdateException{
         BigliettoDAO b = new BigliettoDAO();
         b.setStato(this.stato);
         b.setCodice_univoco(this.codiceUnivoco);
@@ -109,7 +109,7 @@ public class EntityBiglietto {
         try {
             b.SalvaInDB();
         } catch (DBException e) {
-            throw new RedundancyException("Biglietto già creato.");
+            throw new UpdateException("Erorre Nella creazione del Biglietto");
         }
     }
 

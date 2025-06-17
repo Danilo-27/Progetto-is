@@ -216,10 +216,8 @@ public class BigliettoDAO{
                 "VALUES ('" + this.codice_univoco + "', '" + this.stato + "', '" + this.Cliente_id + "', '" + this.Evento_id + "');";
         try {
             DBConnectionManager.updateQuery(query);
-        } catch (SQLIntegrityConstraintViolationException e) {
-            throw new DBException("Violazione dei vincoli di integrità: " + e.getMessage());
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new DBException("Biglietto già creato.");
+        }  catch (SQLException | ClassNotFoundException e) {
+            throw new DBException("Erorre Nella Creazione Del Biglietto");
         }
     }
 

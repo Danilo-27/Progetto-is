@@ -6,6 +6,7 @@ import exceptions.AcquistoException;
 import exceptions.BigliettoNotFoundException;
 import exceptions.EventoNotFoundException;
 import exceptions.RedundancyException;
+import exceptions.UpdateException;
 import external.PagamentoService;
 
 import javax.swing.*;
@@ -121,8 +122,8 @@ public class FormAcquistoBiglietto extends JFrame {
                     datiCarta.get(0), datiCarta.get(1), datiCarta.get(2), datiCarta.get(3));
             JOptionPane.showMessageDialog(this, "Biglietto acquistato con successo!", "Successo", JOptionPane.INFORMATION_MESSAGE);
             dispose();
-        } catch (AcquistoException | BigliettoNotFoundException | RedundancyException e) {
-            JOptionPane.showMessageDialog(this, "Errore durante l'acquisto: " + e.getMessage(), ERRORE, JOptionPane.ERROR_MESSAGE);
+        } catch (AcquistoException | BigliettoNotFoundException | UpdateException e) {
+            JOptionPane.showMessageDialog(this, "Errore : " + e.getMessage(), ERRORE, JOptionPane.ERROR_MESSAGE);
         }
     }
 

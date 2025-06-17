@@ -250,14 +250,13 @@ public class EntityEvento {
      * e archivia il biglietto nel database.
      *
      * @param cliente l'entità del cliente a cui il biglietto verrà associato
-     * @return un'entità EntityBiglietto che rappresenta il biglietto creato
      */
-    public EntityBiglietto creaBiglietto(EntityCliente cliente) throws RedundancyException{
+    public void creaBiglietto(EntityCliente cliente) throws UpdateException{
         String codiceUnivoco = creazioneIDUnivoco();
         EntityBiglietto biglietto = new EntityBiglietto(codiceUnivoco,this,cliente);
         biglietto.scriviSuDB();
         this.biglietti.add(biglietto);
-        return biglietto;
+        cliente.getBiglietti().add(biglietto);
     }
 
     /**
