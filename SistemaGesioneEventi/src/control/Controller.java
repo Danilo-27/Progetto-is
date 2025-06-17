@@ -123,7 +123,7 @@ public class Controller {
      * @throws BigliettoNotFoundException se l'evento non viene trovato nel catalogo.
      * @throws RedundancyException se l'utente ha già acquistato un biglietto per lo stesso evento.
      */
-    public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, String numeroCarta, String nomeTitolare, String cognomeTitolare, String scadenza) throws AcquistoException, BigliettoNotFoundException, RedundancyException {
+    public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, String numeroCarta, String nomeTitolare, String cognomeTitolare, String scadenza) throws AcquistoException, BigliettoNotFoundException, UpdateException {
 
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
@@ -146,7 +146,7 @@ public class Controller {
                 numeroCarta, nomeTitolare, cognomeTitolare,scadenza,evento.getCosto());
 
         if (esito == PagamentoService.EsitoPagamento.SUCCESSO)
-            cliente.getBiglietti().add(evento.creaBiglietto(cliente));
+            evento.creaBiglietto(cliente);
         else
             throw new AcquistoException("Pagamento fallito " + esito.name().replace("_", " ").toLowerCase());
 

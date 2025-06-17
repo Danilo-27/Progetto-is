@@ -40,9 +40,9 @@
 		\end{minipage} &
 		\begin{minipage}[t]{\linewidth}
 			\paragraph{Casi d'uso di inclusione}
-			\begin{enumerate}[leftmargin=*]
+			\begin{enumerate}[leftmargin=*, start=11]
                 \item ConsultaCatalogoEventi
-	      \item ConsultaStoricoBiglietti
+	      		\item ConsultaStoricoBiglietti
 			\end{enumerate}
 
 		\end{minipage}
@@ -84,26 +84,26 @@ ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 \IncludeTable{capitoli/scenari/Registrazione}
 \IncludeTable{capitoli/scenari/Autenticazione}
 %\IncludeTable{capitoli/scenari/ModificaDatiPersonali}
-%\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
-%\IncludeTable{capitoli/scenari/ricercaEvento}
+\IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
+%\IncludeTable{capitoli/scenari/RicercaEvento}
 %\IncludeTable{capitoli/scenari/VisualizzaBiglietto}
 %\IncludeTable{capitoli/scenari/ConsultaStoricoBiglietti}
 %\IncludeTable{capitoli/scenari/ScaricaBiglietto}
 \IncludeTable{capitoli/scenari/AcquistaBiglietto}
 \IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/PartecipazioneEvento}
-\IncludeTable{capitoli/scenari/ConsultaInformazioniEvento}
-\clearpage
+\IncludeTable{capitoli/scenari/ConsultaEventiPubblicati}
+
 \section{Diagramma delle Classi}
 Di seguito riportiamo il diagramma delle classi di analisi.
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagrammaDelleClassi.png}
 	\caption{Diagramma delle classi di analisi}
 \end{figure}
 
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\begin{tblr}{
 	  colspec = {X[0.6,c] X[0.6,c]},
@@ -117,6 +117,7 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	ModificaDati & Cliente \\
 	VisualizzaStoricoBiglietti & Cliente \\
 	CreazioneEvento & Amministratore \\
+	ConsultaEventiPubblicati & Amministratore\\
 	ScaricaBiglietto & Biglietto \\
 	VisualizzaBiglietto & Biglietto \\
 	AcquistoBiglietto & Evento \\
@@ -124,77 +125,68 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	ConsultaInformazioni & Evento \\
 	AggiungiEvento & Catalogo \\
 	RicercaEvento & Catalogo \\
+	ConsultaCatalogo & Catalogo \\
 
 	\end{tblr}
 \end{table}
 
-\begin{description}
-	\item Registrazione e autenticazione sono responsabilità di \textbf{SistemaGestioneEventi} in quanto \textless\textless information expert \textgreater\textgreater{} di \textit{UtenteRegistrato}.
-	
-	\item ModificaDati e VisualizzaStoricoBiglietti sono responsabilità di \textbf{Cliente} in quanto agiscono su suoi attributi e classi ad esso associate.
-	
-	\item AcquistoBiglietto è una responsabilità di \textbf{Evento} in quanto \textless\textless creator \textgreater\textgreater{} di biglietti.
-	
-	\item PartecipazioneEvento è una responsabilità di \textbf{Evento} seguendo il pattern \textless\textless LOW COUPLING \textgreater\textgreater.
-	
-	\item AggiungiEvento è una responsabilità di \textbf{Catalogo} poiché, dopo la creazione, l’evento verrà aggiunto al catalogo.
-	
-	\item RicercaEvento è una responsabilità di \textbf{Catalogo} essendo il contenitore degli eventi.
-	
-	\item CreazioneEvento è una responsabilità di \textbf{Amministratore} essendo il \textless\textless creator \textgreater\textgreater{} di Eventi.
-  \end{description}
 
+\begin{itemize}
+    \item \textbf{Registrazione e Autenticazione:} \\
+    Responsabilità del \textbf{SistemaGestioneEventi}, in quanto \emph{Information Expert} per la gestione degli oggetti \texttt{UtenteRegistrato}.
+    
+    \item \textbf{ModificaDati e VisualizzaStoricoBiglietti:} \\
+    Responsabilità del \textbf{Cliente}, poiché operano direttamente sui suoi attributi e sulle entità a lui associate.
+    
+    \item \textbf{AcquistoBiglietto:} \\
+    Assegnata alla classe \textbf{Evento}, in quanto \emph{Creator} degli oggetti \texttt{Biglietto}.
+    
+    \item \textbf{PartecipazioneEvento:} \\
+    Gestita dalla classe \textbf{Evento}, seguendo il principio di \emph{Low Coupling} per minimizzare le dipendenze tra classi.
+    
+    \item \textbf{RicercaEvento, AggiungiEvento e ConsultaCatalogo:} \\
+    Responsabilità della classe \textbf{Catalogo}, in quanto \emph{Information Expert} sugli oggetti \texttt{Evento} presenti nel sistema.
+    
+    \item \textbf{CreazioneEvento:} \\
+    Di competenza dell'\textbf{Amministratore}, in quanto \emph{Creator} degli oggetti \texttt{Evento}.
+    
+    \item \textbf{ConsultaEventiPubblicati:} \\
+    Assegnata all'\textbf{Amministratore}, poiché \emph{Information Expert} degli eventi da lui gestiti e pubblicati.
+\end{itemize}
 
-\clearpage
-
+\newpage
 
 \section{Diagrammi di sequenza}
-
-
 \subsection{Registrazione}
 
-\begin{center}
-    La creazione del seguente diagramma di sequenza, sviluppato a partire dalla descrizione dello scenario del caso d’uso \textit{Registrazione}, ha fatto emergere la necessità di definire un metodo privato specifico della classe \textbf{SistemaGestioneEventi}:
-
-    \vspace{1ex}
-    \textbf{controlloEmail(Email)}
-
-    \vspace{2ex}
-    Tale metodo consente a \textbf{SistemaGestioneEventi} di verificare che l’indirizzo email  non sia già utilizzato da un altro utente.
-
-    \vspace{3ex}
+La creazione del seguente diagramma di sequenza,ha fatto emergere la necessità di definire un metodo per la classe \textbf{Piattaforma}:
+\texttt{controlloEmail(Email)},tale metodo consente alla \textbf{Piattaforma} di verificare che l'indirizzo email non sia già registrato nel sistema
+\begin{figure}[H]
+    \centering
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/Registrazione.png}
-    
-    \vspace{1ex}
-    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{Registrazione}
-\end{center}
+    \caption{Diagramma di sequenza per il caso d'uso \emph{Registrazione}}
+    \label{fig:registrazione}
+\end{figure}
 
 \subsection{Autenticazione}
-\begin{figure}[!ht]
-    \hspace*{4cm} % Sposta la figura a destra (aggiusta il valore)
+Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{controlloCredenziali(email, password)} per la classe \textbf{Piattafroma}, che permette di verificare le credenziali di accesso.
+\begin{figure}[H]
+    \hspace{4cm}
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/Autenticazione.png}
-	\vspace{1ex}
-    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{Autenticazione}
+    \caption{Diagramma di sequenza per il caso d'uso \emph{Autenticazione}}
+    \label{fig:autenticazione}
 \end{figure}
 
 \subsection{PubblicaEvento}
 
-\begin{center}
-    La creazione del seguente diagramma di sequenza, sviluppato a partire dalla descrizione dello scenario del caso \noindent d’uso \textit{PubblicaEvento}, ha fatto emergere la necessità di definire un metodo privato, specifico della classe \textbf{Amministratore}:
+Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verificaValidità(Titolo,Data)} per la classe \textbf{Amministratore}, che permette di verificare che non esite nel sistema un evento con lo stesso titolo e che la data sia maggiore di quella della pubblicazione
 
-    \vspace{1ex}
-    \textbf{verificaValidità(Titolo, Descrizione, Data, Orario, Luogo, NumMassimoPartecipanti)}
-    
-    \vspace{2ex}
-    Tale metodo consente all’amministratore di verificare che i dati inseriti siano validi prima della pubblicazione di un evento.
-
-    \vspace{3ex}
+\begin{figure}[H]
+    \centering
     \includegraphics[width=\linewidth]{assets/casid'uso/PubblicaEvento.png}
-    
-    \vspace{1ex}
-    \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{PubblicaEvento}
-\end{center}
-
+    \caption{Diagramma di sequenza per il caso d'uso \emph{PubblicaEvento}}
+    \label{fig:pubblicaevento}
+\end{figure}
 
 \subsection{ConsultaEventiPubblicati}
 
@@ -208,35 +200,29 @@ Di seguito riportiamo il diagramma delle classi di analisi.
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaEventiPubblicati}
 \end{center}
 
-
-\newpage
-{
 \subsection{AcquistoBiglietti}
 
-\begin{center}
-Il diagramma di sequenza del caso d’uso \textit{AcquistoBiglietto} mostra il processo di acquisto da parte dell’utente. Durante questo flusso emergono tre nuove responsablità per la classe Evento: \textbf{verificaDisponibilità()}, \textbf{creazioneIdUnivoco()} e \textbf{InviaDatiPagamento(Nome, Cognome, Email, informazioniCarta)}. 
-\vspace*{2mm}
-\raisebox{2mm}{\includegraphics[width=0.8\linewidth]{assets/casid'uso/AcquistoBiglietto.png}}
+Il diagramma di sequenza ha evidenziato diverse responsabilità: per la classe \textbf{Evento} i metodi \texttt{verificaDisponibilità()}, \texttt{creazioneIdUnivoco()} e \texttt{InviaDatiPagamento(NomeTitolare, CognomeTitolare,informazioniCarta,DataScadenza)}, mentre per la classe \textbf{Cliente} il metodo \texttt{haBigliettoPerEvento(evento)} per verificare eventuali acquisti precedenti.
 
-\vspace{1ex}
-\textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{AcquistoBiglietto}
-\end{center}
-}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{assets/casid'uso/AcquistoBiglietto.png}
+    \caption{Diagramma di sequenza per il caso d'uso \emph{AcquistoBiglietto}}
+    \label{fig:acquistobiglietto}
+\end{figure}
 
-\vspace{2ex}
 
-\small
 \newpage
 \subsection{PartecipazioneEvento}
 
-\begin{center}
-Il diagramma di sequenza del caso d’uso \textit{PartecipazioneEvento} evidenzia i passi necessari durante la partecipazione ad un evento da parte di un utente. E' stato necessario dunque aggiungere, come visibile dal diagramma, un nuovo metodo nella classe Evento: \textbf{verificaCodice()}, ed un nuovo metodo nella classe Biglietto: \textbf{validaBiglietto()}
+Il diagramma di sequenza ha evidenziato la necessità di aggiungere il metodo \texttt{verificaCodice()} per la classe \textbf{Evento} e il metodo \texttt{validaBiglietto()} per la classe \textbf{Biglietto}, necessari per gestire la partecipazione degli utenti agli eventi.
 
-\vspace{1ex}
-\includegraphics[height=0.38\textheight]{assets/casid'uso/PartecipazioneEvento.png}
-\vspace{1ex}
-\end{center}
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.38\textheight]{assets/casid'uso/PartecipazioneEvento.png}
+    \caption{Diagramma di sequenza per il caso d'uso \emph{PartecipazioneEvento}}
+    \label{fig:partecipazione}
+\end{figure}
 
 \section{Diagramma delle classi raffinato}
 \begin{center}	

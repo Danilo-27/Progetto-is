@@ -1,52 +1,51 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
 \contentsline {chapter}{\numberline {1}Specifiche Informali}{3}{chapter.1}%
-\contentsline {chapter}{\numberline {1}Analisi e specifica dei requisiti}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Analisi nomi-verbi}{3}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Revisione dei Requisiti}{4}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Glossario dei termini}{4}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Classificazione dei Requisiti}{5}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Requisiti Funzionali}{5}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}Requisiti sui Dati}{5}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}Vincoli/Altri Requisiti}{5}{subsection.1.4.3}%
-\contentsline {chapter}{\numberline {2}Modellazione dei Casi d'Uso}{6}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Attori e Casi d'Uso}{6}{section.2.1}%
-\contentsline {paragraph}{Attori primari}{6}{section*.8}%
-\contentsline {paragraph}{Attori secondari}{6}{section*.9}%
-\contentsline {paragraph}{Casi d'uso}{6}{section*.16}%
-\contentsline {paragraph}{Casi d'uso di inclusione}{6}{section*.17}%
-\contentsline {section}{\numberline {2.2}Diagramma dei Casi d'Uso}{7}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Scenari}{8}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Diagramma delle Classi}{12}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Diagrammi di sequenza}{13}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Registrazione}{13}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Autenticazione}{13}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}PubblicaEvento}{14}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}ConsultaEventiPubblicati}{14}{subsection.2.5.4}%
-\contentsline {subsection}{\numberline {2.5.5}AcquistoBiglietti}{15}{subsection.2.5.5}%
-\contentsline {subsection}{\numberline {2.5.6}PartecipazioneEvento}{16}{subsection.2.5.6}%
-\contentsline {subsection}{\numberline {2.5.7}ModificaDatiPersonali}{16}{subsection.2.5.7}%
-\contentsline {section}{\numberline {2.6}Diagramma delle classi raffinato}{17}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Piano di test funzionale}{18}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Registrazione}{18}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Autenticazione}{19}{section.3.2}%
-\contentsline {section}{\numberline {3.3}PubblicaEvento}{20}{section.3.3}%
-\contentsline {section}{\numberline {3.4}RicercaEvento}{21}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Acquista Biglietto}{22}{section.3.5}%
-\contentsline {section}{\numberline {3.6}PartecipaEvento}{23}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Progettazione}{25}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Diagramma delle classi }{25}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Package Entity}{26}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Package Boundary}{26}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Package Controller}{26}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Package Database}{27}{subsection.4.1.4}%
-\contentsline {section}{\numberline {4.2}Diagrammi di sequenza}{27}{section.4.2}%
-\contentsline {chapter}{\numberline {6}Implementazione}{28}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Package Boundary}{28}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Package Database}{28}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Package Entity}{29}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Package Exception}{29}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Package Dto}{29}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Dipendenze per l'esecuzione ed il funzionamento dell'applicazione}{29}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Documentazione Javadoc}{30}{section.6.7}%
-\contentsline {section}{\numberline {6.8}Diagramma di Deployment}{31}{section.6.8}%
+\contentsline {chapter}{\numberline {2}Analisi e specifica dei requisiti}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Analisi nomi-verbi}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Revisione dei Requisiti}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Glossario dei termini}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Classificazione dei Requisiti}{6}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Requisiti Funzionali}{6}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Requisiti sui Dati}{6}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Vincoli/Altri Requisiti}{6}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Modellazione dei Casi d'Uso}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Attori e Casi d'Uso}{7}{section.3.1}%
+\contentsline {paragraph}{Attori primari}{7}{section*.8}%
+\contentsline {paragraph}{Attori secondari}{7}{section*.9}%
+\contentsline {paragraph}{Casi d'uso}{7}{section*.16}%
+\contentsline {paragraph}{Casi d'uso di inclusione}{7}{section*.17}%
+\contentsline {section}{\numberline {3.2}Diagramma dei Casi d'Uso}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Scenari}{9}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Diagramma delle Classi}{12}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Diagrammi di sequenza}{14}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Registrazione}{14}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Autenticazione}{14}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}PubblicaEvento}{15}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}ConsultaEventiPubblicati}{15}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}AcquistoBiglietti}{16}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.6}PartecipazioneEvento}{17}{subsection.3.5.6}%
+\contentsline {section}{\numberline {3.6}Diagramma delle classi raffinato}{17}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Piano di test funzionale}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Registrazione}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Autenticazione}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}PubblicaEvento}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.4}RicercaEvento}{22}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Acquista Biglietto}{23}{section.4.5}%
+\contentsline {section}{\numberline {4.6}PartecipaEvento}{24}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Progettazione}{26}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Diagramma delle classi }{26}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Package Entity}{27}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Package Boundary}{27}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Package Controller}{27}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Package Database}{28}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Diagrammi di sequenza}{28}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Implementazione}{30}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Package Boundary}{30}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Package Database}{30}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Package Entity}{31}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Package Exception}{31}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Package Dto}{31}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Dipendenze per l'esecuzione ed il funzionamento dell'applicazione}{31}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Documentazione Javadoc}{32}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Diagramma di Deployment}{32}{section.6.8}%
