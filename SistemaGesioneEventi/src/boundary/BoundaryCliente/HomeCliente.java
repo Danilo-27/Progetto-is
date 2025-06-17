@@ -292,12 +292,22 @@ public class HomeCliente extends HomeUtenteRegistrato {
             DTOEvento eventoSelezionato = listaEventiOdierni.getSelectedValue();
             if (eventoSelezionato != null) {
                 String codiceUnivoco = apriFormPartecipazione(eventoSelezionato);
-                try {
-                    Controller.partecipaEvento(codiceUnivoco,eventoSelezionato);
-                } catch (BigliettoConsumatoException | BigliettoNotFoundException ex) {
-                    JOptionPane.showMessageDialog(this, "Errore apertura form: " + ex.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
+
+                if (codiceUnivoco == null) {
+                    return;
+                }
+                if (!codiceUnivoco.matches("[a-zA-ZàèéìòùÀÈÉÌÒÙ\\s]+")) {
+                    JOptionPane.showMessageDialog(this, "Caratteri non consentiti nel codice", "Warning", JOptionPane.WARNING_MESSAGE);
+                    return;
                 }
 
+                try {
+                    Controller.partecipaEvento(codiceUnivoco,eventoSelezionato);
+                } catch(BigliettoConsumatoException ex){
+                    JOptionPane.showMessageDialog(this, "Biglietto già utilizzato", "Errore", JOptionPane.ERROR_MESSAGE);
+                }catch(BigliettoNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, "Codice non valido", "Errore", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         return button;

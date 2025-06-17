@@ -182,7 +182,6 @@ public class EntityCatalogo {
      * @return {@code true} se l'evento con il titolo specificato esiste
      */
     public boolean verificaValidita(String titolo){
-        return this.cercaEventoPerTitolo(titolo) != null;
-
+        return this.cercaEventoPerTitolo(titolo) == null;
     }
 }

@@ -1,24 +1,24 @@
 \begin{longtblr}[
-	caption = {Test Suite - PartecipaEvento},
-	label = {tab:test_suite_partecipa_evento},
-	entry = {Casi di test PartecipaEvento},
+	caption = {Casi di test partecipazione evento},
+	label = {tab:partecipa_evento_test},
+	entry = {Casi di test partecipazione evento},
 ]{
 	width = \linewidth,
-	colspec = {|p{0.7cm}|p{2.3cm}|p{2.6cm}|p{1.8cm}|p{3cm}|p{2cm}|p{1.6cm}|},
+	colspec = {|p{0.7cm}|X[1.5]|X[1.3]|X[1.3]|X[2.3]|X[1.8]|X[1.6]|},
 	hlines,
 	vlines,
 	rowhead = 1,
 }
+	\textbf{ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
 
-	\textbf{Test Case ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
-	
-	1 & Partecipazione valida & Codice corretto e biglietto non consumato & Utente autenticato, biglietto esistente &
-	Codice: xxx-123-ABC, Stato: Non consumato &
-	Partecipazione registrata con successo & Biglietto marcato come consumato \\
-	2 & Codice biglietto non valido & Codice biglietto $\neq$ xxxx-123-ABC \texttt{[ERROR]} & Utente autenticato &
-	Codice: yyy-456-DEF, Stato: Non consumato &
-	Codice biglietto non valido & -- \\
-	3 & Biglietto già consumato & Stato biglietto = Consumato \texttt{[ERROR]} & Utente autenticato, biglietto esistente &
-	Codice: xxx-123-ABC, Stato: Consumato &
-	Biglietto già utilizzato & -- \\
+	1 & Tutti i dati validi & Codice corretto, Stato = Non consumato & Biglietto valido e non ancora usato & Codice: xxxx-123, Stato: Non consumato & Accesso consentito & Biglietto segnato come consumato \\
+
+	2 & Codice errato & Codice biglietto errato \texttt{[ERROR]} & Biglietto inesistente & Codice: abcd-999, Stato: Non consumato & Errore: codice non valido & Nessuna operazione eseguita \\
+
+	3 & Codice non inserito & Codice mancante \texttt{[ERROR]} & Nessun codice inserito & Codice: "", Stato: Non consumato & Errore: codice biglietto non inserito & Nessuna operazione eseguita \\
+
+	4 & Stato = Consumato & Stato consumato \texttt{[ERROR]} & Biglietto già usato & Codice: xxxx-123, Stato: Consumato & Errore: biglietto già utilizzato & Nessuna operazione eseguita \\
+
+	5 & Codice con caratteri speciali & Codice formato errato \texttt{[ERROR]} & Biglietto con codice malformato & Codice: xxx$-!@$, Stato: Non consumato & Errore: caratteri non consentiti nel codice & Nessuna operazione eseguita \\
+
 \end{longtblr}

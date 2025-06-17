@@ -216,10 +216,15 @@ public class FormEvento extends JFrame {
                 JOptionPane.showMessageDialog(this, "Inserire una data", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            if(dateUtil.before(new java.util.Date())) {
+            LocalDate dataSelezionata = dateUtil.toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate();
+
+            if (dataSelezionata.isBefore(LocalDate.now())) {
                 JOptionPane.showMessageDialog(this, "Data non valida", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
+
 
             LocalDate data = null;
             data = dateUtil.toInstant()
