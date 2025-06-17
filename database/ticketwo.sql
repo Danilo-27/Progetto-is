@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `ticketwo` /*!40100 DEFAULT CHARACTER SET utf8mb3
 USE `ticketwo`;
 -- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
--- Host: localhost    Database: ticketwo
+-- Host: localhost    Database: TickeTwo
 -- ------------------------------------------------------
 -- Server version	8.0.33
 

@@ -1,9 +1,17 @@
 package entity;
 
+import DTO.DTOEvento;
+import DTO.DTOUtente;
 import database.UtenteDAO;
+import exceptions.BigliettoNotFoundException;
+import exceptions.RedundancyException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * La classe EntityAmministratore rappresenta un amministratore del sistema,
@@ -49,25 +57,55 @@ public class EntityAmministratore extends EntityUtenteRegistrato {
      * Questa operazione recupera i dati utilizzando il metodo {@code get_EventiPubblicati}
      * della classe {@code EntityCatalogo}.
      */
-    public void caricaEventiPubblicati() {
+
+    public Map<DTOEvento, Object> caricaEventiPubblicati() throws BigliettoNotFoundException {
+        Map<DTOEvento, Object> eventoPartecipantiMap = new HashMap<>();
+        LocalDate oggi = LocalDate.now();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
         this.eventi = catalogo.get_EventiPubblicati(this);
+        for (EntityEvento evento : this.getEventiPubblicati()) {
+            DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza(), evento.getNumeroBigliettiVenduti());
+            Map<String, Object> infoEvento = new HashMap<>();
+            infoEvento.put("bigliettiVenduti", evento.getNumeroBigliettiVenduti());
+            if (evento.getData().isEqual(oggi)) {
+                infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
+                List<EntityCliente> partecipanti = evento.listaPartecipanti();
+                List<DTOUtente> dtoPartecipanti = new ArrayList<>();
+                for (EntityCliente partecipante : partecipanti) {
+                    DTOUtente dtoUtente = new DTOUtente(partecipante.getNome(), partecipante.getCognome());
+                    dtoPartecipanti.add(dtoUtente);
+                }
+                infoEvento.put("listaPartecipanti", dtoPartecipanti);
+            } else if (evento.getData().isBefore(oggi)) {
+                infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
+            }
+            dtoEvento.setBigliettiVenduti(evento.getNumeroBigliettiVenduti());
+            eventoPartecipantiMap.put(dtoEvento, infoEvento);
+        }
+        return eventoPartecipantiMap;
     }
+
+
 
     /**
      * Crea un nuovo evento con i dettagli specificati e lo associa all'amministratore corrente.
      *
-     * @param Titolo      il titolo dell'evento
-     * @param Descrizione la descrizione dell'evento
-     * @param Data        la data dell'evento
-     * @param Ora         l'ora dell'evento
-     * @param Luogo       il luogo dell'evento
-     * @param Costo       il costo dell'evento
-     * @param Capienza    la capienza massima dell'evento
-     * @return l'oggetto {@code EntityEvento} creato che rappresenta l'evento
+     * @param titolo      il titolo dell'evento
+     * @param descrizione la descrizione dell'evento
+     * @param data        la data dell'evento
+     * @param ora         l'ora dell'evento
+     * @param luogo       il luogo dell'evento
+     * @param costo       il costo dell'evento
+     * @param capienza    la capienza massima dell'evento
      */
-    public EntityEvento creazioneEvento(String Titolo, String Descrizione, LocalDate Data, LocalTime Ora, String Luogo, int Costo, int Capienza) {
-        return new EntityEvento(Titolo, Descrizione, Data, Ora, Luogo, Costo, Capienza, this);
+    public void pubblicaEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza) throws RedundancyException{
+        EntityCatalogo catalogo = EntityCatalogo.getInstance();
+        if(catalogo.verificaValidita(titolo)){
+            EntityEvento evento= new EntityEvento(titolo, descrizione, data, ora, luogo, costo, capienza, this);
+            catalogo.aggiungiEvento(evento);
+        }else{
+            throw new RedundancyException("Evento già creato");
+        }
     }
 
     /**
