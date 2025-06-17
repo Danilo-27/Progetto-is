@@ -159,7 +159,6 @@ public class EventoDAO {
             e.printStackTrace();
         }
     }
-
     /**
      * Recupera una lista di tutti gli eventi dal database.
      * <p>
