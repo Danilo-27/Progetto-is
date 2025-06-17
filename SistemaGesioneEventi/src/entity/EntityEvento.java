@@ -2,12 +2,11 @@
 package entity;
 
 
+import DTO.DTODatiPagamento;
 import database.BigliettoDAO;
 import database.EventoDAO;
-import exceptions.BigliettoNotFoundException;
-import exceptions.DBException;
-import exceptions.RedundancyException;
-import exceptions.UpdateException;
+import exceptions.*;
+import external.PagamentoService;
 
 import java.util.UUID;
 import java.time.LocalDate;
@@ -235,13 +234,38 @@ public class EntityEvento {
      * @param codice il codice univoco del biglietto da cercare
      * @return l'EntityBiglietto corrispondente se trovato, o null se non esiste un biglietto corrispondente
      */
-    public EntityBiglietto verificaCodice(String codice){
+    private EntityBiglietto verificaCodice(String codice){
         for (EntityBiglietto b : this.biglietti) {
             if (b.getCodice_univoco().equals(codice)) {
                 return b;
             }
         }
         return null;
+    }
+
+    public void partecipaEvento(String codiceUnivoco) throws BigliettoConsumatoException,BigliettoNotFoundException{
+        EntityBiglietto biglietto = this.verificaCodice(codiceUnivoco);
+        if(biglietto == null) {
+            throw new BigliettoNotFoundException("Biglietto non trovato");
+        }else {
+            biglietto.validaBiglietto();
+            this.aggiornaPartecipanti();
+        }
+    }
+
+    public void acquistoBiglietto(EntityCliente cliente, PagamentoService ps, DTODatiPagamento dtoDatiPagamento) throws AcquistoException {
+        if (cliente.haBigliettoPerEvento(this))
+            throw new RedundancyException("Acquisto già effettuato");
+
+        if (!this.verificaDisponibilità())
+            throw new AcquistoException("Posti non disponibili");
+
+        PagamentoService.EsitoPagamento esito = ps.elaboraPagamento(dtoDatiPagamento.getNumeroCarta(), dtoDatiPagamento.getNomeTitolare(), dtoDatiPagamento.getCognomeTitolare(), dtoDatiPagamento.getDataScadenza(), this.getCosto());
+
+        if (esito == PagamentoService.EsitoPagamento.SUCCESSO)
+            this.creaBiglietto(cliente);
+        else
+            throw new AcquistoException("Pagamento fallito " + esito.name().replace("_", " ").toLowerCase());
     }
 
     /**
@@ -251,7 +275,7 @@ public class EntityEvento {
      *
      * @param cliente l'entità del cliente a cui il biglietto verrà associato
      */
-    public void creaBiglietto(EntityCliente cliente) throws UpdateException{
+    private void creaBiglietto(EntityCliente cliente) throws UpdateException{
         String codiceUnivoco = creazioneIDUnivoco();
         EntityBiglietto biglietto = new EntityBiglietto(codiceUnivoco,this,cliente);
         biglietto.scriviSuDB();
@@ -265,7 +289,7 @@ public class EntityEvento {
      *
      * @return true se ci sono ancora posti disponibili per l'evento, altrimenti false
      */
-    public boolean verificaDisponibilità(){
+    private boolean verificaDisponibilità(){
         return this.capienza>this.biglietti.size();
     }
 

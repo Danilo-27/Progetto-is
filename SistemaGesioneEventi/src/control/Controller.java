@@ -1,6 +1,7 @@
 package control;
 
 import DTO.DTOBiglietto;
+import DTO.DTODatiPagamento;
 import DTO.DTOEvento;
 import DTO.DTOUtente;
 import entity.*;
@@ -123,33 +124,18 @@ public class Controller {
      * @throws BigliettoNotFoundException se l'evento non viene trovato nel catalogo.
      * @throws RedundancyException se l'utente ha già acquistato un biglietto per lo stesso evento.
      */
-    public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, String numeroCarta, String nomeTitolare, String cognomeTitolare, String scadenza) throws AcquistoException, BigliettoNotFoundException, UpdateException {
+    public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, DTODatiPagamento dtoDatiPagamento) throws AcquistoException, BigliettoNotFoundException, UpdateException {
 
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
 
         EntityEvento evento = catalogo.cercaEventoPerTitolo(eventoDto.getTitolo());
         evento.caricaBiglietti();
+
         EntityCliente cliente = piattaforma.cercaClientePerEmail(email);
         cliente.caricaBiglietti();
 
-        if (cliente.haBigliettoPerEvento(evento))
-            throw new RedundancyException("Acquisto già effettuato");
-
-
-        if (!evento.verificaDisponibilità())
-            throw new AcquistoException("Posti non disponibili");
-
-
-        // Chiamata al servizio di pagamento
-
-        PagamentoService.EsitoPagamento esito = pagamentoService.elaboraPagamento(
-                numeroCarta, nomeTitolare, cognomeTitolare,scadenza,evento.getCosto());
-
-        if (esito == PagamentoService.EsitoPagamento.SUCCESSO)
-            evento.creaBiglietto(cliente);
-        else
-            throw new AcquistoException("Pagamento fallito " + esito.name().replace("_", " ").toLowerCase());
+        evento.acquistoBiglietto(cliente,pagamentoService,dtoDatiPagamento);
 
     }
 
@@ -164,13 +150,7 @@ public class Controller {
      */
     public static void partecipaEvento(String codiceUnivoco,DTOEvento dtoEvento) throws BigliettoConsumatoException, BigliettoNotFoundException {
         EntityEvento evento= new EntityEvento(dtoEvento.getTitolo());
-        EntityBiglietto biglietto = evento.verificaCodice(codiceUnivoco);
-        if(biglietto == null) {
-            throw new BigliettoNotFoundException("Biglietto non trovato");
-        }else {
-            biglietto.validaBiglietto();
-            evento.aggiornaPartecipanti();
-        }
+        evento.partecipaEvento(codiceUnivoco);
     }
 
     /**

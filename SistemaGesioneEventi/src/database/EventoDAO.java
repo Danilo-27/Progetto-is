@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import exceptions.DBException;
+import exceptions.LoadingException;
 
 /**
  * Classe che rappresenta un gestore di eventi per l'interazione con il database.
@@ -153,10 +154,11 @@ public class EventoDAO {
     public EventoDAO(String titolo){
         this.titolo=titolo;
         this.biglietti= new ArrayList<>();
+
         try {
             this.caricaDaDBPerTitolo();
         }catch(DBException e){
-            e.printStackTrace();
+            throw new LoadingException(e.getMessage());
         }
     }
     /**

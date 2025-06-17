@@ -1,11 +1,9 @@
 //test commento 1
 package entity;
 
+import DTO.DTOEvento;
 import database.BigliettoDAO;
-import exceptions.BigliettoConsumatoException;
-import exceptions.DBException;
-import exceptions.RedundancyException;
-import exceptions.UpdateException;
+import exceptions.*;
 
 /**
  * Rappresenta l'entità "Biglietto" nel sistema.
@@ -135,6 +133,7 @@ public class EntityBiglietto {
             }
         }
     }
+
 
     /**
      * Restituisce il nome del titolare del biglietto. Il nome è recuperato
