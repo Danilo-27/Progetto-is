@@ -5,7 +5,7 @@ import boundary.BoundaryUtente.HomePage;
 
 import java.awt.*;
 
-public class ticketwo {
+public class TickeTwo {
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {

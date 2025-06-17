@@ -5,17 +5,17 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema ticketwo
+-- Schema TickeTwo
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema ticketwo
+-- Schema TickeTwo
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `ticketwo` DEFAULT CHARACTER SET utf8 ;
 USE `ticketwo` ;
 
 -- -----------------------------------------------------
--- Table `ticketwo`.`Utenti`
+-- Table `TickeTwo`.`Utenti`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticketwo`.`Utenti` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -28,7 +28,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ticketwo`.`Eventi`
+-- Table `TickeTwo`.`Eventi`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticketwo`.`Eventi` (
   `id` INT NOT NULL,
@@ -52,7 +52,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ticketwo`.`Biglietti`
+-- Table `TickeTwo`.`Biglietti`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ticketwo`.`Biglietti` (
   `CodiceUnivoco` VARCHAR(6) NOT NULL,

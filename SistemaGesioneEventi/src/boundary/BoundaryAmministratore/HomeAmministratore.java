@@ -110,7 +110,7 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
                 eventiModel.addElement("Nessun evento pubblicato al momento.");
             }
 
-        }catch(BigliettoNotFoundException _){
+        }catch(BigliettoNotFoundException e){
             JOptionPane.showMessageDialog(this, "Non sono stati venduti biglietti per l'evento.", "Errore", JOptionPane.ERROR_MESSAGE);
         }
     }

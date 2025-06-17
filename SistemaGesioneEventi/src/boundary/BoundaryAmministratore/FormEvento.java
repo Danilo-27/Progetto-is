@@ -247,7 +247,7 @@ public class FormEvento extends JFrame {
                 Controller.creaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
             }catch(RedundancyException ex){
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
-            }catch(LoadingException _){
+            }catch(LoadingException exx){
                 JOptionPane.showMessageDialog(this, "Errore di caricamento.", "Errore", JOptionPane.ERROR_MESSAGE);
             }
             dispose();

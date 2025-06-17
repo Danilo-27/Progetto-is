@@ -131,7 +131,7 @@ public class BoundaryRegistrazione extends JFrame {
                 new HomePage().setVisible(true);
                 dispose();
 
-            } catch (RegistrationFailedException _) {
+            } catch (RegistrationFailedException ex) {
                 JOptionPane.showMessageDialog(contentPane, "Email già registrata", ERRORE, JOptionPane.ERROR_MESSAGE);
             }
         });

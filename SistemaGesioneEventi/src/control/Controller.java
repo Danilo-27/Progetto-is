@@ -191,14 +191,8 @@ public class Controller {
      */
     public static void creaEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza, String emailAmministratore) throws RedundancyException,LoadingException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
-        EntityCatalogo catalogo = EntityCatalogo.getInstance();
-        if(catalogo.verificaValidita(titolo)){
-            EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
-            EntityEvento evento= amministratore.creazioneEvento(titolo, descrizione, data, ora, luogo, costo, capienza);
-            catalogo.aggiungiEvento(evento);
-        }else{
-            throw new RedundancyException("Evento già creato");
-        }
+        EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
+        amministratore.pubblicaEvento(titolo, descrizione, data, ora, luogo, costo, capienza);
     }
 
     /**
@@ -214,30 +208,8 @@ public class Controller {
      */
     public static Map<DTOEvento, Object> consultaEventiPubblicati(String email)  throws BigliettoNotFoundException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
-        Map<DTOEvento, Object> eventoPartecipantiMap = new HashMap<>();
-        LocalDate oggi = LocalDate.now();
         EntityAmministratore amministratore = piattaforma.cercaAmministratorePerEmail(email);
-        amministratore.caricaEventiPubblicati();
-        for (EntityEvento evento : amministratore.getEventiPubblicati()) {
-            DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza(), evento.getNumeroBigliettiVenduti());
-            Map<String, Object> infoEvento = new HashMap<>();
-            infoEvento.put("bigliettiVenduti", evento.getNumeroBigliettiVenduti());
-            if (evento.getData().isEqual(oggi)) {
-                infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
-                List<EntityCliente> partecipanti = evento.listaPartecipanti();
-                List<DTOUtente> dtoPartecipanti = new ArrayList<>();
-                for (EntityCliente partecipante : partecipanti) {
-                    DTOUtente dtoUtente = new DTOUtente(partecipante.getNome(), partecipante.getCognome());
-                    dtoPartecipanti.add(dtoUtente);
-                }
-                infoEvento.put("listaPartecipanti", dtoPartecipanti);
-            } else if (evento.getData().isBefore(oggi)) {
-                infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
-            }
-            dtoEvento.setBigliettiVenduti(evento.getNumeroBigliettiVenduti());
-            eventoPartecipantiMap.put(dtoEvento, infoEvento);
-            }
-            return eventoPartecipantiMap;
+        return amministratore.caricaEventiPubblicati();
     }
 
     /**
