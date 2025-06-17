@@ -108,7 +108,7 @@ public class FormAcquistoBiglietto extends JFrame {
         if (datiCarta.size() < 4 ||
                 datiCarta.get(0).isEmpty() || datiCarta.get(1).isEmpty() ||
                 datiCarta.get(2).isEmpty() || datiCarta.get(3).isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Dati carta non validi o annullati.", ERRORE, JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Dati pagamento incompleti","Errore di pagamento", JOptionPane.ERROR_MESSAGE);
             return;
         }
 

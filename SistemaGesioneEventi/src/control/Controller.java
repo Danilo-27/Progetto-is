@@ -134,14 +134,15 @@ public class Controller {
         cliente.caricaBiglietti();
 
         if (cliente.haBigliettoPerEvento(evento))
-            throw new RedundancyException("Biglietto già acquistato per questo evento");
+            throw new RedundancyException("Acquisto già effettuato");
 
 
         if (!evento.verificaDisponibilità())
-            throw new AcquistoException("Biglietti esauriti per l'evento "+evento.getTitolo());
+            throw new AcquistoException("Posti non disponibili");
 
 
         // Chiamata al servizio di pagamento
+
         PagamentoService.EsitoPagamento esito = pagamentoService.elaboraPagamento(
                 numeroCarta, nomeTitolare, cognomeTitolare,scadenza,evento.getCosto());
 

@@ -12,7 +12,7 @@ public class StubSistemaGestioneAcquisti implements PagamentoService {
     // Dati fittizi per test
     private static final String NUMERO_CARTA_VALIDO = "1234";
     private static final double SALDO_DISPONIBILE = 100.0;
-    private static final YearMonth DATA_SCADENZA_CORRETTA = YearMonth.of(2026, 12); // Non più usata direttamente
+    private static final YearMonth DATA_SCADENZA_CORRETTA = YearMonth.of(2026, 12);
 
     public StubSistemaGestioneAcquisti() {}
 
@@ -31,7 +31,7 @@ public class StubSistemaGestioneAcquisti implements PagamentoService {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
             dataFornita = YearMonth.parse(scadenza, formatter);
         } catch (DateTimeParseException e) {
-            return EsitoPagamento.CARTA_SCADUTA; // Oppure un errore di formato, se vuoi distinguere
+            return EsitoPagamento.CARTA_SCADUTA;
         }
 
         if (dataFornita.isBefore(YearMonth.now())) {
