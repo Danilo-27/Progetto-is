@@ -18,6 +18,8 @@ import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
 public class FormEvento extends JFrame {
 
     @Serial
@@ -165,19 +167,65 @@ public class FormEvento extends JFrame {
         creaButton.addActionListener(e -> {
             // Raccogliere i dati dal form
             String titolo = textTitolo.getText();
+
+            if(titolo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Titolo obbligatorio", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if(titolo.length() > 50) {
+                JOptionPane.showMessageDialog(this, "Titolo troppo lungo", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             String luogo = textLuogo.getText();
+            if (luogo.matches(".*\\d.*")) {
+                JOptionPane.showMessageDialog(this, "Luogo non valido", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (!luogo.matches("[a-zA-ZàèéìòùÀÈÉÌÒÙ\\s]+")) {
+                JOptionPane.showMessageDialog(this, "Caratteri non consentiti nel luogo", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             int capienza = (int) spinnerCapienza.getValue();
+
+            if(capienza > 500) {
+                JOptionPane.showMessageDialog(this, "Capienza troppo alta", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
             int costo = (int) spinnerCosto.getValue();
             String descrizione = textArea.getText();
 
-            // Ottengo la java.util.Date dal date picker
-            java.util.Date dateUtil = dataDatePicker.getDate();
-            LocalDate data = null;
-            if (dateUtil != null) {
-                data = dateUtil.toInstant()
-                        .atZone(ZoneId.systemDefault())
-                        .toLocalDate();
+            if(descrizione.isEmpty()){
+                JOptionPane.showMessageDialog(this, "Descrizione obbligatoria", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
             }
+            if(descrizione.length() > 150) {
+                JOptionPane.showMessageDialog(this, "Descrizione troppo lunga", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Ottengo la java.util.Date dal date picker
+
+            java.util.Date dateUtil = dataDatePicker.getDate();
+
+            if(dateUtil == null) {
+                JOptionPane.showMessageDialog(this, "Inserire una data", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            if(dateUtil.before(new java.util.Date())) {
+                JOptionPane.showMessageDialog(this, "Data non valida", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            LocalDate data = null;
+            data = dateUtil.toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate();
+
 
             String oraStr = (String) comboOra.getSelectedItem();
             String minutiStr = (String) comboMinuti.getSelectedItem();
@@ -188,14 +236,12 @@ public class FormEvento extends JFrame {
                 ora = LocalTime.of(hour, minute);
             }
 
-            // ESEMPIO: stampa a console con LocalDate
-
-
             Sessione sess = Sessione.getInstance();
+
             try{
                 Controller.creaEvento(titolo,descrizione,data,ora,luogo,costo,capienza,sess.getEmail());
-            }catch(RedundancyException _){
-                JOptionPane.showMessageDialog(this, "Campo/i non validi.", "Errore", JOptionPane.ERROR_MESSAGE);
+            }catch(RedundancyException ex){
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
             }catch(LoadingException _){
                 JOptionPane.showMessageDialog(this, "Errore di caricamento.", "Errore", JOptionPane.ERROR_MESSAGE);
             }

@@ -191,13 +191,12 @@ public class Controller {
     public static void creaEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza, String emailAmministratore) throws RedundancyException,LoadingException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
-
-        if(catalogo.verificaValidita(titolo,data)){
+        if(catalogo.verificaValidita(titolo)){
             EntityAmministratore amministratore=piattaforma.cercaAmministratorePerEmail(emailAmministratore);
             EntityEvento evento= amministratore.creazioneEvento(titolo, descrizione, data, ora, luogo, costo, capienza);
             catalogo.aggiungiEvento(evento);
         }else{
-            throw new RedundancyException("Evento già creato o ha una data precedente a quella corrente");
+            throw new RedundancyException("Evento già creato");
         }
     }
 

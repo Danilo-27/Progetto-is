@@ -177,16 +177,12 @@ public class EntityCatalogo {
 
     /**
      * Verifica la validità di un evento controllando se esiste un evento con il titolo specificato
-     * e se la data fornita non è antecedente alla data odierna.
      *
      * @param titolo il titolo dell'evento da verificare.
-     * @param data la data dell'evento da verificare.
-     * @return {@code true} se l'evento con il titolo specificato esiste e la data fornita è valida
-     * (non antecedente alla data attuale), altrimenti {@code false}.
+     * @return {@code true} se l'evento con il titolo specificato esiste
      */
-    public boolean verificaValidita(String titolo,LocalDate data){
-        LocalDate oggi = LocalDate.now();
-        return this.cercaEventoPerTitolo(titolo) != null && !data.isBefore(oggi);
+    public boolean verificaValidita(String titolo){
+        return this.cercaEventoPerTitolo(titolo) != null;
 
     }
 }

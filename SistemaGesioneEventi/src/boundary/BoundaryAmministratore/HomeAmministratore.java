@@ -86,7 +86,6 @@ public class HomeAmministratore extends HomeUtenteRegistrato {
                 DTOEvento evento = entry.getKey();
                 Map<String, Object> info = (Map<String,Object>) entry.getValue();
 
-                System.out.println(evento.getTitolo()+" "+evento.getBigliettiVenduti());
                 StringBuilder sb = new StringBuilder();
                 sb.append("Titolo: ").append(evento.getTitolo()).append("\n")
                         .append("Data: ").append(evento.getData().format(dateFormatter))
