@@ -178,6 +178,7 @@ public class FormEvento extends JFrame {
             }
 
             String luogo = textLuogo.getText();
+
             if (luogo.matches(".*\\d.*")) {
                 JOptionPane.showMessageDialog(this, "Luogo non valido", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;

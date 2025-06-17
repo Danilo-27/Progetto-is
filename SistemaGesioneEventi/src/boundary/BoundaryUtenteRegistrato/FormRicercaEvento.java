@@ -110,15 +110,45 @@ public class FormRicercaEvento extends JFrame {
 
     private void cercaEventi() {
         String titolo = titoloField.getText().trim();
+
+        if(titolo.isBlank()) {
+            titolo=null;
+        }else{
+            if(titolo.length() > 50) {
+                JOptionPane.showMessageDialog(this, "Titolo troppo lungo", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+
         String luogo = luogoField.getText().trim();
+
+        if (luogo.isBlank()) {
+            luogo = null;
+        } else {
+            if (luogo.matches(".*\\d.*")) {
+                JOptionPane.showMessageDialog(this, "Luogo non valido: contiene numeri", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (!luogo.matches("[a-zA-ZàèéìòùÀÈÉÌÒÙ\\s]*")) {
+                JOptionPane.showMessageDialog(this, "Luogo non valido: contiene caratteri speciali", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+
         Date selectedDate = dataPicker.getDate();
 
-        titolo = titolo.isEmpty() ? null : titolo;
-        luogo = luogo.isEmpty() ? null : luogo;
         LocalDate data = null;
 
         if (selectedDate != null) {
-            data = selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            if (selectedDate.before(new java.util.Date())) {
+                JOptionPane.showMessageDialog(this, "Data non valida", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            data = selectedDate.toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate();
         }
 
         try {
