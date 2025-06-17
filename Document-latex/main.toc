@@ -30,8 +30,8 @@
 \contentsline {section}{\numberline {4.1}Registrazione}{18}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Autenticazione}{20}{section.4.2}%
 \contentsline {section}{\numberline {4.3}PubblicaEvento}{21}{section.4.3}%
-\contentsline {section}{\numberline {4.4}RicercaEvento}{22}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Acquista Biglietto}{23}{section.4.5}%
+\contentsline {section}{\numberline {4.4}RicercaEvento}{23}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Acquista Biglietto}{24}{section.4.5}%
 \contentsline {section}{\numberline {4.6}PartecipaEvento}{24}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Progettazione}{26}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Diagramma delle classi }{26}{section.5.1}%

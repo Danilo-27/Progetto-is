@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.11)  17 JUN 2025 17:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.11)  17 JUN 2025 17:29
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -1168,8 +1167,7 @@ File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (C:\Users\branc\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-(C:/Users\branc\IdeaProjects\Progetto-is\auxil\main.aux
+) (main.aux
 (capitoli/capitolo1_specifiche_informali.aux)
 (capitoli/Analisi_e_specifica_dei_requisiti.aux) (capitoli/casid'uso.aux)
 (capitoli/Pianoditestfunzionale.aux) (capitoli/progettazione.aux)
@@ -1266,8 +1264,7 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 115.
- (C:/Users\branc\IdeaProjects\Progetto-is\auxil\main.out)
-(C:/Users\branc\IdeaProjects\Progetto-is\auxil\main.out)
+ (main.out) (main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
 
@@ -1276,8 +1273,7 @@ Package hyperref Info: Link coloring OFF on input line 115.
 [1
 
 
-{C:/Users/branc/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(C:/Users\branc\IdeaProjects\Progetto-is\auxil\main.toc
+{C:/Users/branc/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
 
 (C:\Users\branc\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
@@ -1296,8 +1292,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [2
 
 ]
-
-[3]
 \openout2 = `capitoli/capitolo1_specifiche_informali.aux'.
 
  (capitoli/capitolo1_specifiche_informali.tex
@@ -1334,7 +1328,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
 )
 
-[4
+[3
 
 
 ]
@@ -1344,7 +1338,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 Capitolo 2.
 
 
-[5
+[4
 
 
 
@@ -1375,9 +1369,9 @@ si-bi-lit^^Ra di con-sul-ta-re in-for-ma-zio-ni
 
 
 
-[6])
+[5])
 
-[7]
+[6]
 \openout2 = `capitoli/casid'uso.aux'.
 
  (capitoli/casid'uso.tex
@@ -1452,7 +1446,7 @@ Overfull \hbox (5.51526pt too wide) in paragraph at lines 73--73
 []\OT1/cmr/m/n/9 UtenteRegistrato  
  []
 
-<assets/casid'uso/usd.png, id=313, 943.1235pt x 633.8079pt>
+<assets/casid'uso/usd.png, id=287, 943.1235pt x 633.8079pt>
 File: assets/casid'uso/usd.png Graphic file (type png)
 <use assets/casid'uso/usd.png>
 Package pdftex.def Info: assets/casid'uso/usd.png  used on input line 79.
@@ -1462,14 +1456,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[8
+[7
 
 
 
 
 ]
 
-[9 <./assets/casid'uso/usd.png>] (capitoli/scenari/Registrazione.tex)
+[8 <./assets/casid'uso/usd.png>] (capitoli/scenari/Registrazione.tex)
 (capitoli/scenari/Autenticazione.tex)
 (capitoli/scenari/RichiediCatalogoEventi.tex)
 (capitoli/scenari/AcquistaBiglietto.tex
@@ -1482,21 +1476,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[10
+[9
 
 ]) (capitoli/scenari/PubblicaEvento.tex
 Underfull \vbox (badness 2790) has occurred while \output is active []
 
 
 
-[11]) (capitoli/scenari/PartecipazioneEvento.tex)
+[10]) (capitoli/scenari/PartecipazioneEvento.tex)
 (capitoli/scenari/ConsultaEventiPubblicati.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[12]
-<assets/casid'uso/DiagrammaDelleClassi.png, id=412, 652.5981pt x 301.3659pt>
+[11]
+<assets/casid'uso/DiagrammaDelleClassi.png, id=387, 652.5981pt x 301.3659pt>
 File: assets/casid'uso/DiagrammaDelleClassi.png Graphic file (type png)
 <use assets/casid'uso/DiagrammaDelleClassi.png>
 Package pdftex.def Info: assets/casid'uso/DiagrammaDelleClassi.png  used on inp
@@ -1507,7 +1501,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[13
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1515,14 +1509,14 @@ has been already used, duplicate ignored
 l.132 
        <./assets/casid'uso/DiagrammaDelleClassi.png>]
 
-[14]
-<assets/casid'uso/Registrazione.png, id=434, 555.7563pt x 346.1733pt>
+[13]
+<assets/casid'uso/Registrazione.png, id=409, 555.7563pt x 346.1733pt>
 File: assets/casid'uso/Registrazione.png Graphic file (type png)
 <use assets/casid'uso/Registrazione.png>
 Package pdftex.def Info: assets/casid'uso/Registrazione.png  used on input line
  166.
 (pdftex.def)             Requested size: 386.95897pt x 241.03079pt.
-<assets/casid'uso/Autenticazione.png, id=435, 511.6716pt x 334.6101pt>
+<assets/casid'uso/Autenticazione.png, id=410, 511.6716pt x 334.6101pt>
 File: assets/casid'uso/Autenticazione.png Graphic file (type png)
 <use assets/casid'uso/Autenticazione.png>
 Package pdftex.def Info: assets/casid'uso/Autenticazione.png  used on input lin
@@ -1535,7 +1529,7 @@ Overfull \hbox (19.29533pt too wide) in paragraph at lines 174--176
 
 
 
-[15
+[14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1549,13 +1543,13 @@ has been already used, duplicate ignored
 l.183 
        <./assets/casid'uso/Registrazione.png> <./assets/casid'uso/Autenticazion
 e.png>]
-<assets/casid'uso/PubblicaEvento.png, id=444, 765.3393pt x 445.1832pt>
+<assets/casid'uso/PubblicaEvento.png, id=419, 765.3393pt x 445.1832pt>
 File: assets/casid'uso/PubblicaEvento.png Graphic file (type png)
 <use assets/casid'uso/PubblicaEvento.png>
 Package pdftex.def Info: assets/casid'uso/PubblicaEvento.png  used on input lin
 e 186.
 (pdftex.def)             Requested size: 483.69687pt x 281.36357pt.
-<assets/casid'uso/ConsultaEventiPubblicati.png, id=445, 658.3797pt x 428.5611pt
+<assets/casid'uso/ConsultaEventiPubblicati.png, id=420, 658.3797pt x 428.5611pt
 >
 File: assets/casid'uso/ConsultaEventiPubblicati.png Graphic file (type png)
 <use assets/casid'uso/ConsultaEventiPubblicati.png>
@@ -1578,7 +1572,7 @@ cmr/m/n/10 ,
 
 
 
-[16
+[15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1586,7 +1580,7 @@ has been already used, duplicate ignored
 l.206 
        <./assets/casid'uso/PubblicaEvento.png> <./assets/casid'uso/ConsultaEven
 tiPubblicati.png>]
-<assets/casid'uso/AcquistoBiglietto.png, id=453, 814.4829pt x 801.4743pt>
+<assets/casid'uso/AcquistoBiglietto.png, id=428, 814.4829pt x 801.4743pt>
 File: assets/casid'uso/AcquistoBiglietto.png Graphic file (type png)
 <use assets/casid'uso/AcquistoBiglietto.png>
 Package pdftex.def Info: assets/casid'uso/AcquistoBiglietto.png  used on input 
@@ -1594,20 +1588,20 @@ line 209.
 (pdftex.def)             Requested size: 386.95897pt x 380.77762pt.
 
 
-[17
+[16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.215 \newpage
                <./assets/casid'uso/AcquistoBiglietto.png>]
-<assets/casid'uso/PartecipazioneEvento.png, id=460, 599.1183pt x 557.2017pt>
+<assets/casid'uso/PartecipazioneEvento.png, id=435, 599.1183pt x 557.2017pt>
 File: assets/casid'uso/PartecipazioneEvento.png Graphic file (type png)
 <use assets/casid'uso/PartecipazioneEvento.png>
 Package pdftex.def Info: assets/casid'uso/PartecipazioneEvento.png  used on inp
 ut line 222.
 (pdftex.def)             Requested size: 298.78136pt x 277.87318pt.
-<assets/casid'uso/DiagrammaDelleClassiRaffinato.png, id=461, 682.2288pt x 282.5
+<assets/casid'uso/DiagrammaDelleClassiRaffinato.png, id=436, 682.2288pt x 282.5
 757pt>
 File: assets/casid'uso/DiagrammaDelleClassiRaffinato.png Graphic file (type png
 )
@@ -1617,7 +1611,7 @@ ed on input line 230.
 (pdftex.def)             Requested size: 443.78699pt x 183.80716pt.
 )
 
-[18
+[17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -2372,7 +2366,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
 
 
 
-[19
+[18
 
 
 
@@ -2872,7 +2866,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[20] (capitoli/Tabelle/Autenticazione.tex
+[19] (capitoli/Tabelle/Autenticazione.tex
 Underfull \hbox (badness 10000) in paragraph at lines 34--34
 []\OT1/cmr/bx/n/10 Pre-
  []
@@ -3390,7 +3384,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[21
+[20
 pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -4108,7 +4102,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--45
 
 
 
-[22
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{table.4.4}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -4509,7 +4503,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[23] (capitoli/Tabelle/RicercaEvento.tex
+[22] (capitoli/Tabelle/RicercaEvento.tex
 Underfull \hbox (badness 10000) in paragraph at lines 20--20
 []\OT1/cmr/bx/n/10 Test
  []
@@ -5084,7 +5078,7 @@ Underfull \vbox (badness 7308) has occurred while \output is active []
 
 
 
-[24] (capitoli/Tabelle/AcquistoBiglietto.tex
+[23] (capitoli/Tabelle/AcquistoBiglietto.tex
 Underfull \hbox (badness 10000) in paragraph at lines 18--18
 []\OT1/cmr/bx/n/10 Test
  []
@@ -5826,7 +5820,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--18
 
 )
 
-[25] (capitoli/Tabelle/PartecipazioneEvento.tex
+[24] (capitoli/Tabelle/PartecipazioneEvento.tex
 Overfull \hbox (1.40387pt too wide) in paragraph at lines 24--24
 []\OT1/cmr/bx/n/10 Test
  []
@@ -6146,18 +6140,18 @@ Overfull \hbox (1.84206pt too wide) detected at line 24
 
 ))
 
-[26]
+[25]
 \openout2 = `capitoli/progettazione.aux'.
 
  (capitoli/progettazione.tex
 Capitolo 5.
-<assets/package/Diagrammadelleclassi.png, id=520, 1066.7052pt x 1269.7839pt>
+<assets/package/Diagrammadelleclassi.png, id=495, 1066.7052pt x 1269.7839pt>
 File: assets/package/Diagrammadelleclassi.png Graphic file (type png)
 <use assets/package/Diagrammadelleclassi.png>
 Package pdftex.def Info: assets/package/Diagrammadelleclassi.png  used on input
  line 5.
 (pdftex.def)             Requested size: 365.70242pt x 435.32422pt.
-<assets/package/entity.png, id=521, 1066.7052pt x 489.2679pt>
+<assets/package/entity.png, id=496, 1066.7052pt x 489.2679pt>
 File: assets/package/entity.png Graphic file (type png)
 <use assets/package/entity.png>
 Package pdftex.def Info: assets/package/entity.png  used on input line 11.
@@ -6167,23 +6161,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[27
+[26
 
 
 
 
  <./assets/package/Diagrammadelleclassi.png>]
-<assets/package/Boundary.png, id=527, 551.4201pt x 334.6101pt>
+<assets/package/Boundary.png, id=502, 551.4201pt x 334.6101pt>
 File: assets/package/Boundary.png Graphic file (type png)
 <use assets/package/Boundary.png>
 Package pdftex.def Info: assets/package/Boundary.png  used on input line 17.
 (pdftex.def)             Requested size: 302.91177pt x 183.80716pt.
-<assets/package/Controller.png, id=528, 328.8285pt x 216.0873pt>
+<assets/package/Controller.png, id=503, 328.8285pt x 216.0873pt>
 File: assets/package/Controller.png Graphic file (type png)
 <use assets/package/Controller.png>
 Package pdftex.def Info: assets/package/Controller.png  used on input line 23.
 (pdftex.def)             Requested size: 279.71628pt x 183.80716pt.
-<assets/package/erdiagram.png, id=529, 840.13875pt x 330.23375pt>
+<assets/package/erdiagram.png, id=504, 840.13875pt x 330.23375pt>
 File: assets/package/erdiagram.png Graphic file (type png)
 <use assets/package/erdiagram.png>
 Package pdftex.def Info: assets/package/erdiagram.png  used on input line 31.
@@ -6193,14 +6187,14 @@ Underfull \vbox (badness 4739) has occurred while \output is active []
 
 
 
-[28 <./assets/package/entity.png> <./assets/package/Boundary.png> <./assets/pac
+[27 <./assets/package/entity.png> <./assets/package/Boundary.png> <./assets/pac
 kage/Controller.png>]
-<assets/package/database1.png, id=537, 501.5538pt x 300.6432pt>
+<assets/package/database1.png, id=512, 501.5538pt x 300.6432pt>
 File: assets/package/database1.png Graphic file (type png)
 <use assets/package/database1.png>
 Package pdftex.def Info: assets/package/database1.png  used on input line 37.
 (pdftex.def)             Requested size: 306.63615pt x 183.80716pt.
-<assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png, id=538, 2117.511pt x 10
+<assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png, id=513, 2117.511pt x 10
 57.3101pt>
 File: assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png Graphic file (type 
 png)
@@ -6212,7 +6206,7 @@ Package pdftex.def Info: assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<assets/casid'uso/PartecipazioneEventoAvanzato.png, id=539, 6937.92pt x 4556.02
+<assets/casid'uso/PartecipazioneEventoAvanzato.png, id=514, 6937.92pt x 4556.02
 126pt>
 File: assets/casid'uso/PartecipazioneEventoAvanzato.png Graphic file (type png)
 
@@ -6225,9 +6219,9 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
 
-[29 <./assets/package/erdiagram.png> <./assets/package/database1.png>]
+[28 <./assets/package/erdiagram.png> <./assets/package/database1.png>]
 
-[30
+[29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -6251,15 +6245,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[31
+[30
 
 
 
 
 ]
 
-[32]
-<assets/deployment/DeploymentDiagram.png, id=560, 1189.44376pt x 2469.225pt>
+[31]
+<assets/deployment/DeploymentDiagram.png, id=535, 1189.44376pt x 2469.225pt>
 File: assets/deployment/DeploymentDiagram.png Graphic file (type png)
 <use assets/deployment/DeploymentDiagram.png>
 Package pdftex.def Info: assets/deployment/DeploymentDiagram.png  used on input
@@ -6267,12 +6261,11 @@ Package pdftex.def Info: assets/deployment/DeploymentDiagram.png  used on input
 (pdftex.def)             Requested size: 241.84843pt x 502.04991pt.
 )
 
-[33 <./assets/deployment/DeploymentDiagram.png (PNG copy)>]
-runsystem(latexminted cleantemp  --timestamp 20250617172100 FAD58DE7366495DB465
+[32 <./assets/deployment/DeploymentDiagram.png (PNG copy)>]
+runsystem(latexminted cleantemp  --timestamp 20250617172917 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
-
-(C:/Users\branc\IdeaProjects\Progetto-is\auxil\main.aux
+ (main.aux
 (capitoli/capitolo1_specifiche_informali.aux)
 (capitoli/Analisi_e_specifica_dei_requisiti.aux) (capitoli/casid'uso.aux)
 (capitoli/Pianoditestfunzionale.aux) (capitoli/progettazione.aux)
@@ -6281,133 +6274,45 @@ runsystem(latexminted cleantemp  --timestamp 20250617172100 FAD58DE7366495DB465
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 41FADA052CFB736603575D20DD701C19;7163
-(rerunfilecheck)             After:  7BF2B07079F3DECE3B8641FCF2AFF67B;7118.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 7BF2B07079F3DECE3B8641FCF2AFF67B;7118.
  ) 
 Here is how much of TeX's memory you used:
- 45889 strings out of 469941
- 1053882 string characters out of 5469430
- 1591903 words of memory out of 5000000
+ 45866 strings out of 469941
+ 1053214 string characters out of 5469430
+ 1591977 words of memory out of 5000000
  71830 multiletter control sequences out of 15000+600000
  670149 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  124i,14n,121p,1619b,2766s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{subsection.4.1.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.1.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.1.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.1.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.2.6} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5.7} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5.6} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5.5} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.2.5.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.2.5} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.4.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.4.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.1.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.1.4} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.1.3} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.1.2} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.1.1} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\branc\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm08
-00.pk> <C:\Users\branc\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-tcrm1000.pk><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/branc/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/branc/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/branc/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/bran
-c/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Us
-ers/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pf
-b><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr12.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmr6.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr7.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/branc/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/branc/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/branc/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/branc
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Us
-ers/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.p
-fb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmtt8.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/symbols/msam10.pfb>
-Output written on C:/Users\branc\IdeaProjects\Progetto-is\out\main.pdf (33 page
-s, 4175925 bytes).
+ <C:\Users\branc\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+0800.pk> <C:\Users\branc\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1000.pk><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmbx10.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmbx12.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/branc/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/branc/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/branc/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/br
+anc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/
+Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.
+pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr6.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/branc/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/branc/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/branc/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/bra
+nc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/
+Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmtt8.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/symbols/msam10.pfb>
+Output written on main.pdf (32 pages, 4173614 bytes).
 PDF statistics:
- 710 PDF objects out of 1000 (max. 8388607)
- 223 named destinations out of 1000 (max. 500000)
+ 678 PDF objects out of 1000 (max. 8388607)
+ 202 named destinations out of 1000 (max. 500000)
  463 words of extra memory for PDF output out of 10000 (max. 10000000)
 
