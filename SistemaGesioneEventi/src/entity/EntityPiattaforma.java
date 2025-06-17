@@ -97,7 +97,7 @@ public class EntityPiattaforma {
      *         come {@code EntityAmministratore} o {@code EntityCliente}) basata sul ruolo,
      *         oppure {@code null} se il ruolo non è valido.
      */
-    public EntityUtenteRegistrato creaUtenteRegistrato(UtenteDAO utenteDao) {
+    private EntityUtenteRegistrato creaUtenteRegistrato(UtenteDAO utenteDao) {
         if(utenteDao.getRuolo()==EntityPiattaforma.AMMINISTRATORE){
             return new EntityAmministratore(utenteDao);
         }else if(utenteDao.getRuolo()==EntityPiattaforma.CLIENTE){
@@ -120,7 +120,7 @@ public class EntityPiattaforma {
      */
 
     public void registrazione(String password, String nome, String cognome, String email) throws RegistrationFailedException {
-        if (!findEmail(email)) {
+        if (!verificaEmail(email)) {
             EntityUtenteRegistrato newUtente= new EntityUtenteRegistrato(nome, cognome, email, password);
             this.utenti.add(newUtente);
             newUtente.aggiornamento();
@@ -135,7 +135,7 @@ public class EntityPiattaforma {
      * @param email l'indirizzo email da cercare all'interno della lista degli utenti
      * @return true se l'email specificata viene trovata, false altrimenti
      */
-    private boolean findEmail(String email) {
+    private boolean verificaEmail(String email) {
         for (EntityUtenteRegistrato utente : this.utenti) {
             if (utente.getEmail().equals(email)) {
                 return true;

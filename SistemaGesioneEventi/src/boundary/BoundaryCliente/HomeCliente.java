@@ -296,13 +296,13 @@ public class HomeCliente extends HomeUtenteRegistrato {
                 if (codiceUnivoco == null) {
                     return;
                 }
-                if (!codiceUnivoco.matches("[a-zA-ZàèéìòùÀÈÉÌÒÙ\\s]+")) {
+                if (!codiceUnivoco.matches("[a-zA-Z0-9\\-]+")) {
                     JOptionPane.showMessageDialog(this, "Caratteri non consentiti nel codice", "Warning", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
 
                 try {
-                    Controller.partecipaEvento(codiceUnivoco,eventoSelezionato);
+                    Controller.partecipazioneEvento(codiceUnivoco,eventoSelezionato);
                 } catch(BigliettoConsumatoException ex){
                     JOptionPane.showMessageDialog(this, "Biglietto già utilizzato", "Errore", JOptionPane.ERROR_MESSAGE);
                 }catch(BigliettoNotFoundException ex) {

@@ -165,7 +165,7 @@ public class EntityCatalogo {
      * @param amministratore l'amministratore di cui recuperare gli eventi pubblicati.
      * @return un ArrayList di istanze EntityEvento pubblicate dall'amministratore specificato.
      */
-    public ArrayList<EntityEvento> get_EventiPubblicati(EntityAmministratore amministratore) {
+    public ArrayList<EntityEvento> getEventiPubblicati(EntityAmministratore amministratore) {
         ArrayList<EntityEvento> risultati = new ArrayList<>();
         for (EntityEvento evento : this.eventi) {
             if (evento.getAmministratore() == amministratore) {

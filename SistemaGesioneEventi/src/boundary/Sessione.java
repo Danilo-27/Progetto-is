@@ -4,7 +4,7 @@ public class Sessione {
     private static Sessione instance;
 
     private String email;
-    private int Tipo;  // ad esempio "ADMIN" o "CLIENTE"
+    private int Ruolo;  // ad esempio "ADMIN" o "CLIENTE"
 
     private Sessione() {}
 
@@ -15,22 +15,22 @@ public class Sessione {
         return instance;
     }
 
-    public void setUtenteAutenticato(String email, int Tipo) {
+    public void setUtenteAutenticato(String email, int Ruolo) {
         this.email = email;
-        this.Tipo = Tipo;
+        this.Ruolo = Ruolo;
     }
 
 
-    public int getTipo() {
-        return Tipo;
+    public int getRuolo() {
+        return Ruolo;
     }
 
     public boolean isAdmin() {
-        return this.Tipo==1;
+        return this.Ruolo ==1;
     }
 
     public boolean isCliente() {
-        return this.Tipo==0;
+        return this.Ruolo ==0;
     }
 
     public String getEmail() {

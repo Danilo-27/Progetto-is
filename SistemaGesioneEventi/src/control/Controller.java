@@ -13,7 +13,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 /**
  * La classe Controller rappresenta il livello di interazione tra
@@ -117,9 +116,6 @@ public class Controller {
      *
      * @param eventoDto rappresenta l'evento per il quale si desidera acquistare il biglietto.
      * @param email l'indirizzo email dell'utente che effettua l'acquisto.
-     * @param numeroCarta il numero della carta di pagamento usata per l'acquisto.
-     * @param nomeTitolare il nome del titolare della carta di pagamento.
-     * @param cognomeTitolare il cognome del titolare della carta di pagamento.
      * @throws AcquistoException se il pagamento non viene elaborato correttamente o i biglietti sono esauriti.
      * @throws BigliettoNotFoundException se l'evento non viene trovato nel catalogo.
      * @throws RedundancyException se l'utente ha già acquistato un biglietto per lo stesso evento.
@@ -148,9 +144,9 @@ public class Controller {
      * @throws BigliettoConsumatoException Se il biglietto è già stato utilizzato in precedenza.
      * @throws BigliettoNotFoundException Se il biglietto con il codice univoco specificato non esiste.
      */
-    public static void partecipaEvento(String codiceUnivoco,DTOEvento dtoEvento) throws BigliettoConsumatoException, BigliettoNotFoundException {
+    public static void partecipazioneEvento(String codiceUnivoco, DTOEvento dtoEvento) throws BigliettoConsumatoException, BigliettoNotFoundException {
         EntityEvento evento= new EntityEvento(dtoEvento.getTitolo());
-        evento.partecipaEvento(codiceUnivoco);
+        evento.partecipazioneEvento(codiceUnivoco);
     }
 
     /**
@@ -189,9 +185,8 @@ public class Controller {
     public static Map<DTOEvento, Object> consultaEventiPubblicati(String email)  throws BigliettoNotFoundException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityAmministratore amministratore = piattaforma.cercaAmministratorePerEmail(email);
-        return amministratore.caricaEventiPubblicati();
+        return amministratore.consultaEventiPubblicati();
     }
-
     /**
      * Consulta lo storico dei biglietti acquistati da un utente identificato tramite la sua email.
      * I dati vengono recuperati per ogni biglietto associato al cliente e trasformati in oggetti

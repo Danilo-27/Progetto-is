@@ -58,18 +58,18 @@ public class EntityAmministratore extends EntityUtenteRegistrato {
      * della classe {@code EntityCatalogo}.
      */
 
-    public Map<DTOEvento, Object> caricaEventiPubblicati() throws BigliettoNotFoundException {
+    public Map<DTOEvento, Object> consultaEventiPubblicati() throws BigliettoNotFoundException {
         Map<DTOEvento, Object> eventoPartecipantiMap = new HashMap<>();
         LocalDate oggi = LocalDate.now();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
-        this.eventi = catalogo.get_EventiPubblicati(this);
+        this.eventi = catalogo.getEventiPubblicati(this);
         for (EntityEvento evento : this.getEventiPubblicati()) {
             DTOEvento dtoEvento = new DTOEvento(evento.getTitolo(), evento.getDescrizione(), evento.getData(), evento.getOra(), evento.getLuogo(), evento.getCosto(), evento.getCapienza(), evento.getNumeroBigliettiVenduti());
             Map<String, Object> infoEvento = new HashMap<>();
             infoEvento.put("bigliettiVenduti", evento.getNumeroBigliettiVenduti());
             if (evento.getData().isEqual(oggi)) {
                 infoEvento.put("numeroPartecipanti", evento.getNumeroPartecipanti());
-                List<EntityCliente> partecipanti = evento.listaPartecipanti();
+                List<EntityCliente> partecipanti = evento.getListaPartecipanti();
                 List<DTOUtente> dtoPartecipanti = new ArrayList<>();
                 for (EntityCliente partecipante : partecipanti) {
                     DTOUtente dtoUtente = new DTOUtente(partecipante.getNome(), partecipante.getCognome());
@@ -84,8 +84,6 @@ public class EntityAmministratore extends EntityUtenteRegistrato {
         }
         return eventoPartecipantiMap;
     }
-
-
 
     /**
      * Crea un nuovo evento con i dettagli specificati e lo associa all'amministratore corrente.

@@ -195,7 +195,7 @@ public class EntityEvento {
      *
      * @throws UpdateException se si verifica un problema nell'aggiornamento dell'evento nel database
      */
-    public void aggiornaPartecipanti() throws UpdateException {
+    private void aggiornaPartecipanti() throws UpdateException {
         this.partecipanti++;
         EventoDAO dao = new EventoDAO();
         dao.setTitolo(this.titolo);
@@ -205,7 +205,6 @@ public class EntityEvento {
         }catch(DBException e){
             throw new UpdateException("Errore nell'aggiornamento");
         }
-
     }
 
     /**
@@ -243,7 +242,7 @@ public class EntityEvento {
         return null;
     }
 
-    public void partecipaEvento(String codiceUnivoco) throws BigliettoConsumatoException,BigliettoNotFoundException{
+    public void partecipazioneEvento(String codiceUnivoco) throws BigliettoConsumatoException,BigliettoNotFoundException{
         EntityBiglietto biglietto = this.verificaCodice(codiceUnivoco);
         if(biglietto == null) {
             throw new BigliettoNotFoundException("Biglietto non trovato");
@@ -345,7 +344,7 @@ public class EntityEvento {
      * @return una lista di oggetti EntityCliente che rappresentano i partecipanti all'evento
      * @throws BigliettoNotFoundException se non sono presenti biglietti per l'evento nel database
      */
-    public ArrayList<EntityCliente> listaPartecipanti() throws BigliettoNotFoundException{
+    public ArrayList<EntityCliente> getListaPartecipanti() throws BigliettoNotFoundException{
         //carico in memoria tutti i biglietti associati all'evento
         EventoDAO eventoDAO = new EventoDAO(this.titolo);
         try {
@@ -373,7 +372,7 @@ public class EntityEvento {
      * @throws BigliettoNotFoundException se non sono presenti biglietti per l'evento nel database
      */
     public int getNumeroPartecipanti() throws BigliettoNotFoundException {
-        ArrayList<EntityCliente> partecipanti = listaPartecipanti();
+        ArrayList<EntityCliente> partecipanti = getListaPartecipanti();
         return partecipanti.size();
     }
 

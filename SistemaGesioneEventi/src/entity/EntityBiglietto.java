@@ -284,4 +284,14 @@ public class EntityBiglietto {
     public void setCliente(EntityCliente cliente) {
         this.cliente = cliente;
     }
+
+    @Override
+    public String toString() {
+        return "EntityBiglietto{" +
+                "codiceUnivoco='" + codiceUnivoco + '\'' +
+                ", stato=" + stato +
+                ", evento=" + evento +
+                ", cliente=" + cliente +
+                '}';
+    }
 }
