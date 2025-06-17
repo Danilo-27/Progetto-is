@@ -73,46 +73,69 @@ Il numero di test risultante è 11: $(1 \cdot 1 \cdot 1 \cdot 1) + 11 = 12$.
 \noindent Il numero di test risultante è 7: $(1 \cdot 1 \cdot 1 \cdot 1) + 7 = 8$.
 
 \IncludeTable{capitoli/Tabelle/Autenticazione}
+
 \section{PubblicaEvento}
 \begin{table}[H]
 	\centering
 	\footnotesize
 	\renewcommand{\arraystretch}{1.3}
-	\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+	\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|}
 		\hline
-		\textbf{Titolo} & \textbf{Descrizione} & \textbf{Data} & \textbf{Orario} & \textbf{Luogo} & \textbf{Capienza} \\
+		\textbf{Titolo} & \textbf{Descrizione} & \textbf{Data} & \textbf{Orario} & \textbf{Luogo} & \textbf{Capienza} & \textbf{Costo} \\
 		\hline
-		Stringa di lunghezza $\leq$ 50 \newline
-		Stringa di lunghezza $>$ 50 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} \newline
-		Stringa già memorizzata \texttt{[ERROR]} &
 
-		Stringa di lunghezza $\leq$ 150 \newline
-		Stringa di lunghezza $>$ 150 \texttt{[ERROR]} \newline
-		Stringa di lunghezza $<$ 0 \texttt{[ERROR]} &
+		\parbox[t]{\linewidth}{\begin{itemize}[leftmargin=*]
+			\item Stringa di lunghezza $\leq$ 50 \checkmark
+			\item Lunghezza $>$ 50 \texttt{[ERROR]}
+			\item Lunghezza $\leq$ 0 \texttt{[ERROR]}
+		\end{itemize}} &
 
-		Data con formato valido (gg-mm-aaaa) \newline
-		Data con formato non valido \texttt{[ERROR]} &
+		\parbox[t]{\linewidth}{\begin{itemize}[leftmargin=*]
+			\item Stringa di lunghezza $\leq$ 150 \checkmark
+			\item Lunghezza $>$ 150 \texttt{[ERROR]}
+			\item Lunghezza $\leq$ 0 \texttt{[ERROR]}
+		\end{itemize}} &
 
-		Orario con formato valido (oo-mm) \newline
-		Orario con formato non valido \texttt{[ERROR]} &
+		\parbox[t]{\linewidth}{\begin{itemize}[leftmargin=*]
+			\item Formato valido e data futura (gg-mm-aaaa) \checkmark
+			\item Formato valido e data odierna \checkmark
+			\item Formato valido ma data non futura \texttt{[ERROR]}
+			\item Formato non valido \texttt{[ERROR]}
+		\end{itemize}} &
 
-		Stringa non contenente caratteri speciali \newline
-		Stringa contenente caratteri speciali \texttt{[ERROR]} \newline
-		Stringa contenente numeri \texttt{[ERROR]} &
+		\parbox[t]{\linewidth}{\begin{itemize}[leftmargin=*]
+			\item Formato valido (oo-mm) \checkmark
+			\item Formato non valido \texttt{[ERROR]}
+		\end{itemize}} &
 
-		Intero di valore massimo 100 \newline
-		Intero di valore $>$ 100 \texttt{[ERROR]} \\
+		\parbox[t]{\linewidth}{\begin{itemize}[leftmargin=*]
+			\item Solo lettere e spazi \checkmark
+			\item Contiene caratteri speciali \texttt{[ERROR]}
+			\item Contiene numeri \texttt{[ERROR]}
+		\end{itemize}} &
+
+		\parbox[t]{\linewidth}{\begin{itemize}[leftmargin=*]
+			\item Intero $\leq$ 500 \checkmark
+			\item Intero $>$ 500 \texttt{[ERROR]}
+			\item Intero $\leq$ 0 \texttt{[ERROR]}
+			\item Formato non numerico \texttt{[ERROR]}
+		\end{itemize}} &
+
+		\parbox[t]{\linewidth}{\begin{itemize}[leftmargin=*]
+			\item Numero $\geq$ 0 \checkmark
+			\item Numero negativo \texttt{[ERROR]}
+			\item Formato non numerico \texttt{[ERROR]}
+		\end{itemize}} \\
 		\hline
-	\end{tabular}
+	\end{tabularx}
 	\caption{Category Partition Testing - PubblicaEvento}
 \end{table}
 
-\noindent Il numero di test da effettuarsi senza particolari vincoli è: $4 \cdot 3 \cdot 2 \cdot 2 \cdot 3 \cdot 2 = 288$.
+\noindent Il numero di test da effettuarsi senza particolari vincoli è: $3 \cdot 3 \cdot 3 \cdot 2 \cdot 3 \cdot 4 \cdot 3 = 648$.
 
-\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 10 (3 per Titolo, 2 per Descrizione, 1 per Data, 1 per Orario, 2 per Luogo, 1 per Capienza).
+\noindent Con i vincoli [ERROR], invece, il numero di test da eseguire per testare singolarmente i vincoli è 15 (2 per Titolo, 2 per Descrizione, 2 per Data, 1 per Orario, 2 per Luogo, 3 per Capienza, 3 per Costo).
 
-\noindent Il numero di test risultante è 11: $(1 \cdot 1 \cdot 1 \cdot 1 \cdot 1 \cdot 1) + 10 = 11$.
+\noindent Il numero di test risultante è 11: $(1 \cdot 1 \cdot 2\cdot 1 \cdot 1 \cdot 1) + 16 = 16$.
 
 \IncludeTable{capitoli/Tabelle/PubblicaEvento}
 \section{RicercaEvento}
