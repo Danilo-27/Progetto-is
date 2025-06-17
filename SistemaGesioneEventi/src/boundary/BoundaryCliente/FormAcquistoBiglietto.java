@@ -3,11 +3,7 @@ package boundary.BoundaryCliente;
 import DTO.DTOEvento;
 import DTO.DTODatiPagamento;
 import control.Controller;
-import exceptions.AcquistoException;
-import exceptions.BigliettoNotFoundException;
-import exceptions.EventoNotFoundException;
-import exceptions.RedundancyException;
-import exceptions.UpdateException;
+import exceptions.*;
 import external.PagamentoService;
 
 import javax.swing.*;
@@ -124,7 +120,7 @@ public class FormAcquistoBiglietto extends JFrame {
             Controller.acquistoBiglietto(pagamentoService, dto, emailUtente,dtoDatiPagamento);
             JOptionPane.showMessageDialog(this, "Biglietto acquistato con successo!", "Successo", JOptionPane.INFORMATION_MESSAGE);
             dispose();
-        } catch (AcquistoException | BigliettoNotFoundException | UpdateException e) {
+        } catch (AcquistoException | BigliettoNotFoundException | UpdateException | LoadingException e) {
             JOptionPane.showMessageDialog(this, "Errore : " + e.getMessage(), ERRORE, JOptionPane.ERROR_MESSAGE);
         }
     }

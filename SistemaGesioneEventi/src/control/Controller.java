@@ -110,17 +110,18 @@ public class Controller {
     }
 
     /**
-     * Gestisce l'acquisto di un biglietto per un evento specifico da parte di un cliente.
-     * Verifica la disponibilità dei biglietti, il pagamento e assicura che il cliente
-     * non abbia già acquistato un biglietto per lo stesso evento.
+     * Metodo per gestire l'acquisto di un biglietto da parte di un cliente per un evento specifico.
+     * Utilizza i servizi di pagamento forniti e aggiorna le entità coinvolte come l'evento e il cliente.
      *
-     * @param eventoDto rappresenta l'evento per il quale si desidera acquistare il biglietto.
-     * @param email l'indirizzo email dell'utente che effettua l'acquisto.
-     * @throws AcquistoException se il pagamento non viene elaborato correttamente o i biglietti sono esauriti.
-     * @throws BigliettoNotFoundException se l'evento non viene trovato nel catalogo.
-     * @throws RedundancyException se l'utente ha già acquistato un biglietto per lo stesso evento.
+     * @param pagamentoService Il servizio utilizzato per processare il pagamento.
+     * @param eventoDto Un oggetto {@code DTOEvento} contenente i dettagli dell'evento per cui acquistare il biglietto.
+     * @param email L'indirizzo email del cliente che intende acquistare il biglietto.
+     * @param dtoDatiPagamento I dettagli del pagamento sotto forma di oggetto {@code DTODatiPagamento}.
+     * @throws AcquistoException Eccezione generata in caso di errori durante il processo di acquisto.
+     * @throws BigliettoNotFoundException Eccezione generata se non sono disponibili biglietti per l'evento specificato.
+     * @throws UpdateException Eccezione generata se si verifica un problema durante l'aggiornamento dello stato delle entità.
      */
-    public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, DTODatiPagamento dtoDatiPagamento) throws AcquistoException, BigliettoNotFoundException, UpdateException {
+    public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, DTODatiPagamento dtoDatiPagamento) throws AcquistoException, BigliettoNotFoundException, UpdateException,LoadingException {
 
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
@@ -136,13 +137,13 @@ public class Controller {
     }
 
     /**
-     * Permette a un utente di partecipare a un evento specificato tramite un codice univoco
-     * associato al biglietto e i dettagli dell'evento.
+     * Metodo che consente la verifica della partecipazione di un utente a un evento specifico.
+     * Utilizza il codice univoco del biglietto per validare l'accesso e segnare la partecipazione effettuata.
      *
-     * @param codiceUnivoco Il codice univoco del biglietto da convalidare per partecipare all'evento.
-     * @param dtoEvento I dettagli dell'evento a cui l'utente desidera partecipare.
-     * @throws BigliettoConsumatoException Se il biglietto è già stato utilizzato in precedenza.
-     * @throws BigliettoNotFoundException Se il biglietto con il codice univoco specificato non esiste.
+     * @param codiceUnivoco Il codice univoco associato al biglietto dell'utente.
+     * @param dtoEvento Un oggetto {@code DTOEvento} che rappresenta i dettagli dell'evento a cui partecipare.
+     * @throws BigliettoConsumatoException Se il biglietto è già stato utilizzato per accedere all'evento.
+     * @throws BigliettoNotFoundException Se il codice univoco fornito non corrisponde ad alcun biglietto valido.
      */
     public static void partecipazioneEvento(String codiceUnivoco, DTOEvento dtoEvento) throws BigliettoConsumatoException, BigliettoNotFoundException {
         EntityEvento evento= new EntityEvento(dtoEvento.getTitolo());
@@ -150,20 +151,20 @@ public class Controller {
     }
 
     /**
-     * Metodo responsabile della creazione di un nuovo evento sulla piattaforma.
-     * Valida l'evento verificando che non sia già esistente o con una data non valida
-     * e, in caso positivo, aggiunge l'evento al catalogo.
+     * Metodo che permette di creare un evento e pubblicarlo attraverso un amministratore identificato
+     * dall'indirizzo email fornito. L'evento viene registrato sulla piattaforma con i dettagli specificati.
      *
      * @param titolo Il titolo dell'evento da creare.
-     * @param descrizione Una descrizione dettagliata dell'evento.
-     * @param data La data in cui si svolgerà l'evento.
-     * @param ora L'orario in cui inizierà l'evento.
-     * @param luogo Il luogo in cui si terrà l'evento.
-     * @param costo Il costo richiesto per partecipare all'evento.
-     * @param capienza Il numero massimo di partecipanti consentito per l'evento.
-     * @param emailAmministratore L'email dell'amministratore che crea l'evento.
-     * @throws RedundancyException Se l'evento esiste già o la data fornita è precedente alla data corrente.
-     * @throws LoadingException Se si verifica un problema durante il caricamento delle informazioni necessarie.
+     * @param descrizione La descrizione dell'evento, che può includere informazioni utili per i partecipanti.
+     * @param data La data in cui si terrà l'evento.
+     * @param ora L'orario in cui avrà luogo l'evento.
+     * @param luogo Il luogo in cui si svolgerà l'evento.
+     * @param costo Il costo del biglietto per partecipare all'evento, espresso in unità monetarie.
+     * @param capienza La capienza massima dell'evento, cioè il numero massimo di partecipanti ammessi.
+     * @param emailAmministratore L'indirizzo email dell'amministratore che pubblica l'evento.
+     * @throws RedundancyException Eccezione lanciata se esiste già un evento identico al nuovo evento da creare.
+     * @throws LoadingException Eccezione lanciata se si verifica un errore durante il caricamento dei dati
+     *         o delle entità necessarie per pubblicare l'evento.
      */
     public static void creaEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza, String emailAmministratore) throws RedundancyException,LoadingException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
@@ -172,15 +173,16 @@ public class Controller {
     }
 
     /**
-     * Recupera tutti gli eventi pubblicati da un amministratore identificato dall'indirizzo email fornito.
-     * Per ogni evento pubblicato, vengono incluse informazioni come i biglietti venduti e, se applicabile,
-     * il numero di partecipanti e l'elenco dei partecipanti sotto forma di DTO.
+     * Metodo che consente di consultare la lista degli eventi pubblicati da un amministratore
+     * identificato tramite l'indirizzo email fornito. Gli eventi pubblicati vengono restituiti
+     * come una mappa, dove ogni chiave rappresenta un oggetto di tipo {@code DTOEvento} e il
+     * valore associato può contenere ulteriori dettagli relativi all'evento.
      *
-     * @param email L'indirizzo email dell'amministratore di cui recuperare gli eventi pubblicati.
-     * @return Una mappa in cui la chiave è un oggetto DTOEvento che rappresenta un evento, e il valore è
-     *         un oggetto che contiene informazioni aggiuntive sull'evento (es. numero di biglietti venduti,
-     *         numero di partecipanti, lista dei partecipanti).
-     * @throws BigliettoNotFoundException Eccezione sollevata se non sono disponibili informazioni sui biglietti relativi agli eventi.
+     * @param email L'indirizzo email dell'amministratore che desidera consultare gli eventi pubblicati.
+     * @return Una mappa contenente gli eventi pubblicati dall'amministratore, con ciascun evento
+     *         rappresentato da un oggetto {@code DTOEvento} e il relativo valore associato.
+     * @throws BigliettoNotFoundException Eccezione lanciata se non vengono trovati eventi pubblicati
+     *         associati all'amministratore specificato.
      */
     public static Map<DTOEvento, Object> consultaEventiPubblicati(String email)  throws BigliettoNotFoundException {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();

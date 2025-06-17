@@ -53,9 +53,18 @@ public class EntityAmministratore extends EntityUtenteRegistrato {
     }
 
     /**
-     * Carica gli eventi pubblicati dall'amministratore corrente e li salva nella lista interna degli eventi.
-     * Questa operazione recupera i dati utilizzando il metodo {@code get_EventiPubblicati}
-     * della classe {@code EntityCatalogo}.
+     * Consulta gli eventi pubblicati associati all'amministratore corrente, restituendo
+     * una mappa che associa ciascun evento pubblicato a un insieme di informazioni
+     * dettagliate. Per ogni evento, se si svolge nella data odierna o in una data precedente,
+     * vengono incluse informazioni sui biglietti venduti e sui partecipanti (se presenti).
+     *
+     * @return una mappa in cui le chiavi sono oggetti {@code DTOEvento} rappresentanti
+     *         gli eventi pubblicati, e i valori sono mappe contenenti dettagli come:
+     *         "bigliettiVenduti" (numero di biglietti venduti),
+     *         "numeroPartecipanti" (numero di partecipanti all'evento) e, se applicabile,
+     *         "listaPartecipanti" (lista dei partecipanti come oggetti {@code DTOUtente}).
+     * @throws BigliettoNotFoundException se non vengono trovate informazioni sui biglietti
+     *         associati a uno o più eventi.
      */
 
     public Map<DTOEvento, Object> consultaEventiPubblicati() throws BigliettoNotFoundException {
@@ -86,15 +95,17 @@ public class EntityAmministratore extends EntityUtenteRegistrato {
     }
 
     /**
-     * Crea un nuovo evento con i dettagli specificati e lo associa all'amministratore corrente.
+     * Pubblica un nuovo evento associato all'amministratore corrente, aggiungendolo
+     * al catalogo degli eventi se i dati forniti sono validi e l'evento non è già stato registrato.
      *
-     * @param titolo      il titolo dell'evento
-     * @param descrizione la descrizione dell'evento
-     * @param data        la data dell'evento
-     * @param ora         l'ora dell'evento
-     * @param luogo       il luogo dell'evento
-     * @param costo       il costo dell'evento
-     * @param capienza    la capienza massima dell'evento
+     * @param titolo il titolo dell'evento da pubblicare.
+     * @param descrizione la descrizione dell'evento che fornisce maggiori dettagli.
+     * @param data la data in cui l'evento si svolgerà.
+     * @param ora l'orario in cui l'evento inizierà.
+     * @param luogo il luogo in cui si terrà l'evento.
+     * @param costo il costo di partecipazione all'evento, espresso in unità monetarie.
+     * @param capienza il numero massimo di partecipanti consentiti per l'evento.
+     * @throws RedundancyException se un evento con lo stesso titolo è già stato pubblicato.
      */
     public void pubblicaEvento(String titolo, String descrizione, LocalDate data, LocalTime ora, String luogo, int costo, int capienza) throws RedundancyException{
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
