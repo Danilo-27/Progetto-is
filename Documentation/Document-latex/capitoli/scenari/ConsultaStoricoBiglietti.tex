@@ -1,0 +1,25 @@
+\begin{table}[!hbp]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & Consulta Storico Biglietti \\
+		Attore primario & Utente \\
+		Attore secondario & - \\
+		Descrizione & Un utente visualizza l'elenco di tutti i biglietti acquistati in passato \\
+		Pre-condizioni & L’utente deve essersi autenticato \\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}[label=\arabic*.]
+				\item L’utente richiede di visualizzare il proprio storico dei biglietti
+				\item Per ogni biglietto disponibile:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra il titolo dell'evento e orario
+				\end{enumerate}
+				\item Se non sono disponibili biglietti:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra un messaggio di errore
+				\end{enumerate}
+			\end{enumerate} \\
+		Post-condizioni & - \\
+		Casi d'uso correlati & UC10, UC11 \\
+		{Sequenza di eventi \\ alternativa} & 2.1, 3.1 \\
+	\end{scenery}
+\end{table}

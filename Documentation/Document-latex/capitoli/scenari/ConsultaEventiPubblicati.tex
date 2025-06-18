@@ -1,0 +1,26 @@
+\begin{table}[H]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & Consulta Eventi Pubblicati\\
+		Attore primario & Amministratore \\
+		Attore secondario & -- \\
+		Descrizione & L’amministratore consulta le informazioni di un evento tra quelli pubblicati\\
+		Pre-condizioni & L’amministratore deve essersi autenticato e deve aver pubblicato degli eventi\\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}[label=\arabic*.]
+				\item Il caso d’uso inizia quando l’amministratore seleziona l’evento di cui intende visualizzare le informazioni
+				\item Il sistema mostra il numero degli utenti registrati all'evento.
+				\item Se l’evento è tenuto in data odierna:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra l'elenco degli utenti presenti in quel momento all'evento.
+				\end{enumerate}
+				\item Altrimenti:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra il numero degli utenti che hanno partecipato all'evento, senza poter consultare i dati di questi ultimi
+				\end{enumerate}
+			\end{enumerate} \\
+		Post-condizioni & -- \\
+		Casi d'uso correlati & UC12 \\
+		{Sequenza di eventi \\ alternativa} & 3.1, 4.1 \\
+	\end{scenery}
+\end{table}

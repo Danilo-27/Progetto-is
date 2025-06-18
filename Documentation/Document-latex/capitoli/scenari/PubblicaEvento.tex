@@ -1,0 +1,28 @@
+\begin{table}[H]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & PubblicaEvento \\
+		Attore primario & Amministratore \\
+		Attore secondario & -- \\
+		Descrizione & Un amministratore pubblica un nuovo evento \\
+		Pre-condizioni & L’amministratore deve essersi autenticato \\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}[label=\arabic*.]
+				\item Il caso d’uso inizia quando l’amministratore richiede al sistema di inserire un nuovo evento
+				\item Il sistema richiede all'ammanistratore di inserire i dati del nuovo evento
+				\item L'amministratore inserisce i dati (titolo,data,orario,capienza,costo)
+				\item Il sistema valida il contenuto dei dati inseriti
+				\item Se il controllo ha successo:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema aggiunge l’evento al catalogo eventi
+				\end{enumerate}
+				\item Altrimenti:
+				\begin{enumerate}[label*=\arabic*.]
+				    \item Il sistema mostra un messaggio di errore
+				\end{enumerate}
+			\end{enumerate} \\
+		Post-condizioni & Il sistema aggiunge l’evento al catalogo \\
+		Casi d'uso correlati & - \\
+		{Sequenza di eventi \\ alternativa} & 5.1, 6.1 \\
+	\end{scenery}
+\end{table}

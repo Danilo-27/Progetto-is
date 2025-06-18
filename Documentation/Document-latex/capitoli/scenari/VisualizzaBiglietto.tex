@@ -1,0 +1,19 @@
+\begin{table}[!hbp]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & Visualizza Biglietto \\
+		Attore primario & Utente \\
+		Attore secondario & - \\
+		Descrizione & Un utente visualizza un biglietto dal suo storico dei biglietti \\
+		Pre-condizioni & L’utente ha effettuato l’accesso.\\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}[label=\arabic*.]
+				\item Il caso d’uso inizia quando l’utente richiede di visualizzare un biglietto dal suo storico
+				\item include(ConsultaStoricoBiglietti)
+				\item il sistema mostra le infomazioni del biglietto(nomeEvento,Data,Ora,Descrizione,nomePartecipante)
+			\end{enumerate} \\
+		Post-condizioni & - \\
+		Casi d'uso correlati & UC13 \\
+		{Sequenza di eventi \\ alternativa} & - \\
+	\end{scenery}
+\end{table}
