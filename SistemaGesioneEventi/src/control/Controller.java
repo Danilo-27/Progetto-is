@@ -147,9 +147,11 @@ public class Controller {
      * @throws BigliettoConsumatoException Se il biglietto è già stato utilizzato per accedere all'evento.
      * @throws BigliettoNotFoundException Se il codice univoco fornito non corrisponde ad alcun biglietto valido.
      */
-    public static void partecipazioneEvento(String codiceUnivoco, DTOEvento dtoEvento) throws BigliettoConsumatoException, BigliettoNotFoundException {
+    public static void partecipazioneEvento(String codiceUnivoco, DTOEvento dtoEvento,String emailUtente) throws BigliettoConsumatoException, BigliettoNotFoundException {
         EntityEvento evento= new EntityEvento(dtoEvento.getTitolo());
-        evento.partecipazioneEvento(codiceUnivoco);
+        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
+        EntityCliente cliente = piattaforma.cercaClientePerEmail(emailUtente);
+        evento.partecipazioneEvento(codiceUnivoco,cliente);
     }
 
     /**

@@ -120,7 +120,7 @@ public class EntityPiattaforma {
      */
 
     public void registrazione(String password, String nome, String cognome, String email) throws RegistrationFailedException {
-        if (!verificaEmail(email)) {
+        if (!controlloEmail(email)) {
             EntityUtenteRegistrato newUtente= new EntityUtenteRegistrato(nome, cognome, email, password);
             this.utenti.add(newUtente);
             newUtente.aggiornamento();
@@ -135,7 +135,7 @@ public class EntityPiattaforma {
      * @param email l'indirizzo email da cercare all'interno della lista degli utenti
      * @return true se l'email specificata viene trovata, false altrimenti
      */
-    private boolean verificaEmail(String email) {
+    private boolean controlloEmail(String email) {
         for (EntityUtenteRegistrato utente : this.utenti) {
             if (utente.getEmail().equals(email)) {
                 return true;

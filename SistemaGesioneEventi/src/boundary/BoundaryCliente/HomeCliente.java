@@ -3,7 +3,9 @@ package boundary.BoundaryCliente;
 import DTO.DTOEvento;
 import boundary.BoundaryUtenteRegistrato.HomeUtenteRegistrato;
 import boundary.BoundaryUtente.HomePage;
+import boundary.Sessione;
 import control.Controller;
+import entity.EntityPiattaforma;
 import exceptions.*;
 import external.StubSistemaGestioneAcquisti;
 
@@ -298,9 +300,10 @@ public class HomeCliente extends HomeUtenteRegistrato {
         }
 
         try {
-            Controller.partecipazioneEvento(codice.trim(), evento);
+            Sessione s = Sessione.getInstance();
+            Controller.partecipazioneEvento(codice.trim(), evento,s.getEmail());
         } catch (BigliettoNotFoundException e) {
-            mostraErrore("Errore", "Codice non valido.");
+            mostraErrore("Errore", e.getMessage());
         } catch (BigliettoConsumatoException e) {
             mostraErrore("Errore", "Biglietto già utilizzato.");
         }

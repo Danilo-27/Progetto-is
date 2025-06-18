@@ -242,20 +242,35 @@ public class EntityEvento {
     }
 
     /**
-     * Consente di registrare la partecipazione di un utente a un evento, validando un biglietto
-     * associato a un codice univoco e aggiornando il conteggio dei partecipanti.
+     * Verifica se un biglietto è associato a un determinato cliente.
      *
-     * @param codiceUnivoco Il codice identificativo unico del biglietto da validare.
-     * @throws BigliettoConsumatoException Se il biglietto risulta già utilizzato.
-     * @throws BigliettoNotFoundException Se il biglietto corrispondente al codice univoco non viene trovato.
+     * @param biglietto il biglietto da verificare
+     * @param cliente il cliente da confrontare con quello associato al biglietto
+     * @return true se il cliente associato al biglietto corrisponde al cliente fornito, false altrimenti
      */
-    public void partecipazioneEvento(String codiceUnivoco) throws BigliettoConsumatoException,BigliettoNotFoundException{
+    public boolean verificaBiglietto(EntityBiglietto biglietto, EntityCliente cliente){
+        return biglietto.getCliente().equals(cliente);
+    }
+
+    /**
+     * Gestisce la partecipazione di un cliente a un evento tramite la validazione di un biglietto.
+     * Verifica che il codice del biglietto sia valido e associato al cliente,
+     * aggiorna i partecipanti e convalida il biglietto.
+     *
+     * @param codiceUnivoco Il codice univoco identificativo del biglietto.
+     * @param cliente L'entità del cliente che cerca di partecipare all'evento.
+     */
+    public void partecipazioneEvento(String codiceUnivoco,EntityCliente cliente) throws BigliettoConsumatoException,BigliettoNotFoundException{
         EntityBiglietto biglietto = this.verificaCodice(codiceUnivoco);
         if(biglietto == null) {
             throw new BigliettoNotFoundException("Biglietto non trovato");
         }else {
-            biglietto.validaBiglietto();
-            this.aggiornaPartecipanti();
+            if(this.verificaBiglietto(biglietto,cliente)){
+                biglietto.validaBiglietto();
+                this.aggiornaPartecipanti();
+            }else{
+                throw new BigliettoNotFoundException("Il biglietto inserito non è associato all'utente");
+            }
         }
     }
 
