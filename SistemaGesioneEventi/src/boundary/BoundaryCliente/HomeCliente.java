@@ -8,8 +8,7 @@ import exceptions.*;
 import external.StubSistemaGestioneAcquisti;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
+import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -22,368 +21,268 @@ public class HomeCliente extends HomeUtenteRegistrato {
 
     @Serial
     private static final long serialVersionUID = 1L;
+    private static final String SEGOE = "Segoe UI";
+    private static final Color PRIMARY_COLOR = new Color(41, 128, 185);
+
     private JList<DTOEvento> listaEventiOdierni;
-    private JButton partecipaButton;
     private DefaultListModel<DTOEvento> eventiModel;
-    private static final String SEGOE="Segoe UI";
+    private JButton partecipaButton;
 
     public HomeCliente(String nome, String cognome, String email, String immagineProfilo) {
         super();
+        impostaIconaApplicazione();
+        configuraFinestra();
 
-        //icona
-        BufferedImage iconImage = new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = iconImage.createGraphics();
-
-        g2d.setColor(new Color(41, 128, 185)); // Sfondo blu
-        g2d.fillRect(0, 0, 64, 64);
-
-        g2d.setColor(Color.WHITE);
-        g2d.setFont(new Font("Segoe UI", Font.BOLD, 32));
-        FontMetrics fm = g2d.getFontMetrics();
-        String text = "T2";
-        int x = (64 - fm.stringWidth(text)) / 2;
-        int y = ((64 - fm.getHeight()) / 2) + fm.getAscent();
-        g2d.drawString(text, x, y);
-        g2d.dispose();
-        setIconImage(iconImage);
-
-
-        setPreferredSize(new Dimension(1000, 600));
-        setSize(new Dimension(1000, 600));
-        setMinimumSize(new Dimension(1000, 600));
-
-        // Modifica il titolo ereditato
         titleLabel.setText("Profilo Personale");
 
-        // Rimuove il layout predefinito del padre per creare un layout personalizzato
         contentPanel.removeAll();
         contentPanel.setLayout(new BorderLayout());
 
-        // Crea il pannello sinistro per il profilo utente
-        JPanel sinistraPanel = createLeftPanel(nome, cognome, email, immagineProfilo);
+        contentPanel.add(creaPannelloSinistro(nome, cognome, email, immagineProfilo), BorderLayout.WEST);
+        contentPanel.add(creaPannelloDestro(), BorderLayout.CENTER);
 
-        // Crea il pannello destro per gli eventi
-        JPanel destraPanel = createRightPanel();
+        caricaEventiOdierni();
 
-        // Aggiungi i pannelli al contenuto principale
-        contentPanel.add(sinistraPanel, BorderLayout.WEST);
-        contentPanel.add(destraPanel, BorderLayout.CENTER);
-
-        // Carica gli eventi odierni
-        loadEventiOdierni();
-
-        // Refresh della UI
         contentPanel.revalidate();
         contentPanel.repaint();
     }
 
-    private JPanel createLeftPanel(String nome, String cognome, String email, String immagineProfilo) {
-        JPanel sinistraPanel = new JPanel();
-        sinistraPanel.setLayout(new BoxLayout(sinistraPanel, BoxLayout.Y_AXIS));
-        getAVoid(sinistraPanel, Color.WHITE);
-        sinistraPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 10));
-        sinistraPanel.setPreferredSize(new Dimension(400, 0));
-
-        // Titolo del profilo
-        JLabel titolo = new JLabel("Profilo Cliente");
-        titolo.setFont(new Font(SEGOE, Font.BOLD, 22));
-        titolo.setAlignmentX(Component.CENTER_ALIGNMENT);
-        sinistraPanel.add(titolo);
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-
-        // Immagine profilo
-        JPanel imagePanel = createProfileImagePanel(immagineProfilo);
-        sinistraPanel.add(imagePanel);
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-
-        // Informazioni utente
-        sinistraPanel.add(createStyledLabel("Nome: " + nome));
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 5)));
-        sinistraPanel.add(createStyledLabel("Cognome: " + cognome));
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 5)));
-        sinistraPanel.add(createStyledLabel("Email: " + email));
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-
-        // Pulsante Acquista Biglietto (specifico del cliente)
-        JButton acquistaBigliettoButton = createAcquistaBigliettoButton(email);
-        sinistraPanel.add(acquistaBigliettoButton);
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-
-        // Pulsante Storico Biglietti
-        sinistraPanel.add(createStoricoBigliettiButton(email));
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-
-
-
-        // ✅ Aggiungi i pulsanti ereditati dal padre usando il metodo helper
-        JPanel pulsantiPadre = createParentButtonsPanel();
-        sinistraPanel.add(pulsantiPadre);
-        sinistraPanel.add(Box.createRigidArea(new Dimension(0, 15)));
-
-        // Pulsante Torna alla Home
-        JButton tornaHomeButton = createTornaHomeButton();
-        sinistraPanel.add(tornaHomeButton);
-
-        return sinistraPanel;
+    private void impostaIconaApplicazione() {
+        BufferedImage icon = new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = icon.createGraphics();
+        g.setColor(PRIMARY_COLOR);
+        g.fillRect(0, 0, 64, 64);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font(SEGOE, Font.BOLD, 32));
+        String text = "T2";
+        FontMetrics fm = g.getFontMetrics();
+        g.drawString(text, (64 - fm.stringWidth(text)) / 2, ((64 - fm.getHeight()) / 2) + fm.getAscent());
+        g.dispose();
+        setIconImage(icon);
     }
 
-    private JButton createStoricoBigliettiButton(String email) {
-        JButton storicoButton = new JButton("Consulta Storico Biglietti");
-        styleButton(storicoButton, new Color(41, 128, 185)); // colore blu
-        storicoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        storicoButton.setMaximumSize(new Dimension(220, 35));
-        storicoButton.addActionListener(e -> {
-            FormStoricoBiglietti form = null;
-            try {
-                form = new FormStoricoBiglietti(email, this);
-                form.setVisible(true);
-                this.setVisible(false);
-            } catch (BigliettoNotFoundException Bnfe) {
-                JOptionPane.showMessageDialog(
-                        this,
-                        "Nessun biglietto trovato.",
-                        "Storico Vuoto",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
-            }
-        });
-        return storicoButton;
+    private void configuraFinestra() {
+        setExtendedState(Frame.MAXIMIZED_BOTH);
+        setUndecorated(false);
     }
 
+    private JPanel creaPannelloSinistro(String nome, String cognome, String email, String immagineProfilo) {
+        JPanel panel = creaPannelloBase(400);
+        panel.add(creaEtichettaTitolo("Profilo Cliente"));
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(creaPannelloImmagineProfilo(immagineProfilo));
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(creaEtichettaTesto("Nome: " + nome));
+        panel.add(creaEtichettaTesto("Cognome: " + cognome));
+        panel.add(creaEtichettaTesto("Email: " + email));
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
 
-    private JPanel createProfileImagePanel(String immagineProfilo) {
-        JPanel imagePanel = new JPanel();
-        imagePanel.setPreferredSize(new Dimension(120, 120));
-        imagePanel.setMaximumSize(new Dimension(120, 120));
-        imagePanel.setBorder(new LineBorder(new Color(52, 152, 219), 2, true));
-        getAVoid(imagePanel, Color.WHITE);
-        imagePanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        imagePanel.setLayout(new BorderLayout());
-
-        JLabel profilePic = new JLabel();
-        profilePic.setHorizontalAlignment(SwingConstants.CENTER);
-        profilePic.setVerticalAlignment(SwingConstants.CENTER);
-
-        if (immagineProfilo != null) {
+        panel.add(creaBottone("Acquista Biglietto", new Color(39, 174, 96), () -> {
             try {
-                // Carico l'immagine originale da file
-                BufferedImage originalImage = javax.imageio.ImageIO.read(new java.io.File("SistemaGesioneEventi/images/" + immagineProfilo));
-
-                // Dimensione target (puoi cambiare in base alle dimensioni del pannello)
-                int targetWidth = 120;
-                int targetHeight = 120;
-
-                // Ridimensiona l'immagine mantenendo proporzioni
-                Image scaledImage = originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
-
-                // Imposta l'icona ridimensionata
-                profilePic.setIcon(new ImageIcon(scaledImage));
-            } catch (Exception e) {
-                profilePic.setText("Errore caricamento immagine");
-                profilePic.setFont(new Font(SEGOE, Font.ITALIC, 14));
-                profilePic.setForeground(new Color(127, 140, 141));
-            }
-        } else {
-            profilePic.setText("Nessuna immagine");
-            profilePic.setFont(new Font(SEGOE, Font.ITALIC, 14));
-            profilePic.setForeground(new Color(127, 140, 141));
-        }
-
-        imagePanel.add(profilePic, BorderLayout.CENTER);
-        return imagePanel;
-    }
-
-
-
-    private JButton createAcquistaBigliettoButton(String email) {
-        JButton acquistaBigliettoButton = new JButton("Acquista Biglietto");
-        styleButton(acquistaBigliettoButton, new Color(39, 174, 96));
-        acquistaBigliettoButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        acquistaBigliettoButton.setMaximumSize(new Dimension(220, 35));
-        acquistaBigliettoButton.addActionListener(e -> {
-            try {
-                new FormAcquistoBiglietto(email,new StubSistemaGestioneAcquisti()).setVisible(true);
+                new FormAcquistoBiglietto(email, new StubSistemaGestioneAcquisti()).setVisible(true);
             } catch (EventoNotFoundException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "ERRORE", JOptionPane.ERROR_MESSAGE);
+                mostraErrore("ERRORE", ex.getMessage());
             }
-        });
-        return acquistaBigliettoButton;
-    }
+        }));
 
-    private JButton createTornaHomeButton() {
-        JButton tornaHomeButton = new JButton("Torna alla Home");
-        styleButton(tornaHomeButton, new Color(231, 76, 60));
-        tornaHomeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        tornaHomeButton.setMaximumSize(new Dimension(220, 35));
-        tornaHomeButton.addActionListener(e -> {
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+
+        panel.add(creaBottone("Consulta Storico Biglietti", PRIMARY_COLOR, () -> {
+            try {
+                new FormStoricoBiglietti(email, this).setVisible(true);
+                this.setVisible(false);
+            } catch (BigliettoNotFoundException ex) {
+                mostraInfo("Storico Vuoto", "Nessun biglietto trovato.");
+            }
+        }));
+
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        panel.add(createParentButtonsPanel());
+        panel.add(Box.createRigidArea(new Dimension(0, 15)));
+
+        panel.add(creaBottone("Torna alla Home", new Color(231, 76, 60), () -> {
             new HomePage().setVisible(true);
             dispose();
-        });
-        return tornaHomeButton;
+        }));
+
+        return panel;
     }
 
-    private JPanel createRightPanel() {
-        JPanel destraPanel = new JPanel();
-        destraPanel.setLayout(new BoxLayout(destraPanel, BoxLayout.Y_AXIS));
-        getAVoid(destraPanel, Color.WHITE);
-        destraPanel.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 20));
+    private JPanel creaPannelloDestro() {
+        JPanel panel = creaPannelloBase(0);
+        panel.add(creaEtichettaTitolo("Eventi di Oggi"));
+        panel.add(Box.createRigidArea(new Dimension(0, 15)));
+        panel.add(creaScrollPaneListaEventi());
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
 
-        // Titolo sezione eventi
-        JLabel eventiTitleLabel = new JLabel("Eventi di Oggi");
-        eventiTitleLabel.setFont(new Font(SEGOE, Font.BOLD, 20));
-        eventiTitleLabel.setForeground(new Color(44, 62, 80));
-        eventiTitleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        destraPanel.add(eventiTitleLabel);
-        destraPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        partecipaButton = creaBottone("Partecipa all'Evento", new Color(155, 89, 182), this::gestisciPartecipazione);
+        partecipaButton.setEnabled(false);
+        panel.add(partecipaButton);
 
-        // Lista eventi
-        JScrollPane scrollPane = createEventiList();
-        destraPanel.add(scrollPane);
-
-        // Pulsante partecipa
-        partecipaButton = createPartecipaButton();
-        destraPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-        destraPanel.add(partecipaButton);
-
-        return destraPanel;
+        return panel;
     }
 
-    private JScrollPane createEventiList() {
+    private JPanel creaPannelloBase(int width) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        panel.setBackground(Color.WHITE);
+        if (width > 0) panel.setPreferredSize(new Dimension(width, 0));
+        return panel;
+    }
+
+    private JLabel creaEtichettaTitolo(String testo) {
+        JLabel label = new JLabel(testo);
+        label.setFont(new Font(SEGOE, Font.BOLD, 20));
+        label.setForeground(new Color(44, 62, 80));
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return label;
+    }
+
+    private JLabel creaEtichettaTesto(String testo) {
+        JLabel label = new JLabel(testo);
+        label.setFont(new Font(SEGOE, Font.PLAIN, 15));
+        label.setForeground(new Color(44, 62, 80));
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        label.setBorder(new EmptyBorder(5, 0, 0, 0));
+        return label;
+    }
+
+    private JButton creaBottone(String testo, Color colore, Runnable azione) {
+        JButton button = new JButton(testo);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.setMaximumSize(new Dimension(220, 35));
+        styleButton(button, colore);
+        button.addActionListener(e -> azione.run());
+        return button;
+    }
+
+    private JScrollPane creaScrollPaneListaEventi() {
         eventiModel = new DefaultListModel<>();
         listaEventiOdierni = new JList<>(eventiModel);
         listaEventiOdierni.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaEventiOdierni.setFont(new Font(SEGOE, Font.PLAIN, 15));
         listaEventiOdierni.setFixedCellHeight(70);
 
-        // Custom renderer per la lista eventi
-        listaEventiOdierni.setCellRenderer(new DefaultListCellRenderer() {
-            @Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index,
-                                                          boolean isSelected, boolean cellHasFocus) {
-                JPanel panel = new JPanel(new BorderLayout());
-                panel.setOpaque(true);
-                panel.setBorder(new EmptyBorder(8, 12, 8, 12));
-                Color backgroundColor;
+        listaEventiOdierni.setCellRenderer((list, value, index, isSelected, cellHasFocus) -> {
+            DTOEvento evento = (DTOEvento) value;
+            JPanel panel = new JPanel(new BorderLayout());
+            panel.setOpaque(true);
+            panel.setBackground(isSelected ? new Color(52, 152, 219) : (index % 2 == 0 ? Color.WHITE : new Color(248, 249, 250)));
+            panel.setBorder(new EmptyBorder(8, 12, 8, 12));
 
-                if (isSelected) {
-                    backgroundColor = new Color(52, 152, 219);
-                } else if (index % 2 == 0) {
-                    backgroundColor = Color.WHITE;
-                } else {
-                    backgroundColor = new Color(248, 249, 250);
-                }
-                getAVoid(panel, backgroundColor);
+            JLabel titolo = new JLabel(evento.getTitolo());
+            titolo.setFont(new Font(SEGOE, Font.BOLD, 16));
+            titolo.setForeground(isSelected ? Color.WHITE : new Color(44, 62, 80));
 
-                if (value instanceof DTOEvento evento) {
-                    JLabel titoloLabel = new JLabel(evento.getTitolo());
-                    titoloLabel.setFont(new Font(SEGOE, Font.BOLD, 16));
-                    titoloLabel.setForeground(isSelected ? Color.WHITE : new Color(44, 62, 80));
+            JLabel dettagli = new JLabel(evento.getLuogo() + " • " + evento.getOra());
+            dettagli.setFont(new Font(SEGOE, Font.PLAIN, 13));
+            dettagli.setForeground(isSelected ? Color.LIGHT_GRAY : new Color(127, 140, 141));
 
-                    JLabel dettagliLabel = new JLabel(evento.getLuogo() + "  •  " + evento.getOra());
-                    dettagliLabel.setFont(new Font(SEGOE, Font.PLAIN, 13));
-                    dettagliLabel.setForeground(isSelected ? new Color(230, 230, 230) : new Color(127, 140, 141));
+            JPanel textPanel = new JPanel();
+            textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
+            textPanel.setOpaque(false);
+            textPanel.add(titolo);
+            textPanel.add(Box.createRigidArea(new Dimension(0, 4)));
+            textPanel.add(dettagli);
 
-                    JPanel textPanel = new JPanel();
-                    textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.Y_AXIS));
-                    textPanel.setOpaque(false);
-                    textPanel.add(titoloLabel);
-                    textPanel.add(Box.createRigidArea(new Dimension(0, 4)));
-                    textPanel.add(dettagliLabel);
-
-                    panel.add(textPanel, BorderLayout.CENTER);
-                }
-
-                return panel;
-            }
+            panel.add(textPanel, BorderLayout.CENTER);
+            return panel;
         });
 
-        // Mouse listener per abilitare il pulsante partecipa
         listaEventiOdierni.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 1) {
-                    DTOEvento eventoSelezionato = listaEventiOdierni.getSelectedValue();
-                    partecipaButton.setEnabled(eventoSelezionato != null);
-                }
+                partecipaButton.setEnabled(listaEventiOdierni.getSelectedValue() != null);
             }
         });
 
-        JScrollPane scrollPane = new JScrollPane(listaEventiOdierni);
-        scrollPane.setPreferredSize(new Dimension(480, 350));
-        scrollPane.setBorder(null);
-        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
-
-        return scrollPane;
+        JScrollPane scroll = new JScrollPane(listaEventiOdierni);
+        scroll.setPreferredSize(new Dimension(480, 350));
+        scroll.setBorder(null);
+        scroll.getVerticalScrollBar().setUnitIncrement(16);
+        return scroll;
     }
 
-    private static void getAVoid(JPanel panel, Color isSelected) {
-        panel.setBackground(isSelected);
-    }
+    private JPanel creaPannelloImmagineProfilo(String fileName) {
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setPreferredSize(new Dimension(350, 300));  // <<< MODIFICA QUI
+        panel.setMaximumSize(new Dimension(350, 300));    // <<< E QUI
+        panel.setBorder(new LineBorder(new Color(52, 152, 219), 2, true));
+        panel.setBackground(Color.WHITE);
 
-    private JButton createPartecipaButton() {
-        JButton button = new JButton("Partecipa all'Evento");
-        styleButton(button, new Color(155, 89, 182));
-        button.setPreferredSize(new Dimension(0, 40));
-        button.setEnabled(false);
-        button.addActionListener(e -> {
-            DTOEvento eventoSelezionato = listaEventiOdierni.getSelectedValue();
-            if (eventoSelezionato != null) {
-                String codiceUnivoco = apriFormPartecipazione(eventoSelezionato);
+        JLabel label = new JLabel();
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setVerticalAlignment(SwingConstants.CENTER);
 
-                if (codiceUnivoco == null) {
-                    return;
-                }
-                if (!codiceUnivoco.matches("[a-zA-Z0-9\\-]+")) {
-                    JOptionPane.showMessageDialog(this, "Caratteri non consentiti nel codice", "Warning", JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-
-                try {
-                    Controller.partecipazioneEvento(codiceUnivoco,eventoSelezionato);
-                } catch(BigliettoConsumatoException ex){
-                    JOptionPane.showMessageDialog(this, "Biglietto già utilizzato", "Errore", JOptionPane.ERROR_MESSAGE);
-                }catch(BigliettoNotFoundException ex) {
-                    JOptionPane.showMessageDialog(this, "Codice non valido", "Errore", JOptionPane.ERROR_MESSAGE);
-                }
+        try {
+            if (fileName != null) {
+                BufferedImage original = javax.imageio.ImageIO.read(new java.io.File("SistemaGesioneEventi/images/" + fileName));
+                Image scaled = original.getScaledInstance(350, 300, Image.SCALE_SMOOTH);  // <<< E ANCHE QUI
+                label.setIcon(new ImageIcon(scaled));
+            } else {
+                label.setText("Nessuna immagine");
+                label.setFont(new Font(SEGOE, Font.ITALIC, 14));
+                label.setForeground(new Color(127, 140, 141));
             }
-        });
-        return button;
+        } catch (Exception e) {
+            label.setText("Errore caricamento immagine");
+            label.setFont(new Font(SEGOE, Font.ITALIC, 14));
+            label.setForeground(new Color(127, 140, 141));
+        }
+
+        panel.add(label, BorderLayout.CENTER);
+        return panel;
     }
 
-    private void loadEventiOdierni() {
+
+    private void caricaEventiOdierni() {
         try {
             List<DTOEvento> eventi = Controller.ricercaEvento(null, LocalDate.now(), null);
-            updateEventiOdierni(eventi);
-        } catch (EventoNotFoundException Enfe) {
+            eventiModel.clear();
+            eventi.forEach(eventiModel::addElement);
+        } catch (EventoNotFoundException ignored) {
             eventiModel.clear();
         }
     }
 
-    public void updateEventiOdierni(List<DTOEvento> eventiOdierni) {
-        eventiModel.clear();
-        for (DTOEvento evento : eventiOdierni) {
-            eventiModel.addElement(evento);
+    private void gestisciPartecipazione() {
+        DTOEvento evento = listaEventiOdierni.getSelectedValue();
+        if (evento == null) return;
+
+        String codice = JOptionPane.showInputDialog(this,
+                String.format("Partecipazione all'evento:\n\nTitolo: %s\nLuogo: %s\nOrario: %s\nDescrizione: %s\n\nInserisci il codice univoco del biglietto:",
+                        evento.getTitolo(),
+                        evento.getLuogo() != null ? evento.getLuogo() : "Da definire",
+                        evento.getOra(),
+                        evento.getDescrizione()
+                ),
+                "Partecipazione Evento", JOptionPane.PLAIN_MESSAGE);
+
+        if (codice == null || codice.trim().isEmpty()) {
+            mostraInfo("Attenzione", "Codice biglietto non inserito.");
+            return;
+        }
+
+        if (!codice.matches("[a-zA-Z0-9\\-]+")) {
+            mostraInfo("Warning", "Caratteri non consentiti nel codice.");
+            return;
+        }
+
+        try {
+            Controller.partecipazioneEvento(codice.trim(), evento);
+        } catch (BigliettoNotFoundException e) {
+            mostraErrore("Errore", "Codice non valido.");
+        } catch (BigliettoConsumatoException e) {
+            mostraErrore("Errore", "Biglietto già utilizzato.");
         }
     }
 
-    private String apriFormPartecipazione(DTOEvento evento) {
-        String messaggio = String.format(
-                "Partecipazione all'evento:%n%nTitolo: %s%nLuogo: %s%nOrario: %s%nDescrizione: %s%n%nInserisci il codice univoco del biglietto:",
-                evento.getTitolo(),
-                evento.getLuogo() != null ? evento.getLuogo() : "Da definire",
-                evento.getOra(),
-                evento.getDescrizione()
-        );
+    private void mostraErrore(String titolo, String messaggio) {
+        JOptionPane.showMessageDialog(this, messaggio, titolo, JOptionPane.ERROR_MESSAGE);
+    }
 
-
-        String codiceBiglietto = JOptionPane.showInputDialog(this, messaggio, "Partecipazione Evento", JOptionPane.PLAIN_MESSAGE);
-
-        // Puoi gestire il caso in cui l'utente annulla o lascia vuoto
-        if (codiceBiglietto == null || codiceBiglietto.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Codice biglietto non inserito.", "Attenzione", JOptionPane.WARNING_MESSAGE);
-            return null;
-        }
-
-        return codiceBiglietto.trim(); // Ritorna il codice inserito, rimuovendo eventuali spazi
+    private void mostraInfo(String titolo, String messaggio) {
+        JOptionPane.showMessageDialog(this, messaggio, titolo, JOptionPane.INFORMATION_MESSAGE);
     }
 }
