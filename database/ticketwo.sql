@@ -80,7 +80,7 @@ CREATE TABLE `eventi` (
 
 LOCK TABLES `eventi` WRITE;
 /*!40000 ALTER TABLE `eventi` DISABLE KEYS */;
-INSERT INTO `eventi` VALUES (1,'ritiro del Napoli a Castel di Sangro','Ritiro della squadra SSC Napoli a Castel di Sangro','2025-07-25','10:00:00',400,0,50,2,'Castel di Sangro'),(2,'Corso di cucina Italiana','Lezione pratica di cucina regionale','2025-04-10','18:00:00',30,3,20,2,'Napoli'),(3,'Money Gang Tour','Concerto di Sfera Ebbasta allo stadio Diego Armando Maradona','2025-06-07','21:00:00',300,2,50,2,'Napoli'),(4,'Agile O\'Day','Incontro formativo su metodi agili','2025-09-20','14:00:00',100,0,0,2,'Napoli');
+INSERT INTO `eventi` VALUES (1,'ritiro del Napoli a Castel di Sangro','Ritiro della squadra SSC Napoli a Castel di Sangro','2025-07-25','10:00:00',400,0,50,2,'Castel di Sangro'),(2,'Corso di cucina Italiana','Lezione pratica di cucina regionale','2025-04-10','18:00:00',30,3,20,2,'Napoli'),(3,'Money Gang Tour','Concerto di Sfera Ebbasta allo stadio Diego Armando Maradona','2025-06-07','21:00:00',300,2,50,2,'Napoli'),(4,'Agile O\'Day','Incontro formativo su metodi agili','2025-09-20','14:00:00',100,0,20,2,'Napoli');
 /*!40000 ALTER TABLE `eventi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-18 20:01:46
+-- Dump completed on 2025-06-18 20:04:32
