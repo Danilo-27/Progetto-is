@@ -165,7 +165,7 @@ La creazione del seguente diagramma di sequenza, ha fatto emergere la necessità
 \subsection{Autenticazione}
 Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verificaCredenziali(password)} per la classe \textbf{UtenteRegistrato}, che permette di verificare la password inserita corrisponde a quella dell'utenteRegistrato.
 \begin{figure}[H]
-    \hspace{4cm}
+	\centering
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/Autenticazione.png}
     \caption{Diagramma di sequenza per il caso d'uso \emph{Autenticazione}}
     \label{fig:autenticazione}
@@ -194,7 +194,6 @@ Viene inoltre inserito un nuovo metodo \texttt{aggiungiEvento(Evento)} per la cl
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaEventiPubblicati}
 \end{center}
 
-\newpage
 \subsection{AcquistoBiglietti}
 
 Il diagramma di sequenza ha evidenziato diverse responsabilità: per la classe \textbf{Evento} i metodi \texttt{verificaDisponibilità()}, \texttt{creazioneIdUnivoco()}, mentre per la classe \textbf{Cliente} il metodo \texttt{haBigliettoPerEvento(Evento)} per verificare eventuali acquisti precedenti.

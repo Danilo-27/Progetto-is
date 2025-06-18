@@ -49,7 +49,6 @@ package tree
 [EntityCliente.java]
 [EntityEvento.java]
 [EntityPiattaforma.java]
-[EntitySistemaGestioneAcquisti.java]
 [EntityUtenteRegistrato.java]
 ]
 \end{forest}
@@ -82,13 +81,28 @@ package tree
 [DTOBiglietto.java]
 [DTOEvento.java]
 [DTOutente.java]
+[DTODatiPagamento.java]
 ]
 \end{forest}
+
+\section{Package External}
+\begin{forest}
+package tree
+[External/
+[PagamentoService.java]
+[StubSistemaGestioneAcquisti.java]
+]
+\end{forest}
+
+\begin{itemize}
+    \item \texttt{PagamentoService.java} è un'\textbf{interfaccia} che definisce il \textbf{contratto} tra il sistema interno e l’implementazione concreta del sistema esterno per la gestione dei pagamenti. Questo permette di astrarre l’implementazione e dipendere solo da ciò che il sistema deve offrire, facilitando così  la sostituzione con la vera implementazione del sistema esterno.
+    \item \texttt{StubSistemaGestioneAcquisti.java} è una \textbf{classe stub} realizzata esclusivamente per i test. Implementa l’interfaccia \texttt{PagamentoService} e permette di simulare il comportamento del sistema esterno durante il testing.
+\end{itemize}
 
 \section{Dipendenze per l'esecuzione ed il funzionamento dell'applicazione}
 Per il corretto funzionamento dell'applicazione sono necessarie le seguenti risorse:
 \begin{enumerate}
-    \item Oracle OpenJDK 21
+    \item Oracle OpenJDK 21.0.7
     \item Oracle MySQL Server 8.0.33
     \item mysql-connector-j-8.0.33.jar
     \item swingx-1.6.1
