@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.YearMonth;
@@ -27,6 +28,24 @@ public class FormAcquistoBiglietto extends JFrame {
     public FormAcquistoBiglietto(String emailUtente, PagamentoService pagamentoService) throws EventoNotFoundException {
         this.emailUtente = emailUtente;
         this.pagamentoService = pagamentoService;
+
+        //icona
+        BufferedImage iconImage = new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = iconImage.createGraphics();
+
+        g2d.setColor(new Color(41, 128, 185)); // Sfondo blu
+        g2d.fillRect(0, 0, 64, 64);
+
+        g2d.setColor(Color.WHITE);
+        g2d.setFont(new Font("Segoe UI", Font.BOLD, 32));
+        FontMetrics fm = g2d.getFontMetrics();
+        String text = "T2";
+        int x = (64 - fm.stringWidth(text)) / 2;
+        int y = ((64 - fm.getHeight()) / 2) + fm.getAscent();
+        g2d.drawString(text, x, y);
+        g2d.dispose();
+        setIconImage(iconImage);
+
         setTitle("Acquisto Biglietto");
         setSize(600, 400);
         setLocationRelativeTo(null);

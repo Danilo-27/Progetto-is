@@ -8,16 +8,18 @@ import control.Controller;
 import exceptions.LoadingException;
 import exceptions.RedundancyException;
 import org.jdesktop.swingx.JXDatePicker;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.Serial;
 import java.text.SimpleDateFormat;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.TextArea;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.util.Date;
+
 
 public class FormEvento extends JFrame {
 
@@ -29,6 +31,24 @@ public class FormEvento extends JFrame {
 
 
     public FormEvento(HomeAmministratore homeamministratore, String nomeAmministratore, String cognomeAmministratore, String emailAmministratore) {
+        //icona
+        BufferedImage iconImage = new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = iconImage.createGraphics();
+
+        g2d.setColor(new Color(41, 128, 185)); // Sfondo blu
+        g2d.fillRect(0, 0, 64, 64);
+
+        g2d.setColor(Color.WHITE);
+        g2d.setFont(new Font("Segoe UI", Font.BOLD, 32));
+        FontMetrics fm = g2d.getFontMetrics();
+        String text = "T2";
+        int x = (64 - fm.stringWidth(text)) / 2;
+        int y = ((64 - fm.getHeight()) / 2) + fm.getAscent();
+        g2d.drawString(text, x, y);
+        g2d.dispose();
+        setIconImage(iconImage);
+
+
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setBounds(100, 100, 1051, 697);
         JPanel formEvento = new JPanel();
@@ -71,7 +91,7 @@ public class FormEvento extends JFrame {
         formEvento.add(CapienzaLabel);
 
         JSpinner spinnerCapienza = new JSpinner();
-        spinnerCapienza.setModel(new SpinnerNumberModel(0, 0, null, 1));
+        spinnerCapienza.setModel(new SpinnerNumberModel(0, 0,null, 1));
         spinnerCapienza.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         spinnerCapienza.setBounds(366, 88, 217, 34);
         formEvento.add(spinnerCapienza);
@@ -89,7 +109,7 @@ public class FormEvento extends JFrame {
 
         // Campo Costo
         JSpinner spinnerCosto = new JSpinner();
-        spinnerCosto.setModel(new SpinnerNumberModel(0, 0, null, 1));
+        spinnerCapienza.setModel(new SpinnerNumberModel(0, 0,null, 1));
         spinnerCosto.setFont(new Font(ARIAL_BLACK, Font.PLAIN, 18));
         spinnerCosto.setBounds(366, 180, 217, 34);
         formEvento.add(spinnerCosto);
@@ -210,7 +230,7 @@ public class FormEvento extends JFrame {
 
             // Ottengo la java.util.Date dal date picker
 
-            java.util.Date dateUtil = dataDatePicker.getDate();
+            Date dateUtil = dataDatePicker.getDate();
 
             if(dateUtil == null) {
                 JOptionPane.showMessageDialog(this, "Inserire una data", "Warning", JOptionPane.WARNING_MESSAGE);
