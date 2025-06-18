@@ -1,0 +1,23 @@
+\begin{table}[!hbp]
+	\centering
+	\begin{scenery}{colspec=lX}
+		Caso d'uso: & Consulta Catalogo Eventi \\
+		Attore primario & UtenteRegistrato \\
+		Attore secondario & - \\
+		Descrizione & Un utenteRegistrato consulta il catalogo degli eventi disponibili \\
+		Pre-condizioni & L’utente deve essersi autenticato \\
+		{Sequenza di eventi \\ principale} &
+			\begin{enumerate}[label=\arabic*.]
+				\item Il caso d’uso inizia quando l’utente richiede di visualizzare l’elenco degli eventi
+				\item Se ci sono eventi disponibili
+				\begin{enumerate}[label*=\arabic*.]
+				\item il sistema mostra all'utente tutti gli eventi disponibili
+			    \end{enumerate}
+				\item altrimenti il caso d'uso termina con un messaggio d'errore
+			\end{enumerate} \\
+		Post-condizioni & - \\
+		Casi d'uso correlati & UC5, UC8 \\
+		{Sequenza di eventi \\ alternativa} & - \\
+	\end{scenery}
+\end{table}
+la tabella è definita cosi come devo fare per far seguire l ordine logico
