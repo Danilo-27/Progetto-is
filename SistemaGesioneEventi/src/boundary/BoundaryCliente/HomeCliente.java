@@ -64,7 +64,9 @@ public class HomeCliente extends HomeUtenteRegistrato {
     private void configuraFinestra() {
         setExtendedState(Frame.MAXIMIZED_BOTH);
         setUndecorated(false);
+        setMinimumSize(new Dimension(1100, 700));
     }
+
 
     private JPanel creaPannelloSinistro(String nome, String cognome, String email, String immagineProfilo) {
         JPanel panel = creaPannelloBase(400);
@@ -205,35 +207,61 @@ public class HomeCliente extends HomeUtenteRegistrato {
     }
 
     private JPanel creaPannelloImmagineProfilo(String fileName) {
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setPreferredSize(new Dimension(350, 300));  // <<< MODIFICA QUI
-        panel.setMaximumSize(new Dimension(350, 300));    // <<< E QUI
-        panel.setBorder(new LineBorder(new Color(52, 152, 219), 2, true));
-        panel.setBackground(Color.WHITE);
+        return new JPanel() {
+            private BufferedImage originalImage;
 
-        JLabel label = new JLabel();
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setVerticalAlignment(SwingConstants.CENTER);
-
-        try {
-            if (fileName != null) {
-                BufferedImage original = javax.imageio.ImageIO.read(new java.io.File("SistemaGesioneEventi/images/" + fileName));
-                Image scaled = original.getScaledInstance(350, 300, Image.SCALE_SMOOTH);  // <<< E ANCHE QUI
-                label.setIcon(new ImageIcon(scaled));
-            } else {
-                label.setText("Nessuna immagine");
-                label.setFont(new Font(SEGOE, Font.ITALIC, 14));
-                label.setForeground(new Color(127, 140, 141));
+            {
+                setBackground(Color.WHITE);
+                try {
+                    if (fileName != null) {
+                        originalImage = javax.imageio.ImageIO.read(new java.io.File("SistemaGesioneEventi/images/" + fileName));
+                    }
+                } catch (Exception e) {
+                    originalImage = null;
+                }
             }
-        } catch (Exception e) {
-            label.setText("Errore caricamento immagine");
-            label.setFont(new Font(SEGOE, Font.ITALIC, 14));
-            label.setForeground(new Color(127, 140, 141));
-        }
 
-        panel.add(label, BorderLayout.CENTER);
-        return panel;
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2 = (Graphics2D) g.create();
+
+                int panelWidth = getWidth();
+                int panelHeight = getHeight();
+
+                if (originalImage != null) {
+                    double imgRatio = (double) originalImage.getWidth() / originalImage.getHeight();
+                    double panelRatio = (double) panelWidth / panelHeight;
+
+                    int drawWidth, drawHeight;
+                    if (panelRatio > imgRatio) {
+                        drawHeight = panelHeight;
+                        drawWidth = (int) (panelHeight * imgRatio);
+                    } else {
+                        drawWidth = panelWidth;
+                        drawHeight = (int) (panelWidth / imgRatio);
+                    }
+
+                    int x = (panelWidth - drawWidth) / 2;
+                    int y = (panelHeight - drawHeight) / 2;
+
+                    g2.drawImage(originalImage, x, y, drawWidth, drawHeight, null);
+                } else {
+                    g2.setFont(new Font(SEGOE, Font.ITALIC, 14));
+                    g2.setColor(new Color(127, 140, 141));
+                    g2.drawString("Nessuna immagine", 10, 20);
+                }
+
+                g2.dispose();
+            }
+
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(350, 300); // dimensione iniziale
+            }
+        };
     }
+
 
 
     private void caricaEventiOdierni() {
