@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.11)  18 JUN 2025 02:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.11)  18 JUN 2025 12:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -5314,7 +5314,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
 
 Underfull \hbox (badness 2173) in paragraph at lines 27--27
-\OT1/cmr/m/n/10 do: 30\TS1/cmr/m/n/10 ¿\OT1/cmr/m/n/10 , Sta-to
+\OT1/cmr/m/n/10 do: 30\TS1/cmr/m/n/10 ï¿½\OT1/cmr/m/n/10 , Sta-to
  []
 
 
@@ -5649,7 +5649,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
 
 Underfull \hbox (badness 2173) in paragraph at lines 27--27
-\OT1/cmr/m/n/10 do: 30\TS1/cmr/m/n/10 ¿\OT1/cmr/m/n/10 , Sta-to
+\OT1/cmr/m/n/10 do: 30\TS1/cmr/m/n/10 ï¿½\OT1/cmr/m/n/10 , Sta-to
  []
 
 
@@ -6486,7 +6486,7 @@ Package pdftex.def Info: assets/deployment/DeploymentDiagram.png  used on input
 )
 
 [33 <./assets/deployment/DeploymentDiagram.png (PNG copy)>]
-runsystem(latexminted cleantemp  --timestamp 20250618021506 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20250618120012 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux
@@ -6504,7 +6504,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  45940 strings out of 469941
  1054574 string characters out of 5469430
- 1593216 words of memory out of 5000000
+ 1593217 words of memory out of 5000000
  71896 multiletter control sequences out of 15000+600000
  670791 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
