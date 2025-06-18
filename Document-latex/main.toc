@@ -17,35 +17,35 @@
 \contentsline {paragraph}{Casi d'uso di inclusione}{7}{section*.17}%
 \contentsline {section}{\numberline {3.2}Diagramma dei Casi d'Uso}{8}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Scenari}{9}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Diagramma delle Classi}{12}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Diagrammi di sequenza}{14}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Registrazione}{14}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Autenticazione}{14}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}PubblicaEvento}{15}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}ConsultaEventiPubblicati}{15}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}AcquistoBiglietti}{16}{subsection.3.5.5}%
-\contentsline {subsection}{\numberline {3.5.6}PartecipazioneEvento}{17}{subsection.3.5.6}%
-\contentsline {section}{\numberline {3.6}Diagramma delle classi raffinato}{17}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Piano di test funzionale}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Registrazione}{18}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Autenticazione}{20}{section.4.2}%
-\contentsline {section}{\numberline {4.3}PubblicaEvento}{21}{section.4.3}%
-\contentsline {section}{\numberline {4.4}RicercaEvento}{23}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Acquista Biglietto}{24}{section.4.5}%
-\contentsline {section}{\numberline {4.6}PartecipaEvento}{24}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Progettazione}{26}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Diagramma delle classi }{26}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Package Entity}{27}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Package Boundary}{27}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Package Controller}{27}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Package Database}{28}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}Diagrammi di sequenza}{28}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Implementazione}{30}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Package Boundary}{30}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Package Database}{30}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Package Entity}{31}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Package Exception}{31}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Package Dto}{31}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Dipendenze per l'esecuzione ed il funzionamento dell'applicazione}{31}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Documentazione Javadoc}{32}{section.6.7}%
-\contentsline {section}{\numberline {6.8}Diagramma di Deployment}{32}{section.6.8}%
+\contentsline {section}{\numberline {3.4}Diagramma delle Classi}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Diagrammi di sequenza}{15}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Registrazione}{15}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Autenticazione}{15}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}PubblicaEvento}{16}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}ConsultaEventiPubblicati}{16}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}AcquistoBiglietti}{17}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.6}PartecipazioneEvento}{18}{subsection.3.5.6}%
+\contentsline {section}{\numberline {3.6}Diagramma delle classi raffinato}{18}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Piano di test funzionale}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Registrazione}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Autenticazione}{21}{section.4.2}%
+\contentsline {section}{\numberline {4.3}PubblicaEvento}{22}{section.4.3}%
+\contentsline {section}{\numberline {4.4}RicercaEvento}{24}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Acquista Biglietto}{25}{section.4.5}%
+\contentsline {section}{\numberline {4.6}PartecipaEvento}{26}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Progettazione}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Diagramma delle classi }{27}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Package Entity}{28}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Package Boundary}{28}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Package Controller}{28}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Package Database}{29}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Diagrammi di sequenza}{29}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Implementazione}{31}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Package Boundary}{31}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Package Database}{31}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Package Entity}{32}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Package Exception}{32}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Package Dto}{32}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Dipendenze per l'esecuzione ed il funzionamento dell'applicazione}{32}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Documentazione Javadoc}{33}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Diagramma di Deployment}{33}{section.6.8}%

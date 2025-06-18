@@ -11,37 +11,70 @@
 }
   \textbf{ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
 
-  1 & Tutti i dati validi & Tutte le classi valide & amm. autenticato & Titolo: Festa, Descrizione: Evento sociale, Data: 20-07-2025, Orario: 18:00, Luogo: Parco Centrale, Capienza: 200, Costo: 15.0 & Evento pubblicato con successo & Evento registrato nel sistema \\
+  1 & Tutti i dati validi & Tutte le classi valide & Amm. autenticato &
+  Titolo: Festa, Descrizione: Evento sociale, Data: 20-07-2025, Orario: 18:00, Luogo: Parco Centrale, Capienza: 200, Costo: 15.0 &
+  Evento pubblicato con successo & Evento registrato nel sistema \\
 
-  2 & Titolo vuoto & Titolo vuoto \texttt{[ERROR]} & -- & Titolo: "", altri validi & Errore: Titolo obbligatorio & Nessuna pubblicazione \\
+  2 & Titolo vuoto & Titolo vuoto \texttt{[ERROR]} & -- &
+  Titolo: "", altri validi &
+  Errore: Titolo obbligatorio & Nessuna pubblicazione \\
 
-  3 & Titolo $>$ 50 caratteri & Titolo troppo lungo \texttt{[ERROR]} & -- & Titolo: Festival della cultura internazionale con musica e teatro, altri validi & Errore: Titolo troppo lungo & Nessuna pubblicazione \\
+  3 & Titolo $>$ 50 caratteri & Titolo troppo lungo \texttt{[ERROR]} & -- &
+  Titolo: Festival della cultura internazionale con musica e teatro, altri validi &
+  Errore: Titolo troppo lungo & Nessuna pubblicazione \\
 
-  4 & Descrizione vuota & Descrizione vuota \texttt{[ERROR]} & -- & Descrizione: "", altri validi & Errore: Descrizione obbligatoria & Nessuna pubblicazione \\
+  4 & Descrizione vuota & Descrizione vuota \texttt{[ERROR]} & -- &
+  Descrizione: "", altri validi &
+  Errore: Descrizione obbligatoria & Nessuna pubblicazione \\
 
-  5 & Descrizione $>$ 150 caratteri & Descrizione troppo lunga \texttt{[ERROR]} & -- & Descrizione: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam., altri validi & Errore: Descrizione troppo lunga & Nessuna pubblicazione \\
+  5 & Descrizione $>$ 150 caratteri & Descrizione troppo lunga \texttt{[ERROR]} & -- &
+  Descrizione: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam., altri validi &
+  Errore: Descrizione troppo lunga & Nessuna pubblicazione \\
 
-  6 & Data nel passato & Data non futura \texttt{[ERROR]} & -- & Data: 10-01-2024, altri validi & Errore: Data non valida & Nessuna pubblicazione \\
+  6 & Data nel passato & Data non futura \texttt{[ERROR]} & -- &
+  Data: 10-01-2024, altri validi &
+  Errore: Data non valida & Nessuna pubblicazione \\
 
-  7 & Data formato non valido & Data formato errato \texttt{[ERROR]} & -- & Data: 2024/01/10, altri validi & Errore: Formato data non valido & Nessuna pubblicazione \\
+  7 & Data formato non valido & Data formato errato \texttt{[ERROR]} & -- &
+  Data: 2024/01/10, altri validi &
+  Errore: Formato data non valido & Nessuna pubblicazione \\
 
-  8 & Orario non valido & Orario non valido \texttt{[ERROR]} & -- & Orario: 99:99, altri validi & Errore: Formato orario non valido & Nessuna pubblicazione \\
+  8 & Orario non valido & Orario non valido \texttt{[ERROR]} & -- &
+  Orario: 99:99, altri validi &
+  Errore: Formato orario non valido & Nessuna pubblicazione \\
 
-  9 & Luogo con caratteri speciali & Luogo con caratteri speciali \texttt{[ERROR]} & -- & Luogo: Parco@Centrale, altri validi & Errore: Caratteri non consentiti nel luogo & Nessuna pubblicazione \\
+  9 & Luogo con caratteri speciali & Luogo con caratteri speciali \texttt{[ERROR]} & -- &
+  Luogo: Parco@Centrale, altri validi &
+  Errore: Caratteri non consentiti nel luogo & Nessuna pubblicazione \\
 
-  10 & Luogo con numeri & Luogo con numeri \texttt{[ERROR]} & -- & Luogo: Sala123, altri validi & Errore: Luogo non valido & Nessuna pubblicazione \\
+  10 & Luogo con numeri & Luogo con numeri \texttt{[ERROR]} & -- &
+  Luogo: Sala123, altri validi &
+  Errore: Luogo non valido & Nessuna pubblicazione \\
 
-  11 & Capienza $>$ 500 & Capienza eccessiva \texttt{[ERROR]} & -- & Capienza: 1000, altri validi & Errore: Capienza troppo alta & Nessuna pubblicazione \\
+  11 & Capienza $>$ 500 & Capienza eccessiva \texttt{[ERROR]} & -- &
+  Capienza: 1000, altri validi &
+  Errore: Capienza troppo alta & Nessuna pubblicazione \\
 
-  12 & Capienza $\leq$ 0 & Capienza nulla o negativa \texttt{[ERROR]} & -- & Capienza: 0, altri validi & Errore: Capienza non valida & Nessuna pubblicazione \\
+  12 & Capienza $\leq$ 0 & Capienza nulla o negativa \texttt{[ERROR]} & -- &
+  Capienza: 0, altri validi &
+  Errore: Capienza non valida & Nessuna pubblicazione \\
 
-  13 & Capienza formato non numerico & Capienza non numerica \texttt{[ERROR]} & -- & Capienza: "molti", altri validi & Errore: Formato capienza errato & Nessuna pubblicazione \\
+  13 & Capienza formato non numerico & Capienza non numerica \texttt{[ERROR]} & -- &
+  Capienza: "molti", altri validi &
+  Errore: Formato capienza errato & Nessuna pubblicazione \\
 
-  14 & Costo negativo & Costo negativo \texttt{[ERROR]} & -- & Costo: -10.00, altri validi & Errore: Costo non valido & Nessuna pubblicazione \\
+  14 & Costo negativo & Costo negativo \texttt{[ERROR]} & -- &
+  Costo: -10.00, altri validi &
+  Errore: Costo non valido & Nessuna pubblicazione \\
 
-  15 & Costo formato non numerico & Costo non numerico \texttt{[ERROR]} & -- & Costo: "gratis", altri validi & Errore: Formato costo errato & Nessuna pubblicazione \\
+  15 & Costo formato non numerico & Costo non numerico \texttt{[ERROR]} & -- &
+  Costo: "gratis", altri validi &
+  Errore: Formato costo errato & Nessuna pubblicazione \\
 
-  16 & Data odierna & Data = oggi (valida) & -- & Data: 17-06-2025 (oggi), altri validi & Evento pubblicato con successo & Evento registrato nel sistema \\
+  16 & Data odierna & Data = oggi (valida) & -- & Data: 18-06-2025, altri validi & Evento pubblicato con successo & Evento registrato nel sistema \\
 
-  17 & Titolo ridondante & Titolo già presente nel sistema \texttt{[ERROR]} & -- & Titolo: "titoloesistente" , altri validi & Evento già creato & Nessuna pubblicazione \\
+  17 & Titolo ridondante & Titolo già presente nel sistema \texttt{[ERROR]} & Titolo già usato per altro evento &
+  Titolo: Festa, altri validi &
+  Evento già creato & Nessuna pubblicazione \\
+
 \end{longtblr}

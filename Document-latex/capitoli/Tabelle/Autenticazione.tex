@@ -1,34 +1,46 @@
 \begin{longtblr}[
-    caption = {Test Suite - Autenticazione},
-    label = {tab:test_suite_autenticazione},
-	entry = {Casi di test Autenticazione},
-  ]{
-    width = \linewidth,
-    colspec = {|p{0.7cm}|p{2.3cm}|p{2.6cm}|p{1.8cm}|p{3cm}|p{2cm}|p{1.6cm}|},
-    hlines,
-    vlines,
-    rowhead = 1,
-  }
+  caption = {Test Suite - Autenticazione},
+  label = {tab:test_suite_autenticazione},
+  entry = {Casi di test Autenticazione},
+]{
+  width = \linewidth,
+  colspec = {|p{0.7cm}|p{2.3cm}|p{2.6cm}|p{1.8cm}|p{3cm}|p{2cm}|p{1.6cm}|},
+  hlines,
+  vlines,
+  rowhead = 1,
+}
   \textbf{ID} & \textbf{Descrizione} & \textbf{Classi di Equivalenza Coperte} & \textbf{Pre-condizioni} & \textbf{Input} & \textbf{Output Attesi} & \textbf{Post-condizioni Attese} \\
+
   1 & Tutti gli input validi & Email, Password validi & L'utente deve essere registrato &
-  Email: marco bianchi@ gmail.com, Password: miapwd£ &
-  Autenticazione effettuata & L'cliente è entrato correttamente nel sistema\\
-  2 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]}, Password & L'utente deve essere registrato &
-  Email molto lunga ($>$ 50 char), Password: miapwd£ &
+  Email: marco.bianchi@gmail.com, Password: miaPwd£123 &
+  Autenticazione effettuata & L'utente è entrato correttamente nel sistema \\
+
+  2 & Email $>$ 50 caratteri & Email $>$ 50 caratteri \texttt{[ERROR]}, Password valida & L'utente deve essere registrato &
+  Email: indirizzolunghissimocompiùdi50caratteri@emailtest.com, Password: miaPwd£123 &
   Email troppo lunga & -- \\
-  3 & Email senza caratteri & Email con 0 caratteri \texttt{[ERROR]}, Password & L'utente deve essere registrato &
-  Email: "", Password: miapwd£ &
-  Inserire un indirizzo Email & -- \\
-  4 & Email non memorizzata & Email non presente nel sistema \texttt{[ERROR]}, Password & L'utente non è presente nel sistema &
-  Email: mario rossi@ gmail.com, Password: miaPWD£ &
+
+  3 & Email vuota & Email con 0 caratteri \texttt{[ERROR]}, Password valida & L'utente deve essere registrato &
+  Email: "", Password: miaPwd£123 &
+  Inserire un indirizzo email & -- \\
+
+  4 & Email formato errato & Email senza formato valido \texttt{[ERROR]}, Password valida & L'utente deve essere registrato &
+  Email: marco.bianchi[at]gmail.com, Password: miaPwd£123 &
+  Email non valida & -- \\
+
+  5 & Email non memorizzata & Email non presente nel sistema \texttt{[ERROR]}, Password valida & L'utente non è presente nel sistema &
+  Email: nuovo.utente@email.com, Password: miaPwd£123 &
   Account non registrato & -- \\
-  5 & Password $>$ 40 caratteri & Email, Password $>$ 40 caratteri \texttt{[ERROR]} & L'utente deve essere registrato &
-  Email: marco bianchi@ gmail.com, Password molto lunga ($>$ 40 char) &
+
+  6 & Password $>$ 40 caratteri & Email valida, Password $>$ 40 caratteri \texttt{[ERROR]} & L'utente deve essere registrato &
+  Email: marco.bianchi@gmail.com, Password: QuestaÈUnaPasswordTroppoLungaOltreQuarantaCaratteri &
   Password troppo lunga & -- \\
-  6 & Password senza caratteri & Email, Password senza caratteri \texttt{[ERROR]} & L'utente deve essere registrato &
-  Email: marco bianchi@ gmail.com, Password: "" &
+
+  7 & Password vuota & Email valida, Password vuota \texttt{[ERROR]} & L'utente deve essere registrato &
+  Email: marco.bianchi@gmail.com, Password: "" &
   Inserire una password & -- \\
-  7 & Password senza caratteri speciali & Email, Password senza caratteri speciali \texttt{[ERROR]} & L'utente deve essere registrato &
-  Email: marco bianchi@ gmail.com, Password: miapwd &
-  Inserire una password valida & -- \\
-  \end{longtblr}
+
+  8 & Password senza caratteri speciali & Email valida, Password senza caratteri speciali \texttt{[ERROR]} & L'utente deve essere registrato &
+  Email: marco.bianchi@gmail.com, Password: miapassword123 &
+  Password deve contenere caratteri speciali & -- \\
+
+\end{longtblr}

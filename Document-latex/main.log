@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.11)  17 JUN 2025 17:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.11)  18 JUN 2025 02:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1467,7 +1467,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 (capitoli/scenari/Autenticazione.tex)
 (capitoli/scenari/RichiediCatalogoEventi.tex)
 (capitoli/scenari/AcquistaBiglietto.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--40
+Underfull \hbox (badness 10000) in paragraph at lines 2--46
 
  []
 
@@ -1479,7 +1479,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [9
 
 ]) (capitoli/scenari/PubblicaEvento.tex
-Underfull \vbox (badness 2790) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1490,7 +1490,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [11]
-<assets/casid'uso/DiagrammaDelleClassi.png, id=387, 652.5981pt x 301.3659pt>
+
+[12]
+<assets/casid'uso/DiagrammaDelleClassi.png, id=393, 652.5981pt x 301.3659pt>
 File: assets/casid'uso/DiagrammaDelleClassi.png Graphic file (type png)
 <use assets/casid'uso/DiagrammaDelleClassi.png>
 Package pdftex.def Info: assets/casid'uso/DiagrammaDelleClassi.png  used on inp
@@ -1501,7 +1503,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[12
+[13
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1509,14 +1511,14 @@ has been already used, duplicate ignored
 l.132 
        <./assets/casid'uso/DiagrammaDelleClassi.png>]
 
-[13]
-<assets/casid'uso/Registrazione.png, id=409, 555.7563pt x 346.1733pt>
+[14]
+<assets/casid'uso/Registrazione.png, id=415, 555.7563pt x 346.1733pt>
 File: assets/casid'uso/Registrazione.png Graphic file (type png)
 <use assets/casid'uso/Registrazione.png>
 Package pdftex.def Info: assets/casid'uso/Registrazione.png  used on input line
  166.
 (pdftex.def)             Requested size: 386.95897pt x 241.03079pt.
-<assets/casid'uso/Autenticazione.png, id=410, 511.6716pt x 334.6101pt>
+<assets/casid'uso/Autenticazione.png, id=416, 511.6716pt x 334.6101pt>
 File: assets/casid'uso/Autenticazione.png Graphic file (type png)
 <use assets/casid'uso/Autenticazione.png>
 Package pdftex.def Info: assets/casid'uso/Autenticazione.png  used on input lin
@@ -1529,7 +1531,7 @@ Overfull \hbox (19.29533pt too wide) in paragraph at lines 174--176
 
 
 
-[14
+[15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1543,13 +1545,13 @@ has been already used, duplicate ignored
 l.183 
        <./assets/casid'uso/Registrazione.png> <./assets/casid'uso/Autenticazion
 e.png>]
-<assets/casid'uso/PubblicaEvento.png, id=419, 765.3393pt x 445.1832pt>
+<assets/casid'uso/PubblicaEvento.png, id=425, 765.3393pt x 445.1832pt>
 File: assets/casid'uso/PubblicaEvento.png Graphic file (type png)
 <use assets/casid'uso/PubblicaEvento.png>
 Package pdftex.def Info: assets/casid'uso/PubblicaEvento.png  used on input lin
 e 186.
 (pdftex.def)             Requested size: 483.69687pt x 281.36357pt.
-<assets/casid'uso/ConsultaEventiPubblicati.png, id=420, 658.3797pt x 428.5611pt
+<assets/casid'uso/ConsultaEventiPubblicati.png, id=426, 658.3797pt x 428.5611pt
 >
 File: assets/casid'uso/ConsultaEventiPubblicati.png Graphic file (type png)
 <use assets/casid'uso/ConsultaEventiPubblicati.png>
@@ -1572,7 +1574,7 @@ cmr/m/n/10 ,
 
 
 
-[15
+[16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1580,7 +1582,7 @@ has been already used, duplicate ignored
 l.206 
        <./assets/casid'uso/PubblicaEvento.png> <./assets/casid'uso/ConsultaEven
 tiPubblicati.png>]
-<assets/casid'uso/AcquistoBiglietto.png, id=428, 814.4829pt x 801.4743pt>
+<assets/casid'uso/AcquistoBiglietto.png, id=434, 814.4829pt x 801.4743pt>
 File: assets/casid'uso/AcquistoBiglietto.png Graphic file (type png)
 <use assets/casid'uso/AcquistoBiglietto.png>
 Package pdftex.def Info: assets/casid'uso/AcquistoBiglietto.png  used on input 
@@ -1588,20 +1590,20 @@ line 209.
 (pdftex.def)             Requested size: 386.95897pt x 380.77762pt.
 
 
-[16
+[17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.215 \newpage
                <./assets/casid'uso/AcquistoBiglietto.png>]
-<assets/casid'uso/PartecipazioneEvento.png, id=435, 599.1183pt x 557.2017pt>
+<assets/casid'uso/PartecipazioneEvento.png, id=441, 599.1183pt x 557.2017pt>
 File: assets/casid'uso/PartecipazioneEvento.png Graphic file (type png)
 <use assets/casid'uso/PartecipazioneEvento.png>
 Package pdftex.def Info: assets/casid'uso/PartecipazioneEvento.png  used on inp
 ut line 222.
 (pdftex.def)             Requested size: 298.78136pt x 277.87318pt.
-<assets/casid'uso/DiagrammaDelleClassiRaffinato.png, id=436, 682.2288pt x 282.5
+<assets/casid'uso/DiagrammaDelleClassiRaffinato.png, id=442, 682.2288pt x 282.5
 757pt>
 File: assets/casid'uso/DiagrammaDelleClassiRaffinato.png Graphic file (type png
 )
@@ -1611,7 +1613,7 @@ ed on input line 230.
 (pdftex.def)             Requested size: 443.78699pt x 183.80716pt.
 )
 
-[17
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1625,1240 +1627,1459 @@ l.142 \include{capitoli/casid'uso}
 (capitoli/Pianoditestfunzionale.tex
 Capitolo 4.
 
-Underfull \hbox (badness 3460) in paragraph at lines 35--35
-[]\OT1/cmr/m/n/10 Stringa con for-ma-to
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+[]\OT1/cmr/m/n/8 Stringa con for-ma-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--35
-\OT1/cmr/m/n/10 di-ver-so da [esem-
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/cmr/m/n/8 to di-ver-so da [esem-
  []
 
 
-Overfull \hbox (7.24147pt too wide) in paragraph at lines 35--35
-\OT1/cmr/m/n/10 pio@dominio.estensione]
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/cmr/m/n/8 pio@dominio.estensione]
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 38--38
+[]\OT1/cmr/m/n/8 Stringa gi^^Ra me-mo-riz-za-ta
  []
 
 (capitoli/Tabelle/Registrazione.tex
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Test
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 Ca-se
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 1997) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-gno-me: Ros-si, Email: ma-rio.rossi.superlun
+ghissimaindirizzoconoltrecinquantacaratteri@email.com, Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Test
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 Ca-se
  []
 
 
-Overfull \hbox (3.25893pt too wide) in paragraph at lines 24--24
+Overfull \hbox (8.95612pt too wide) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Descrizione 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Classi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 7168) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 di Equi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 va-len-za
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/bx/n/10 Output
+Overfull \hbox (2.04503pt too wide) in paragraph at lines 37--37
+\OT1/cmr/bx/n/10 condizioni 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome, Co-
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Tutti gli
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 gno-me,
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 in-put
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Co-gno-me,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 Email,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 Pas-sword
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 non de-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ve es-se-re
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
  []
 
 
-Overfull \hbox (4.43153pt too wide) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Registrazione
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 Utente cor-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ret-ta-men-te
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 re-gi-stra-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome $\OML/cmm/m/it/10 >$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 4108) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Ros-si, Email: ma-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 1199) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome trop-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: (vuo-to),
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Co-gno-me: Ros-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 si, Email: ma-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 7613) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Inserire un
- []
-
-
-Underfull \hbox (badness 6995) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 30 ca-rat-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Cognome
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 trop-po
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Cognome
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Cognome
- []
-
-
-Underfull \hbox (badness 4181) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 vuo-to [ER-
- []
-
-
-Underfull \hbox (badness 2165) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ROR], al-tri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Co-gno-me: (vuo-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 to), Email: ma-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 7613) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Inserire un
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email $\OML/cmm/m/it/10 >$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 3302) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 3302) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 (vuo-to), Pas-sword:
- []
-
-
-Underfull \hbox (badness 7613) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Inserire un
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 in-di-riz-zo
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 me-mo-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 riz-za-ta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 sen-te nel
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Co-gno-me: Ros-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 si, Email: clien-
- []
-
-
-Overfull \hbox (5.18771pt too wide) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 te.esistente@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email gi^^Ra
- []
-
-
-Underfull \hbox (badness 6995) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 40 ca-rat-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 trop-po
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 4181) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 vuo-ta [ER-
- []
-
-
-Underfull \hbox (badness 2165) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ROR], al-tri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 sen-za ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 1147) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 te-ri spe-cia-li
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 de-ve con-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 te-ne-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ca-rat-te-ri
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: No-me-Mol-to-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Lun-go-Su-pe-ra-Li-mi-te,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 4927) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: (vuo-to), Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Inserire un
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 30
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
+ []
+
+
+Underfull \hbox (badness 3792) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 30 ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Co-gno-me-Con-
+ []
+
+
+Overfull \hbox (29.96121pt too wide) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Pi^^RuDiTrentaCaratteriSuperato,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Email: ma-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 4621) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 me: (vuo-to), Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Inserire un
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email con
+ []
+
+
+Underfull \hbox (badness 1478) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email for-
+ []
+
+
+Underfull \hbox (badness 6658) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-to non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Overfull \hbox (212.26718pt too wide) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rio.rossi.superlunghissimaindirizzoconoltrecinquantacaratteri@e
+mail.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Inserire un
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 in-di-riz-zo
+ []
+
+
+Underfull \hbox (badness 6252) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email gi^^Ra
+ []
+
+
+Underfull \hbox (badness 6252) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email gi^^Ra
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 me-mo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 riz-za-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 sen-te nel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 te.esistente@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 40
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 3792) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 40 ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 7907) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Pas-sword: Pas-sword-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Trop-po-Lun-ga-Con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 4792) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Inserire una
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 sen-za ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 sen-za ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 spe-cia-li
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve con-te-ne-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Test
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 Ca-se
  []
 
 
-Overfull \hbox (3.25893pt too wide) in paragraph at lines 24--24
+Overfull \hbox (8.95612pt too wide) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Descrizione 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Classi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 7168) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 di Equi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 va-len-za
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/bx/n/10 Output
+Overfull \hbox (2.04503pt too wide) in paragraph at lines 37--37
+\OT1/cmr/bx/n/10 condizioni 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/bx/n/10 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome, Co-
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Tutti gli
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 gno-me,
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 in-put
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Co-gno-me,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 Email,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 Pas-sword
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 non de-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ve es-se-re
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
  []
 
 
-Overfull \hbox (4.43153pt too wide) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Registrazione
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 Utente cor-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ret-ta-men-te
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 re-gi-stra-to
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ca-rat-te-ri
  []
 
 
-
-[18
-
-
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome $\OML/cmm/m/it/10 >$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 [ER-ROR],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 non de-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ve es-se-re
  []
 
 
-Underfull \hbox (badness 4108) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Ros-si, Email: ma-
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: No-me-Mol-to-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Lun-go-Su-pe-ra-Li-mi-te,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome trop-
+
+[19
+
+
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.37 \end
+         {longtblr}]
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 [ER-ROR],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 non de-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ve es-se-re
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: (vuo-to),
+Underfull \hbox (badness 4927) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: (vuo-to), Co-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Co-gno-me: Ros-
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 si, Email: ma-
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 7613) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 Inserire un
  []
 
 
-Underfull \hbox (badness 6995) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 30 ca-rat-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 Cognome
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 trop-po
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 30
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 Cognome
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Cognome
+Underfull \hbox (badness 3792) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 30 ca-
  []
 
 
-Underfull \hbox (badness 4181) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 vuo-to [ER-
- []
-
-
-Underfull \hbox (badness 2165) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ROR], al-tri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Co-gno-me: (vuo-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 to), Email: ma-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 7613) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Inserire un
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email $\OML/cmm/m/it/10 >$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 3302) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 3302) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 (vuo-to), Pas-sword:
- []
-
-
-Underfull \hbox (badness 7613) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Inserire un
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 in-di-riz-zo
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 me-mo-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 riz-za-ta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 [ER-ROR],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 sen-te nel
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Nome: Ma-rio,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Co-gno-me: Ros-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 si, Email: clien-
- []
-
-
-Overfull \hbox (5.18771pt too wide) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 te.esistente@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Email gi^^Ra
- []
-
-
-Underfull \hbox (badness 6995) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 40 ca-rat-te-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 trop-po
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 4181) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 vuo-ta [ER-
- []
-
-
-Underfull \hbox (badness 2165) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ROR], al-tri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 L'utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 non de-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ve es-se-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 rio.rossi@email.com,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 sen-za ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 rat-te-ri
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Password
- []
-
-
-Underfull \hbox (badness 1147) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 te-ri spe-cia-li
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 [ER-ROR],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 non de-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 ve es-se-re
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Co-gno-me-Con-
+ []
+
+
+Overfull \hbox (29.96121pt too wide) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Pi^^RuDiTrentaCaratteriSuperato,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Email: ma-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 \OT1/cmr/m/n/10 rio.rossi@email.com,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 Pas-sword:
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Cognome
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 4621) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 me: (vuo-to), Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Inserire un
+ []
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email con
+ []
+
+
+Underfull \hbox (badness 1478) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email for-
+ []
+
+
+Underfull \hbox (badness 6658) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-to non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Overfull \hbox (212.26718pt too wide) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rio.rossi.superlunghissimaindirizzoconoltrecinquantacaratteri@e
+mail.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Inserire un
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 in-di-riz-zo
+ []
+
+
+Underfull \hbox (badness 6252) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email gi^^Ra
+ []
+
+
+Underfull \hbox (badness 6252) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Email gi^^Ra
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 me-mo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 riz-za-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 sen-te nel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 te.esistente@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
 []\OT1/cmr/m/n/10 Password
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 de-ve con-
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 40
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 te-ne-re
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ca-rat-te-ri
+Underfull \hbox (badness 3792) in paragraph at lines 37--37
+\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 40 ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 7907) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Pas-sword: Pas-sword-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Trop-po-Lun-ga-Con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 vuo-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 4792) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Inserire una
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 sen-za ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 sen-za ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 spe-cia-li
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 [ER-ROR],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 non de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve es-se-re
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10 Nome: Ma-rio, Co-
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 gno-me: Ros-si, Email:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ma-rio.rossi@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 37--37
+\OT1/cmr/m/n/10 ve con-te-ne-re
  []
 
 )
-Underfull \hbox (badness 7308) in paragraph at lines 54--58
-\OT1/cmr/m/n/8 Stringa con for-ma-to di-ver-so da [esem-
+Underfull \hbox (badness 10000) in paragraph at lines 74--74
+[]\OT1/cmr/m/n/8 Stringa con for-ma-to di-ver-so da [esem-
  []
 
 
@@ -2866,1636 +3087,2146 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[19] (capitoli/Tabelle/Autenticazione.tex
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+[20] (capitoli/Tabelle/Autenticazione.tex
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/bx/n/10 Post-
  []
 
 
-Overfull \hbox (4.94737pt too wide) in paragraph at lines 34--34
+Overfull \hbox (4.94737pt too wide) in paragraph at lines 46--46
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 Pas-sword:
  []
 
 
-Overfull \hbox (8.09462pt too wide) in paragraph at lines 34--34
+Overfull \hbox (8.09462pt too wide) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Autenticazione
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 L'cliente
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 34--34
+Underfull \hbox (badness 5475) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 ^^Re en-tra-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 cor-ret-ta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 5091) in paragraph at lines 34--34
+Underfull \hbox (badness 4492) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: in-di-riz-zo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 lun-ghis-si-mo-com-
+ []
+
+
+Overfull \hbox (54.75317pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 pi^^Rudi50caratteri@emailtest.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 5091) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Email trop-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Email sen-za
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 3375) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Email: "", Pas-
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: "",
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Inserire un
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 in-di-riz-zo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email sen-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 for-ma-to va-li-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 do \OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
+ []
+
+
+Overfull \hbox (19.91978pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi[at]gmail.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Email non
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email non
+ []
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 pre-sen-te nel si-
  []
 
 
-Underfull \hbox (badness 3601) in paragraph at lines 34--34
+Underfull \hbox (badness 3601) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 ste-ma \OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 sen-te nel
  []
 
 
-Underfull \hbox (badness 4954) in paragraph at lines 34--34
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 40 ca-rat-te-ri
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: nuo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Overfull \hbox (9.36418pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 vo.utente@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email va-li-da,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword $\OML/cmm/m/it/10 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 40 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 Pas-sword mol-to
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword: Que-
+ []
+
+
+Overfull \hbox (156.50339pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 sta[]EUnaPasswordTroppoLungaOltreQuarantaCaratteri 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Password
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Password sen-
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email va-li-da,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 sen-za ca-rat-te-ri
+Underfull \hbox (badness 2837) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword vuo-ta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 34--34
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
+ []
+
+
+Underfull \hbox (badness 2460) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Inserire una
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 34--34
+Underfull \hbox (badness 1377) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Password sen-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 za ca-rat-te-ri
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 sen-za ca-rat-te-ri
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email va-li-da,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 5711) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword sen-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Inserire una
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 ca-rat-te-ri
  []
 
 
 Package tabularray Warning: Table width is too small, need 1.84206pt more!
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/bx/n/10 Post-
  []
 
 
-Overfull \hbox (4.94737pt too wide) in paragraph at lines 34--34
+Overfull \hbox (4.94737pt too wide) in paragraph at lines 46--46
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 Pas-sword:
  []
 
 
-Overfull \hbox (8.09462pt too wide) in paragraph at lines 34--34
+Overfull \hbox (8.09462pt too wide) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Autenticazione
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 L'cliente
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 34--34
+Underfull \hbox (badness 5475) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 ^^Re en-tra-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 cor-ret-ta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 5091) in paragraph at lines 34--34
+Underfull \hbox (badness 4492) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: in-di-riz-zo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 lun-ghis-si-mo-com-
+ []
+
+
+Overfull \hbox (54.75317pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 pi^^Rudi50caratteri@emailtest.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 5091) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Email trop-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Email sen-za
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 3375) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Email: "", Pas-
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: "",
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Inserire un
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 in-di-riz-zo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email sen-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 for-ma-to va-li-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 do \OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 L'utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
+ []
+
+
+Overfull \hbox (19.91978pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi[at]gmail.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Email non
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email non
+ []
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 pre-sen-te nel si-
  []
 
 
-Underfull \hbox (badness 3601) in paragraph at lines 34--34
+Underfull \hbox (badness 3601) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 ste-ma \OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 sen-te nel
  []
 
 
-Underfull \hbox (badness 4954) in paragraph at lines 34--34
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 40 ca-rat-te-ri
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: nuo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Overfull \hbox (9.36418pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 vo.utente@email.com,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email va-li-da,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword $\OML/cmm/m/it/10 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 40 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 Pas-sword mol-to
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword: Que-
+ []
+
+
+Overfull \hbox (156.50339pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 sta[]EUnaPasswordTroppoLungaOltreQuarantaCaratteri 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Password
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Password sen-
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email va-li-da,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 sen-za ca-rat-te-ri
+Underfull \hbox (badness 2837) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword vuo-ta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 34--34
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
+ []
+
+
+Underfull \hbox (badness 2460) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Inserire una
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 34--34
+Underfull \hbox (badness 1377) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 Password sen-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 \OT1/cmr/m/n/10 za ca-rat-te-ri
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 sen-za ca-rat-te-ri
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email va-li-da,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 5711) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword sen-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []\OT1/cmr/m/n/10 L'utente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-\OT1/cmr/m/n/10 chi@ gmail.com,
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]\OT1/cmr/m/n/10 Email: mar-
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/10 Inserire una
+Overfull \hbox (13.2531pt too wide) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 co.bianchi@gmail.com,
  []
 
 
-Overfull \hbox (1.84206pt too wide) detected at line 34
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 Pas-sword:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Overfull \hbox (1.84206pt too wide) detected at line 46
  [] 
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Stringa di
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Lunghezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OML/cmm/m/it/8 >$ \OT1/cmr/m/n/8 50
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Lunghezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
+[]\OT1/cmr/m/n/8 Stringa gi^^Ra
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
+\OT1/cmr/m/n/8 esi-sten-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
+\OT1/cmr/m/n/8 nel si-ste-ma
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Stringa di
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Lunghezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OML/cmm/m/it/8 >$ \OT1/cmr/m/n/8 150
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Lunghezza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Formato
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 fu-tu-ra (gg-
  []
 
 
-Underfull \hbox (badness 2020) in paragraph at lines 130--130
+Underfull \hbox (badness 2020) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 li-do e da-ta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Formato
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 non va-li-do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Formato
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 va-li-do (oo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Formato
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 non va-li-do
  []
 
 
-Underfull \hbox (badness 7631) in paragraph at lines 130--130
+Underfull \hbox (badness 7631) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 rat-te-ri spe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Contiene
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 nu-me-ri
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 130--130
+Underfull \hbox (badness 2865) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Intero $\OMS/cmsy/m/n/8 ^^T$ \OT1/cmr/m/n/8 0
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 nu-me-ri-co
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 []\OT1/cmr/m/n/8 Numero
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 ne-ga-ti-vo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
 \OT1/cmr/m/n/8 nu-me-ri-co
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[20
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.133 
-      ] (capitoli/Tabelle/PubblicaEvento.tex
-Overfull \hbox (4.66206pt too wide) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Descrizione 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Classi
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/bx/n/10 di Equi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/bx/n/10 va-len-za
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Post-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/bx/n/10 condizioni
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Titolo: Fe-sta,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 De-scri-zio-ne:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Even-to so-cia-le,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Da-ta: 20-07-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 2025, Ora-rio:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 18:00, Luo-go:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Par-co Cen-tra-le,
- []
-
-
-Underfull \hbox (badness 2961) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Ca-pien-za: 200,
- []
-
-
-Underfull \hbox (badness 3128) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-to con suc-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Evento re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 gi-stra-to nel
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 2376) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Titolo trop-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 po lun-go
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 1472) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Titolo: Fe-sti-val
- []
-
-
-Underfull \hbox (badness 1571) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ter-na-zio-na-le con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 vuo-ta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 8151) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 zio-ne ob-bli-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 150
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 7081) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 te-tur adi-pi-scing
- []
-
-
-Underfull \hbox (badness 2103) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 enim ad mi-nim
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 zio-ne trop-po
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data nel
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 fu-tu-ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data: 10-01-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 2024, al-tri
- []
-
-
-Underfull \hbox (badness 3623) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Da-ta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data for-
- []
-
-
-Underfull \hbox (badness 2334) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ma-to er-ra-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 2024/01/10,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 2512) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Orario non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Orario
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 non va-li-do
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 3128) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 to ora-rio non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 spe-cia-li
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo: Par-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 co@Centrale,
- []
-
-
-Underfull \hbox (badness 4254) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 te-ri non con-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 nu-me-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ec-ces-si-va
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 pien-za trop-po
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 nul-la o
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ne-ga-ti-va
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 pien-za non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 non nu-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 me-ri-ca
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 2334) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Costo ne-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Co-sto
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Costo for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ma-to non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Costo non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 nu-me-ri-co
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 3128) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-to con suc-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Evento re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 gi-stra-to nel
- []
-
-
-Overfull \hbox (4.66206pt too wide) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Descrizione 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Classi
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/bx/n/10 di Equi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/bx/n/10 va-len-za
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/bx/n/10 Post-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/bx/n/10 condizioni
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Titolo: Fe-sta,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 De-scri-zio-ne:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Even-to so-cia-le,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Da-ta: 20-07-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 2025, Ora-rio:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 18:00, Luo-go:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Par-co Cen-tra-le,
- []
-
-
-Underfull \hbox (badness 2961) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 Ca-pien-za: 200,
- []
-
-
-Underfull \hbox (badness 3128) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-to con suc-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Evento re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 gi-stra-to nel
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 2376) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Titolo trop-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 po lun-go
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 1472) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Titolo: Fe-sti-val
- []
-
-
-Underfull \hbox (badness 1571) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ter-na-zio-na-le con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 vuo-ta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 8151) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 zio-ne ob-bli-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
+Underfull \vbox (badness 1033) has occurred while \output is active []
 
 
 
 [21
-pdfTeX warning (ext4): destination with the same identifier (name{table.4.4}) h
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.45 \end
-         {longtblr}]
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
+l.143 
+      ] (capitoli/Tabelle/PubblicaEvento.tex
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Classi di
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 150
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/bx/n/10 Equi-va-len-za
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Descrizione
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
+Underfull \hbox (badness 2359) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Output At-
  []
 
 
-Underfull \hbox (badness 7081) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 te-tur adi-pi-scing
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Post-
  []
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 enim ad mi-nim
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 zio-ne trop-po
+Underfull \hbox (badness 6775) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Tutti i da-ti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 De-scri-zio-ne:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data nel
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 Even-to so-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data non
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 cia-le, Da-ta:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 fu-tu-ra
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 20-07-2025,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
+Underfull \hbox (badness 2680) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 pien-za: 200,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data: 10-01-
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento pub-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 2024, al-tri
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 bli-ca-to con
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Da-ta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data for-
- []
-
-
-Underfull \hbox (badness 2334) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ma-to er-ra-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Data:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 2024/01/10,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 2512) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Orario non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Orario
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 non va-li-do
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 3128) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 to ora-rio non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 spe-cia-li
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo: Par-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 co@Centrale,
- []
-
-
-Underfull \hbox (badness 4254) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 te-ri non con-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 nu-me-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ec-ces-si-va
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 pien-za trop-po
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 nul-la o
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ne-ga-ti-va
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 pien-za non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Capienza
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 non nu-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 me-ri-ca
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 2334) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Costo ne-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Errore: Co-sto
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Costo for-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ma-to non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Costo non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 nu-me-ri-co
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Nessuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 3128) in paragraph at lines 45--45
-\OT1/cmr/m/n/10 ca-to con suc-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
 []\OT1/cmr/m/n/10 Evento re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--45
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
 \OT1/cmr/m/n/10 gi-stra-to nel
  []
 
-)
-Underfull \hbox (badness 4518) in paragraph at lines 155--156
-[]|\OT1/cmr/m/n/8 Data con for-ma-
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo vuo-to
  []
 
 
-Underfull \hbox (badness 6575) in paragraph at lines 158--161
-\OT1/cmr/m/n/8 Stringa con-te-nen-
+Underfull \hbox (badness 4266) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo $\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 50
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo trop-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 po lun-go
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo: Fe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 sti-val del-la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 cul-tu-ra in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ter-na-zio-na-le
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 tea-tro, al-tri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 vuo-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione:
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: De-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 scri-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 trop-po lun-ga
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione:
+ []
+
+
+Underfull \hbox (badness 3240) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 Lo-rem ip-sum
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 con-sec-te-tur
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 adi-pi-scing
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ut la-bo-re et
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 do-lo-re ma-gna
+ []
+
+
+Underfull \hbox (badness 4479) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ali-qua. Ut
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 enim ad mi-
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 nim ve-niam.,
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: De-
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data: 10-01-
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data for-ma-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ma-to er-ra-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 2024/01/10,
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ma-to ora-rio
+ []
+
+
+Underfull \hbox (badness 2662) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Luogo: Par-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 co@Centrale,
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: Ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 rat-te-ri non
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 con-sen-ti-ti nel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Luogo: Sa-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 la123, al-tri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza $\OML/cmm/m/it/10 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ec-ces-si-va
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 1000, al-tri
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: Ca-
+ []
+
+
+Underfull \hbox (badness 1259) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza: 0,
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: Ca-
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza:
+ []
+
+
+Underfull \hbox (badness 1845) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 "mol-ti", al-tri
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo ne-ga-ti-
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo ne-ga-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 nu-me-ri-co
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo: "gra-
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data = og-gi
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data: 18-06-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento pub-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 bli-ca-to con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 gi-stra-to nel
+ []
+
+
+Underfull \hbox (badness 6268) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo ri-don-
+ []
+
+
+Underfull \hbox (badness 5175) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 to per al-tro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento gi^^Ra
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Classi di
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/bx/n/10 Equi-va-len-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Pre-
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Output At-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/bx/n/10 Post-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/bx/n/10 condizioni
+ []
+
+
+Underfull \hbox (badness 6775) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Tutti i da-ti
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 De-scri-zio-ne:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 Even-to so-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 cia-le, Da-ta:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 20-07-2025,
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 pien-za: 200,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento pub-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 bli-ca-to con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 gi-stra-to nel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo vuo-to
+ []
+
+
+Underfull \hbox (badness 4266) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo $\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 50
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo trop-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 po lun-go
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo: Fe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 sti-val del-la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 cul-tu-ra in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ter-na-zio-na-le
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 tea-tro, al-tri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 vuo-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione:
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: De-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 scri-zio-ne
+ []
+
+
+
+[22
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.5}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.80 \end
+         {longtblr}]
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione
+ []
+
+
+Underfull \hbox (badness 5504) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 trop-po lun-ga
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Descrizione:
+ []
+
+
+Underfull \hbox (badness 3240) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 Lo-rem ip-sum
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 con-sec-te-tur
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 adi-pi-scing
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ut la-bo-re et
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 do-lo-re ma-gna
+ []
+
+
+Underfull \hbox (badness 4479) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ali-qua. Ut
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 enim ad mi-
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 nim ve-niam.,
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: De-
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data: 10-01-
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data for-ma-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ma-to er-ra-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 2024/01/10,
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ma-to ora-rio
+ []
+
+
+Underfull \hbox (badness 2662) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Luogo: Par-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 co@Centrale,
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: Ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 rat-te-ri non
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 con-sen-ti-ti nel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Luogo: Sa-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 la123, al-tri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza $\OML/cmm/m/it/10 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 ec-ces-si-va
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 1000, al-tri
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: Ca-
+ []
+
+
+Underfull \hbox (badness 1259) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza: 0,
+ []
+
+
+Underfull \hbox (badness 4634) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: Ca-
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza for-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Capienza:
+ []
+
+
+Underfull \hbox (badness 1845) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 "mol-ti", al-tri
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo ne-ga-ti-
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo ne-ga-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 nu-me-ri-co
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Costo: "gra-
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Errore: For-
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data = og-gi
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Data: 18-06-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento pub-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 bli-ca-to con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 gi-stra-to nel
+ []
+
+
+Underfull \hbox (badness 6268) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Titolo ri-don-
+ []
+
+
+Underfull \hbox (badness 5175) in paragraph at lines 80--80
+\OT1/cmr/m/n/10 to per al-tro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+[]\OT1/cmr/m/n/10 Evento gi^^Ra
+ []
+
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[23] (capitoli/Tabelle/RicercaEvento.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Test
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 Ca-se
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Test
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 Ca-se
+ []
+
+
+Overfull \hbox (3.25893pt too wide) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Descrizione 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Classi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 di Equi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 va-len-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Pre-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Output
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Post-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 condizioni
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Titolo, Da-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ta, Luo-go
+ []
+
+
+Underfull \hbox (badness 2538) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 spon-de al-la
+ []
+
+
+Underfull \hbox (badness 5802) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Eventi tro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Titolo $\OML/cmm/m/it/10 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Titolo: Fe-sti-val in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ter-na-zio-na-le del-la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 mu-si-ca con-tem-po-ra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 15-06-2025, Luo-go:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Data con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 for-ma-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 non va-li-do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 den-te al-la
+ []
+
+
+Underfull \hbox (badness 4752) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 da-ta odier-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Data non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 spe-cia-li
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Caratteri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 non con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 sen-ti-ti nel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 nu-me-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 con-sen-ti-ti
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Test
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 Ca-se
+ []
+
+
+Overfull \hbox (3.25893pt too wide) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Descrizione 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Classi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 di Equi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 va-len-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Pre-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Output
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/bx/n/10 Post-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/bx/n/10 condizioni
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Titolo, Da-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ta, Luo-go
+ []
+
+
+Underfull \hbox (badness 2538) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 spon-de al-la
+ []
+
+
+Underfull \hbox (badness 5802) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Eventi tro-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Titolo $\OML/cmm/m/it/10 >$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Titolo: Fe-sti-val in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ter-na-zio-na-le del-la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 mu-si-ca con-tem-po-ra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 15-06-2025, Luo-go:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Data con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 for-ma-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 non va-li-do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 den-te al-la
+ []
+
+
+Underfull \hbox (badness 4752) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 da-ta odier-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Data non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 spe-cia-li
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Caratteri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 non con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 sen-ti-ti nel
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Luogo con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 nu-me-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]\OT1/cmr/m/n/10 Utente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+\OT1/cmr/m/n/10 con-sen-ti-ti
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 223--223
+[]\OT1/cmr/m/n/8 Saldo non suf-fi-cien-te
+ []
+
+
+Underfull \hbox (badness 1270) in paragraph at lines 223--223
+\OT1/cmr/m/n/8 un bi-gliet-to per l'e-ven-to
  []
 
 
@@ -4503,1341 +5234,943 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[22] (capitoli/Tabelle/RicercaEvento.tex
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/bx/n/10 Ca-se
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/bx/n/10 Ca-se
- []
-
-
-Overfull \hbox (3.25893pt too wide) in paragraph at lines 20--20
+[24
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.7}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.226 \noindent
+                Il numero di test da effettuarsi senza particolari vincoli Ã¨:]
+(capitoli/Tabelle/AcquistoBiglietto.tex
+Overfull \hbox (5.30275pt too wide) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Descrizione 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Classi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/bx/n/10 di Equi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/bx/n/10 va-len-za
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/bx/n/10 Output
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo, Da-
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Evento
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ta, Luo-go
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 di-spo-ni-bi-le,
  []
 
 
-Underfull \hbox (badness 2538) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 spon-de al-la
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 da-ti va-li-
  []
 
 
-Underfull \hbox (badness 5802) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Eventi tro-
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 di, sal-do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo $\OML/cmm/m/it/10 >$
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 suf-fi-cien-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 te, clien-te
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 con po-sti,
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 do: 30\TS1/cmr/m/n/10 ¿\OT1/cmr/m/n/10 , Sta-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Acquisto com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ple-ta-to con
+ []
+
+
+Underfull \hbox (badness 6910) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Biglietto as-
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Posti esau-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Evento
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 esau-ri-to
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Evento com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Errore: po-sti
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Numero
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 car-ta non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ca-rat-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ri non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 nu-me-ri-ci
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Dati car-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta: "1234-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Data sca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Data sca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 den-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 mal-for-ma-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Dati car-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Scadenza:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 "13/25", al-tri
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Errore: for-ma-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 7379) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta sca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 sca-du-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Scadenza:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 "01/23", al-tri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Errore: car-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Saldo non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Saldo in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 suf-fi-cien-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/m/n/10 Utente
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo: Fe-sti-val in-
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ha gi^^Ra
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ter-na-zio-na-le del-la
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Cliente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 mu-si-ca con-tem-po-ra-
+Underfull \hbox (badness 2165) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ha gi^^Ra ac-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 15-06-2025, Luo-go:
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 qui-sta-to
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo vuo-
+Underfull \hbox (badness 5802) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 bi-gliet-to per
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ac-qui-sta-to, al-tri
  []
 
 
-Underfull \hbox (badness 7613) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Inserire un
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 me-mo-riz-za-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 me-mo-riz-za-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 pre-sen-te
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 nel si-ste-
- []
-
-
-Underfull \hbox (badness 1584) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ma, Uten-te
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo: Con-cer-to
- []
-
-
-Underfull \hbox (badness 1655) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 Rock, Da-ta: 15-06-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Data con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 for-ma-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 non va-li-do
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 spe-cia-li
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Caratteri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 non con-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 sen-ti-ti nel
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 nu-me-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 con-sen-ti-ti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/bx/n/10 Ca-se
- []
-
-
-Overfull \hbox (3.25893pt too wide) in paragraph at lines 20--20
+Overfull \hbox (5.30275pt too wide) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Descrizione 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Classi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/bx/n/10 di Equi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/bx/n/10 va-len-za
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/bx/n/10 Output
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/bx/n/10 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 1715) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo, Da-
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Evento
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ta, Luo-go
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 di-spo-ni-bi-le,
  []
 
 
-Underfull \hbox (badness 2538) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 spon-de al-la
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 da-ti va-li-
  []
 
 
-Underfull \hbox (badness 5802) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Eventi tro-
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 di, sal-do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo $\OML/cmm/m/it/10 >$
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 suf-fi-cien-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 te, clien-te
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 con po-sti,
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 do: 30\TS1/cmr/m/n/10 ¿\OT1/cmr/m/n/10 , Sta-to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Acquisto com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ple-ta-to con
+ []
+
+
+Underfull \hbox (badness 6910) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Biglietto as-
+ []
+
+
+Underfull \hbox (badness 1748) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Posti esau-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Evento
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 esau-ri-to
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Evento com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Errore: po-sti
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Numero
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 car-ta non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ca-rat-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ri non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 nu-me-ri-ci
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Dati car-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta: "1234-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Data sca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Data sca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 den-za
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 mal-for-ma-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Dati car-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Scadenza:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 "13/25", al-tri
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Errore: for-ma-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 7379) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta sca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Carta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 sca-du-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Scadenza:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 "01/23", al-tri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Errore: car-ta
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Saldo non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Saldo in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 suf-fi-cien-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 []\OT1/cmr/m/n/10 Utente
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo: Fe-sti-val in-
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ha gi^^Ra
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ter-na-zio-na-le del-la
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Cliente
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 mu-si-ca con-tem-po-ra-
+Underfull \hbox (badness 2165) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ha gi^^Ra ac-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 15-06-2025, Luo-go:
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 qui-sta-to
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo vuo-
+Underfull \hbox (badness 5802) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 bi-gliet-to per
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ac-qui-sta-to, al-tri
  []
 
 
-Underfull \hbox (badness 7613) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Inserire un
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 me-mo-riz-za-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 me-mo-riz-za-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 pre-sen-te
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 nel si-ste-
- []
-
-
-Underfull \hbox (badness 1584) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ma, Uten-te
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo: Con-cer-to
- []
-
-
-Underfull \hbox (badness 1655) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 Rock, Da-ta: 15-06-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Titolo gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Data con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 for-ma-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 non va-li-do
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 ca-rat-te-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 spe-cia-li
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Caratteri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 non con-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 sen-ti-ti nel
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Luogo con
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 nu-me-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10 [ERROR]\OT1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmr/m/n/10 con-sen-ti-ti
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 )
-Underfull \vbox (badness 7308) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[23] (capitoli/Tabelle/AcquistoBiglietto.tex
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/bx/n/10 Ca-se
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/bx/n/10 Ca-se
- []
-
-
-Overfull \hbox (3.25893pt too wide) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Descrizione 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+[25
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.9}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.258 \noindent
+                Il numero di test da effettuarsi senza particolari vincoli Ã¨:]
+(capitoli/Tabelle/PartecipazioneEvento.tex
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\OT1/cmr/bx/n/10 Classi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 \OT1/cmr/bx/n/10 di Equi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 \OT1/cmr/bx/n/10 va-len-za
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\OT1/cmr/bx/n/10 Pre-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Output
+Overfull \hbox (0.51743pt too wide) in paragraph at lines 24--24
+\OT1/cmr/bx/n/10 condizioni 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\OT1/cmr/bx/n/10 Post-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 6944) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ni-bi-li, da-ti
+Underfull \hbox (badness 1635) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Tutti i da-ti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
+Underfull \hbox (badness 1320) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ret-to, Sta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Posti di-
+Underfull \hbox (badness 1694) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 to = Non
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li
- []
-
-
-Underfull \hbox (badness 5985) in paragraph at lines 18--18
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 0, da-ti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\OT1/cmr/m/n/10 Biglietto
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 as-so-cia-to al
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 va-li-do e
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
+Underfull \hbox (badness 2103) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: xxxx-123,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Biglietto se-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 gna-to co-me
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
+Underfull \hbox (badness 1348) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice er-ra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Messaggio
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 di po-sti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 esau-ri-ti,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ac-qui-sto
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 \OT1/cmr/m/n/10 bi-gliet-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Dati pa-
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 er-ra-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ga-men-to
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Biglietto
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Posti di-
+Underfull \hbox (badness 2302) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: abcd-999,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
-Underfull \hbox (badness 5985) in paragraph at lines 18--18
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 0, da-ti
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice non
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 in-com-ple-ti
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 man-can-te
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
+Underfull \hbox (badness 5331) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Errore: co-di-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Errore di
+Underfull \hbox (badness 2617) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Stato con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 su-ma-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to: da-ti
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Biglietto
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
+Underfull \hbox (badness 2103) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: xxxx-123,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 bi-gliet-to
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Dati pa-ga-
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 (es. car-ta
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice con
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ni-bi-li $\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 0,
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ca-rat-te-ri
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 da-ti pa-ga-
+Underfull \hbox (badness 1168) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ma-to er-ra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Biglietto
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
+Underfull \hbox (badness 2205) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 con co-di-ce
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 mal-for-ma-
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: xxx$\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 !@$,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Errore di
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 Sta-to: Non
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to:
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Posti di-
- []
-
-
-Underfull \hbox (badness 4686) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li $\OML/cmm/m/it/10 >$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 0, er-ro-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 con-fer-ma
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
- []
-
-
-Underfull \hbox (badness 3492) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Errore di
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 si-ste-ma:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/bx/n/10 Ca-se
- []
-
-
-Overfull \hbox (3.25893pt too wide) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Descrizione 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\OT1/cmr/bx/n/10 Classi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 \OT1/cmr/bx/n/10 di Equi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 \OT1/cmr/bx/n/10 va-len-za
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Output
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/bx/n/10 Post-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/bx/n/10 condizioni
- []
-
-
-Underfull \hbox (badness 6944) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ni-bi-li, da-ti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Posti di-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li
- []
-
-
-Underfull \hbox (badness 5985) in paragraph at lines 18--18
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 0, da-ti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Biglietto
- []
-
-
-Underfull \hbox (badness 1122) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 as-so-cia-to al
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
- []
-
-
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Messaggio
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 di po-sti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 esau-ri-ti,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ac-qui-sto
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Dati pa-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Posti di-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li
- []
-
-
-Underfull \hbox (badness 5985) in paragraph at lines 18--18
-\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 0, da-ti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 in-com-ple-ti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
- []
-
-
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Errore di
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to: da-ti
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Dati pa-ga-
- []
-
-
-Underfull \hbox (badness 1515) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 (es. car-ta
- []
-
-
-Underfull \hbox (badness 2443) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ni-bi-li $\OML/cmm/m/it/10 >$ \OT1/cmr/m/n/10 0,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 da-ti pa-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
- []
-
-
-Underfull \hbox (badness 1817) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, da-ti pa-ga-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Errore di
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Posti di-
- []
-
-
-Underfull \hbox (badness 4686) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li $\OML/cmm/m/it/10 >$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 0, er-ro-re
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 con-fer-ma
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Utente
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 au-ten-ti-ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to, even-to
- []
-
-
-Underfull \hbox (badness 3492) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 spo-ni-bi-li, pa-ga-men-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Errore di
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 si-ste-ma:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 pa-ga-men-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 to non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 Nessun
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-)
-
-[24] (capitoli/Tabelle/PartecipazioneEvento.tex
-Overfull \hbox (1.40387pt too wide) in paragraph at lines 24--24
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/bx/n/10 Ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/bx/n/10 se
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\OT1/cmr/bx/n/10 Pre-
+ []
+
+
+Overfull \hbox (0.51743pt too wide) in paragraph at lines 24--24
+\OT1/cmr/bx/n/10 condizioni 
  []
 
 
@@ -5846,53 +6179,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
  []
 
 
-Overfull \hbox (4.94737pt too wide) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 \OT1/cmr/bx/n/10 condizioni
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Partecipazione
+Underfull \hbox (badness 1635) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Tutti i da-ti
  []
 
 
-Underfull \hbox (badness 5711) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice cor-ret-to
+Underfull \hbox (badness 1320) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ret-to, Sta-
  []
 
 
-Underfull \hbox (badness 3250) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 e bi-gliet-to non
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Utente au-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ten-ti-ca-to,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice: xxx-123-
- []
-
-
-Overfull \hbox (6.87239pt too wide) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Partecipazione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 re-gi-stra-ta
+Underfull \hbox (badness 1694) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 to = Non
  []
 
 
@@ -5902,67 +6205,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 mar-ca-to
+\OT1/cmr/m/n/10 va-li-do e
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: xxxx-123,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice bi-
+[]\OT1/cmr/m/n/10 Biglietto se-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 gliet-to $\OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =$
+\OT1/cmr/m/n/10 gna-to co-me
+ []
+
+
+Underfull \hbox (badness 1348) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice er-ra-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 xxxx-123-ABC
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Utente au-
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice: yyy-456-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice bi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 gliet-to non
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Biglietto gi^^Ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Stato bi-gliet-to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 = Con-su-ma-to
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Utente au-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ten-ti-ca-to,
+[]\OT1/cmr/m/n/10 Codice
  []
 
 
@@ -5971,86 +6239,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice: xxx-123-
- []
-
-
-Package tabularray Warning: Table width is too small, need 1.84206pt more!
-
-
-Overfull \hbox (1.40387pt too wide) in paragraph at lines 24--24
-[]\OT1/cmr/bx/n/10 Test
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/bx/n/10 Ca-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/bx/n/10 se
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/bx/n/10 Pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/bx/n/10 Post-
- []
-
-
-Overfull \hbox (4.94737pt too wide) in paragraph at lines 24--24
-\OT1/cmr/bx/n/10 condizioni
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Partecipazione
- []
-
-
-Underfull \hbox (badness 5711) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice cor-ret-to
- []
-
-
-Underfull \hbox (badness 3250) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 e bi-gliet-to non
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Utente au-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ten-ti-ca-to,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 bi-gliet-to
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice: xxx-123-
- []
-
-
-Overfull \hbox (6.87239pt too wide) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Partecipazione
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 re-gi-stra-ta
+\OT1/cmr/m/n/10 er-ra-to
  []
 
 
@@ -6059,99 +6249,150 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 mar-ca-to
+Underfull \hbox (badness 2302) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: abcd-999,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice bi-
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 gliet-to $\OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =$
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 xxxx-123-ABC
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Utente au-
- []
-
-
-Underfull \hbox (badness 3503) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice: yyy-456-
+[]\OT1/cmr/m/n/10 Codice non
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice bi-
+[]\OT1/cmr/m/n/10 Codice
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 gliet-to non
+\OT1/cmr/m/n/10 man-can-te
+ []
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Errore: co-di-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Biglietto gi^^Ra
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Stato bi-gliet-to
+\OT1/cmr/m/n/10 ope-ra-zio-ne
+ []
+
+
+Underfull \hbox (badness 2617) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Stato con-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 = Con-su-ma-to
- []
-
-
-Underfull \hbox (badness 2027) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Utente au-
+\OT1/cmr/m/n/10 su-ma-to
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 ten-ti-ca-to,
+[]\OT1/cmr/m/n/10 Biglietto
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: xxxx-123,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
-\OT1/cmr/m/n/10 bi-gliet-to
+[]\OT1/cmr/m/n/10 Nessuna
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 24--24
-[]\OT1/cmr/m/n/10 Codice: xxx-123-
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 
-Overfull \hbox (1.84206pt too wide) detected at line 24
- [] 
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice con
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ca-rat-te-ri
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ma-to er-ra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Biglietto
+ []
+
+
+Underfull \hbox (badness 2205) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 con co-di-ce
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 mal-for-ma-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Codice: xxx$\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 !@$,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 Sta-to: Non
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+[]\OT1/cmr/m/n/10 Nessuna
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+\OT1/cmr/m/n/10 ope-ra-zio-ne
  []
 
 ))
 
-[25]
+[26
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.11}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.143 \include{capitoli/Pianoditestfunzionale}
+                                              ]
 \openout2 = `capitoli/progettazione.aux'.
 
  (capitoli/progettazione.tex
 Capitolo 5.
-<assets/package/Diagrammadelleclassi.png, id=495, 1066.7052pt x 1269.7839pt>
+<assets/package/Diagrammadelleclassi.png, id=505, 1066.7052pt x 1269.7839pt>
 File: assets/package/Diagrammadelleclassi.png Graphic file (type png)
 <use assets/package/Diagrammadelleclassi.png>
 Package pdftex.def Info: assets/package/Diagrammadelleclassi.png  used on input
  line 5.
 (pdftex.def)             Requested size: 365.70242pt x 435.32422pt.
-<assets/package/entity.png, id=496, 1066.7052pt x 489.2679pt>
+<assets/package/entity.png, id=506, 1066.7052pt x 489.2679pt>
 File: assets/package/entity.png Graphic file (type png)
 <use assets/package/entity.png>
 Package pdftex.def Info: assets/package/entity.png  used on input line 11.
@@ -6161,23 +6402,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[26
+[27
 
 
 
 
  <./assets/package/Diagrammadelleclassi.png>]
-<assets/package/Boundary.png, id=502, 551.4201pt x 334.6101pt>
+<assets/package/Boundary.png, id=512, 551.4201pt x 334.6101pt>
 File: assets/package/Boundary.png Graphic file (type png)
 <use assets/package/Boundary.png>
 Package pdftex.def Info: assets/package/Boundary.png  used on input line 17.
 (pdftex.def)             Requested size: 302.91177pt x 183.80716pt.
-<assets/package/Controller.png, id=503, 328.8285pt x 216.0873pt>
+<assets/package/Controller.png, id=513, 328.8285pt x 216.0873pt>
 File: assets/package/Controller.png Graphic file (type png)
 <use assets/package/Controller.png>
 Package pdftex.def Info: assets/package/Controller.png  used on input line 23.
 (pdftex.def)             Requested size: 279.71628pt x 183.80716pt.
-<assets/package/erdiagram.png, id=504, 840.13875pt x 330.23375pt>
+<assets/package/erdiagram.png, id=514, 840.13875pt x 330.23375pt>
 File: assets/package/erdiagram.png Graphic file (type png)
 <use assets/package/erdiagram.png>
 Package pdftex.def Info: assets/package/erdiagram.png  used on input line 31.
@@ -6187,14 +6428,14 @@ Underfull \vbox (badness 4739) has occurred while \output is active []
 
 
 
-[27 <./assets/package/entity.png> <./assets/package/Boundary.png> <./assets/pac
+[28 <./assets/package/entity.png> <./assets/package/Boundary.png> <./assets/pac
 kage/Controller.png>]
-<assets/package/database1.png, id=512, 501.5538pt x 300.6432pt>
+<assets/package/database1.png, id=522, 501.5538pt x 300.6432pt>
 File: assets/package/database1.png Graphic file (type png)
 <use assets/package/database1.png>
 Package pdftex.def Info: assets/package/database1.png  used on input line 37.
 (pdftex.def)             Requested size: 306.63615pt x 183.80716pt.
-<assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png, id=513, 2117.511pt x 10
+<assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png, id=523, 2117.511pt x 10
 57.3101pt>
 File: assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png Graphic file (type 
 png)
@@ -6206,36 +6447,18 @@ Package pdftex.def Info: assets/casid'uso/ConsultaEventiPubblicatiAvanzato.png
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<assets/casid'uso/PartecipazioneEventoAvanzato.png, id=514, 6937.92pt x 4556.02
-126pt>
-File: assets/casid'uso/PartecipazioneEventoAvanzato.png Graphic file (type png)
-
-<use assets/casid'uso/PartecipazioneEventoAvanzato.png>
-Package pdftex.def Info: assets/casid'uso/PartecipazioneEventoAvanzato.png  use
-d on input line 55.
-(pdftex.def)             Requested size: 338.58632pt x 222.32239pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 )
 
-[28 <./assets/package/erdiagram.png> <./assets/package/database1.png>]
+[29 <./assets/package/erdiagram.png> <./assets/package/database1.png>]
 
-[29
+[30
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.144 \include{capitoli/progettazione}
-                                      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.144 \include{capitoli/progettazione}
                                        <./assets/casid'uso/ConsultaEventiPubbli
-catiAvanzato.png (PNG copy)> <./assets/casid'uso/PartecipazioneEventoAvanzato.p
-ng (PNG copy)>]
+catiAvanzato.png (PNG copy)>]
 \openout2 = `capitoli/implementazione.aux'.
 
  (capitoli/implementazione.tex
@@ -6245,15 +6468,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[30
+[31
 
 
 
 
 ]
 
-[31]
-<assets/deployment/DeploymentDiagram.png, id=535, 1189.44376pt x 2469.225pt>
+[32]
+<assets/deployment/DeploymentDiagram.png, id=543, 1189.44376pt x 2469.225pt>
 File: assets/deployment/DeploymentDiagram.png Graphic file (type png)
 <use assets/deployment/DeploymentDiagram.png>
 Package pdftex.def Info: assets/deployment/DeploymentDiagram.png  used on input
@@ -6261,8 +6484,8 @@ Package pdftex.def Info: assets/deployment/DeploymentDiagram.png  used on input
 (pdftex.def)             Requested size: 241.84843pt x 502.04991pt.
 )
 
-[32 <./assets/deployment/DeploymentDiagram.png (PNG copy)>]
-runsystem(latexminted cleantemp  --timestamp 20250617172917 FAD58DE7366495DB465
+[33 <./assets/deployment/DeploymentDiagram.png (PNG copy)>]
+runsystem(latexminted cleantemp  --timestamp 20250618021532 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux
@@ -6278,13 +6501,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7BF2B07079F3DECE3B8641FCF2AFF67B;7118.
  ) 
 Here is how much of TeX's memory you used:
- 45866 strings out of 469941
- 1053214 string characters out of 5469430
- 1591977 words of memory out of 5000000
- 71830 multiletter control sequences out of 15000+600000
- 670149 words of font info for 151 fonts, out of 8000000 for 9000
+ 45938 strings out of 469941
+ 1054394 string characters out of 5469430
+ 1593216 words of memory out of 5000000
+ 71896 multiletter control sequences out of 15000+600000
+ 670791 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 124i,14n,121p,1619b,2766s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 124i,14n,121p,1619b,2838s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\branc\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 0800.pk> <C:\Users\branc\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1000.pk><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/
@@ -6310,9 +6533,9 @@ Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10
 .pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmtt8.pfb><C:/Users/branc/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/symbols/msam10.pfb>
-Output written on main.pdf (32 pages, 4173614 bytes).
+Output written on main.pdf (33 pages, 3650017 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
- 202 named destinations out of 1000 (max. 500000)
- 463 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 688 PDF objects out of 1000 (max. 8388607)
+ 208 named destinations out of 1000 (max. 500000)
+ 458 words of extra memory for PDF output out of 10000 (max. 10000000)
 
