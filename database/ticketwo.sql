@@ -45,7 +45,7 @@ CREATE TABLE `biglietti` (
 
 LOCK TABLES `biglietti` WRITE;
 /*!40000 ALTER TABLE `biglietti` DISABLE KEYS */;
-INSERT INTO `biglietti` VALUES ('COR-3E7F8C1A',1,5,2),('COR-4AC9D3B7',1,1,2),('COR-9F1A3D2B',1,3,2),('MON-3E7F8C1A',0,5,3),('MON-4AC9D3B7',1,3,3),('MON-9F1A3D2B',1,4,3);
+INSERT INTO `biglietti` VALUES ('COR-3E7F8C1A',1,5,2),('COR-4AC9D3B7',1,1,2),('COR-9F1A3D2B',1,3,2),('MON-3E7F8C1A',0,5,3),('MON-4AC9D3B7',1,3,3),('MON-9F1A3D2B',1,4,3),('PRO-9FD1858D',1,3,5),('PRO-C45E4018',1,3,6);
 /*!40000 ALTER TABLE `biglietti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +71,7 @@ CREATE TABLE `eventi` (
   UNIQUE KEY `Titolo_UNIQUE` (`Titolo`),
   KEY `fk_Eventi_Utenti_idx` (`Amministratore_id`),
   CONSTRAINT `fk_Eventi_Utenti` FOREIGN KEY (`Amministratore_id`) REFERENCES `utenti` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `eventi` (
 
 LOCK TABLES `eventi` WRITE;
 /*!40000 ALTER TABLE `eventi` DISABLE KEYS */;
-INSERT INTO `eventi` VALUES (1,'ritiro del Napoli a Castel di Sangro','Ritiro della squadra SSC Napoli a Castel di Sangro','2025-07-25','10:00:00',20000,0,50,2,'Castel di Sangro'),(2,'Corso di cucina Italiana','Lezione pratica di cucina regionale','2025-04-10','18:00:00',30,3,20,2,'Napoli'),(3,'Money Gang Tour','Concerto di Sfera Ebbasta allo stadio Diego Armando Maradona','2025-06-07','21:00:00',50000,2,50,2,'Napoli'),(4,'Agile O\'Day','Incontro formativo su metodi agili','2025-09-20','14:00:00',100,0,0,2,'Napoli');
+INSERT INTO `eventi` VALUES (1,'ritiro del Napoli a Castel di Sangro','Ritiro della squadra SSC Napoli a Castel di Sangro','2025-07-25','10:00:00',20000,0,50,2,'Castel di Sangro'),(2,'Corso di cucina Italiana','Lezione pratica di cucina regionale','2025-04-10','18:00:00',30,3,20,2,'Napoli'),(3,'Money Gang Tour','Concerto di Sfera Ebbasta allo stadio Diego Armando Maradona','2025-06-07','21:00:00',50000,2,50,2,'Napoli'),(4,'Agile O\'Day','Incontro formativo su metodi agili','2025-09-20','14:00:00',100,0,0,2,'Napoli'),(5,'provafinale','prova iper finale','2025-06-18','04:20:00',2,1,2,2,'napolix'),(6,'provaddeedeiio','provadiduio','2025-06-18','04:15:00',2,1,3,2,'napoli');
 /*!40000 ALTER TABLE `eventi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +110,7 @@ CREATE TABLE `utenti` (
 
 LOCK TABLES `utenti` WRITE;
 /*!40000 ALTER TABLE `utenti` DISABLE KEYS */;
-INSERT INTO `utenti` VALUES (1,'Giovanni','Di Lorenzo','ag4in','giovanni.png','giovanni.dilo@gmail.com',0),(2,'Aurelio','De Laurentiis','antonioconte','aurelio.png','aurelio.dela@gmail.com',1),(3,'Antonio','Conte','maradona123','antoh.png','antonio.ag4in@gmail.com',0),(4,'Stanislav','Lobotka','napoli1926','stani.png','lobo.maestro68@gmail.com',0),(5,'Scott','McTominay','mazzocchi','scott.png','scott.braveheart@gmail.com',0);
+INSERT INTO `utenti` VALUES (1,'Giovanni','Di Lorenzo','ag4in','giovanni.png','giovanni.dilo@gmail.com',0),(2,'Aurelio','De Laurentiis','antonioconte','null','aurelio.dela@gmail.com',1),(3,'Antonio','Conte','maradona123','Antonio.png','antonio.ag4in@gmail.com',0),(4,'Stanislav','Lobotka','napoli1926','stani.png','lobo.maestro68@gmail.com',0),(5,'Scott','McTominay','mazzocchi','scott.png','scott.braveheart@gmail.com',0);
 /*!40000 ALTER TABLE `utenti` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -123,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-18 16:49:13
+-- Dump completed on 2025-06-18 17:39:04
