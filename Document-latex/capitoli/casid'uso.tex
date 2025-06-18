@@ -109,8 +109,8 @@ ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 	  row{1} = {bg=gray!30, font=\bfseries}
 	}
 	RESPONSABILITÀ & CLASSE \\
-	Registrazione & SistemaGestioneEventi \\
-	Autenticazione & SistemaGestioneEventi \\
+	Registrazione & Piattaforma \\
+	Autenticazione & Piattaforma \\
 	ModificaDati & Cliente \\
 	VisualizzaStoricoBiglietti & Cliente \\
 	CreazioneEvento & Amministratore \\
@@ -129,22 +129,22 @@ ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 \vspace{-0.5em} % Riduce spazio tra tabella e testo
 \begin{itemize}\setlength\itemsep{0.4em} % Riduce spazio tra gli item
     \item \textbf{Registrazione e Autenticazione:} \\
-    Responsabilità del \textbf{SistemaGestioneEventi}, in quanto \emph{Information Expert} per la gestione degli oggetti \texttt{UtenteRegistrato}.
+    Responsabilità della \textbf{Piattaforma}, in quanto \emph{Information Expert} di \texttt{UtenteRegistrato}.
     
     \item \textbf{ModificaDati e VisualizzaStoricoBiglietti:} \\
     Responsabilità del \textbf{Cliente}, poiché operano direttamente sui suoi attributi e sulle entità a lui associate.
     
     \item \textbf{AcquistoBiglietto:} \\
-    Assegnata alla classe \textbf{Evento}, in quanto \emph{Creator} degli oggetti \texttt{Biglietto}.
+    Assegnata alla classe \textbf{Evento}, in quanto \emph{Creator} di un \texttt{Biglietto}.
     
     \item \textbf{PartecipazioneEvento:} \\
     Gestita dalla classe \textbf{Evento}, seguendo il principio di \emph{Low Coupling} per minimizzare le dipendenze tra classi.
     
     \item \textbf{RicercaEvento, AggiungiEvento e ConsultaCatalogo:} \\
-    Responsabilità della classe \textbf{Catalogo}, in quanto \emph{Information Expert} sugli oggetti \texttt{Evento} presenti nel sistema.
+    Responsabilità della classe \textbf{Catalogo}, in quanto \emph{Information Expert} degli \texttt{Eventi} presenti nel sistema.
     
     \item \textbf{CreazioneEvento:} \\
-    Di competenza dell'\textbf{Amministratore}, in quanto \emph{Creator} degli oggetti \texttt{Evento}.
+    Di competenza dell'\textbf{Amministratore}, in quanto \emph{Creator} di un \texttt{Evento}.
     
     \item \textbf{ConsultaEventiPubblicati:} \\
     Assegnata all'\textbf{Amministratore}, poiché \emph{Information Expert} degli eventi da lui gestiti e pubblicati.
@@ -154,8 +154,7 @@ ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 \section{Diagrammi di sequenza}
 \subsection{Registrazione}
 
-La creazione del seguente diagramma di sequenza,ha fatto emergere la necessità di definire un metodo per la classe \textbf{Piattaforma}:
-\texttt{controlloEmail(Email)},tale metodo consente alla \textbf{Piattaforma} di verificare che l'indirizzo email non sia già registrato nel sistema
+La creazione del seguente diagramma di sequenza, ha fatto emergere la necessità di definire un metodo per la classe \textbf{Piattaforma}: \texttt{controlloEmail(Email)}, tale metodo consente alla \textbf{Piattaforma} di verificare che l'indirizzo email non sia già registrato nel sistema
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/Registrazione.png}
@@ -164,7 +163,7 @@ La creazione del seguente diagramma di sequenza,ha fatto emergere la necessità 
 \end{figure}
 
 \subsection{Autenticazione}
-Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{controlloCredenziali(email, password)} per la classe \textbf{Piattafroma}, che permette di verificare le credenziali di accesso.
+Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verificaCredenziali(password)} per la classe \textbf{UtenteRegistrato}, che permette di verificare la password inserita corrisponde a quella dell'utenteRegistrato.
 \begin{figure}[H]
     \hspace{4cm}
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/Autenticazione.png}
@@ -174,7 +173,8 @@ Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{control
 
 \subsection{PubblicaEvento}
 
-Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verificaValidità(Titolo,Data)} per la classe \textbf{Amministratore}, che permette di verificare che non esite nel sistema un evento con lo stesso titolo e che la data sia maggiore di quella della pubblicazione
+Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verificaValidità(Titolo)} per la classe \textbf{Catalogo}, che permette di verificare che non esiste nel sistema un evento con lo stesso titolo.
+Viene inoltre inserito un nuovo metodo \texttt{aggiungiEvento(Evento)} per la classe \texttt{Catalogo}, che permette di aggiungere al catalogo un nuovo evento.
 
 \begin{figure}[H]
     \centering
@@ -187,7 +187,6 @@ Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verific
 
 \begin{center}
     Il diagramma di sequenza del caso d'uso \textit{ConsultaEventiPubblicati} mostra la necessità di una responsabilità \textbf{getListaPartecipanti()} da parte dell'evento
-
     \vspace{2ex}
     \includegraphics[width=0.8\linewidth]{assets/casid'uso/ConsultaEventiPubblicati.png}
 
@@ -198,7 +197,7 @@ Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verific
 \newpage
 \subsection{AcquistoBiglietti}
 
-Il diagramma di sequenza ha evidenziato diverse responsabilità: per la classe \textbf{Evento} i metodi \texttt{verificaDisponibilità()}, \texttt{creazioneIdUnivoco()} e \texttt{InviaDatiPagamento(NomeTitolare, CognomeTitolare,informazioniCarta,DataScadenza)}, mentre per la classe \textbf{Cliente} il metodo \texttt{haBigliettoPerEvento(evento)} per verificare eventuali acquisti precedenti.
+Il diagramma di sequenza ha evidenziato diverse responsabilità: per la classe \textbf{Evento} i metodi \texttt{verificaDisponibilità()}, \texttt{creazioneIdUnivoco()}, mentre per la classe \textbf{Cliente} il metodo \texttt{haBigliettoPerEvento(Evento)} per verificare eventuali acquisti precedenti.
 
 \begin{figure}[H]
     \centering
@@ -211,7 +210,7 @@ Il diagramma di sequenza ha evidenziato diverse responsabilità: per la classe \
 \newpage
 \subsection{PartecipazioneEvento}
 
-Il diagramma di sequenza ha evidenziato la necessità di aggiungere il metodo \texttt{verificaCodice()} per la classe \textbf{Evento} e il metodo \texttt{validaBiglietto()} per la classe \textbf{Biglietto}, necessari per gestire la partecipazione degli utenti agli eventi.
+Il diagramma di sequenza ha evidenziato la necessità di aggiungere il metodo \texttt{verificaCodice()} per la classe \textbf{Evento}, il metodo \texttt{validaBiglietto()} per la classe \textbf{Biglietto} e il metodo \texttt{verificaBiglietto(Cliente)} per la classe \texttt{Biglietto}, necessari per gestire la partecipazione degli utenti agli eventi.
 
 \begin{figure}[H]
     \centering
