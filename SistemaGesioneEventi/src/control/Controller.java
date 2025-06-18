@@ -123,18 +123,10 @@ public class Controller {
      */
     public static void acquistoBiglietto(PagamentoService pagamentoService, DTOEvento eventoDto, String email, DTODatiPagamento dtoDatiPagamento) throws AcquistoException, BigliettoNotFoundException, UpdateException,LoadingException {
 
-        EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
-
-
         EntityEvento evento = catalogo.cercaEventoPerTitolo(eventoDto.getTitolo());
-        evento.caricaBiglietti();
 
-
-        EntityCliente cliente = piattaforma.cercaClientePerEmail(email);
-        cliente.caricaBiglietti();
-
-        evento.acquistoBiglietto(cliente,pagamentoService,dtoDatiPagamento);
+        evento.acquistoBiglietto(email,pagamentoService,dtoDatiPagamento);
 
     }
 

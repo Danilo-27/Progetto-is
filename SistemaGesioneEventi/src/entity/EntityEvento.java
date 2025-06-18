@@ -275,22 +275,24 @@ public class EntityEvento {
     }
 
     /**
-     * Metodo per gestire l'acquisto di un biglietto per un evento.
-     * Controlla la disponibilità dei posti, verifica che il cliente non abbia già acquistato un biglietto per l'evento
-     * e gestisce il processo di pagamento. In caso di esito positivo, crea il biglietto e lo associa al cliente,
-     * altrimenti lancia un'eccezione in base al problema riscontrato.
+     * Gestisce l'acquisto di un biglietto per un evento da parte di un cliente.
+     * Verifica la disponibilità dei posti, processa il pagamento tramite il servizio fornito
+     * e crea il biglietto se tutte le condizioni sono soddisfatte.
      *
-     * @param cliente l'entità che rappresenta il cliente che desidera acquistare il biglietto
-     * @param ps il servizio utilizzato per gestire il processo di pagamento
-     * @param dtoDatiPagamento l'oggetto contenente i dati di pagamento necessari per finalizzare la transazione
-     * @throws RedundancyException se il cliente ha già acquistato un biglietto per lo stesso evento
-     * @throws AcquistoException se si verificano errori durante il processo di acquisto, come mancanza di posti disponibili o
-     *                           fallimento del pagamento
+     * @param email Email del cliente che effettua l'acquisto.
+     * @param ps Istanza del servizio di pagamento utilizzato per elaborare la transazione.
+     * @param dtoDatiPagamento Oggetto contenente i dati necessari per il pagamento, come numero di carta e informazioni del titolare.
+     * @throws AcquistoException Se si verifica un errore durante l'acquisto, come transazione fallita o posti non disponibili.
+     * @throws BigliettoNotFoundException Se il biglietto non viene trovato durante il processo.
      */
-    public void acquistoBiglietto(EntityCliente cliente, PagamentoService ps, DTODatiPagamento dtoDatiPagamento) throws AcquistoException {
+    public void acquistoBiglietto(String email, PagamentoService ps, DTODatiPagamento dtoDatiPagamento) throws AcquistoException, BigliettoNotFoundException {
+        EntityPiattaforma p =EntityPiattaforma.getInstance();
+        EntityCliente cliente=p.cercaClientePerEmail(email);
+        cliente.caricaBiglietti();
         if (cliente.haBigliettoPerEvento(this))
             throw new RedundancyException("Acquisto già effettuato");
 
+        this.caricaBiglietti();
         if (!this.verificaDisponibilità())
             throw new AcquistoException("Posti non disponibili");
 
