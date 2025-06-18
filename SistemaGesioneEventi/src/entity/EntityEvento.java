@@ -181,10 +181,11 @@ public class EntityEvento {
         evento.setPartecipanti(partecipanti);
         evento.setAmministratoreId(amministratore.getId());
         try {
-            evento.SalvaInDB();
+            evento.salvaInDB();
         } catch (DBException e) {
             throw new RedundancyException("Evento già creato");
         }
+        this.id=evento.getId();
     }
 
     /**
@@ -614,4 +615,8 @@ public class EntityEvento {
         this.biglietti = biglietti;
     }
 
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

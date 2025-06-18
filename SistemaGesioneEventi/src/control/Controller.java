@@ -126,8 +126,10 @@ public class Controller {
         EntityPiattaforma piattaforma = EntityPiattaforma.getInstance();
         EntityCatalogo catalogo = EntityCatalogo.getInstance();
 
+
         EntityEvento evento = catalogo.cercaEventoPerTitolo(eventoDto.getTitolo());
         evento.caricaBiglietti();
+
 
         EntityCliente cliente = piattaforma.cercaClientePerEmail(email);
         cliente.caricaBiglietti();

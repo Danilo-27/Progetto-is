@@ -214,14 +214,35 @@ public class EventoDAO {
      * @throws DBException se si verifica un errore durante l'esecuzione della query
      *                     o se l'operazione non può essere completata.
      */
-    public void SalvaInDB() throws DBException{
+    public void salvaInDB() throws DBException {
         String query = "INSERT INTO eventi (titolo, descrizione, data, orario, luogo, costo, capienza, partecipanti, Amministratore_id) " +
-                "VALUES ('" + this.titolo + "', '" + this.descrizione + "', '" + this.data + "', '" + this.ora + "', '" + this.luogo + "', " +
-                this.costo + ", " + this.capienza + ", " + this.partecipanti + ", " + this.amministratoreID + ")";
-        try {
-            DBConnectionManager.updateQuery(query);
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection conn = DBConnectionManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+
+            stmt.setString(1, this.titolo);
+            stmt.setString(2, this.descrizione);
+            stmt.setDate(3, java.sql.Date.valueOf(this.data));    // Assicurati che this.data sia un LocalDate o String "yyyy-MM-dd"
+            stmt.setTime(4, java.sql.Time.valueOf(this.ora));      // Assicurati che this.ora sia un LocalTime o String "HH:mm:ss"
+            stmt.setString(5, this.luogo);
+            stmt.setDouble(6, this.costo);
+            stmt.setInt(7, this.capienza);
+            stmt.setInt(8, this.partecipanti);
+            stmt.setInt(9, this.amministratoreID);
+
+            stmt.executeUpdate();
+
+            // Recupera l'ID generato
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    this.id = rs.getInt(1);
+                } else {
+                    throw new DBException("Errore: ID non generato dal database.");
+                }
+            }
         } catch (SQLException | ClassNotFoundException e) {
-            throw new DBException("Evento già creato");
+            throw new DBException("Errore durante il salvataggio nel DB: " + e.getMessage());
         }
     }
 
