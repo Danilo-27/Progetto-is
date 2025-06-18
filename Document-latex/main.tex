@@ -114,26 +114,40 @@
 
 \begin{document}
 
+
 \begin{titlepage}
+	\begin{tikzpicture}
+		\node[anchor=south west] at (4,0) {\includegraphics[scale=0.75]{assets/logo_copertina_1}};
+		\node[anchor=south west] at (0,1.5) {\includegraphics{assets/logo_copertina_2}};
+		\node[anchor=south west] at (0,0.5) {\textsf{Scuola Politecnica e delle Scienze di Base}};
+		\node[anchor=south west] at (0,0) {\textsf{Corso di Laurea in Ingegneria Informatica}};
+	\end{tikzpicture}
 
-    \centering
-    {\scshape\LARGE Università degli Studi di Federico Secondo \par}
-    \vspace{1cm}
-    {\scshape\Large Corso di Laurea in Ingegneria Informatica \par}
-    \vfill
-    {\huge\bfseries TickeTwo \par}
-    \vspace{2cm}
-    {\Large Autori: Paolo Altucci, Francesco Ardolino, Danilo Cioffi \par}
-    \vspace{0.5cm}
-    {\Large Matricola: N46007260, N46007168, N46007095 \par}
-    \vspace{0.5cm}
-    {\Large Anno Accademico: 2024/2025 \par}
-    \vfill
+	\centering
+	\vspace{2cm}
+	{\Large Corso di Ingegneria del Software} \\
+	{\Large a.a. 2024/2025}
 
+	\vspace{1cm}
+	\Large\textit{Gestione di una Biglietteria} \\
+	\vspace{1cm}
+	\includegraphics[width=0.5\textwidth]{assets/ticketwo.png}
 
-% Indice
-\tableofcontents
-\newpage
+	\vspace{1cm}
+
+	\begin{tblr} {
+		colspec=rll,
+		column{1} = {font=\bfseries}
+	}
+		Docenti: & Anna Rita Fasolino & \\
+		& Marco De Luca & \\ 
+		\\
+		Autori: & Francesco Ardolino & - \\
+		& Paolo Altucci & - \\
+		& Danilo Cioffi & - \\
+	\end{tblr}
+
+	\vfill
 \end{titlepage}
 
 

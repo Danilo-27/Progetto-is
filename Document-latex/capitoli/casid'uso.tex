@@ -83,28 +83,25 @@ ConsultaCatalogoEventi & UtenteRegistrato & --  & -- & \Req{rf}{07} \\
 \section{Scenari}
 \IncludeTable{capitoli/scenari/Registrazione}
 \IncludeTable{capitoli/scenari/Autenticazione}
-%\IncludeTable{capitoli/scenari/ModificaDatiPersonali}
 \IncludeTable{capitoli/scenari/RichiediCatalogoEventi}
-%\IncludeTable{capitoli/scenari/RicercaEvento}
-%\IncludeTable{capitoli/scenari/VisualizzaBiglietto}
-%\IncludeTable{capitoli/scenari/ConsultaStoricoBiglietti}
-%\IncludeTable{capitoli/scenari/ScaricaBiglietto}
-\IncludeTable{capitoli/scenari/AcquistaBiglietto}
-\IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/PartecipazioneEvento}
+\IncludeTable{capitoli/scenari/PubblicaEvento}
 \IncludeTable{capitoli/scenari/ConsultaEventiPubblicati}
+\IncludeTable{capitoli/scenari/AcquistaBiglietto}
+
+\newpage
 
 \section{Diagramma delle Classi}
-Di seguito riportiamo il diagramma delle classi di analisi.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{assets/casid'uso/DiagrammaDelleClassi.png}
+	\includegraphics[width=0.7\linewidth]{assets/casid'uso/DiagrammaDelleClassi.png}
 	\caption{Diagramma delle classi di analisi}
 \end{figure}
 
-
 \begin{table}[H]
 	\centering
+	\small % Riduce la dimensione del font
 	\begin{tblr}{
 	  colspec = {X[0.6,c] X[0.6,c]},
 	  width = 1\linewidth, 
@@ -126,12 +123,11 @@ Di seguito riportiamo il diagramma delle classi di analisi.
 	AggiungiEvento & Catalogo \\
 	RicercaEvento & Catalogo \\
 	ConsultaCatalogo & Catalogo \\
-
 	\end{tblr}
 \end{table}
 
-
-\begin{itemize}
+\vspace{-0.5em} % Riduce spazio tra tabella e testo
+\begin{itemize}\setlength\itemsep{0.4em} % Riduce spazio tra gli item
     \item \textbf{Registrazione e Autenticazione:} \\
     Responsabilità del \textbf{SistemaGestioneEventi}, in quanto \emph{Information Expert} per la gestione degli oggetti \texttt{UtenteRegistrato}.
     
@@ -154,7 +150,6 @@ Di seguito riportiamo il diagramma delle classi di analisi.
     Assegnata all'\textbf{Amministratore}, poiché \emph{Information Expert} degli eventi da lui gestiti e pubblicati.
 \end{itemize}
 
-\newpage
 
 \section{Diagrammi di sequenza}
 \subsection{Registrazione}
@@ -200,6 +195,7 @@ Il diagramma di sequenza ha evidenziato la necessità del metodo \texttt{verific
     \textbf{Figura:} Diagramma di sequenza per il caso d’uso \textit{ConsultaEventiPubblicati}
 \end{center}
 
+\newpage
 \subsection{AcquistoBiglietti}
 
 Il diagramma di sequenza ha evidenziato diverse responsabilità: per la classe \textbf{Evento} i metodi \texttt{verificaDisponibilità()}, \texttt{creazioneIdUnivoco()} e \texttt{InviaDatiPagamento(NomeTitolare, CognomeTitolare,informazioniCarta,DataScadenza)}, mentre per la classe \textbf{Cliente} il metodo \texttt{haBigliettoPerEvento(evento)} per verificare eventuali acquisti precedenti.
