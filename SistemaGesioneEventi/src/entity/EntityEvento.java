@@ -242,12 +242,12 @@ public class EntityEvento {
     }
 
     /**
-     * Gestisce la partecipazione di un cliente a un evento tramite la validazione di un biglietto.
-     * Verifica che il codice del biglietto sia valido e associato al cliente,
-     * aggiorna i partecipanti e convalida il biglietto.
+     * Permette la partecipazione di un cliente a un evento, verificando la validità del biglietto e associandolo al cliente.
      *
-     * @param codiceUnivoco Il codice univoco identificativo del biglietto.
-     * @param cliente L'entità del cliente che cerca di partecipare all'evento.
+     * @param codiceUnivoco il codice univoco del biglietto da verificare.
+     * @param cliente l'entità cliente che intende partecipare all'evento.
+     * @throws BigliettoConsumatoException se il biglietto risulta già utilizzato.
+     * @throws BigliettoNotFoundException se il biglietto non è trovato o non è associato al cliente.
      */
     public void partecipazioneEvento(String codiceUnivoco,EntityCliente cliente) throws BigliettoConsumatoException,BigliettoNotFoundException{
         EntityBiglietto biglietto = this.verificaCodice(codiceUnivoco);
@@ -622,6 +622,11 @@ public class EntityEvento {
     }
 
 
+    /**
+     * Imposta l'identificativo univoco per l'oggetto.
+     *
+     * @param id l'identificativo univoco da assegnare all'oggetto
+     */
     public void setId(int id) {
         this.id = id;
     }

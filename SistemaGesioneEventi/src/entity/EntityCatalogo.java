@@ -109,10 +109,12 @@ public class EntityCatalogo {
 
 
     /**
-     * Recupera una lista di eventi validi dal catalogo. Gli eventi validi sono quelli
-     * che si verificano alla data corrente o successivamente.
+     * Restituisce una lista degli eventi disponibili nel catalogo filtrandoli per data.
+     * Vengono inclusi solo gli eventi con una data uguale o successiva alla data odierna.
+     * Se non sono presenti eventi validi, viene sollevata un'eccezione {@code EventoNotFoundException}.
      *
-     * @return una lista contenente gli oggetti EntityEvento validi dal catalogo.
+     * @return una lista di oggetti {@code EntityEvento} rappresentanti gli eventi disponibili.
+     * @throws EventoNotFoundException se non è presente alcun evento disponibile nel catalogo.
      */
     public List<EntityEvento> ConsultaCatalogo() throws EventoNotFoundException {
         LocalDate oggi = LocalDate.now();

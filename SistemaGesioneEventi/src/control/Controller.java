@@ -66,10 +66,11 @@ public class Controller {
     }
 
     /**
-     * Consulta il catalogo degli eventi disponibili e restituisce una lista di Data Transfer Object (DTO) degli eventi.
-     * Ogni DTO contiene le informazioni principali dell'evento, rendendole facilmente accessibili e trasferibili.
+     * Recupera il catalogo degli eventi disponibili e restituisce una lista di oggetti DTOEvento,
+     * ciascuno dei quali rappresenta un evento con le sue informazioni principali.
      *
-     * @return una lista di oggetti {@code DTOEvento} che rappresentano gli eventi disponibili nel catalogo.
+     * @return una lista di oggetti {@code DTOEvento} contenente i dettagli degli eventi presenti nel catalogo.
+     * @throws EventoNotFoundException se il catalogo non contiene eventi o si verifica un errore durante il recupero.
      */
     public static List<DTOEvento> consultaCatalogo() throws EventoNotFoundException {
         List<DTOEvento> eventiDTO = new ArrayList<>();
@@ -131,13 +132,13 @@ public class Controller {
     }
 
     /**
-     * Metodo che consente la verifica della partecipazione di un utente a un evento specifico.
-     * Utilizza il codice univoco del biglietto per validare l'accesso e segnare la partecipazione effettuata.
+     * Gestisce la partecipazione di un cliente a un evento, verificando il biglietto associato.
      *
-     * @param codiceUnivoco Il codice univoco associato al biglietto dell'utente.
-     * @param dtoEvento Un oggetto {@code DTOEvento} che rappresenta i dettagli dell'evento a cui partecipare.
-     * @throws BigliettoConsumatoException Se il biglietto è già stato utilizzato per accedere all'evento.
-     * @throws BigliettoNotFoundException Se il codice univoco fornito non corrisponde ad alcun biglietto valido.
+     * @param codiceUnivoco Codice univoco identificativo del biglietto.
+     * @param dtoEvento DTO contenente le informazioni sull'evento.
+     * @param emailUtente Email del cliente che partecipa all'evento.
+     * @throws BigliettoConsumatoException Se il biglietto è già stato utilizzato.
+     * @throws BigliettoNotFoundException Se il biglietto non è stato trovato.
      */
     public static void partecipazioneEvento(String codiceUnivoco, DTOEvento dtoEvento,String emailUtente) throws BigliettoConsumatoException, BigliettoNotFoundException {
         EntityEvento evento= new EntityEvento(dtoEvento.getTitolo());
