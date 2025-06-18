@@ -71,12 +71,12 @@ public class EntityCatalogo {
     /**
      * Aggiunge un nuovo evento al catalogo e lo salva sul database..
      *
-     * @param EventoCreato l'evento da aggiungere al catalogo. Deve essere un' istanza di EntityEvento.
+     * @param entityEvento l'evento da aggiungere al catalogo. Deve essere un' istanza di EntityEvento.
      * @throws RedundancyException Se l'evento è già presente nel catalogo.
      */
-    public void aggiungiEvento(EntityEvento EventoCreato) throws RedundancyException {
-        EventoCreato.salvaSuDB();
-        eventi.add(EventoCreato);
+    public void aggiungiEvento(EntityEvento entityEvento) throws RedundancyException {
+        entityEvento.salvaSuDB();
+        eventi.add(entityEvento);
     }
 
     /**
