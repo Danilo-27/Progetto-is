@@ -60,6 +60,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
      */
     public void caricaBiglietti() throws BigliettoNotFoundException {
         UtenteDAO utenteDao = new UtenteDAO(this.getId());
+        storicoBiglietti.clear();
         try {
             utenteDao.caricaBigliettiDaDB();
         } catch (DBException e) {
@@ -67,16 +68,7 @@ public class EntityCliente extends EntityUtenteRegistrato{
         }
         for (BigliettoDAO bigliettoDAO : utenteDao.getBiglietti()) {
             EntityBiglietto biglietto = new EntityBiglietto(bigliettoDAO);
-            boolean presente = false;
-            for (EntityBiglietto b : storicoBiglietti) {
-                if (b.getCodice_univoco().equals(biglietto.getCodice_univoco())) {
-                    presente = true;
-                    break;
-                }
-            }
-            if (!presente) {
-                storicoBiglietti.add(biglietto);
-            }
+            storicoBiglietti.add(biglietto);
         }
     }
 

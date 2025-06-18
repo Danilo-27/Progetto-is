@@ -5,7 +5,6 @@ import boundary.BoundaryUtenteRegistrato.HomeUtenteRegistrato;
 import boundary.BoundaryUtente.HomePage;
 import boundary.Sessione;
 import control.Controller;
-import entity.EntityPiattaforma;
 import exceptions.*;
 import external.StubSistemaGestioneAcquisti;
 

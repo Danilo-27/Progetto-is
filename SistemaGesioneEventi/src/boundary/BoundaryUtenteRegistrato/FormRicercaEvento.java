@@ -159,15 +159,20 @@ public class FormRicercaEvento extends JFrame {
         LocalDate data = null;
 
         if (selectedDate != null) {
-            if (selectedDate.before(new java.util.Date())) {
+            LocalDate selectedLocalDate = selectedDate.toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate();
+
+            LocalDate today = LocalDate.now();
+
+            if (selectedLocalDate.isBefore(today)) {
                 JOptionPane.showMessageDialog(this, "Data non valida", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            data = selectedDate.toInstant()
-                    .atZone(ZoneId.systemDefault())
-                    .toLocalDate();
+            data = selectedLocalDate;
         }
+
 
         try {
             List<DTOEvento> eventi = Controller.ricercaEvento(titolo, data, luogo);
