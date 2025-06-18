@@ -165,7 +165,24 @@ public class HomeCliente extends HomeUtenteRegistrato {
         profilePic.setVerticalAlignment(SwingConstants.CENTER);
 
         if (immagineProfilo != null) {
-            profilePic.setIcon(new ImageIcon(immagineProfilo));
+            try {
+                // Carico l'immagine originale da file
+                BufferedImage originalImage = javax.imageio.ImageIO.read(new java.io.File("SistemaGesioneEventi/images/" + immagineProfilo));
+
+                // Dimensione target (puoi cambiare in base alle dimensioni del pannello)
+                int targetWidth = 120;
+                int targetHeight = 120;
+
+                // Ridimensiona l'immagine mantenendo proporzioni
+                Image scaledImage = originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
+
+                // Imposta l'icona ridimensionata
+                profilePic.setIcon(new ImageIcon(scaledImage));
+            } catch (Exception e) {
+                profilePic.setText("Errore caricamento immagine");
+                profilePic.setFont(new Font(SEGOE, Font.ITALIC, 14));
+                profilePic.setForeground(new Color(127, 140, 141));
+            }
         } else {
             profilePic.setText("Nessuna immagine");
             profilePic.setFont(new Font(SEGOE, Font.ITALIC, 14));
@@ -175,6 +192,8 @@ public class HomeCliente extends HomeUtenteRegistrato {
         imagePanel.add(profilePic, BorderLayout.CENTER);
         return imagePanel;
     }
+
+
 
     private JButton createAcquistaBigliettoButton(String email) {
         JButton acquistaBigliettoButton = new JButton("Acquista Biglietto");

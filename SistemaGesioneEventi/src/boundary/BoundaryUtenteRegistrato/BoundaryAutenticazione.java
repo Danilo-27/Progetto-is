@@ -92,7 +92,6 @@ public class BoundaryAutenticazione extends JFrame {
             String password = new String(passwordField.getPassword());
 
             String emailValidation = validateEmail(email);
-            String passwordValidation = validatePassword(password);
 
             if (!emailValidation.equals("OK")) {
                 JOptionPane.showMessageDialog(this, emailValidation, "Errore Email", JOptionPane.ERROR_MESSAGE);
