@@ -1,7 +1,6 @@
 //test commento 1
 package entity;
 
-import DTO.DTOEvento;
 import database.BigliettoDAO;
 import exceptions.*;
 
@@ -132,6 +131,18 @@ public class EntityBiglietto {
                 throw new UpdateException("Errore di aggiornamento del biglietto");
             }
         }
+    }
+
+    /**
+     * Verifica se il biglietto è associato al cliente specificato.
+     * Confronta il cliente associato a questo biglietto con quello fornito come parametro.
+     *
+     * @param cliente il cliente da confrontare con quello associato al biglietto
+     * @return {@code true} se il cliente associato al biglietto corrisponde a quello fornito,
+     *         altrimenti {@code false}.
+     */
+    public boolean verificaTitolare(EntityCliente cliente){
+        return this.getCliente().equals(cliente);
     }
 
 

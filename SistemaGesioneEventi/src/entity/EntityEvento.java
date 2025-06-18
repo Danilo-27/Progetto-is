@@ -242,17 +242,6 @@ public class EntityEvento {
     }
 
     /**
-     * Verifica se un biglietto è associato a un determinato cliente.
-     *
-     * @param biglietto il biglietto da verificare
-     * @param cliente il cliente da confrontare con quello associato al biglietto
-     * @return true se il cliente associato al biglietto corrisponde al cliente fornito, false altrimenti
-     */
-    public boolean verificaBiglietto(EntityBiglietto biglietto, EntityCliente cliente){
-        return biglietto.getCliente().equals(cliente);
-    }
-
-    /**
      * Gestisce la partecipazione di un cliente a un evento tramite la validazione di un biglietto.
      * Verifica che il codice del biglietto sia valido e associato al cliente,
      * aggiorna i partecipanti e convalida il biglietto.
@@ -265,7 +254,7 @@ public class EntityEvento {
         if(biglietto == null) {
             throw new BigliettoNotFoundException("Biglietto non trovato");
         }else {
-            if(this.verificaBiglietto(biglietto,cliente)){
+            if(biglietto.verificaTitolare(cliente)){
                 biglietto.validaBiglietto();
                 this.aggiornaPartecipanti();
             }else{
