@@ -96,12 +96,12 @@ CREATE TABLE `utenti` (
   `nome` varchar(20) NOT NULL,
   `cognome` varchar(30) NOT NULL,
   `password` varchar(40) NOT NULL,
-  `ImmagineProfilo` varchar(200) DEFAULT 'prova',
+  `ImmagineProfilo` varchar(200) DEFAULT 'stock.png',
   `email` varchar(45) NOT NULL,
   `Ruolo` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-18 20:04:32
+-- Dump completed on 2025-06-23 17:48:37
