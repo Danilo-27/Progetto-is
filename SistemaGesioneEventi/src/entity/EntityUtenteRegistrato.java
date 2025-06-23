@@ -36,6 +36,7 @@ public class EntityUtenteRegistrato {
     protected String password;
 
 
+
     /**
      * La classe EntityUtenteRegistrato rappresenta un'entità che modella un utente registrato
      * all'interno del sistema. La classe gestisce informazioni come nome, cognome, email e password,
@@ -74,7 +75,7 @@ public class EntityUtenteRegistrato {
         u.setCognome(this.cognome);
         u.setPassword(this.password);
         try {
-            u.SalvaInDB();
+            u.salvaInDB();
         } catch (DBException e) {
             throw new RedundancyException("Utente già registrato.");
         }

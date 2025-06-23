@@ -48,6 +48,9 @@ public class EntityCliente extends EntityUtenteRegistrato{
         this.storicoBiglietti = new ArrayList<>();
     }
 
+    public EntityCliente(String nome, String cognome, String email, String password) {
+        super(nome, cognome, email, password);
+    }
 
     /**
      * Carica i biglietti associati all'utente corrente dal database e li aggiunge alla cronologia biglietti.

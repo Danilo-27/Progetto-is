@@ -1,8 +1,7 @@
 //test commento 1
 package database;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -97,12 +96,28 @@ public class UtenteDAO {
      * @throws DBException se si verifica un errore durante l'inserimento
      *                     dei dati nel database, come un'email già esistente.
      */
-    public void SalvaInDB() throws DBException {
-        String query = "INSERT INTO utenti(email,PASSWORD,nome,cognome) VALUES ( '" + this.email + "','" + this.password + "','" + this.nome + "','" + this.cognome + "')";
-        try {
-            DBConnectionManager.updateQuery(query);
+    public void salvaInDB() throws DBException {
+        String query = "INSERT INTO utenti (email, password, nome, cognome) VALUES (?, ?, ?, ?)";
+
+        try (Connection conn = DBConnectionManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+
+            stmt.setString(1, this.email);
+            stmt.setString(2, this.password);
+            stmt.setString(3, this.nome);
+            stmt.setString(4, this.cognome);
+
+            stmt.executeUpdate();
+
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    this.id = rs.getInt(1);
+                } else {
+                    throw new DBException("Errore");
+                }
+            }
         } catch (SQLException | ClassNotFoundException e) {
-            throw new DBException("Utente già presente nel DB.");
+            throw new DBException("Errore durante il salvataggio: " + e.getMessage());
         }
     }
 

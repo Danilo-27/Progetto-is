@@ -101,7 +101,6 @@ public class BoundaryAutenticazione extends JFrame {
                 Sessione section = Sessione.getInstance();
                 DTOUtente utente = Controller.autenticazione(email, password);
                 section.setUtenteAutenticato(email,utente.getTipoUtente());
-
                 if (utente.getTipoUtente()==0){
                     new HomeCliente(utente.getNome(),utente.getCognome(),email, utente.getImmagine()).setVisible(true);
                     dispose();

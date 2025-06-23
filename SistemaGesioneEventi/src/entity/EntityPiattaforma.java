@@ -121,7 +121,7 @@ public class EntityPiattaforma {
 
     public void registrazione(String password, String nome, String cognome, String email) throws RegistrationFailedException {
         if (!controlloEmail(email)) {
-            EntityUtenteRegistrato newUtente= new EntityUtenteRegistrato(nome, cognome, email, password);
+            EntityCliente newUtente= new EntityCliente(nome, cognome, email, password);
             this.utenti.add(newUtente);
             newUtente.aggiornamento();
         } else {
@@ -229,7 +229,6 @@ public class EntityPiattaforma {
             if (utente instanceof EntityCliente entityCliente) {
                 return new DTOUtente(entityCliente.getNome(), entityCliente.getCognome(), email, entityCliente.getImmagineProfilo(), EntityPiattaforma.CLIENTE);
             }
-
             else {
                 return new DTOUtente(utente.getNome(), utente.getCognome(), email, null, EntityPiattaforma.AMMINISTRATORE);
             }
