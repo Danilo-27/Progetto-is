@@ -1,7 +1,9 @@
 **Gestione Eventi**
 
 Progetto di Ingegneria del Software - a.a. 2024/2025
+
 Corso di Laure in Ingegneria Informatica
+
 [Consulta la documentazione](./Document-latex/main.pdf)
 
 
