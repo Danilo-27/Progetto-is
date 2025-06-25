@@ -1,4 +1,4 @@
-🎟️ Gestione Eventi
+Gestione Eventi
 
 Progetto di Ingegneria del Software – a.a. 2024/2025
 Corso di Laurea in Ingegneria Informatica
@@ -32,22 +32,7 @@ Per gli amministratori
 	•	Visualizzazione partecipanti per eventi attivi
 	•	Statistiche su eventi passati (numero di partecipanti)
 
-🔐 Requisiti non funzionali
-	•	Accessibilità da desktop e mobile
-	•	Interfaccia grafica semplice e intuitiva
-	•	Protezione dei dati personali e sicurezza dei biglietti
-	•	Autenticazione sicura e integrità dei dati
-
-🧪 Testing
-
-I test sono stati sviluppati secondo la tecnica Category Partition Testing, con:
-	•	Test di registrazione (input validation, duplicati, vincoli)
-	•	Test di autenticazione (formati errati, credenziali non valide)
-	•	Test di pubblicazione evento (campi obbligatori, limiti)
-	•	Test di acquisto biglietto (verifiche disponibilità, pagamento)
-	•	Test partecipazione evento (codici validi, biglietti consumati)
-
-🏗️ Architettura
+Architettura
 
 Package principali
 	•	boundary/ – Interfacce utente (Swing)
