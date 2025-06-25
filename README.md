@@ -1,11 +1,9 @@
-# Gestione Eventi
+**Gestione Eventi**
 
-**Progetto di Ingegneria del Software – a.a. 2024/2025**  
-**Corso di Laurea in Ingegneria Informatica**  
-**Docenti:** Anna Rita Fasolino, Marco De Luca  
-**Autori:** Francesco Ardolino, Paolo Altucci, Danilo Cioffi
-[Consulta la documentazione](./document-latex/main.pdf)
----
+Progetto di Ingegneria del Software - a.a. 2024/2025
+Corso di Laure in Ingegneria Informatica
+[Consulta la documentazione](./Document-latex/main.pdf)
+
 
 **Descrizione**
 
