@@ -4,7 +4,7 @@
 **Corso di Laurea in Ingegneria Informatica**  
 **Docenti:** Anna Rita Fasolino, Marco De Luca  
 **Autori:** Francesco Ardolino, Paolo Altucci, Danilo Cioffi
-
+[Consulta la documentazione](./document-latex/main.pdf)
 ---
 
 **Descrizione**
